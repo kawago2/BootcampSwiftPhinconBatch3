@@ -25,3 +25,4 @@ let coin2 = Coin.quarter
 
 print("The value of \(coin1.rawValue) is $\(coin1.value())")
 print("The value of \(coin2.rawValue) is $\(coin2.value())")
+
