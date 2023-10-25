@@ -40,10 +40,10 @@ personInfo.identity.details()
 
 
 // Enum untuk tipe Identity
-enum Identity2 {
-    case student
-    case teacher
-    case employee
+enum Identity2 : String {
+    case student = "Student"
+    case teacher = "Teacher"
+    case employee = "Employee"
 }
 
 // Struct yang memiliki beberapa tipe data
@@ -78,7 +78,7 @@ struct Person: Equatable {
         print("""
             Name: \(name)
             Age: \(age)
-            Role: \(role)
+            Role: \(role.rawValue)
             Income: \(income)
             Residu: \(residu)
             History: \(history)

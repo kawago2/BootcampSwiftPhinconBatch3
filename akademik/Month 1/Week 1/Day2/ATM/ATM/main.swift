@@ -9,11 +9,13 @@ enum CustomError: Error {
 
 class ATM {
     static var balance: Double = 0
+}
 
+extension ATM {
     static func checkBalance() {
         print("\tYour current balance is \(balance)")
     }
-
+    
     static func withdrawMoney(amount: Double) throws {
         if balance == 0 {
             throw CustomError.zero
@@ -26,14 +28,14 @@ class ATM {
             print("\n\tYou withdraw the amount of Money \(amount)")
         }
     }
-
+    
     static func depositMoney(amount: Double) {
         balance += amount
         print("\tYou deposited the amount of \(amount)")
     }
 }
 
-func main() throws {
+func main() throws -> Bool {
     var select = 0
     var play = true
     print("====================================================")
@@ -46,7 +48,7 @@ func main() throws {
         print("\tPress [2] Withdraw")
         print("\tPress [3] Balance Inquiry")
         print("\tPress [4] Exit")
-
+        
         print("\n\tWhat would you like to do? ", terminator: "")
         if let input = readLine(), let inputInt = Int(input) {
             select = inputInt
@@ -93,10 +95,14 @@ func main() throws {
         }
         print("====================================================")
     }
+    return false
 }
-    
+
 do {
     let result = try main()
+    if !result {
+        print("Program Berhenti")
+    }
 } catch CustomError.notNumber {
     print("\tinput not number")
 }

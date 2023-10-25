@@ -38,7 +38,7 @@ var red, green, blue: Double
 // penggunaan semicolons (code dalam inline / satu line)
 let cat = "🐱"; print(cat)
 
-// contoh typealias
+// contoh typealias bikin custom typedata
 typealias AudioSample = UInt16
 var maxAmp = UInt16.min
 
@@ -67,10 +67,14 @@ print("The status code is \(statusMessage)")
 // contoh array
 var arrayHewan: [String] = ["Sapi", "Babi", "Kerbau", "Ayam"]
 
-print(arrayHewan[0])
 
 for record in arrayHewan {
-    print(record)
+    if record == "Sapi" {
+        print("Hewan Ternak")
+    } else {
+        print(record)
+    }
+    
 }
 
 for i in 0..<arrayHewan.count {

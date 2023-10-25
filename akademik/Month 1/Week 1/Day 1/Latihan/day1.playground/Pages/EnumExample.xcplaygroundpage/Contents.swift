@@ -3,8 +3,6 @@ import Foundation
 
 enum Days: String, CaseIterable {
 case Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-    
-    
     // fungsi tambahan
     func description() -> String {
         switch self {
@@ -26,5 +24,3 @@ for direction in Days.allCases {
 }
 print(namaHari.description())
 
-
-//: [Next](@next)
