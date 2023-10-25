@@ -18,39 +18,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmz-7B-69g">
-                                <rect key="frame" x="16" y="69" width="361" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <rect key="frame" x="16" y="69" width="361" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OaS-o3-Cow">
-                                <rect key="frame" x="132.66666666666666" y="117" width="127.99999999999997" height="128"/>
+                                <rect key="frame" x="132.66666666666666" y="117.66666666666669" width="127.99999999999997" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="0BX-LF-Ivf"/>
                                     <constraint firstAttribute="width" constant="128" id="BXa-Vr-0ea"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7E-eO-5Xt">
-                                <rect key="frame" x="100" y="265" width="193" height="171"/>
+                                <rect key="frame" x="100" y="265.66666666666669" width="193" height="171"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsF-nf-J81">
                                         <rect key="frame" x="54.999999999999993" y="9.9999999999999982" width="83.333333333333314" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Halo nama saya Kaleb, saya sebagai iOS Developer yang sedang bekerja di PT. Phincon" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mDT-8r-M02">
                                         <rect key="frame" x="5" y="35.333333333333314" width="183" height="130.66666666666666"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130.66999999999999" id="j4K-UD-IfG"/>
                                         </constraints>
-                                        <color key="textColor" systemColor="labelColor"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="mDT-8r-M02" secondAttribute="bottom" constant="5" id="Gqj-Av-Ste"/>
                                     <constraint firstItem="zsF-nf-J81" firstAttribute="top" secondItem="z7E-eO-5Xt" secondAttribute="top" constant="10" id="GsW-qA-MNu"/>
@@ -61,7 +61,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMN-G0-6dn">
-                                <rect key="frame" x="30" y="466" width="333" height="85"/>
+                                <rect key="frame" x="30" y="466.66666666666669" width="333" height="84.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSG-tJ-yZl">
                                         <rect key="frame" x="15" y="15" width="303" height="21"/>
@@ -70,7 +70,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaleb Gomgom Edward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JER-B8-j7b">
-                                        <rect key="frame" x="15" y="51" width="303" height="21"/>
+                                        <rect key="frame" x="15" y="50.999999999999943" width="303" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -140,16 +140,24 @@
                                     <constraint firstItem="A5h-0m-wi3" firstAttribute="leading" secondItem="rop-FH-vJL" secondAttribute="leading" constant="15" id="v8M-vA-A6z"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ5-ER-Xfd">
+                                <rect key="frame" x="331" y="69" width="46" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="z7E-eO-5Xt" secondAttribute="trailing" constant="100" id="1k3-mz-LB0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rop-FH-vJL" secondAttribute="bottom" constant="27" id="2Up-I2-BRH"/>
+                            <constraint firstItem="IZ5-ER-Xfd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="331" id="3rt-jH-NNH"/>
                             <constraint firstItem="z7T-h4-e1V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="63M-ri-d6R"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KMN-G0-6dn" secondAttribute="trailing" constant="30" id="8HE-dO-NaE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lmz-7B-69g" secondAttribute="trailing" constant="16" id="BcA-bi-drO"/>
                             <constraint firstItem="OaS-o3-Cow" firstAttribute="top" secondItem="lmz-7B-69g" secondAttribute="bottom" constant="20" id="DG5-QM-PQL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IZ5-ER-Xfd" secondAttribute="trailing" constant="16" id="EAt-C6-pp5"/>
+                            <constraint firstItem="IZ5-ER-Xfd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Gc3-n0-Ayk"/>
                             <constraint firstItem="z7E-eO-5Xt" firstAttribute="top" secondItem="OaS-o3-Cow" secondAttribute="bottom" constant="20" id="Iyp-PR-DkF"/>
                             <constraint firstItem="z7E-eO-5Xt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="MaX-uL-yIA"/>
                             <constraint firstItem="lmz-7B-69g" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="PYa-zf-WnA"/>
@@ -162,11 +170,13 @@
                             <constraint firstItem="rop-FH-vJL" firstAttribute="top" secondItem="z7T-h4-e1V" secondAttribute="bottom" constant="30" id="pAg-C5-FD1"/>
                             <constraint firstItem="rop-FH-vJL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="qtq-Pv-eWO"/>
                             <constraint firstItem="KMN-G0-6dn" firstAttribute="top" secondItem="z7E-eO-5Xt" secondAttribute="bottom" constant="30" id="u7E-Sb-Meg"/>
+                            <constraint firstItem="KMN-G0-6dn" firstAttribute="top" secondItem="IZ5-ER-Xfd" secondAttribute="bottom" constant="363.32999999999998" id="wbW-ck-Zvv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="aboutView" destination="z7E-eO-5Xt" id="tIC-eD-lXR"/>
                         <outlet property="profileImg" destination="OaS-o3-Cow" id="79X-4L-jye"/>
+                        <outlet property="titleLabel" destination="lmz-7B-69g" id="1cA-9Q-hf4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -175,20 +185,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

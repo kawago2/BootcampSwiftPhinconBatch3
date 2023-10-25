@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var aboutView: UIView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()        
@@ -24,6 +25,7 @@ class ViewController: UIViewController {
         }
         profileImg.setBorder()
         aboutView.setRadius()
+        titleLabel.setBold()
 
 
     }
@@ -31,7 +33,6 @@ class ViewController: UIViewController {
 }
 extension UIView {
     func setRadius(){
-        self.backgroundColor = UIColor.white
         self.layer.cornerRadius = 10
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.5
@@ -41,10 +42,14 @@ extension UIView {
     }
 }
 
+extension UILabel {
+    func setBold() {
+        self.font = UIFont.boldSystemFont(ofSize: 24)
+    }
+}
 
 extension UIImageView {
     func setBorder() {
-
         self.layer.borderWidth = 1
         self.layer.masksToBounds = false
         self.layer.borderColor = UIColor.black.cgColor
