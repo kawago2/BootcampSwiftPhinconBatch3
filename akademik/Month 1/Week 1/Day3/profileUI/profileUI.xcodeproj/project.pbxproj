@@ -16,6 +16,18 @@
 		36019C0A2AE8EF1500C07588 /* profileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019C092AE8EF1500C07588 /* profileUITests.swift */; };
 		36019C142AE8EF1500C07588 /* profileUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019C132AE8EF1500C07588 /* profileUIUITests.swift */; };
 		36019C162AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019C152AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift */; };
+		360F6AFC2AEA4C3F004BE3CE /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360F6AFB2AEA4C3F004BE3CE /* ExtTableView.swift */; };
+		3675629A2AEA22D800F0A86F /* HalfScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367562982AEA22D800F0A86F /* HalfScrollViewController.swift */; };
+		3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367562992AEA22D800F0A86F /* HalfScrollViewController.xib */; };
+		36D38E5D2AEA606900168143 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5C2AEA606900168143 /* ExtUIView.swift */; };
+		36D38E5F2AEA69FA00168143 /* ExtUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */; };
+		36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E602AEA6A3800168143 /* ExtUIImageView.swift */; };
+		36F2C2BA2AE9FC590044729F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F2C2B82AE9FC590044729F /* EditProfileViewController.swift */; };
+		36F2C2BB2AE9FC590044729F /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F2C2B92AE9FC590044729F /* EditProfileViewController.xib */; };
+		36FD06712AEA445A0088F415 /* TabelViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD066F2AEA445A0088F415 /* TabelViewViewController.swift */; };
+		36FD06722AEA445A0088F415 /* TabelViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FD06702AEA445A0088F415 /* TabelViewViewController.xib */; };
+		36FD06812AEA47BF0088F415 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD067F2AEA47BF0088F415 /* FoodCell.swift */; };
+		36FD06822AEA47BF0088F415 /* FoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FD06802AEA47BF0088F415 /* FoodCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +61,18 @@
 		36019C0F2AE8EF1500C07588 /* profileUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = profileUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36019C132AE8EF1500C07588 /* profileUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileUIUITests.swift; sourceTree = "<group>"; };
 		36019C152AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		360F6AFB2AEA4C3F004BE3CE /* ExtTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtTableView.swift; sourceTree = "<group>"; };
+		367562982AEA22D800F0A86F /* HalfScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfScrollViewController.swift; sourceTree = "<group>"; };
+		367562992AEA22D800F0A86F /* HalfScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HalfScrollViewController.xib; sourceTree = "<group>"; };
+		36D38E5C2AEA606900168143 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
+		36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUILabel.swift; sourceTree = "<group>"; };
+		36D38E602AEA6A3800168143 /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
+		36F2C2B82AE9FC590044729F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		36F2C2B92AE9FC590044729F /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		36FD066F2AEA445A0088F415 /* TabelViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelViewViewController.swift; sourceTree = "<group>"; };
+		36FD06702AEA445A0088F415 /* TabelViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabelViewViewController.xib; sourceTree = "<group>"; };
+		36FD067F2AEA47BF0088F415 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
+		36FD06802AEA47BF0088F415 /* FoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +123,10 @@
 		36019BF12AE8EF1400C07588 /* profileUI */ = {
 			isa = PBXGroup;
 			children = (
-				36019BF22AE8EF1400C07588 /* AppDelegate.swift */,
-				36019BF42AE8EF1400C07588 /* SceneDelegate.swift */,
-				36019BF62AE8EF1400C07588 /* ViewController.swift */,
-				36019BF82AE8EF1400C07588 /* Main.storyboard */,
-				36019BFB2AE8EF1500C07588 /* Assets.xcassets */,
-				36019BFD2AE8EF1500C07588 /* LaunchScreen.storyboard */,
+				36FD06732AEA45080088F415 /* App */,
+				36FD06742AEA45100088F415 /* Common */,
+				36FD06752AEA451C0088F415 /* Resource */,
+				36FD06762AEA45260088F415 /* Module */,
 				36019C002AE8EF1500C07588 /* Info.plist */,
 			);
 			path = profileUI;
@@ -125,6 +147,116 @@
 				36019C152AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift */,
 			);
 			path = profileUIUITests;
+			sourceTree = "<group>";
+		};
+		36FD06732AEA45080088F415 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				36019BF42AE8EF1400C07588 /* SceneDelegate.swift */,
+				36019BF22AE8EF1400C07588 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		36FD06742AEA45100088F415 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				36FD06792AEA457F0088F415 /* Component */,
+				36FD06782AEA45700088F415 /* Network */,
+				36FD06772AEA45660088F415 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		36FD06752AEA451C0088F415 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				36019BFB2AE8EF1500C07588 /* Assets.xcassets */,
+				36019BFD2AE8EF1500C07588 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		36FD06762AEA45260088F415 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				36FD067D2AEA46170088F415 /* FourView */,
+				36FD067C2AEA46020088F415 /* ThirdView */,
+				36FD067B2AEA45BF0088F415 /* SecondView */,
+				36FD067A2AEA45A00088F415 /* FirstView */,
+				36019BF82AE8EF1400C07588 /* Main.storyboard */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		36FD06772AEA45660088F415 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				360F6AFB2AEA4C3F004BE3CE /* ExtTableView.swift */,
+				36D38E5C2AEA606900168143 /* ExtUIView.swift */,
+				36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */,
+				36D38E602AEA6A3800168143 /* ExtUIImageView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		36FD06782AEA45700088F415 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		36FD06792AEA457F0088F415 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		36FD067A2AEA45A00088F415 /* FirstView */ = {
+			isa = PBXGroup;
+			children = (
+				36019BF62AE8EF1400C07588 /* ViewController.swift */,
+			);
+			path = FirstView;
+			sourceTree = "<group>";
+		};
+		36FD067B2AEA45BF0088F415 /* SecondView */ = {
+			isa = PBXGroup;
+			children = (
+				36F2C2B82AE9FC590044729F /* EditProfileViewController.swift */,
+				36F2C2B92AE9FC590044729F /* EditProfileViewController.xib */,
+			);
+			path = SecondView;
+			sourceTree = "<group>";
+		};
+		36FD067C2AEA46020088F415 /* ThirdView */ = {
+			isa = PBXGroup;
+			children = (
+				367562982AEA22D800F0A86F /* HalfScrollViewController.swift */,
+				367562992AEA22D800F0A86F /* HalfScrollViewController.xib */,
+			);
+			path = ThirdView;
+			sourceTree = "<group>";
+		};
+		36FD067D2AEA46170088F415 /* FourView */ = {
+			isa = PBXGroup;
+			children = (
+				36FD067E2AEA47A60088F415 /* Cell */,
+				36FD06702AEA445A0088F415 /* TabelViewViewController.xib */,
+				36FD066F2AEA445A0088F415 /* TabelViewViewController.swift */,
+			);
+			path = FourView;
+			sourceTree = "<group>";
+		};
+		36FD067E2AEA47A60088F415 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				36FD067F2AEA47BF0088F415 /* FoodCell.swift */,
+				36FD06802AEA47BF0088F415 /* FoodCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +363,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36F2C2BB2AE9FC590044729F /* EditProfileViewController.xib in Resources */,
+				3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */,
 				36019BFF2AE8EF1500C07588 /* LaunchScreen.storyboard in Resources */,
 				36019BFC2AE8EF1500C07588 /* Assets.xcassets in Resources */,
+				36FD06722AEA445A0088F415 /* TabelViewViewController.xib in Resources */,
+				36FD06822AEA47BF0088F415 /* FoodCell.xib in Resources */,
 				36019BFA2AE8EF1400C07588 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +394,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36D38E5F2AEA69FA00168143 /* ExtUILabel.swift in Sources */,
+				36FD06712AEA445A0088F415 /* TabelViewViewController.swift in Sources */,
+				36D38E5D2AEA606900168143 /* ExtUIView.swift in Sources */,
+				360F6AFC2AEA4C3F004BE3CE /* ExtTableView.swift in Sources */,
+				36F2C2BA2AE9FC590044729F /* EditProfileViewController.swift in Sources */,
+				36FD06812AEA47BF0088F415 /* FoodCell.swift in Sources */,
+				36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */,
 				36019BF72AE8EF1400C07588 /* ViewController.swift in Sources */,
+				3675629A2AEA22D800F0A86F /* HalfScrollViewController.swift in Sources */,
 				36019BF32AE8EF1400C07588 /* AppDelegate.swift in Sources */,
 				36019BF52AE8EF1400C07588 /* SceneDelegate.swift in Sources */,
 			);
