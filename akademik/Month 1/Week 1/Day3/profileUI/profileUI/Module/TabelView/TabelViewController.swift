@@ -7,26 +7,27 @@
 import Foundation
 import UIKit
 
-class TabelViewViewController: UIViewController {
+class TabelViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    // Data lokasi
-    let listMakanan = [
-        ["nama": "Ayam Geprek", "harga": 20000, "img": "ayam_geprek"],
-        ["nama": "Ikan Gurame", "harga": 25000, "img": "ikan_gurame"],
-        ["nama": "Pecel Lele", "harga": 25000, "img": "pecel_lele"]
-    ]
-    
-    
+    var listMakanan: [ModelItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        loadData()
     }
     
     func setup() {
         configureTable()
+    }
+    
+    func loadData() {
+        listMakanan.append(ModelItem())
+        listMakanan.append(ModelItem(nama: "Ayam Geprek", harga: 20000, img: "ayam_geprek"))
+        listMakanan.append(ModelItem(nama: "Ikan Gurame", harga: 25000))
+        listMakanan.append(ModelItem(nama: "Pecel Lele", harga: 25000, img: "pecel_lele"))
     }
     
     func configureTable() {
@@ -40,7 +41,7 @@ class TabelViewViewController: UIViewController {
     
 }
 
-extension TabelViewViewController: UITableViewDelegate, UITableViewDataSource {
+extension TabelViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listMakanan.count
@@ -51,19 +52,20 @@ extension TabelViewViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as! FoodCell
-
-        let makanan = listMakanan[indexPath.row]
-        if let nama = makanan["nama"], let harga = makanan["harga"], let image = makanan["img"] {
-            cell.namaMakananLabel.text = "\(nama)"
-            cell.hargaMakananLabel.text = "Rp.\(harga)"
-            let imgMakanan = cell.imgMakanan
-            if let image = UIImage(named: "\(image)") {
-                imgMakanan?.image = image
-            }
-            
-        }
+        let makanan = listMakanan[index]
+        cell.configureData(data: makanan)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let makanan = listMakanan[index]
+        let vc = DetailsViewController()
+        vc.data = makanan
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
     
 }
