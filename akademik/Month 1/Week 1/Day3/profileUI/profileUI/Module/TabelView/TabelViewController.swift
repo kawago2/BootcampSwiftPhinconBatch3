@@ -8,6 +8,7 @@ import Foundation
 import UIKit
 
 class TabelViewController: UIViewController {
+    var titlePage = "List Makanan"
     
     @IBOutlet var tableView: UITableView!
     
@@ -17,6 +18,7 @@ class TabelViewController: UIViewController {
         super.viewDidLoad()
         setup()
         loadData()
+        setNavTitle(title: titlePage)
     }
     
     func setup() {

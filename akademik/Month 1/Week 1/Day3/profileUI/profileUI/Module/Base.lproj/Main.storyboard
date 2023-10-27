@@ -175,7 +175,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ey2-XE-ZBl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O5r-Xq-FeL" customClass="CustomUINavigatorBar" customModule="profileUI" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O5r-Xq-FeL">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -284,10 +284,10 @@
             </objects>
             <point key="canvasLocation" x="1826.7175572519084" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Scroll View Controller-->
         <scene sceneID="tOP-67-xRL">
             <objects>
-                <viewController storyboardIdentifier="ScrollViewController" id="rvn-O2-mt1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScrollViewController" id="rvn-O2-mt1" customClass="ScrollViewController" customModule="profileUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OUX-Q9-t0h">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

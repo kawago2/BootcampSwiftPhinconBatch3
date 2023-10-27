@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        hiddenBack()
     }
     
     @IBAction func penButtonTapped(_ sender: Any) {
@@ -31,10 +32,8 @@ class ViewController: UIViewController {
         if let image = UIImage(named: "image_profile") {
             profileImg.image = image
         }
-        
         profileImg.setCircleBorder()
         aboutView.setShadowRadius()
-        
         nameTF.text = name
         phoneTF.text = phone
         emailTF.text = email
@@ -43,7 +42,7 @@ class ViewController: UIViewController {
     
     func customNavigator() {
         navigationItem.title = titlePage
-//        navigationItem.style = back
+        
 
         if let navigationBar = navigationController?.navigationBar {
             let attrs: [NSAttributedString.Key: Any] = [
@@ -60,3 +59,4 @@ class ViewController: UIViewController {
         navigationItem.leftBarButtonItem = homeButton
     }
 }
+

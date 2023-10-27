@@ -8,6 +8,7 @@ import Foundation
 import UIKit
 
 class DetailsViewController: UIViewController {
+    var titlePage: String?
     
     var data: ModelItem?
     
@@ -20,6 +21,7 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setNavTitle(title: titlePage ?? "")
     }
     func setup() {
         loadData()

@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        hiddenBack()
+        setNavTitle(title: titlePage)
 
     }
     
@@ -41,7 +43,6 @@ class HomeViewController: UIViewController {
     }
     
     func setup() {
-        navigationItem.title = titlePage
         let arrayButton = [listMakananButton, threadsButton, listMinumanButton]
         for x in arrayButton {
             x?.setRoundedBorder()

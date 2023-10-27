@@ -1,6 +1,7 @@
 import UIKit
 
 class CollectionViewController: UIViewController {
+    var titlePage = "List Minuman"
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -11,6 +12,7 @@ class CollectionViewController: UIViewController {
         super.viewDidLoad()
         setup()
         loadData()
+        setNavTitle(title: titlePage)
     }
     
     func setup(){
@@ -61,6 +63,7 @@ extension CollectionViewController: UICollectionViewDataSource, UICollectionView
         let minuman = listMinuman[index]
         let vc = DetailsViewController()
         vc.data = minuman
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

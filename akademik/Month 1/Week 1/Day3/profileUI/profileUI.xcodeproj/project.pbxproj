@@ -20,6 +20,8 @@
 		365BA6D42AEBAC4300CF478C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365BA6D62AEBAC4300CF478C /* Localizable.strings */; };
 		365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6D92AEBB06B00CF478C /* ExtString.swift */; };
 		365BA6DC2AEBB25000CF478C /* ModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6DB2AEBB25000CF478C /* ModelItem.swift */; };
+		365BA6DF2AEBB9D500CF478C /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6DE2AEBB9D500CF478C /* ExtUIViewController.swift */; };
+		365BA6E12AEBBABE00CF478C /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6E02AEBBABE00CF478C /* ScrollViewController.swift */; };
 		3675629A2AEA22D800F0A86F /* HalfScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367562982AEA22D800F0A86F /* HalfScrollViewController.swift */; };
 		3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367562992AEA22D800F0A86F /* HalfScrollViewController.xib */; };
 		367B0B942AEB4676009E72D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0B932AEB4676009E72D4 /* HomeViewController.swift */; };
@@ -80,6 +82,8 @@
 		365BA6D82AEBACEB00CF478C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		365BA6D92AEBB06B00CF478C /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
 		365BA6DB2AEBB25000CF478C /* ModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelItem.swift; sourceTree = "<group>"; };
+		365BA6DE2AEBB9D500CF478C /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
+		365BA6E02AEBBABE00CF478C /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		367562982AEA22D800F0A86F /* HalfScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfScrollViewController.swift; sourceTree = "<group>"; };
 		367562992AEA22D800F0A86F /* HalfScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HalfScrollViewController.xib; sourceTree = "<group>"; };
 		367B0B932AEB4676009E72D4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +198,21 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		365BA6E22AEBBB3000CF478C /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				365BA6E02AEBBABE00CF478C /* ScrollViewController.swift */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		365BA6E32AEBC0ED00CF478C /* Class */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 		367B0B9D2AEB617D009E72D4 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +261,7 @@
 		36FD06742AEA45100088F415 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				365BA6E32AEBC0ED00CF478C /* Class */,
 				36FD06792AEA457F0088F415 /* Component */,
 				36FD06782AEA45700088F415 /* Network */,
 				36FD06772AEA45660088F415 /* Extension */,
@@ -261,6 +281,7 @@
 		36FD06762AEA45260088F415 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				365BA6E22AEBBB3000CF478C /* ScrollView */,
 				365BA6DD2AEBB52C00CF478C /* Models */,
 				367B0BA92AEB9359009E72D4 /* CollectionView */,
 				367B0BA22AEB61B7009E72D4 /* DetailsView */,
@@ -285,6 +306,7 @@
 				367B0B9B2AEB609F009E72D4 /* ExtUIButton.swift */,
 				367B0BAC2AEB93EC009E72D4 /* ExtUICollectionView.swift */,
 				365BA6D92AEBB06B00CF478C /* ExtString.swift */,
+				365BA6DE2AEBB9D500CF478C /* ExtUIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -503,6 +525,8 @@
 				36019BF72AE8EF1400C07588 /* ViewController.swift in Sources */,
 				3675629A2AEA22D800F0A86F /* HalfScrollViewController.swift in Sources */,
 				367B0BB02AEB943F009E72D4 /* CollectionViewController.swift in Sources */,
+				365BA6E12AEBBABE00CF478C /* ScrollViewController.swift in Sources */,
+				365BA6DF2AEBB9D500CF478C /* ExtUIViewController.swift in Sources */,
 				367B0BA02AEB61B1009E72D4 /* DetailsViewController.swift in Sources */,
 				367B0BAD2AEB93EC009E72D4 /* ExtUICollectionView.swift in Sources */,
 				367B0BB52AEB9511009E72D4 /* DrinkCell.swift in Sources */,
