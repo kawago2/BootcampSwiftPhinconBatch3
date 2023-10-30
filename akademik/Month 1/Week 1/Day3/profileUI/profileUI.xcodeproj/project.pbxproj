@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F22A9C02AEFDF63007C7427 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F22A9BF2AEFDF63007C7427 /* Main.storyboard */; };
 		36019BF32AE8EF1400C07588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019BF22AE8EF1400C07588 /* AppDelegate.swift */; };
 		36019BF52AE8EF1400C07588 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019BF42AE8EF1400C07588 /* SceneDelegate.swift */; };
 		36019BF72AE8EF1400C07588 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019BF62AE8EF1400C07588 /* ViewController.swift */; };
@@ -32,7 +33,6 @@
 		365BA6FE2AEF509F00CF478C /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6FC2AEF509F00CF478C /* BannerCell.swift */; };
 		365BA6FF2AEF509F00CF478C /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365BA6FD2AEF509F00CF478C /* BannerCell.xib */; };
 		365BA7042AEF821500CF478C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA7032AEF821500CF478C /* Constants.swift */; };
-		365BA70B2AEF983B00CF478C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365BA70A2AEF983B00CF478C /* Main.storyboard */; };
 		3675629A2AEA22D800F0A86F /* HalfScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367562982AEA22D800F0A86F /* HalfScrollViewController.swift */; };
 		3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367562992AEA22D800F0A86F /* HalfScrollViewController.xib */; };
 		367B0B982AEB5A97009E72D4 /* ExtInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0B972AEB5A97009E72D4 /* ExtInt.swift */; };
@@ -73,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F22A9BF2AEFDF63007C7427 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		36019BEF2AE8EF1400C07588 /* profileUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = profileUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36019BF22AE8EF1400C07588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36019BF42AE8EF1400C07588 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,8 +106,6 @@
 		365BA6FC2AEF509F00CF478C /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		365BA6FD2AEF509F00CF478C /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
 		365BA7032AEF821500CF478C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		365BA70A2AEF983B00CF478C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../../../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
-		365BA70C2AEF984200CF478C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		367562982AEA22D800F0A86F /* HalfScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfScrollViewController.swift; sourceTree = "<group>"; };
 		367562992AEA22D800F0A86F /* HalfScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HalfScrollViewController.xib; sourceTree = "<group>"; };
 		367B0B972AEB5A97009E72D4 /* ExtInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtInt.swift; sourceTree = "<group>"; };
@@ -260,7 +259,6 @@
 				365BA6EB2AEF3B1900CF478C /* TableCell */,
 				365BA6F72AEF4E5F00CF478C /* SectionViewController.swift */,
 				365BA6F82AEF4E5F00CF478C /* SectionViewController.xib */,
-				365BA70A2AEF983B00CF478C /* Main.storyboard */,
 			);
 			path = SectionView;
 			sourceTree = "<group>";
@@ -401,7 +399,7 @@
 		36FD067A2AEA45A00088F415 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				365BA70C2AEF984200CF478C /* Main.storyboard */,
+				2F22A9BF2AEFDF63007C7427 /* Main.storyboard */,
 				36019BF62AE8EF1400C07588 /* ViewController.swift */,
 			);
 			path = MainView;
@@ -556,7 +554,7 @@
 				360B3A442AEFB5B000FD98BB /* ProfileViewController.xib in Resources */,
 				365BA6FF2AEF509F00CF478C /* BannerCell.xib in Resources */,
 				36019BFF2AE8EF1500C07588 /* LaunchScreen.storyboard in Resources */,
-				365BA70B2AEF983B00CF478C /* Main.storyboard in Resources */,
+				2F22A9C02AEFDF63007C7427 /* Main.storyboard in Resources */,
 				367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */,
 				36019BFC2AE8EF1500C07588 /* Assets.xcassets in Resources */,
 				36FD06722AEA445A0088F415 /* TabelViewController.xib in Resources */,

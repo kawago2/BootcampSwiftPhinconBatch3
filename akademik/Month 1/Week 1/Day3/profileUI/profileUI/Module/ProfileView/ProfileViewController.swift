@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setNavTitle(title: titlePage)
     }
     
     @IBAction func penButtonTapped(_ sender: Any) {
