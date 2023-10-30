@@ -14,12 +14,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var threadsButton: UIButton!
     @IBOutlet weak var listMinumanButton: UIButton!
     
+    @IBOutlet weak var bannerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        hiddenBack()
-        setNavTitle(title: titlePage)
 
     }
     
@@ -32,6 +31,12 @@ class HomeViewController: UIViewController {
     
     @IBAction func listMinumanButtonTapped(_ sender: Any) {
         let vc = CollectionViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    @IBAction func bannerButtonTapped(_ sender: Any) {
+        let vc = SectionViewController()
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

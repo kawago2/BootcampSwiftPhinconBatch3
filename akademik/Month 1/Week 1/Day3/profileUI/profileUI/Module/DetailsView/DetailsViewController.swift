@@ -12,6 +12,8 @@ class DetailsViewController: UIViewController {
     
     var data: ModelItem?
     
+    var image: String?
+    
     @IBOutlet weak var containerBottom: UIView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var namaLabel: UILabel!
@@ -33,6 +35,12 @@ class DetailsViewController: UIViewController {
             namaLabel.text = validFood.nama ?? "Nama Tidak Tersedia"
             hargaLabel.text = validFood.harga?.toRupiahFormat() ?? 0.toRupiahFormat()
             if let image = UIImage(named: validFood.img ?? "image_not_available") {
+                self.imgView.image = image
+            }
+        }
+        
+        if let validImage = image {
+            if let image = UIImage(named: validImage) {
                 self.imgView.image = image
             }
         }

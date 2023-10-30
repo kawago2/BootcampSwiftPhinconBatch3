@@ -163,7 +163,6 @@
                         <outlet property="nameTF" destination="JER-B8-j7b" id="94a-Ej-L0a"/>
                         <outlet property="phoneTF" destination="ln5-ht-Gs6" id="Sce-YQ-zTJ"/>
                         <outlet property="profileImg" destination="OaS-o3-Cow" id="79X-4L-jye"/>
-                        <segue destination="gus-xf-Pmh" kind="show" identifier="HomeViewController" id="sSW-eU-bkx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -191,96 +190,11 @@
             </objects>
             <point key="canvasLocation" x="20.610687022900763" y="3.5211267605633805"/>
         </scene>
-        <!--Home View Controller-->
+        <!--View Controller-->
         <scene sceneID="TLJ-rw-EU9">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="gus-xf-Pmh" customClass="HomeViewController" customModule="profileUI" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kL8-2t-j8b">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZL-q9-9Wv">
-                                <rect key="frame" x="16" y="131" width="361" height="636"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsk-0R-t1T">
-                                        <rect key="frame" x="8" y="176" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="C0G-DI-sni"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="List Minuman"/>
-                                        <connections>
-                                            <action selector="listMinumanButtonTapped:" destination="gus-xf-Pmh" eventType="touchUpInside" id="vDk-h1-Bf4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSm-g7-JoW">
-                                        <rect key="frame" x="203" y="8" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="T78-aL-frl"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="noP-g6-Vjy"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Threads"/>
-                                        <connections>
-                                            <action selector="threadsButtonTapped:" destination="gus-xf-Pmh" eventType="touchUpInside" id="D0V-Cu-opI"/>
-                                            <action selector="threadsButtonTapped:" destination="cMd-4l-Gbt" eventType="touchUpInside" id="arQ-33-gTO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rf-wP-U1E">
-                                        <rect key="frame" x="8" y="8" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="03v-rL-ICO"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="Cwe-eA-zFr"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="List Makanan"/>
-                                        <connections>
-                                            <action selector="listMakananButtonTapped:" destination="gus-xf-Pmh" eventType="touchUpInside" id="IXi-E2-qyA"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTM-NX-r01">
-                                        <rect key="frame" x="203" y="176" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="veL-jZ-Md8"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="nsk-0R-t1T" firstAttribute="top" secondItem="3rf-wP-U1E" secondAttribute="bottom" constant="18" id="9Mp-4t-GOm"/>
-                                    <constraint firstItem="3rf-wP-U1E" firstAttribute="trailing" secondItem="nsk-0R-t1T" secondAttribute="trailing" id="Fv6-AT-HzG"/>
-                                    <constraint firstItem="3rf-wP-U1E" firstAttribute="firstBaseline" secondItem="zSm-g7-JoW" secondAttribute="firstBaseline" id="J3d-zt-TgA"/>
-                                    <constraint firstItem="XTM-NX-r01" firstAttribute="baseline" secondItem="nsk-0R-t1T" secondAttribute="baseline" id="U3b-0S-mJz"/>
-                                    <constraint firstItem="3rf-wP-U1E" firstAttribute="top" secondItem="wZL-q9-9Wv" secondAttribute="topMargin" id="VJt-fL-7CV"/>
-                                    <constraint firstItem="3rf-wP-U1E" firstAttribute="leading" secondItem="wZL-q9-9Wv" secondAttribute="leadingMargin" id="hTP-Vv-C7a"/>
-                                    <constraint firstAttribute="height" constant="636" id="jN7-V5-KnC"/>
-                                    <constraint firstItem="3rf-wP-U1E" firstAttribute="baseline" secondItem="zSm-g7-JoW" secondAttribute="baseline" id="kJZ-cx-E70"/>
-                                    <constraint firstItem="XTM-NX-r01" firstAttribute="trailing" secondItem="zSm-g7-JoW" secondAttribute="trailing" id="qhW-7M-sGu"/>
-                                    <constraint firstItem="3rf-wP-U1E" firstAttribute="leading" secondItem="nsk-0R-t1T" secondAttribute="leading" id="rFk-QM-zaY"/>
-                                    <constraint firstItem="XTM-NX-r01" firstAttribute="leading" secondItem="zSm-g7-JoW" secondAttribute="leading" id="tMs-Qg-ACw"/>
-                                    <constraint firstItem="zSm-g7-JoW" firstAttribute="leading" secondItem="3rf-wP-U1E" secondAttribute="trailing" constant="45" id="yDA-YW-tlL"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="nog-f5-VLQ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="wZL-q9-9Wv" firstAttribute="top" secondItem="nog-f5-VLQ" secondAttribute="top" constant="28" id="8jC-Gc-nDP"/>
-                            <constraint firstItem="wZL-q9-9Wv" firstAttribute="trailing" secondItem="kL8-2t-j8b" secondAttribute="trailingMargin" id="Bo2-AR-5WL"/>
-                            <constraint firstItem="wZL-q9-9Wv" firstAttribute="leading" secondItem="kL8-2t-j8b" secondAttribute="leadingMargin" id="SEb-jc-ua1"/>
-                            <constraint firstItem="nog-f5-VLQ" firstAttribute="bottom" secondItem="wZL-q9-9Wv" secondAttribute="bottom" constant="51" id="tFx-8F-f8c"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="listMakananButton" destination="3rf-wP-U1E" id="BWh-YO-F5f"/>
-                        <outlet property="listMinumanButton" destination="nsk-0R-t1T" id="XgY-YA-L28"/>
-                        <outlet property="threadsButton" destination="zSm-g7-JoW" id="HXw-Kg-4bi"/>
-                    </connections>
-                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECV-5R-GgT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="cMd-4l-Gbt" userLabel="Exit" sceneMemberID="exit"/>
+                <viewController storyboardIdentifier="HomeViewController" id="gus-xf-Pmh" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="1826.7175572519084" y="3.5211267605633805"/>
         </scene>
