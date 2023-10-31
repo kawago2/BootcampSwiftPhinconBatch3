@@ -44,6 +44,10 @@
 		367B0BB52AEB9511009E72D4 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0BB32AEB9511009E72D4 /* DrinkCell.swift */; };
 		367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BB42AEB9511009E72D4 /* DrinkCell.xib */; };
 		369921B22AF0B24400DC4601 /* StepSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 369921B12AF0B24400DC4601 /* StepSlider */; };
+		369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921B52AF0CBE200DC4601 /* LoginViewController.swift */; };
+		369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921B62AF0CBE200DC4601 /* LoginViewController.xib */; };
+		369921BB2AF0E2E200DC4601 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921BA2AF0E2E200DC4601 /* InputField.swift */; };
+		369921BD2AF0E2EE00DC4601 /* InputField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921BC2AF0E2EE00DC4601 /* InputField.xib */; };
 		36D38E5D2AEA606900168143 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5C2AEA606900168143 /* ExtUIView.swift */; };
 		36D38E5F2AEA69FA00168143 /* ExtUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */; };
 		36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E602AEA6A3800168143 /* ExtUIImageView.swift */; };
@@ -121,6 +125,10 @@
 		367B0BAF2AEB943F009E72D4 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		367B0BB32AEB9511009E72D4 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
 		367B0BB42AEB9511009E72D4 /* DrinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkCell.xib; sourceTree = "<group>"; };
+		369921B52AF0CBE200DC4601 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		369921B62AF0CBE200DC4601 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		369921BA2AF0E2E200DC4601 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		369921BC2AF0E2EE00DC4601 /* InputField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputField.xib; sourceTree = "<group>"; };
 		36D38E5C2AEA606900168143 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUILabel.swift; sourceTree = "<group>"; };
 		36D38E602AEA6A3800168143 /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
@@ -328,6 +336,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		369921B32AF0CBBC00DC4601 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				369921B52AF0CBE200DC4601 /* LoginViewController.swift */,
+				369921B62AF0CBE200DC4601 /* LoginViewController.xib */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		369921B92AF0E2C900DC4601 /* InputField */ = {
+			isa = PBXGroup;
+			children = (
+				369921BA2AF0E2E200DC4601 /* InputField.swift */,
+				369921BC2AF0E2EE00DC4601 /* InputField.xib */,
+			);
+			path = InputField;
+			sourceTree = "<group>";
+		};
 		36F741F12AF099E700CAB136 /* ThreadsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +405,7 @@
 		36FD06762AEA45260088F415 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				369921B32AF0CBBC00DC4601 /* LoginView */,
 				36F741FA2AF0A38300CAB136 /* SettingView */,
 				36F741F12AF099E700CAB136 /* ThreadsView */,
 				360B3A402AEFB57400FD98BB /* ProfileView */,
@@ -423,6 +450,7 @@
 		36FD06792AEA457F0088F415 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				369921B92AF0E2C900DC4601 /* InputField */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -588,6 +616,7 @@
 				36F741F92AF09A7B00CAB136 /* ThreadsViewController.xib in Resources */,
 				36F741FE2AF0A3A500CAB136 /* SettingViewController.xib in Resources */,
 				36F2C2BB2AE9FC590044729F /* EditProfileViewController.xib in Resources */,
+				369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */,
 				3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */,
 				365BA6D42AEBAC4300CF478C /* Localizable.strings in Resources */,
 				360B3A442AEFB5B000FD98BB /* ProfileViewController.xib in Resources */,
@@ -603,6 +632,7 @@
 				365BA6EF2AEF3B5700CF478C /* ToolCell.xib in Resources */,
 				367B0BA12AEB61B1009E72D4 /* DetailsViewController.xib in Resources */,
 				36F741F02AF095A400CAB136 /* HomeViewController.xib in Resources */,
+				369921BD2AF0E2EE00DC4601 /* InputField.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +670,7 @@
 				367B0B9C2AEB609F009E72D4 /* ExtUIButton.swift in Sources */,
 				365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */,
 				360B3A372AEFB12300FD98BB /* TabBarViewController.swift in Sources */,
+				369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */,
 				36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */,
 				36019BF72AE8EF1400C07588 /* ViewController.swift in Sources */,
 				360B3A432AEFB5B000FD98BB /* ProfileViewController.swift in Sources */,
@@ -657,6 +688,7 @@
 				36019BF52AE8EF1400C07588 /* SceneDelegate.swift in Sources */,
 				365BA6EE2AEF3B5700CF478C /* ToolCell.swift in Sources */,
 				365BA7042AEF821500CF478C /* Constants.swift in Sources */,
+				369921BB2AF0E2E200DC4601 /* InputField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

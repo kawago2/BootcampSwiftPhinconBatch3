@@ -20,10 +20,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtf-yV-aXq">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <rect key="frame" x="0.0" y="121" width="393" height="697"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2X5-t3-kw7">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2X5-t3-kw7">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6hg-Cv-YJ0">
                                 <size key="itemSize" width="128" height="128"/>
@@ -34,26 +35,61 @@
                         </collectionView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIE-yh-x41">
+                    <rect key="frame" x="16" y="59" width="361" height="34"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bH-AN-Yp4">
+                            <rect key="frame" x="0.0" y="0.0" width="39.666666666666664" height="34"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="wOJ-wD-hca"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Minuman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iw-sz-Zr1">
+                            <rect key="frame" x="105.66666666666669" y="0.0" width="150" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="TwF-rw-Djd"/>
+                                <constraint firstAttribute="height" constant="34" id="b9A-gh-cdM"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="2X5-t3-kw7" firstAttribute="top" secondItem="gtf-yV-aXq" secondAttribute="top" id="E7O-HA-b7L"/>
-                        <constraint firstAttribute="bottom" secondItem="2X5-t3-kw7" secondAttribute="bottom" id="RaN-tC-DND"/>
-                        <constraint firstItem="2X5-t3-kw7" firstAttribute="leading" secondItem="gtf-yV-aXq" secondAttribute="leading" id="f42-Ec-Q0T"/>
-                        <constraint firstAttribute="trailing" secondItem="2X5-t3-kw7" secondAttribute="trailing" id="x9Y-jE-QZi"/>
+                        <constraint firstItem="0iw-sz-Zr1" firstAttribute="top" secondItem="8bH-AN-Yp4" secondAttribute="top" id="3nG-0N-jke"/>
+                        <constraint firstItem="0iw-sz-Zr1" firstAttribute="centerY" secondItem="GIE-yh-x41" secondAttribute="centerY" id="Sk5-DD-Q6l"/>
+                        <constraint firstAttribute="bottom" secondItem="8bH-AN-Yp4" secondAttribute="bottom" id="VvN-iy-XXw"/>
+                        <constraint firstItem="0iw-sz-Zr1" firstAttribute="centerX" secondItem="GIE-yh-x41" secondAttribute="centerX" id="Y37-Xu-8am"/>
+                        <constraint firstItem="8bH-AN-Yp4" firstAttribute="top" secondItem="GIE-yh-x41" secondAttribute="top" id="hKn-3V-LXs"/>
+                        <constraint firstItem="8bH-AN-Yp4" firstAttribute="leading" secondItem="GIE-yh-x41" secondAttribute="leading" id="kWa-Mr-Zqi"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="gtf-yV-aXq" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="OOF-dP-WAe"/>
-                <constraint firstItem="gtf-yV-aXq" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="U02-jF-yH2"/>
-                <constraint firstItem="gtf-yV-aXq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fKZ-J9-F09"/>
-                <constraint firstItem="gtf-yV-aXq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jmJ-XY-03b"/>
+                <constraint firstItem="gtf-yV-aXq" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="2dr-Ad-CH8"/>
+                <constraint firstItem="gtf-yV-aXq" firstAttribute="top" secondItem="GIE-yh-x41" secondAttribute="bottom" constant="28" id="2kr-Bb-pPj"/>
+                <constraint firstItem="GIE-yh-x41" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="EzX-Mn-zHe"/>
+                <constraint firstItem="gtf-yV-aXq" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="LOt-gA-orb"/>
+                <constraint firstItem="GIE-yh-x41" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="dNo-64-2jr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GIE-yh-x41" secondAttribute="trailing" constant="16" id="fF2-gH-eXk"/>
+                <constraint firstItem="gtf-yV-aXq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nEp-SF-1vL"/>
             </constraints>
             <point key="canvasLocation" x="52.671755725190835" y="0.0"/>
         </view>
     </objects>
     <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

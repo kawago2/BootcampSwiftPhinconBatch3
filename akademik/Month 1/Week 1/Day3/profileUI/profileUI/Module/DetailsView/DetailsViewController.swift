@@ -8,9 +8,9 @@ import Foundation
 import UIKit
 
 class DetailsViewController: UIViewController {
-    var titlePage: String?
-    
     var data: ModelItem?
+    var pageTitle: String? = "Title"
+    @IBOutlet weak var titlePageLabel: UILabel!
     
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -26,10 +26,10 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        setNavTitle(title: titlePage ?? "")
     }
     func setup() {
         loadData()
+        titlePageLabel.text = pageTitle
         containerBottom.roundCorners(corners: [.topLeft, .topRight], radius: 20)
     }
     

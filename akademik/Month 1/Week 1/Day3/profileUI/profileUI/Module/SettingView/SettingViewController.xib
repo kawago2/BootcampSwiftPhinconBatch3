@@ -10,6 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController" customModule="profileUI" customModuleProvider="target">
             <connections>
+                <outlet property="isPowerLabel" destination="LfE-rD-b2A" id="fpm-KY-uK3"/>
+                <outlet property="isPowerSwitch" destination="T9M-oE-EnN" id="3wH-Ua-33d"/>
+                <outlet property="stepSlider" destination="iQ7-aT-pzp" id="GuY-Zy-eB1"/>
+                <outlet property="stepSliderLabel" destination="CHA-yF-0ol" id="FFY-Q0-pFd"/>
+                <outlet property="timePickerLabel" destination="3Ch-F0-Kl9" id="bbq-cg-H2i"/>
+                <outlet property="timePickerView" destination="FVx-PP-gw1" id="aNy-t4-5eI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,20 +48,34 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="FVx-PP-gw1">
+                            <rect key="frame" x="8" y="282" width="375" height="162"/>
+                        </pickerView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:18:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ch-F0-Kl9">
                             <rect key="frame" x="10" y="452" width="373" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="FVx-PP-gw1">
-                            <rect key="frame" x="8" y="282" width="375" height="162"/>
-                        </pickerView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQ7-aT-pzp" customClass="StepSlider">
+                            <rect key="frame" x="10" y="494.00000000000006" width="373" height="79.666666666666686"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHA-yF-0ol">
+                            <rect key="frame" x="10" y="581.66666666666663" width="151" height="20.333333333333371"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="T9M-oE-EnN" secondAttribute="trailing" constant="10" id="2a2-eU-fQO"/>
+                        <constraint firstItem="CHA-yF-0ol" firstAttribute="leading" secondItem="Rf2-7e-k6B" secondAttribute="leading" constant="10" id="4Pk-bI-tAg"/>
+                        <constraint firstItem="iQ7-aT-pzp" firstAttribute="trailing" secondItem="3Ch-F0-Kl9" secondAttribute="trailing" id="62L-RK-9JG"/>
+                        <constraint firstAttribute="bottom" secondItem="CHA-yF-0ol" secondAttribute="bottom" constant="157" id="GRf-GM-Y7h"/>
                         <constraint firstItem="LfE-rD-b2A" firstAttribute="leading" secondItem="Rf2-7e-k6B" secondAttribute="leading" constant="8" id="ODr-2F-VOU"/>
+                        <constraint firstItem="iQ7-aT-pzp" firstAttribute="top" secondItem="3Ch-F0-Kl9" secondAttribute="bottom" constant="21" id="OxF-7T-bzE"/>
                         <constraint firstAttribute="trailing" secondItem="FVx-PP-gw1" secondAttribute="trailing" constant="10" id="PC1-7o-4YP"/>
                         <constraint firstItem="IP0-E4-pFc" firstAttribute="top" secondItem="T9M-oE-EnN" secondAttribute="bottom" constant="30.329999999999998" id="Qg8-G0-bi6"/>
                         <constraint firstItem="IP0-E4-pFc" firstAttribute="leading" secondItem="Rf2-7e-k6B" secondAttribute="leading" constant="10" id="RxC-zi-dg6"/>
@@ -64,10 +84,12 @@
                         <constraint firstItem="3Ch-F0-Kl9" firstAttribute="leading" secondItem="Rf2-7e-k6B" secondAttribute="leading" constant="10" id="YJE-q2-xy6"/>
                         <constraint firstAttribute="trailing" secondItem="3Ch-F0-Kl9" secondAttribute="trailing" constant="10" id="YVz-1i-sQy"/>
                         <constraint firstItem="T9M-oE-EnN" firstAttribute="top" secondItem="jgs-Zh-hst" secondAttribute="bottom" constant="32" id="cuO-4Y-TTN"/>
+                        <constraint firstItem="CHA-yF-0ol" firstAttribute="top" secondItem="iQ7-aT-pzp" secondAttribute="bottom" constant="8" symbolic="YES" id="etP-0P-9Rz"/>
                         <constraint firstItem="IP0-E4-pFc" firstAttribute="top" secondItem="LfE-rD-b2A" secondAttribute="bottom" constant="41" id="hv0-HS-e2U"/>
                         <constraint firstAttribute="trailing" secondItem="jgs-Zh-hst" secondAttribute="trailing" constant="10" id="iaV-Rc-DQf"/>
                         <constraint firstItem="dh4-CS-8Oc" firstAttribute="leading" secondItem="Rf2-7e-k6B" secondAttribute="leading" constant="137" id="k8c-1p-Mna"/>
                         <constraint firstItem="dh4-CS-8Oc" firstAttribute="top" secondItem="IP0-E4-pFc" secondAttribute="bottom" constant="18.670000000000002" id="kUd-0t-Rwb"/>
+                        <constraint firstAttribute="trailing" secondItem="CHA-yF-0ol" secondAttribute="trailing" constant="232" id="lEd-Q4-5Rg"/>
                         <constraint firstItem="FVx-PP-gw1" firstAttribute="leading" secondItem="Rf2-7e-k6B" secondAttribute="leading" constant="8" id="nC9-Ag-0CJ"/>
                         <constraint firstItem="FVx-PP-gw1" firstAttribute="top" secondItem="dh4-CS-8Oc" secondAttribute="bottom" constant="54" id="oLD-0F-eve"/>
                         <constraint firstAttribute="trailing" secondItem="dh4-CS-8Oc" secondAttribute="trailing" constant="137" id="rEB-0C-WH4"/>
@@ -75,11 +97,12 @@
                         <constraint firstItem="LfE-rD-b2A" firstAttribute="top" secondItem="jgs-Zh-hst" secondAttribute="bottom" constant="32" id="wTX-4m-39B"/>
                         <constraint firstAttribute="trailing" secondItem="IP0-E4-pFc" secondAttribute="trailing" constant="10" id="wlh-Xt-cTp"/>
                         <constraint firstItem="jgs-Zh-hst" firstAttribute="top" secondItem="Rf2-7e-k6B" secondAttribute="top" constant="61" id="zsM-bl-yBP"/>
+                        <constraint firstItem="iQ7-aT-pzp" firstAttribute="leading" secondItem="3Ch-F0-Kl9" secondAttribute="leading" id="zuf-U3-YBj"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Rf2-7e-k6B" secondAttribute="bottom" id="8Tk-gT-Wnn"/>
                 <constraint firstItem="Rf2-7e-k6B" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Jmj-XJ-OPW"/>

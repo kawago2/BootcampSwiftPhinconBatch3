@@ -9,6 +9,9 @@ import UIKit
 
 class ThreadsViewController: UIViewController {
 
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

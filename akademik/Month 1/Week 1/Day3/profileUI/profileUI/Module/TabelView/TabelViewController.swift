@@ -18,7 +18,9 @@ class TabelViewController: UIViewController {
         super.viewDidLoad()
         setup()
         loadData()
-        setNavTitle(title: titlePage)
+    }
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     func setup() {
@@ -66,6 +68,7 @@ extension TabelViewController: UITableViewDelegate, UITableViewDataSource {
         let makanan = listMakanan[index]
         let vc = DetailsViewController()
         vc.data = makanan
+        vc.pageTitle = "Makanan"
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

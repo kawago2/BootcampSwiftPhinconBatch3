@@ -3,7 +3,9 @@ import UIKit
 class CollectionViewController: UIViewController {
     var titlePage = "List Minuman"
     
-    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     @IBOutlet weak var collectionView: UICollectionView!
     
     var listMinuman: [ModelItem] = []
@@ -12,7 +14,7 @@ class CollectionViewController: UIViewController {
         super.viewDidLoad()
         setup()
         loadData()
-        setNavTitle(title: titlePage)
+        
     }
     
     func setup(){
@@ -62,6 +64,7 @@ extension CollectionViewController: UICollectionViewDataSource, UICollectionView
         let index = indexPath.row
         let minuman = listMinuman[index]
         let vc = DetailsViewController()
+        vc.pageTitle = "Minuman"
         vc.data = minuman
         
         self.navigationController?.pushViewController(vc, animated: true)

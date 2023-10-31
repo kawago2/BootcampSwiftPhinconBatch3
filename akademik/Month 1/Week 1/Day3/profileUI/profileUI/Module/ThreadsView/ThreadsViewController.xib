@@ -15,82 +15,119 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vk1-oQ-LWX">
-                    <rect key="frame" x="16" y="59" width="361" height="34"/>
+                    <rect key="frame" x="16" y="59" width="361" height="40"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Threads" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbe-DS-QRs">
-                            <rect key="frame" x="136.66666666666666" y="0.0" width="88" height="34"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="34" id="Elj-Gv-9DX"/>
-                                <constraint firstAttribute="width" constant="88" id="T07-8f-bVW"/>
-                            </constraints>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Threads" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbe-DS-QRs">
+                            <rect key="frame" x="137" y="0.0" width="88" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kv3-ok-gxK">
-                            <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="34"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kv3-ok-gxK">
+                            <rect key="frame" x="0.0" y="0.0" width="46" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system">
                                 <color key="baseForegroundColor" systemColor="labelColor"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="yU6-yX-w3e"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Kv3-ok-gxK" secondAttribute="bottom" id="024-MW-Vqf"/>
-                        <constraint firstItem="Kv3-ok-gxK" firstAttribute="top" secondItem="Vk1-oQ-LWX" secondAttribute="top" id="930-H1-eJO"/>
-                        <constraint firstItem="bbe-DS-QRs" firstAttribute="centerY" secondItem="Vk1-oQ-LWX" secondAttribute="centerY" id="L6c-L9-hcN"/>
-                        <constraint firstItem="bbe-DS-QRs" firstAttribute="leading" secondItem="Kv3-ok-gxK" secondAttribute="trailing" constant="97.333333333333343" id="NaX-lC-w3T"/>
-                        <constraint firstItem="bbe-DS-QRs" firstAttribute="centerX" secondItem="Vk1-oQ-LWX" secondAttribute="centerX" id="Sug-Fa-vD9"/>
-                        <constraint firstItem="bbe-DS-QRs" firstAttribute="top" secondItem="Kv3-ok-gxK" secondAttribute="top" id="mzf-UV-dY9"/>
-                        <constraint firstItem="Kv3-ok-gxK" firstAttribute="leading" secondItem="Vk1-oQ-LWX" secondAttribute="leading" id="ueE-yv-GNc"/>
-                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agN-Tc-1Az">
-                    <rect key="frame" x="0.0" y="131" width="393" height="400"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aw-xr-Bqn">
+                    <rect key="frame" x="0.0" y="118" width="393" height="700"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UlS-Wn-gxX">
-                            <rect key="frame" x="0.0" y="0.0" width="361" height="400"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xo5-ER-1AD">
+                            <rect key="frame" x="8" y="0.0" width="377" height="1200"/>
                             <subviews>
-                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rv-Gg-Wjy">
-                                    <rect key="frame" x="0.0" y="24" width="361" height="800"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="800" id="hD9-Nr-h9B"/>
-                                    </constraints>
-                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAw-8c-Be6">
+                                    <rect key="frame" x="16" y="30" width="345" height="1140"/>
+                                    <mutableString key="text">Tentu! Berikut beberapa thread mengenai makanan yang bisa Anda gunakan di berbagai platform sosial media:
+
+**Thread 1: Memahami Makanan Sehat**
+
+1/5: Makanan sehat adalah kunci untuk menjaga kesehatan tubuh. Cobalah untuk mengonsumsi makanan dengan berbagai nutrisi, seperti sayuran, buah-buahan, protein, dan biji-bijian.
+
+2/5: Pastikan Anda menghindari makanan olahan berlebihan yang mengandung gula tambahan, garam, dan lemak trans. Makanan segar lebih baik untuk tubuh.
+
+3/5: Jangan lupa minum air putih. Air sangat penting untuk menjaga hidrasi tubuh dan membantu pencernaan.
+
+4/5: Cobalah untuk memasak di rumah sebanyak mungkin. Anda dapat mengontrol bahan-bahan yang digunakan dan menghindari makanan cepat saji yang kurang sehat.
+
+5/5: Ingatlah bahwa makanan sehat tidak hanya tentang tubuh yang sehat, tetapi juga tentang kesejahteraan secara keseluruhan. Selamat mencoba!
+
+**Thread 2: Makanan Khas Dunia**
+
+1/5: Makanan adalah salah satu cara terbaik untuk memahami budaya dunia. Di seluruh dunia, ada makanan khas yang lezat dan unik.
+
+2/5: Jepang dikenal dengan sushi dan ramen yang lezat. Italia memiliki pasta dan pizza yang tak tertandingi. Apa makanan favorit Anda dari berbagai negara?
+
+3/5: Thailand menawarkan hidangan pedas seperti Tom Yum dan Pad Thai. India memiliki hidangan kari yang beragam. Prancis dikenal dengan hidangan lezat seperti croissant dan escargot.
+
+4/5: Jangan lupa mencoba makanan khas ketika Anda bepergian. Ini adalah cara terbaik untuk merasakan budaya lokal.
+
+5/5: Apakah Anda sudah mencoba makanan khas dari berbagai negara? Bagikan pengalaman Anda!
+
+**Thread 3: Resep Dapur Sendiri**
+
+1/5: Memasak di rumah bisa menjadi pengalaman yang sangat memuaskan. Cobalah salah satu resep favorit saya: Spaghetti Carbonara.
+
+2/5: Bahan-bahan: spaghetti, telur, keju parmesan, daging pancetta atau bacon, lada, dan sedikit minyak zaitun.
+
+3/5: Rebus spaghetti sesuai petunjuk kemasan. Sementara itu, tumis pancetta/bacon hingga renyah.
+
+4/5: Campurkan telur dan keju parmesan parut dalam mangkuk besar. Tambahkan spaghetti dan pancetta yang sudah matang. Aduk rata.
+
+5/5: Taburi dengan lada dan hidangkan. Selamat makan!
+
+Silakan gunakan thread-thread ini untuk berbagi informasi atau memulai percakapan tentang makanan di berbagai platform sosial media.</mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="4rv-Gg-Wjy" firstAttribute="leading" secondItem="UlS-Wn-gxX" secondAttribute="leading" id="6ED-Lv-kAm"/>
-                                <constraint firstAttribute="trailing" secondItem="4rv-Gg-Wjy" secondAttribute="trailing" id="MIM-fJ-6tD"/>
-                                <constraint firstItem="4rv-Gg-Wjy" firstAttribute="top" secondItem="UlS-Wn-gxX" secondAttribute="top" id="ooE-MJ-BiY"/>
-                                <constraint firstAttribute="bottom" secondItem="4rv-Gg-Wjy" secondAttribute="bottom" id="zoU-qF-DFB"/>
+                                <constraint firstItem="cAw-8c-Be6" firstAttribute="leading" secondItem="xo5-ER-1AD" secondAttribute="leading" constant="16" id="82N-hY-QtR"/>
+                                <constraint firstAttribute="bottom" secondItem="cAw-8c-Be6" secondAttribute="bottom" constant="30" id="PmL-ph-cdt"/>
+                                <constraint firstAttribute="trailing" secondItem="cAw-8c-Be6" secondAttribute="trailing" constant="16" id="Pqq-bT-ju5"/>
+                                <constraint firstItem="cAw-8c-Be6" firstAttribute="top" secondItem="xo5-ER-1AD" secondAttribute="top" constant="30" id="agP-n4-yAu"/>
+                                <constraint firstAttribute="height" constant="1200" id="hWx-ij-jTD"/>
                             </constraints>
-                        </scrollView>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="400" id="SaP-ag-ia5"/>
-                        <constraint firstAttribute="bottom" secondItem="UlS-Wn-gxX" secondAttribute="bottom" id="Vp0-Gy-Dzt"/>
-                        <constraint firstAttribute="trailing" secondItem="UlS-Wn-gxX" secondAttribute="trailing" id="b3I-V3-j6K"/>
-                        <constraint firstItem="UlS-Wn-gxX" firstAttribute="top" secondItem="agN-Tc-1Az" secondAttribute="top" id="bkc-uo-EgH"/>
-                        <constraint firstItem="4rv-Gg-Wjy" firstAttribute="width" secondItem="agN-Tc-1Az" secondAttribute="width" id="n5O-eZ-gG0"/>
-                        <constraint firstItem="UlS-Wn-gxX" firstAttribute="leading" secondItem="agN-Tc-1Az" secondAttribute="leading" id="zSy-uK-4dm"/>
+                        <constraint firstItem="xo5-ER-1AD" firstAttribute="leading" secondItem="6aw-xr-Bqn" secondAttribute="leading" id="Db2-Pw-qWM"/>
+                        <constraint firstItem="xo5-ER-1AD" firstAttribute="top" secondItem="6aw-xr-Bqn" secondAttribute="top" id="MgU-cs-Ld6"/>
+                        <constraint firstAttribute="trailing" secondItem="xo5-ER-1AD" secondAttribute="trailing" id="e4G-Xd-YdN"/>
+                        <constraint firstAttribute="bottom" secondItem="xo5-ER-1AD" secondAttribute="bottom" id="j5F-O1-y6D"/>
                     </constraints>
-                </view>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Vk1-oQ-LWX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Gco-vS-joX"/>
-                <constraint firstItem="Vk1-oQ-LWX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="abC-6g-PFF"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vk1-oQ-LWX" secondAttribute="trailing" constant="16" id="yCC-Pk-l2H"/>
+                <constraint firstItem="Vk1-oQ-LWX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="6Uh-Qj-mFi"/>
+                <constraint firstItem="6aw-xr-Bqn" firstAttribute="top" secondItem="Vk1-oQ-LWX" secondAttribute="bottom" constant="19" id="6hZ-Fs-SRd"/>
+                <constraint firstItem="6aw-xr-Bqn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="118" id="7LT-Pe-iTF"/>
+                <constraint firstItem="Vk1-oQ-LWX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="AWt-00-LlF"/>
+                <constraint firstItem="6aw-xr-Bqn" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="EbM-ew-jqf"/>
+                <constraint firstItem="6aw-xr-Bqn" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Gs0-03-UAX"/>
+                <constraint firstItem="xo5-ER-1AD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="59" id="cYb-Pc-Vex"/>
+                <constraint firstItem="6aw-xr-Bqn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="f4y-ws-Gbi"/>
+                <constraint firstItem="xo5-ER-1AD" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="500" id="fIW-gE-ADQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vk1-oQ-LWX" secondAttribute="trailing" constant="16" id="glV-Bi-p5Y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xo5-ER-1AD" secondAttribute="trailing" constant="8" id="pvg-ka-qJ8"/>
+                <constraint firstItem="xo5-ER-1AD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="ugB-sq-lu8"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="87.786259541984734" y="-1.4084507042253522"/>
         </view>
     </objects>

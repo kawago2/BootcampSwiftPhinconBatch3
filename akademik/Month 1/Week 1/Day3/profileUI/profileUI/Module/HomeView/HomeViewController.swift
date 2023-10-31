@@ -29,15 +29,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func bannerButtonTapped(_ sender: Any) {
-//        let vc = SectionViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = SettingViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
     @IBAction func threadsButtonTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let destinationViewController = storyboard.instantiateViewController(withIdentifier: "ScrollViewController")
-        self.navigationController?.pushViewController(destinationViewController, animated: true)
+        let vc = ThreadsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewDidLoad() {
