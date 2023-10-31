@@ -1,31 +1,30 @@
-//
-//  TabBarViewController.swift
-//  profileUI
-//
-//  Created by Phincon on 30/10/23.
-//
-
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
-    let homeViewController = SectionViewController()
+    
+    let dashboardViewController = SectionViewController()
+    let homeViewController = HomeViewController()
     let profileViewController = ProfileViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUITabBarItems()
         configureTab()
+        
+        setFirstFocus(index: 1)
     }
     
     func configureUITabBarItems() {
-     
-        homeViewController.title = "Home"
-        profileViewController.title = "Profile"
+        // Create separate UITabBarItem objects for each view controller
+        let dashboardTabBarItem = UITabBarItem(title: "Dashboard", image: IconSystem.dashboard, tag: 0)
+        let homeTabBarItem = UITabBarItem(title: "Home", image: IconSystem.home, tag: 1)
+        let profileTabBarItem = UITabBarItem(title: "Profile", image: IconSystem.profile, tag: 2)
         
-        homeViewController.tabBarItem = UITabBarItem(title: "Home", image:IconSystem.home, tag: 0)
-        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: IconSystem.profile, tag: 1)
-        viewControllers = [homeViewController, profileViewController]
+        dashboardViewController.tabBarItem = dashboardTabBarItem
+        homeViewController.tabBarItem = homeTabBarItem
+        profileViewController.tabBarItem = profileTabBarItem
+        
+        viewControllers = [dashboardViewController, homeViewController, profileViewController]
         
         // Customize appearance for tab bar items
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
@@ -33,6 +32,9 @@ class TabBarViewController: UITabBarController {
     }
     
     func configureTab() {
-        setViewControllers([homeViewController, profileViewController], animated: true)
+        setViewControllers([dashboardViewController, homeViewController, profileViewController], animated: true)
+    }
+    func setFirstFocus(index: Int){
+        selectedIndex = index
     }
 }

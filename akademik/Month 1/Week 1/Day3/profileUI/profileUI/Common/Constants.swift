@@ -11,4 +11,5 @@ import UIKit
 enum IconSystem {
     static let home = UIImage(systemName: "house")
     static let profile = UIImage(systemName: "person.fill")
+    static let dashboard = UIImage(systemName: "paperplane")
 }

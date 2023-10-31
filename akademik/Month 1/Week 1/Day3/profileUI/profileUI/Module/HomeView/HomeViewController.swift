@@ -1,26 +1,19 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  profileUI
 //
-//  Created by Phincon on 25/10/23.
+//  Created by Phincon on 31/10/23.
 //
 
 import UIKit
 
 class HomeViewController: UIViewController {
-    let titlePage: String = "Home"
     
     @IBOutlet weak var listMakananButton: UIButton!
     @IBOutlet weak var threadsButton: UIButton!
     @IBOutlet weak var listMinumanButton: UIButton!
     
     @IBOutlet weak var bannerButton: UIButton!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setup()
-
-    }
     
     @IBAction func listMakananButtonTapped(_ sender: Any) {
         let vc = TabelViewController()
@@ -36,8 +29,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func bannerButtonTapped(_ sender: Any) {
-        let vc = SectionViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let vc = SectionViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -47,12 +40,18 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(destinationViewController, animated: true)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
     func setup() {
         let arrayButton = [listMakananButton, threadsButton, listMinumanButton]
         for x in arrayButton {
             x?.setRoundedBorder()
         }
     }
+
+
 }
-
-

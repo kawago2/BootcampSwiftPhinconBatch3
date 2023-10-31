@@ -12,6 +12,9 @@ class DetailsViewController: UIViewController {
     
     var data: ModelItem?
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     var image: String?
     
     @IBOutlet weak var containerBottom: UIView!
@@ -44,6 +47,6 @@ class DetailsViewController: UIViewController {
                 self.imgView.image = image
             }
         }
-       
+        
     }
 }

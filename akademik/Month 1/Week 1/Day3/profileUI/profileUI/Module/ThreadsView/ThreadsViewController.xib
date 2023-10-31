@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThreadsViewController" customModule="profileUI" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vk1-oQ-LWX">
+                    <rect key="frame" x="16" y="59" width="361" height="34"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Threads" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbe-DS-QRs">
+                            <rect key="frame" x="136.66666666666666" y="0.0" width="88" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="Elj-Gv-9DX"/>
+                                <constraint firstAttribute="width" constant="88" id="T07-8f-bVW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kv3-ok-gxK">
+                            <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="34"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Kv3-ok-gxK" secondAttribute="bottom" id="024-MW-Vqf"/>
+                        <constraint firstItem="Kv3-ok-gxK" firstAttribute="top" secondItem="Vk1-oQ-LWX" secondAttribute="top" id="930-H1-eJO"/>
+                        <constraint firstItem="bbe-DS-QRs" firstAttribute="centerY" secondItem="Vk1-oQ-LWX" secondAttribute="centerY" id="L6c-L9-hcN"/>
+                        <constraint firstItem="bbe-DS-QRs" firstAttribute="leading" secondItem="Kv3-ok-gxK" secondAttribute="trailing" constant="97.333333333333343" id="NaX-lC-w3T"/>
+                        <constraint firstItem="bbe-DS-QRs" firstAttribute="centerX" secondItem="Vk1-oQ-LWX" secondAttribute="centerX" id="Sug-Fa-vD9"/>
+                        <constraint firstItem="bbe-DS-QRs" firstAttribute="top" secondItem="Kv3-ok-gxK" secondAttribute="top" id="mzf-UV-dY9"/>
+                        <constraint firstItem="Kv3-ok-gxK" firstAttribute="leading" secondItem="Vk1-oQ-LWX" secondAttribute="leading" id="ueE-yv-GNc"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agN-Tc-1Az">
+                    <rect key="frame" x="0.0" y="131" width="393" height="400"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UlS-Wn-gxX">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="400"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rv-Gg-Wjy">
+                                    <rect key="frame" x="0.0" y="24" width="361" height="800"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="800" id="hD9-Nr-h9B"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="4rv-Gg-Wjy" firstAttribute="leading" secondItem="UlS-Wn-gxX" secondAttribute="leading" id="6ED-Lv-kAm"/>
+                                <constraint firstAttribute="trailing" secondItem="4rv-Gg-Wjy" secondAttribute="trailing" id="MIM-fJ-6tD"/>
+                                <constraint firstItem="4rv-Gg-Wjy" firstAttribute="top" secondItem="UlS-Wn-gxX" secondAttribute="top" id="ooE-MJ-BiY"/>
+                                <constraint firstAttribute="bottom" secondItem="4rv-Gg-Wjy" secondAttribute="bottom" id="zoU-qF-DFB"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="400" id="SaP-ag-ia5"/>
+                        <constraint firstAttribute="bottom" secondItem="UlS-Wn-gxX" secondAttribute="bottom" id="Vp0-Gy-Dzt"/>
+                        <constraint firstAttribute="trailing" secondItem="UlS-Wn-gxX" secondAttribute="trailing" id="b3I-V3-j6K"/>
+                        <constraint firstItem="UlS-Wn-gxX" firstAttribute="top" secondItem="agN-Tc-1Az" secondAttribute="top" id="bkc-uo-EgH"/>
+                        <constraint firstItem="4rv-Gg-Wjy" firstAttribute="width" secondItem="agN-Tc-1Az" secondAttribute="width" id="n5O-eZ-gG0"/>
+                        <constraint firstItem="UlS-Wn-gxX" firstAttribute="leading" secondItem="agN-Tc-1Az" secondAttribute="leading" id="zSy-uK-4dm"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Vk1-oQ-LWX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Gco-vS-joX"/>
+                <constraint firstItem="Vk1-oQ-LWX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="abC-6g-PFF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vk1-oQ-LWX" secondAttribute="trailing" constant="16" id="yCC-Pk-l2H"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="87.786259541984734" y="-1.4084507042253522"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

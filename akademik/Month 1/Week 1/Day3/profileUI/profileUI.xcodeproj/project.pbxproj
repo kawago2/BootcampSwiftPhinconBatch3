@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,6 @@
 		36019C142AE8EF1500C07588 /* profileUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019C132AE8EF1500C07588 /* profileUIUITests.swift */; };
 		36019C162AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019C152AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift */; };
 		360B3A372AEFB12300FD98BB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B3A362AEFB12300FD98BB /* TabBarViewController.swift */; };
-		360B3A3A2AEFB18400FD98BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B3A392AEFB18400FD98BB /* HomeViewController.swift */; };
 		360B3A432AEFB5B000FD98BB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B3A412AEFB5B000FD98BB /* ProfileViewController.swift */; };
 		360B3A442AEFB5B000FD98BB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 360B3A422AEFB5B000FD98BB /* ProfileViewController.xib */; };
 		360F6AFC2AEA4C3F004BE3CE /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360F6AFB2AEA4C3F004BE3CE /* ExtTableView.swift */; };
@@ -44,11 +43,18 @@
 		367B0BB12AEB943F009E72D4 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BAF2AEB943F009E72D4 /* CollectionViewController.xib */; };
 		367B0BB52AEB9511009E72D4 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0BB32AEB9511009E72D4 /* DrinkCell.swift */; };
 		367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BB42AEB9511009E72D4 /* DrinkCell.xib */; };
+		369921B22AF0B24400DC4601 /* StepSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 369921B12AF0B24400DC4601 /* StepSlider */; };
 		36D38E5D2AEA606900168143 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5C2AEA606900168143 /* ExtUIView.swift */; };
 		36D38E5F2AEA69FA00168143 /* ExtUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */; };
 		36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E602AEA6A3800168143 /* ExtUIImageView.swift */; };
 		36F2C2BA2AE9FC590044729F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F2C2B82AE9FC590044729F /* EditProfileViewController.swift */; };
 		36F2C2BB2AE9FC590044729F /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F2C2B92AE9FC590044729F /* EditProfileViewController.xib */; };
+		36F741EF2AF095A400CAB136 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F741ED2AF095A400CAB136 /* HomeViewController.swift */; };
+		36F741F02AF095A400CAB136 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F741EE2AF095A400CAB136 /* HomeViewController.xib */; };
+		36F741F82AF09A7B00CAB136 /* ThreadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F741F62AF09A7B00CAB136 /* ThreadsViewController.swift */; };
+		36F741F92AF09A7B00CAB136 /* ThreadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F741F72AF09A7B00CAB136 /* ThreadsViewController.xib */; };
+		36F741FD2AF0A3A500CAB136 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F741FB2AF0A3A500CAB136 /* SettingViewController.swift */; };
+		36F741FE2AF0A3A500CAB136 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F741FC2AF0A3A500CAB136 /* SettingViewController.xib */; };
 		36FD06712AEA445A0088F415 /* TabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD066F2AEA445A0088F415 /* TabelViewController.swift */; };
 		36FD06722AEA445A0088F415 /* TabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FD06702AEA445A0088F415 /* TabelViewController.xib */; };
 		36FD06812AEA47BF0088F415 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD067F2AEA47BF0088F415 /* FoodCell.swift */; };
@@ -87,8 +93,6 @@
 		36019C132AE8EF1500C07588 /* profileUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileUIUITests.swift; sourceTree = "<group>"; };
 		36019C152AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		360B3A362AEFB12300FD98BB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		360B3A392AEFB18400FD98BB /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		360B3A3B2AEFB18700FD98BB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		360B3A412AEFB5B000FD98BB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		360B3A422AEFB5B000FD98BB /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		360F6AFB2AEA4C3F004BE3CE /* ExtTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtTableView.swift; sourceTree = "<group>"; };
@@ -122,6 +126,12 @@
 		36D38E602AEA6A3800168143 /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
 		36F2C2B82AE9FC590044729F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		36F2C2B92AE9FC590044729F /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		36F741ED2AF095A400CAB136 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		36F741EE2AF095A400CAB136 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		36F741F62AF09A7B00CAB136 /* ThreadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadsViewController.swift; sourceTree = "<group>"; };
+		36F741F72AF09A7B00CAB136 /* ThreadsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreadsViewController.xib; sourceTree = "<group>"; };
+		36F741FB2AF0A3A500CAB136 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		36F741FC2AF0A3A500CAB136 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		36FD066F2AEA445A0088F415 /* TabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabelViewController.swift; sourceTree = "<group>"; };
 		36FD06702AEA445A0088F415 /* TabelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabelViewController.xib; sourceTree = "<group>"; };
 		36FD067F2AEA47BF0088F415 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
@@ -133,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				369921B22AF0B24400DC4601 /* StepSlider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,8 +217,8 @@
 		360B3A382AEFB17000FD98BB /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				360B3A392AEFB18400FD98BB /* HomeViewController.swift */,
-				360B3A3B2AEFB18700FD98BB /* HomeViewController.xib */,
+				36F741ED2AF095A400CAB136 /* HomeViewController.swift */,
+				36F741EE2AF095A400CAB136 /* HomeViewController.xib */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -317,6 +328,24 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		36F741F12AF099E700CAB136 /* ThreadsView */ = {
+			isa = PBXGroup;
+			children = (
+				36F741F62AF09A7B00CAB136 /* ThreadsViewController.swift */,
+				36F741F72AF09A7B00CAB136 /* ThreadsViewController.xib */,
+			);
+			path = ThreadsView;
+			sourceTree = "<group>";
+		};
+		36F741FA2AF0A38300CAB136 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				36F741FB2AF0A3A500CAB136 /* SettingViewController.swift */,
+				36F741FC2AF0A3A500CAB136 /* SettingViewController.xib */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
 		36FD06732AEA45080088F415 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +379,8 @@
 		36FD06762AEA45260088F415 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36F741FA2AF0A38300CAB136 /* SettingView */,
+				36F741F12AF099E700CAB136 /* ThreadsView */,
 				360B3A402AEFB57400FD98BB /* ProfileView */,
 				360B3A382AEFB17000FD98BB /* HomeView */,
 				366FF0912AEFB09900F74907 /* MainTabBar */,
@@ -458,6 +489,9 @@
 			dependencies = (
 			);
 			name = profileUI;
+			packageProductDependencies = (
+				369921B12AF0B24400DC4601 /* StepSlider */,
+			);
 			productName = profileUI;
 			productReference = 36019BEF2AE8EF1400C07588 /* profileUI.app */;
 			productType = "com.apple.product-type.application";
@@ -522,7 +556,7 @@
 				};
 			};
 			buildConfigurationList = 36019BEA2AE8EF1400C07588 /* Build configuration list for PBXProject "profileUI" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -532,6 +566,9 @@
 				ru,
 			);
 			mainGroup = 36019BE62AE8EF1400C07588;
+			packageReferences = (
+				369921B02AF0B24400DC4601 /* XCRemoteSwiftPackageReference "StepSlider" */,
+			);
 			productRefGroup = 36019BF02AE8EF1400C07588 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -548,6 +585,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36F741F92AF09A7B00CAB136 /* ThreadsViewController.xib in Resources */,
+				36F741FE2AF0A3A500CAB136 /* SettingViewController.xib in Resources */,
 				36F2C2BB2AE9FC590044729F /* EditProfileViewController.xib in Resources */,
 				3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */,
 				365BA6D42AEBAC4300CF478C /* Localizable.strings in Resources */,
@@ -563,6 +602,7 @@
 				367B0BB12AEB943F009E72D4 /* CollectionViewController.xib in Resources */,
 				365BA6EF2AEF3B5700CF478C /* ToolCell.xib in Resources */,
 				367B0BA12AEB61B1009E72D4 /* DetailsViewController.xib in Resources */,
+				36F741F02AF095A400CAB136 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +630,9 @@
 				36D38E5F2AEA69FA00168143 /* ExtUILabel.swift in Sources */,
 				36FD06712AEA445A0088F415 /* TabelViewController.swift in Sources */,
 				36D38E5D2AEA606900168143 /* ExtUIView.swift in Sources */,
+				36F741F82AF09A7B00CAB136 /* ThreadsViewController.swift in Sources */,
 				367B0B982AEB5A97009E72D4 /* ExtInt.swift in Sources */,
+				36F741FD2AF0A3A500CAB136 /* SettingViewController.swift in Sources */,
 				365BA6DC2AEBB25000CF478C /* ModelItem.swift in Sources */,
 				360F6AFC2AEA4C3F004BE3CE /* ExtTableView.swift in Sources */,
 				36F2C2BA2AE9FC590044729F /* EditProfileViewController.swift in Sources */,
@@ -602,10 +644,10 @@
 				36019BF72AE8EF1400C07588 /* ViewController.swift in Sources */,
 				360B3A432AEFB5B000FD98BB /* ProfileViewController.swift in Sources */,
 				3675629A2AEA22D800F0A86F /* HalfScrollViewController.swift in Sources */,
-				360B3A3A2AEFB18400FD98BB /* HomeViewController.swift in Sources */,
 				367B0BB02AEB943F009E72D4 /* CollectionViewController.swift in Sources */,
 				365BA6E12AEBBABE00CF478C /* ScrollViewController.swift in Sources */,
 				365BA6DF2AEBB9D500CF478C /* ExtUIViewController.swift in Sources */,
+				36F741EF2AF095A400CAB136 /* HomeViewController.swift in Sources */,
 				365BA6F92AEF4E5F00CF478C /* SectionViewController.swift in Sources */,
 				367B0BA02AEB61B1009E72D4 /* DetailsViewController.swift in Sources */,
 				367B0BAD2AEB93EC009E72D4 /* ExtUICollectionView.swift in Sources */,
@@ -954,6 +996,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		369921B02AF0B24400DC4601 /* XCRemoteSwiftPackageReference "StepSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spromicky/StepSlider";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		369921B12AF0B24400DC4601 /* StepSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 369921B02AF0B24400DC4601 /* XCRemoteSwiftPackageReference "StepSlider" */;
+			productName = StepSlider;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 36019BE72AE8EF1400C07588 /* Project object */;
 }
