@@ -11,14 +11,12 @@ import UIKit
 
 
 class SectionViewController: UIViewController {
-    var titlePage = "Section"
     
     @IBOutlet weak var tableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavTitle(title: titlePage)
         setup()
 
     }
