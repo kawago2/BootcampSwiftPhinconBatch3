@@ -6,6 +6,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -163,7 +164,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa7-9N-vE3">
-                            <rect key="frame" x="297" y="0.0" width="46" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="46" height="40"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain">
                                 <imageReference key="image" image="pencil" catalog="system" symbolScale="medium"/>
@@ -173,18 +174,31 @@
                                 <action selector="penButtonTapped:" destination="-1" eventType="touchUpInside" id="kNU-Pa-9DD"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfh-BI-NOd">
+                            <rect key="frame" x="289" y="0.0" width="54" height="40"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="signoutTapped:" destination="-1" eventType="touchUpInside" id="6vU-FU-bIB"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="JYR-Ss-wRM" firstAttribute="top" secondItem="oa7-9N-vE3" secondAttribute="top" id="Ivv-dm-IQf"/>
                         <constraint firstItem="oa7-9N-vE3" firstAttribute="top" secondItem="mEr-tl-zXD" secondAttribute="top" id="MBw-bq-Kvi"/>
+                        <constraint firstAttribute="bottom" secondItem="Hfh-BI-NOd" secondAttribute="bottom" id="OwH-kr-02n"/>
                         <constraint firstItem="JYR-Ss-wRM" firstAttribute="centerY" secondItem="mEr-tl-zXD" secondAttribute="centerY" id="VFI-DZ-S4K"/>
-                        <constraint firstAttribute="trailing" secondItem="oa7-9N-vE3" secondAttribute="trailing" id="ZJg-2z-gt7"/>
+                        <constraint firstAttribute="trailing" secondItem="oa7-9N-vE3" secondAttribute="trailing" constant="297" id="ZJg-2z-gt7"/>
                         <constraint firstItem="JYR-Ss-wRM" firstAttribute="top" secondItem="mEr-tl-zXD" secondAttribute="top" id="a4x-dW-dAm"/>
                         <constraint firstAttribute="bottom" secondItem="oa7-9N-vE3" secondAttribute="bottom" id="eVS-8i-tcH"/>
                         <constraint firstItem="JYR-Ss-wRM" firstAttribute="centerX" secondItem="mEr-tl-zXD" secondAttribute="centerX" id="kOV-T2-w3L"/>
                         <constraint firstItem="JYR-Ss-wRM" firstAttribute="bottom" secondItem="oa7-9N-vE3" secondAttribute="bottom" id="orP-lL-ooo"/>
-                        <constraint firstItem="oa7-9N-vE3" firstAttribute="leading" secondItem="JYR-Ss-wRM" secondAttribute="trailing" constant="82" id="t4x-Ib-p8D"/>
+                        <constraint firstAttribute="trailing" secondItem="Hfh-BI-NOd" secondAttribute="trailing" id="slx-Fh-Xkn"/>
+                        <constraint firstItem="oa7-9N-vE3" firstAttribute="leading" secondItem="JYR-Ss-wRM" secondAttribute="trailing" constant="-215" id="t4x-Ib-p8D"/>
+                        <constraint firstItem="Hfh-BI-NOd" firstAttribute="top" secondItem="mEr-tl-zXD" secondAttribute="top" id="yQA-hb-29G"/>
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SS0-kT-yj1">
@@ -222,11 +236,12 @@
     </objects>
     <resources>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <namedColor name="MainColor">
             <color red="0.24705882352941178" green="0.78823529411764703" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.80000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ThirdColor">
             <color red="0.90588235294117647" green="0.92156862745098034" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

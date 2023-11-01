@@ -6,37 +6,50 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordField: InputField!
     @IBOutlet weak var emailField: InputField!
     
+    @IBAction func registerTapped(_ sender: Any) {
+        let vc = RegisterViewController()
+        navigationController?.setViewControllers([vc], animated: true)
+    }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         let email = emailField.inputText.text
         let password = passwordField.inputText.text
-        
-        if isValidLogin(email: email, password: password) {
-            let vc = TabBarViewController()
-            // pass data only
-            let profile = ProfileViewController()
-            profile.email = email
-            navigationController?.setViewControllers([vc], animated: true)
+        if signInWithFirebase(email: email, password: password) {
         } else {
-            // Handle unsuccessful login (e.g., show an alert)
-            let alert = UIAlertController(title: "Login Failed", message: "Invalid email or password.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-//            emailField.errorField.text = "Invalid email"
-//            passwordField.errorField.text = "Invalid password"
+            showLoginFailureAlert()
         }
     }
     
-    func isValidLogin(email: String?, password: String?) -> Bool {
-        return email == "user" && password == "123"
+    func signInWithFirebase(email: String?, password: String?) -> Bool{
+        guard let email = email, let password = password else {
+            return false
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+            if let error = error {
+                strongSelf.showLoginFailureAlert(message: error.localizedDescription)
+            } else {
+                let vc = TabBarViewController()
+                strongSelf.navigationController?.setViewControllers([vc], animated: true)
+            }
+        }
+        return true
     }
+    
+    func showLoginFailureAlert(message: String? = "Invalid email or password.") {
+        let alert = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,18 +60,19 @@ class LoginViewController: UIViewController {
         uiEmailField()
         uiPasswordField()
         loginButton.setRoundedBorder(cornerRadius: 20)
-        topView.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 30)
     }
     
     func uiEmailField() {
         emailField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)
         emailField.setup(title: "Email", placeholder: "Email")
-        emailField.inputText.font = UIFont.boldSystemFont(ofSize: 20)
+        emailField.titleField.font = FontPoppins.regular(size: 18)
+        emailField.inputText.font =  FontPoppins.bold(size: 18)
     }
     
     func uiPasswordField() {
         passwordField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)
         passwordField.setup(title: "Password", placeholder: "Password")
-        passwordField.inputText.font = UIFont.boldSystemFont(ofSize: 20)
+        passwordField.titleField.font = FontPoppins.regular(size: 18)
+        passwordField.inputText.font =  FontPoppins.bold(size: 18)
     }
 }

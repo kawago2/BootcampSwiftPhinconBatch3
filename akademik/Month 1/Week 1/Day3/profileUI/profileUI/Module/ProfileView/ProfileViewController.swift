@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var nameTF: UILabel!
@@ -18,18 +19,29 @@ class ProfileViewController: UIViewController {
     var name: String? = "Isi nama anda"
     var phone: String? = "0877777777"
     var email: String? = "isi email anda"
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
-    }
     
+    
+    @IBAction func signoutTapped(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+
+            let loginViewController = LoginViewController()
+            navigationController?.setViewControllers([loginViewController], animated: true)
+        } catch {
+            print("Error signing out: \(error.localizedDescription)")
+        }
+    }
+
     @IBAction func penButtonTapped(_ sender: Any) {
         let vc = EditProfileViewController()
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+    }
 
     func setupUI() {
         // Set the profile image

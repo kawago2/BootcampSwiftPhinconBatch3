@@ -48,6 +48,10 @@
 		369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921B62AF0CBE200DC4601 /* LoginViewController.xib */; };
 		369921BB2AF0E2E200DC4601 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921BA2AF0E2E200DC4601 /* InputField.swift */; };
 		369921BD2AF0E2EE00DC4601 /* InputField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921BC2AF0E2EE00DC4601 /* InputField.xib */; };
+		36A432352AF21DA70070E770 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36A432342AF21DA70070E770 /* GoogleService-Info.plist */; };
+		36A4324A2AF230530070E770 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432482AF2302B0070E770 /* Poppins-Black.ttf */; };
+		36A4324B2AF230590070E770 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432442AF2302B0070E770 /* Poppins-BlackItalic.ttf */; };
+		36A4324C2AF2305C0070E770 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432412AF2302B0070E770 /* Poppins-Bold.ttf */; };
 		36D38E5D2AEA606900168143 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5C2AEA606900168143 /* ExtUIView.swift */; };
 		36D38E5F2AEA69FA00168143 /* ExtUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */; };
 		36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E602AEA6A3800168143 /* ExtUIImageView.swift */; };
@@ -63,6 +67,9 @@
 		36FD06722AEA445A0088F415 /* TabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FD06702AEA445A0088F415 /* TabelViewController.xib */; };
 		36FD06812AEA47BF0088F415 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD067F2AEA47BF0088F415 /* FoodCell.swift */; };
 		36FD06822AEA47BF0088F415 /* FoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FD06802AEA47BF0088F415 /* FoodCell.xib */; };
+		36FE9FB82AF214EA00EBF492 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 36FE9FB72AF214EA00EBF492 /* FirebaseAuth */; };
+		36FE9FBC2AF217AA00EBF492 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FE9FBA2AF217AA00EBF492 /* RegisterViewController.swift */; };
+		36FE9FBD2AF217AA00EBF492 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FE9FBB2AF217AA00EBF492 /* RegisterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +136,25 @@
 		369921B62AF0CBE200DC4601 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		369921BA2AF0E2E200DC4601 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		369921BC2AF0E2EE00DC4601 /* InputField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputField.xib; sourceTree = "<group>"; };
+		36A432342AF21DA70070E770 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		36A432382AF2302A0070E770 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
+		36A432392AF2302B0070E770 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		36A4323A2AF2302B0070E770 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		36A4323B2AF2302B0070E770 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		36A4323C2AF2302B0070E770 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		36A4323D2AF2302B0070E770 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		36A4323E2AF2302B0070E770 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		36A4323F2AF2302B0070E770 /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
+		36A432402AF2302B0070E770 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		36A432412AF2302B0070E770 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		36A432422AF2302B0070E770 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		36A432432AF2302B0070E770 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		36A432442AF2302B0070E770 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
+		36A432452AF2302B0070E770 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		36A432462AF2302B0070E770 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		36A432472AF2302B0070E770 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		36A432482AF2302B0070E770 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
+		36A432492AF2302B0070E770 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		36D38E5C2AEA606900168143 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUILabel.swift; sourceTree = "<group>"; };
 		36D38E602AEA6A3800168143 /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
@@ -144,6 +170,8 @@
 		36FD06702AEA445A0088F415 /* TabelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabelViewController.xib; sourceTree = "<group>"; };
 		36FD067F2AEA47BF0088F415 /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		36FD06802AEA47BF0088F415 /* FoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCell.xib; sourceTree = "<group>"; };
+		36FE9FBA2AF217AA00EBF492 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		36FE9FBB2AF217AA00EBF492 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				369921B22AF0B24400DC4601 /* StepSlider in Frameworks */,
+				36FE9FB82AF214EA00EBF492 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +230,7 @@
 				36FD06752AEA451C0088F415 /* Resource */,
 				36FD06762AEA45260088F415 /* Module */,
 				36019C002AE8EF1500C07588 /* Info.plist */,
+				36A432342AF21DA70070E770 /* GoogleService-Info.plist */,
 			);
 			path = profileUI;
 			sourceTree = "<group>";
@@ -354,6 +384,39 @@
 			path = InputField;
 			sourceTree = "<group>";
 		};
+		36A432362AF230090070E770 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				36A432372AF230110070E770 /* Poppins */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		36A432372AF230110070E770 /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				36A432482AF2302B0070E770 /* Poppins-Black.ttf */,
+				36A432442AF2302B0070E770 /* Poppins-BlackItalic.ttf */,
+				36A432412AF2302B0070E770 /* Poppins-Bold.ttf */,
+				36A4323F2AF2302B0070E770 /* Poppins-BoldItalic.ttf */,
+				36A4323E2AF2302B0070E770 /* Poppins-ExtraBold.ttf */,
+				36A432422AF2302B0070E770 /* Poppins-ExtraBoldItalic.ttf */,
+				36A432472AF2302B0070E770 /* Poppins-ExtraLight.ttf */,
+				36A4323B2AF2302B0070E770 /* Poppins-ExtraLightItalic.ttf */,
+				36A4323A2AF2302B0070E770 /* Poppins-Italic.ttf */,
+				36A4323C2AF2302B0070E770 /* Poppins-Light.ttf */,
+				36A432392AF2302B0070E770 /* Poppins-LightItalic.ttf */,
+				36A432462AF2302B0070E770 /* Poppins-Medium.ttf */,
+				36A4323D2AF2302B0070E770 /* Poppins-MediumItalic.ttf */,
+				36A432432AF2302B0070E770 /* Poppins-Regular.ttf */,
+				36A432492AF2302B0070E770 /* Poppins-SemiBold.ttf */,
+				36A432402AF2302B0070E770 /* Poppins-SemiBoldItalic.ttf */,
+				36A432452AF2302B0070E770 /* Poppins-Thin.ttf */,
+				36A432382AF2302A0070E770 /* Poppins-ThinItalic.ttf */,
+			);
+			path = Poppins;
+			sourceTree = "<group>";
+		};
 		36F741F12AF099E700CAB136 /* ThreadsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +459,7 @@
 		36FD06752AEA451C0088F415 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				36A432362AF230090070E770 /* Font */,
 				36019BFB2AE8EF1500C07588 /* Assets.xcassets */,
 				36019BFD2AE8EF1500C07588 /* LaunchScreen.storyboard */,
 			);
@@ -405,6 +469,7 @@
 		36FD06762AEA45260088F415 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36FE9FB92AF2177100EBF492 /* RegisterView */,
 				369921B32AF0CBBC00DC4601 /* LoginView */,
 				36F741FA2AF0A38300CAB136 /* SettingView */,
 				36F741F12AF099E700CAB136 /* ThreadsView */,
@@ -412,13 +477,13 @@
 				360B3A382AEFB17000FD98BB /* HomeView */,
 				366FF0912AEFB09900F74907 /* MainTabBar */,
 				365BA6E62AEF3A9800CF478C /* SectionView */,
+				36FD067B2AEA45BF0088F415 /* EditProfileView */,
 				365BA6E22AEBBB3000CF478C /* ScrollView */,
 				365BA6DD2AEBB52C00CF478C /* Models */,
 				367B0BA92AEB9359009E72D4 /* CollectionView */,
 				367B0BA22AEB61B7009E72D4 /* DetailsView */,
 				36FD067D2AEA46170088F415 /* TabelView */,
 				36FD067C2AEA46020088F415 /* HalfScrollView */,
-				36FD067B2AEA45BF0088F415 /* EditProfileView */,
 				36FD067A2AEA45A00088F415 /* MainView */,
 			);
 			path = Module;
@@ -501,6 +566,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		36FE9FB92AF2177100EBF492 /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				36FE9FBA2AF217AA00EBF492 /* RegisterViewController.swift */,
+				36FE9FBB2AF217AA00EBF492 /* RegisterViewController.xib */,
+			);
+			path = RegisterView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -519,6 +593,7 @@
 			name = profileUI;
 			packageProductDependencies = (
 				369921B12AF0B24400DC4601 /* StepSlider */,
+				36FE9FB72AF214EA00EBF492 /* FirebaseAuth */,
 			);
 			productName = profileUI;
 			productReference = 36019BEF2AE8EF1400C07588 /* profileUI.app */;
@@ -596,6 +671,7 @@
 			mainGroup = 36019BE62AE8EF1400C07588;
 			packageReferences = (
 				369921B02AF0B24400DC4601 /* XCRemoteSwiftPackageReference "StepSlider" */,
+				36FE9FB62AF214EA00EBF492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 36019BF02AE8EF1400C07588 /* Products */;
 			projectDirPath = "";
@@ -615,8 +691,12 @@
 			files = (
 				36F741F92AF09A7B00CAB136 /* ThreadsViewController.xib in Resources */,
 				36F741FE2AF0A3A500CAB136 /* SettingViewController.xib in Resources */,
+				36FE9FBD2AF217AA00EBF492 /* RegisterViewController.xib in Resources */,
 				36F2C2BB2AE9FC590044729F /* EditProfileViewController.xib in Resources */,
+				36A4324B2AF230590070E770 /* Poppins-BlackItalic.ttf in Resources */,
+				36A4324A2AF230530070E770 /* Poppins-Black.ttf in Resources */,
 				369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */,
+				36A4324C2AF2305C0070E770 /* Poppins-Bold.ttf in Resources */,
 				3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */,
 				365BA6D42AEBAC4300CF478C /* Localizable.strings in Resources */,
 				360B3A442AEFB5B000FD98BB /* ProfileViewController.xib in Resources */,
@@ -631,6 +711,7 @@
 				367B0BB12AEB943F009E72D4 /* CollectionViewController.xib in Resources */,
 				365BA6EF2AEF3B5700CF478C /* ToolCell.xib in Resources */,
 				367B0BA12AEB61B1009E72D4 /* DetailsViewController.xib in Resources */,
+				36A432352AF21DA70070E770 /* GoogleService-Info.plist in Resources */,
 				36F741F02AF095A400CAB136 /* HomeViewController.xib in Resources */,
 				369921BD2AF0E2EE00DC4601 /* InputField.xib in Resources */,
 			);
@@ -669,6 +750,7 @@
 				36FD06812AEA47BF0088F415 /* FoodCell.swift in Sources */,
 				367B0B9C2AEB609F009E72D4 /* ExtUIButton.swift in Sources */,
 				365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */,
+				36FE9FBC2AF217AA00EBF492 /* RegisterViewController.swift in Sources */,
 				360B3A372AEFB12300FD98BB /* TabBarViewController.swift in Sources */,
 				369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */,
 				36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */,
@@ -1038,6 +1120,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		36FE9FB62AF214EA00EBF492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1045,6 +1135,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 369921B02AF0B24400DC4601 /* XCRemoteSwiftPackageReference "StepSlider" */;
 			productName = StepSlider;
+		};
+		36FE9FB72AF214EA00EBF492 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36FE9FB62AF214EA00EBF492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
