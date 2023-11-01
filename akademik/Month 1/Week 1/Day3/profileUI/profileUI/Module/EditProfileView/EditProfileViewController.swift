@@ -5,6 +5,7 @@ protocol EditProfileViewControllerDelegate: AnyObject {
     func passData(image: [UIImagePickerController.InfoKey: Any]?, name: String?, phone: String?, email: String?)
 }
 
+
 enum AuthError: Error {
     case userNotLoggedIn
     case noUpdatesRequested
@@ -24,31 +25,33 @@ class EditProfileViewController: UIViewController {
     
     weak var delegate: EditProfileViewControllerDelegate?
     
+    var existingName: String?
+    var existingPhone: String?
+    var existingEmail: String?
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-        delegate?.passData(image: imageChosen, name: nameTF.text, phone: phoneTF.text, email: emailTF.text)
-        
-        if let name = nameTF.text, !name.isEmpty {
-            updateDisplayName(name) { error in
+        if let newName = nameTF.text, !newName.isEmpty, newName != existingName {
+            updateDisplayName(newName) { error in
                 if let error = error {
                     self.showAlert(title: "Error", message: error.localizedDescription)
                 } else {
-                    self.navigationController?.popToRootViewController(animated: true)
+                    self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: newName, phone: self.phoneTF.text, email: self.emailTF.text)
                 }
             }
-        } else if let email = emailTF.text, !email.isEmpty {
-            updateEmail(email) { error in
+        } else if let newEmail = emailTF.text, !newEmail.isEmpty, newEmail != existingEmail {
+            updateEmail(newEmail) { error in
                 if let error = error {
                     self.showAlert(title: "Error", message: error.localizedDescription)
                 } else {
-                    self.navigationController?.popToRootViewController(animated: true)
+                    self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: self.nameTF.text, phone: self.phoneTF.text, email: newEmail)
                 }
             }
         } else {
-            self.showAlert(title: "Error", message: "Please provide a name or email.")
+            self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: nameTF.text, phone: phoneTF.text, email: emailTF.text)
         }
     }
     
@@ -56,6 +59,7 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
         setup()
         configureView()
+        setInit()
     }
     
     func setup() {
@@ -63,6 +67,11 @@ class EditProfileViewController: UIViewController {
         saveButton.setRoundedBorder(cornerRadius: 20)
     }
     
+    func setInit() {
+        nameTF.text = existingName
+        phoneTF.text = existingPhone
+        emailTF.text = existingEmail
+    }
     func configureView() {
         openCameraButton.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
         fromGaleryButton.addTarget(self, action: #selector(fromGallery), for: .touchUpInside)
@@ -89,10 +98,10 @@ class EditProfileViewController: UIViewController {
             completion(AuthError.userNotLoggedIn)
             return
         }
-        
+
         let changeRequest = currentUser.createProfileChangeRequest()
         changeRequest.displayName = displayName
-        
+
         changeRequest.commitChanges { commitError in
             if let commitError = commitError {
                 completion(commitError)
@@ -107,7 +116,7 @@ class EditProfileViewController: UIViewController {
             completion(AuthError.userNotLoggedIn)
             return
         }
-        
+
         currentUser.updateEmail(to: email) { error in
             if let error = error {
                 completion(error)
@@ -116,8 +125,13 @@ class EditProfileViewController: UIViewController {
             }
         }
     }
-
     
+    func updateProfileDataAndPopToRoot(image: [UIImagePickerController.InfoKey: Any]?, name: String?, phone: String?, email: String?) {
+        delegate?.passData(image: image, name: name, phone: phone, email: email)
+        navigationController?.popToRootViewController(animated: true)
+    }
+
+
 }
 
 

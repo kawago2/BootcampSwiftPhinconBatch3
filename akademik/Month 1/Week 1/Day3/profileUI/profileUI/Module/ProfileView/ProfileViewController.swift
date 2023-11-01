@@ -1,10 +1,3 @@
-//
-//  ProfileViewController.swift
-//  profileUI
-//
-//  Created by Phincon on 30/10/23.
-//
-
 import UIKit
 import FirebaseAuth
 
@@ -31,6 +24,8 @@ class ProfileViewController: UIViewController {
             profileImg.image = image
             profileImg.setCircleBorder()
         }
+        
+        
         // Set shadow for the aboutView
         aboutView.setShadow()
     }
@@ -55,34 +50,38 @@ class ProfileViewController: UIViewController {
             let loginViewController = LoginViewController()
             navigationController?.setViewControllers([loginViewController], animated: true)
         } catch {
-            print("Error signing out: \(error.localizedDescription)")
+            showAlert(title: "Errpr Sign Out", message: error.localizedDescription)
         }
     }
 
     @IBAction func penButtonTapped(_ sender: Any) {
         let vc = EditProfileViewController()
         vc.delegate = self
+        vc.existingName = nameTF.text
+        vc.existingPhone = phoneTF.text
+        vc.existingEmail = emailTF.text
         navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension ProfileViewController: EditProfileViewControllerDelegate {
-    func passData(image: [UIImagePickerController.InfoKey : Any]?, name: String?, phone: String?, email: String?) {
-        if name != nil {
-            nameTF.text = name
-        }
-        
-        if phone != nil{
-            phoneTF.text = phone
-        }
-        
-        if email != nil {
-            emailTF.text = email
-        }
-        
+    func passData(image: [UIImagePickerController.InfoKey: Any]?, name: String?, phone: String?, email: String?) {
         if let imageDict = image, let validImage = imageDict[.editedImage] as? UIImage {
             profileImg.image = validImage
         }
+
+        if let newName = name {
+            nameTF.text = newName
+        }
+
+        if let newPhone = phone {
+            phoneTF.text = newPhone
+        }
+
+        if let newEmail = email {
+            emailTF.text = newEmail
+        }
     }
 }
+
 
