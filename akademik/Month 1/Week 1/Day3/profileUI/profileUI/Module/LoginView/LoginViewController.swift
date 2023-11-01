@@ -46,16 +46,18 @@ class LoginViewController: UIViewController {
     func setup() {
         uiEmailField()
         uiPasswordField()
+        loginButton.setRoundedBorder(cornerRadius: 20)
         topView.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 30)
     }
     
     func uiEmailField() {
+        emailField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)
         emailField.setup(title: "Email", placeholder: "Email")
-//        emailField.titleField.text = "Email"
         emailField.inputText.font = UIFont.boldSystemFont(ofSize: 20)
     }
     
     func uiPasswordField() {
+        passwordField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)
         passwordField.setup(title: "Password", placeholder: "Password")
         passwordField.inputText.font = UIFont.boldSystemFont(ofSize: 20)
     }

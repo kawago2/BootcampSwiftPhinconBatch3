@@ -21,7 +21,7 @@ class DrinkCell: UICollectionViewCell {
     }
     
     func setup(){
-        drinkView.setShadowRadius()
+        drinkView.setShadow()
     }
     func configureData(data: ModelItem) {
         self.namaLabel.text = data.nama ?? "Nama Tidak Tersedia"

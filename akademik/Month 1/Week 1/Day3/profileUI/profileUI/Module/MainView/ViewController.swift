@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             profileImg.image = image
         }
         profileImg.setCircleBorder()
-        aboutView.setShadowRadius()
+        aboutView.setShadow()
         nameTF.text = name
         phoneTF.text = phone
         emailTF.text = email

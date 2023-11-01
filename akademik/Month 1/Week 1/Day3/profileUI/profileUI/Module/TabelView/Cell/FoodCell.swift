@@ -24,7 +24,7 @@ class FoodCell: UITableViewCell {
     }
     
     func setup() {
-        containerView.setShadowRadius()
+        containerView.setShadow()
         imgMakanan.setRoundedBorder()
     }
     

@@ -9,10 +9,11 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    func setRoundedBorder() {
-        self.layer.cornerRadius = 15
-        self.layer.borderWidth = 0
-        self.layer.borderColor = UIColor.black.cgColor
-        self.clipsToBounds = true
+    func setRoundedBorder(cornerRadius: CGFloat = 15, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.black, clipsToBounds: Bool = true) {
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.clipsToBounds = clipsToBounds
     }
 }
+

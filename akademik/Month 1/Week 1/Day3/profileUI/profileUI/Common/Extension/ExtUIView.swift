@@ -9,15 +9,14 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func setShadowRadius(){
-        self.layer.cornerRadius = 20
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 1
-        self.layer.shadowOffset = CGSize(width: 0, height: 2)
-        self.layer.shadowRadius = 5
-        self.clipsToBounds = false
+    func setShadow(cornerRadius: CGFloat = 20, shadowColor: CGColor = UIColor.black.cgColor, shadowOpacity: Float = 1.0, shadowOffset: CGSize = CGSize(width: 0, height: 2), shadowRadius: CGFloat = 5.0, clipsToBounds: Bool = false) {
+        self.layer.cornerRadius = cornerRadius
+        self.layer.shadowColor = shadowColor
+        self.layer.shadowOpacity = shadowOpacity
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowRadius = shadowRadius
+        self.clipsToBounds = clipsToBounds
     }
-    
     func roundCorners(corners: UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds,
                                 byRoundingCorners: corners,

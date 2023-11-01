@@ -28,7 +28,9 @@ class TabBarViewController: UITabBarController {
         
         // Customize appearance for tab bar items
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.blue], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor(named: "MainColor") ?? UIColor.black], for: .selected)
+        UITabBar.appearance().tintColor = UIColor(named: "MainColor") ?? UIColor.black
+        
     }
     
     func configureTab() {

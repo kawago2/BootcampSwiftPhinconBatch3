@@ -26,7 +26,8 @@ class ProfileViewController: UIViewController {
     
     @IBAction func penButtonTapped(_ sender: Any) {
         let vc = EditProfileViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 
@@ -38,12 +39,23 @@ class ProfileViewController: UIViewController {
         }
         
         // Set shadow for the aboutView
-        aboutView.setShadowRadius()
+        aboutView.setShadow()
         
         // Set the labels
         nameTF.text = name
         phoneTF.text = phone
         emailTF.text = email
+    }
+}
+
+extension ProfileViewController: EditProfileViewControllerDelegate {
+    func passData(image: [UIImagePickerController.InfoKey : Any], name: String, phone: String, email: String) {
+        nameTF.text = name
+        phoneTF.text = phone
+        emailTF.text = email
+        
+        guard let image = image[.editedImage] as? UIImage else { return }
+        profileImg.image = image
     }
 }
 
