@@ -64,7 +64,7 @@
                                     <rect key="frame" x="27" y="346" width="339" height="42"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Login">
-                                        <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
+                                        <fontDescription key="titleFontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
                                         <color key="baseForegroundColor" name="TextColor"/>
                                         <color key="baseBackgroundColor" name="SecColor"/>
                                     </buttonConfiguration>

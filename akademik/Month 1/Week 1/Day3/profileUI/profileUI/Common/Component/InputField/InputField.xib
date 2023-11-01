@@ -12,6 +12,7 @@
                 <outlet property="errorField" destination="Gs2-Wl-JAv" id="9UH-Kn-QOJ"/>
                 <outlet property="formView" destination="CJu-Ef-iQf" id="1X1-09-CY2"/>
                 <outlet property="inputText" destination="Jdr-Se-dic" id="orr-9y-6tV"/>
+                <outlet property="obsecureButton" destination="Cp4-d5-Xr7" id="fWq-jU-mrv"/>
                 <outlet property="titleField" destination="ZGS-ou-ybO" id="Ktw-5d-m93"/>
             </connections>
         </placeholder>
@@ -38,6 +39,13 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cp4-d5-Xr7">
+                            <rect key="frame" x="341" y="13" width="58" height="33"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                            </buttonConfiguration>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -45,6 +53,9 @@
                         <constraint firstItem="Jdr-Se-dic" firstAttribute="centerY" secondItem="CJu-Ef-iQf" secondAttribute="centerY" id="2dV-KJ-xWi"/>
                         <constraint firstItem="Jdr-Se-dic" firstAttribute="trailing" secondItem="CJu-Ef-iQf" secondAttribute="trailingMargin" id="9fv-YI-WhU"/>
                         <constraint firstItem="Jdr-Se-dic" firstAttribute="leading" secondItem="CJu-Ef-iQf" secondAttribute="leadingMargin" id="Huo-aT-T45"/>
+                        <constraint firstItem="Cp4-d5-Xr7" firstAttribute="top" secondItem="Jdr-Se-dic" secondAttribute="top" id="fBI-SG-Ee9"/>
+                        <constraint firstItem="Cp4-d5-Xr7" firstAttribute="trailing" secondItem="Jdr-Se-dic" secondAttribute="trailing" id="hKW-kL-hjJ"/>
+                        <constraint firstItem="Cp4-d5-Xr7" firstAttribute="centerY" secondItem="Jdr-Se-dic" secondAttribute="centerY" id="wGo-Qg-5Mg"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gs2-Wl-JAv">
@@ -71,4 +82,10 @@
             <point key="canvasLocation" x="125.95419847328243" y="-249.64788732394368"/>
         </view>
     </objects>
+    <resources>
+        <image name="eye" catalog="system" width="128" height="79"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

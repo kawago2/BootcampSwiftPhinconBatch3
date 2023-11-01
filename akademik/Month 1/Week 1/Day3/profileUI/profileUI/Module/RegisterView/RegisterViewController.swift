@@ -36,12 +36,7 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
+
     func showRegistrationSuccessAlert() {
         let alert = UIAlertController(title: "Register Successful", message: "Please log in to enter the application", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
@@ -65,14 +60,16 @@ class RegisterViewController: UIViewController {
     
     func uiEmailField() {
         emailField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)
-        emailField.setup(title: "Email", placeholder: "Email")
-        emailField.inputText.font = UIFont.boldSystemFont(ofSize: 20)
+        emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
+        emailField.titleField.font = FontPoppins.regular(18)
+        emailField.inputText.font =  FontPoppins.bold(18)
     }
     
     func uiPasswordField() {
         passwordField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)
-        passwordField.setup(title: "Password", placeholder: "Password")
-        passwordField.inputText.font = UIFont.boldSystemFont(ofSize: 20)
+        passwordField.setup(title: "Password", placeholder: "Password", isSecure: true)
+        passwordField.titleField.font = FontPoppins.regular(18)
+        passwordField.inputText.font =  FontPoppins.bold(18)
     }
     
 }

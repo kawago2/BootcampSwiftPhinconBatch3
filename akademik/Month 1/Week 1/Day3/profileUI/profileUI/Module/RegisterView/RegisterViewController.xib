@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="profileUI" customModuleProvider="target">
             <connections>
@@ -29,13 +34,13 @@
                             <rect key="frame" x="0.0" y="-61" width="393" height="856"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekk-BT-yuT">
-                                    <rect key="frame" x="135" y="315" width="123" height="24"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                    <rect key="frame" x="135" y="311" width="123" height="28"/>
+                                    <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="icon_login" translatesAutoresizingMaskIntoConstraints="NO" id="884-J0-Nj8">
-                                    <rect key="frame" x="90" y="88.000000000000014" width="213" height="214.33333333333337"/>
+                                    <rect key="frame" x="90" y="88.000000000000014" width="213" height="210.33333333333337"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" name="MainColor"/>
@@ -53,10 +58,10 @@
                             <rect key="frame" x="0.0" y="296" width="393" height="463"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIl-Bw-87U">
-                                    <rect key="frame" x="27" y="350" width="339" height="38"/>
+                                    <rect key="frame" x="27" y="346" width="339" height="42"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Register">
-                                        <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <fontDescription key="titleFontDescription" name="Poppins-Medium" family="Poppins" pointSize="20"/>
                                         <color key="baseForegroundColor" name="TextColor"/>
                                         <color key="baseBackgroundColor" name="SecColor"/>
                                     </buttonConfiguration>
@@ -74,30 +79,48 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" name="SecColor"/>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Have an Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A51-qP-Abp">
-                                    <rect key="frame" x="61" y="396" width="137" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNx-EN-clX">
-                                    <rect key="frame" x="197" y="396" width="66" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2M7-iy-kV1">
+                                    <rect key="frame" x="58" y="396" width="278" height="27"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A51-qP-Abp">
+                                            <rect key="frame" x="24" y="0.0" width="137" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNx-EN-clX">
+                                            <rect key="frame" x="166" y="0.0" width="66" height="27"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                            <connections>
+                                                <action selector="loginTapped:" destination="-1" eventType="touchUpInside" id="ity-ki-sm3"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Login"/>
-                                    <connections>
-                                        <action selector="loginTapped:" destination="-1" eventType="touchUpInside" id="ity-ki-sm3"/>
-                                    </connections>
-                                </button>
+                                    <constraints>
+                                        <constraint firstItem="UNx-EN-clX" firstAttribute="leading" secondItem="A51-qP-Abp" secondAttribute="trailing" constant="5" id="911-qw-q1g"/>
+                                        <constraint firstAttribute="bottom" secondItem="UNx-EN-clX" secondAttribute="bottom" id="Pdw-ai-R1a"/>
+                                        <constraint firstItem="UNx-EN-clX" firstAttribute="leading" secondItem="A51-qP-Abp" secondAttribute="trailing" constant="5" id="bYP-CE-gD3"/>
+                                        <constraint firstAttribute="bottom" secondItem="A51-qP-Abp" secondAttribute="bottom" id="blx-eE-QAd"/>
+                                        <constraint firstItem="A51-qP-Abp" firstAttribute="top" secondItem="2M7-iy-kV1" secondAttribute="top" id="mSu-Ou-8q1"/>
+                                        <constraint firstItem="A51-qP-Abp" firstAttribute="leading" secondItem="2M7-iy-kV1" secondAttribute="leading" constant="24" id="ngk-hk-5Xf"/>
+                                        <constraint firstAttribute="trailing" secondItem="UNx-EN-clX" secondAttribute="trailing" constant="46" id="p7J-qQ-jnL"/>
+                                        <constraint firstItem="UNx-EN-clX" firstAttribute="top" secondItem="2M7-iy-kV1" secondAttribute="top" id="yBI-fk-Im1"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="QIl-Bw-87U" firstAttribute="leading" secondItem="fbj-ga-0GD" secondAttribute="leading" constant="27" id="6eQ-TV-UcV"/>
+                                <constraint firstItem="2M7-iy-kV1" firstAttribute="top" secondItem="QIl-Bw-87U" secondAttribute="bottom" constant="8" symbolic="YES" id="8Ua-hK-Q5V"/>
+                                <constraint firstAttribute="trailing" secondItem="2M7-iy-kV1" secondAttribute="trailing" constant="57" id="Clg-0V-Ym6"/>
                                 <constraint firstAttribute="bottom" secondItem="QIl-Bw-87U" secondAttribute="bottom" constant="75" id="Elt-jz-KVT"/>
+                                <constraint firstAttribute="bottom" secondItem="2M7-iy-kV1" secondAttribute="bottom" constant="40" id="Q2w-Qx-IdJ"/>
                                 <constraint firstAttribute="trailing" secondItem="QIl-Bw-87U" secondAttribute="trailing" constant="27" id="blv-fw-rz4"/>
+                                <constraint firstItem="2M7-iy-kV1" firstAttribute="leading" secondItem="fbj-ga-0GD" secondAttribute="leading" constant="58" id="ykR-5i-4E1"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Utw-07-xPG">

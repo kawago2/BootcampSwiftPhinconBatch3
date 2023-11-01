@@ -52,6 +52,13 @@
 		36A4324A2AF230530070E770 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432482AF2302B0070E770 /* Poppins-Black.ttf */; };
 		36A4324B2AF230590070E770 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432442AF2302B0070E770 /* Poppins-BlackItalic.ttf */; };
 		36A4324C2AF2305C0070E770 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432412AF2302B0070E770 /* Poppins-Bold.ttf */; };
+		36A4324D2AF23D7C0070E770 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432432AF2302B0070E770 /* Poppins-Regular.ttf */; };
+		36A4324E2AF23D810070E770 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432492AF2302B0070E770 /* Poppins-SemiBold.ttf */; };
+		36A4324F2AF23D830070E770 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432402AF2302B0070E770 /* Poppins-SemiBoldItalic.ttf */; };
+		36A432502AF23D860070E770 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432452AF2302B0070E770 /* Poppins-Thin.ttf */; };
+		36A432512AF23D880070E770 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432382AF2302A0070E770 /* Poppins-ThinItalic.ttf */; };
+		36A432522AF23DA50070E770 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A4323A2AF2302B0070E770 /* Poppins-Italic.ttf */; };
+		36A432532AF23DA80070E770 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432462AF2302B0070E770 /* Poppins-Medium.ttf */; };
 		36D38E5D2AEA606900168143 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5C2AEA606900168143 /* ExtUIView.swift */; };
 		36D38E5F2AEA69FA00168143 /* ExtUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */; };
 		36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E602AEA6A3800168143 /* ExtUIImageView.swift */; };
@@ -471,13 +478,13 @@
 			children = (
 				36FE9FB92AF2177100EBF492 /* RegisterView */,
 				369921B32AF0CBBC00DC4601 /* LoginView */,
+				360B3A402AEFB57400FD98BB /* ProfileView */,
+				36FD067B2AEA45BF0088F415 /* EditProfileView */,
 				36F741FA2AF0A38300CAB136 /* SettingView */,
 				36F741F12AF099E700CAB136 /* ThreadsView */,
-				360B3A402AEFB57400FD98BB /* ProfileView */,
 				360B3A382AEFB17000FD98BB /* HomeView */,
 				366FF0912AEFB09900F74907 /* MainTabBar */,
 				365BA6E62AEF3A9800CF478C /* SectionView */,
-				36FD067B2AEA45BF0088F415 /* EditProfileView */,
 				365BA6E22AEBBB3000CF478C /* ScrollView */,
 				365BA6DD2AEBB52C00CF478C /* Models */,
 				367B0BA92AEB9359009E72D4 /* CollectionView */,
@@ -694,7 +701,9 @@
 				36FE9FBD2AF217AA00EBF492 /* RegisterViewController.xib in Resources */,
 				36F2C2BB2AE9FC590044729F /* EditProfileViewController.xib in Resources */,
 				36A4324B2AF230590070E770 /* Poppins-BlackItalic.ttf in Resources */,
+				36A432532AF23DA80070E770 /* Poppins-Medium.ttf in Resources */,
 				36A4324A2AF230530070E770 /* Poppins-Black.ttf in Resources */,
+				36A4324E2AF23D810070E770 /* Poppins-SemiBold.ttf in Resources */,
 				369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */,
 				36A4324C2AF2305C0070E770 /* Poppins-Bold.ttf in Resources */,
 				3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */,
@@ -704,14 +713,19 @@
 				36019BFF2AE8EF1500C07588 /* LaunchScreen.storyboard in Resources */,
 				2F22A9C02AEFDF63007C7427 /* Main.storyboard in Resources */,
 				367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */,
+				36A4324D2AF23D7C0070E770 /* Poppins-Regular.ttf in Resources */,
+				36A4324F2AF23D830070E770 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				36019BFC2AE8EF1500C07588 /* Assets.xcassets in Resources */,
 				36FD06722AEA445A0088F415 /* TabelViewController.xib in Resources */,
 				365BA6FA2AEF4E5F00CF478C /* SectionViewController.xib in Resources */,
+				36A432522AF23DA50070E770 /* Poppins-Italic.ttf in Resources */,
 				36FD06822AEA47BF0088F415 /* FoodCell.xib in Resources */,
 				367B0BB12AEB943F009E72D4 /* CollectionViewController.xib in Resources */,
 				365BA6EF2AEF3B5700CF478C /* ToolCell.xib in Resources */,
+				36A432502AF23D860070E770 /* Poppins-Thin.ttf in Resources */,
 				367B0BA12AEB61B1009E72D4 /* DetailsViewController.xib in Resources */,
 				36A432352AF21DA70070E770 /* GoogleService-Info.plist in Resources */,
+				36A432512AF23D880070E770 /* Poppins-ThinItalic.ttf in Resources */,
 				36F741F02AF095A400CAB136 /* HomeViewController.xib in Resources */,
 				369921BD2AF0E2EE00DC4601 /* InputField.xib in Resources */,
 			);

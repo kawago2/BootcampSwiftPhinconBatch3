@@ -1,12 +1,16 @@
 import UIKit
+import FirebaseAuth
 
 protocol EditProfileViewControllerDelegate: AnyObject {
-    func passData(image:  [UIImagePickerController.InfoKey: Any], name: String, phone: String, email: String)
+    func passData(image: [UIImagePickerController.InfoKey: Any]?, name: String?, phone: String?, email: String?)
+}
+
+enum AuthError: Error {
+    case userNotLoggedIn
+    case noUpdatesRequested
 }
 
 class EditProfileViewController: UIViewController {
-    var titlePage = "Edit Profile"
-    
     @IBOutlet weak var openCameraButton: UIButton!
     @IBOutlet weak var fromGaleryButton: UIButton!
     @IBOutlet weak var showImageProfile: UIImageView!
@@ -25,8 +29,27 @@ class EditProfileViewController: UIViewController {
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-        delegate?.passData(image: imageChosen, name: nameTF.text ?? "", phone: phoneTF.text ?? "", email: emailTF.text ?? "")
-        navigationController?.popToRootViewController(animated: true)
+        delegate?.passData(image: imageChosen, name: nameTF.text, phone: phoneTF.text, email: emailTF.text)
+        
+        if let name = nameTF.text, !name.isEmpty {
+            updateDisplayName(name) { error in
+                if let error = error {
+                    self.showAlert(title: "Error", message: error.localizedDescription)
+                } else {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            }
+        } else if let email = emailTF.text, !email.isEmpty {
+            updateEmail(email) { error in
+                if let error = error {
+                    self.showAlert(title: "Error", message: error.localizedDescription)
+                } else {
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            }
+        } else {
+            self.showAlert(title: "Error", message: "Please provide a name or email.")
+        }
     }
     
     override func viewDidLoad() {
@@ -60,6 +83,40 @@ class EditProfileViewController: UIViewController {
         pickerImage.sourceType = sourceType
         present(pickerImage, animated: true, completion: nil)
     }
+    
+    func updateDisplayName(_ displayName: String, completion: @escaping (Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(AuthError.userNotLoggedIn)
+            return
+        }
+        
+        let changeRequest = currentUser.createProfileChangeRequest()
+        changeRequest.displayName = displayName
+        
+        changeRequest.commitChanges { commitError in
+            if let commitError = commitError {
+                completion(commitError)
+            } else {
+                completion(nil) // Display name updated successfully
+            }
+        }
+    }
+
+    func updateEmail(_ email: String, completion: @escaping (Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(AuthError.userNotLoggedIn)
+            return
+        }
+        
+        currentUser.updateEmail(to: email) { error in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil) // Email updated successfully
+            }
+        }
+    }
+
     
 }
 

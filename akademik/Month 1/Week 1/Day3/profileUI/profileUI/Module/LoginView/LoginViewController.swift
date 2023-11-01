@@ -64,15 +64,16 @@ class LoginViewController: UIViewController {
     
     func uiEmailField() {
         emailField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)
-        emailField.setup(title: "Email", placeholder: "Email")
-        emailField.titleField.font = FontPoppins.regular(size: 18)
-        emailField.inputText.font =  FontPoppins.bold(size: 18)
+        emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
+        emailField.titleField.font = FontPoppins.regular(18)
+        emailField.inputText.font =  FontPoppins.bold(18)
     }
     
     func uiPasswordField() {
         passwordField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)
-        passwordField.setup(title: "Password", placeholder: "Password")
-        passwordField.titleField.font = FontPoppins.regular(size: 18)
-        passwordField.inputText.font =  FontPoppins.bold(size: 18)
+        passwordField.setup(title: "Password", placeholder: "Password", isSecure: true)
+        passwordField.titleField.font = FontPoppins.regular(18)
+        passwordField.inputText.font =  FontPoppins.bold(18)
+        passwordField.inputText.isSecureTextEntry = true
     }
 }

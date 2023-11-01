@@ -9,6 +9,14 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="profileUI" customModuleProvider="target">
             <connections>
@@ -33,7 +41,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="2WV-PD-oi6"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0877798769" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Op7-jE-6b3">
@@ -41,7 +49,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="ky7-Zf-cdn"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -64,7 +72,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="MRl-6O-isT"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="admin@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYb-AR-SW9">
@@ -72,7 +80,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="HF7-Fc-Wwz"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -95,7 +103,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="5mC-V0-Rn8"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaleb Gomgom Edward" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1K-tR-lRZ">
@@ -103,7 +111,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="cjy-fH-bEU"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -119,16 +127,16 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LqX-be-Vfu">
-                    <rect key="frame" x="103" y="250" width="169" height="165"/>
+                    <rect key="frame" x="103" y="250" width="169" height="172"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Halo nama saya Kaleb, saya sebagai iOS Developer yang sedang bekerja di PT. Phincon" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xog-i2-5Nd">
-                            <rect key="frame" x="8" y="52" width="153" height="106"/>
+                            <rect key="frame" x="8" y="52" width="153" height="113"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="106" id="BY4-Nx-QpQ"/>
+                                <constraint firstAttribute="height" constant="113" id="BY4-Nx-QpQ"/>
                             </constraints>
                             <color key="textColor" name="TextColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4B-UT-7vZ">
@@ -136,7 +144,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="3bX-ce-SRS"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                             <color key="textColor" name="TextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -147,7 +155,7 @@
                         <constraint firstItem="E4B-UT-7vZ" firstAttribute="leading" secondItem="LqX-be-Vfu" secondAttribute="leading" constant="8" id="63e-vr-vPN"/>
                         <constraint firstAttribute="trailing" secondItem="xog-i2-5Nd" secondAttribute="trailing" constant="8" id="9pV-2q-ImL"/>
                         <constraint firstItem="E4B-UT-7vZ" firstAttribute="top" secondItem="LqX-be-Vfu" secondAttribute="top" constant="27" id="B4G-FE-k1i"/>
-                        <constraint firstAttribute="height" constant="165" id="PVa-vY-mES"/>
+                        <constraint firstAttribute="height" constant="172" id="PVa-vY-mES"/>
                         <constraint firstAttribute="trailing" secondItem="E4B-UT-7vZ" secondAttribute="trailing" constant="8" id="Uzo-Rm-4bf"/>
                         <constraint firstItem="xog-i2-5Nd" firstAttribute="top" secondItem="E4B-UT-7vZ" secondAttribute="bottom" constant="5" id="u5q-ZB-Xce"/>
                     </constraints>
@@ -160,7 +168,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="87" id="a1e-w8-fqZ"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa7-9N-vE3">
@@ -221,7 +229,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mEr-tl-zXD" secondAttribute="trailing" constant="16" id="QOr-NH-HzW"/>
                 <constraint firstItem="bWF-qi-4yM" firstAttribute="top" secondItem="6ll-in-Ll4" secondAttribute="bottom" constant="2" id="YDE-2H-WKo"/>
                 <constraint firstItem="BaL-dA-IYh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="a48-Nf-eq1"/>
-                <constraint firstItem="6ll-in-Ll4" firstAttribute="top" secondItem="LqX-be-Vfu" secondAttribute="bottom" constant="44" id="bym-Sd-QAh"/>
+                <constraint firstItem="6ll-in-Ll4" firstAttribute="top" secondItem="LqX-be-Vfu" secondAttribute="bottom" constant="37" id="bym-Sd-QAh"/>
                 <constraint firstItem="SS0-kT-yj1" firstAttribute="top" secondItem="mEr-tl-zXD" secondAttribute="bottom" constant="20" id="dDr-jZ-rhS"/>
                 <constraint firstItem="bWF-qi-4yM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="nGU-iL-IFm"/>
                 <constraint firstItem="6ll-in-Ll4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="26" id="o6e-df-rH9"/>
