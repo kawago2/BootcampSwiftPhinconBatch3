@@ -11,6 +11,7 @@ class ProfileViewController: UIViewController {
     var titlePage = "profile_string".localized
     let notSetText = "Not Set"
     let defaultText = "No User"
+    let image = "image_profile"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class ProfileViewController: UIViewController {
     
     func setupUI() {
         // Set the profile image
-        if let image = UIImage(named: "image_profile") {
+        if let image = UIImage(named: image) {
             profileImg.image = image
             profileImg.setCircleBorder()
         }
@@ -57,9 +58,7 @@ class ProfileViewController: UIViewController {
     @IBAction func penButtonTapped(_ sender: Any) {
         let vc = EditProfileViewController()
         vc.delegate = self
-        vc.existingName = nameTF.text
-        vc.existingPhone = phoneTF.text
-        vc.existingEmail = emailTF.text
+        vc.initData = UserModel(nama: nameTF.text, phone: phoneTF.text, email: emailTF.text, image: image)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

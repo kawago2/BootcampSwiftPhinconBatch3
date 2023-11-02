@@ -25,34 +25,53 @@ class EditProfileViewController: UIViewController {
     
     weak var delegate: EditProfileViewControllerDelegate?
     
-    var existingName: String?
-    var existingPhone: String?
-    var existingEmail: String?
+    var initData = UserModel()
     
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-        if let newName = nameTF.text, !newName.isEmpty, newName != existingName {
-            updateDisplayName(newName) { error in
-                if let error = error {
-                    self.showAlert(title: "Error", message: error.localizedDescription)
-                } else {
-                    self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: newName, phone: self.phoneTF.text, email: self.emailTF.text)
-                }
-            }
-        } else if let newEmail = emailTF.text, !newEmail.isEmpty, newEmail != existingEmail {
-            updateEmail(newEmail) { error in
-                if let error = error {
-                    self.showAlert(title: "Error", message: error.localizedDescription)
-                } else {
-                    self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: self.nameTF.text, phone: self.phoneTF.text, email: newEmail)
-                }
-            }
-        } else {
-            self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: nameTF.text, phone: phoneTF.text, email: emailTF.text)
-        }
+        let newName = nameTF.text ?? ""
+           let newEmail = emailTF.text ?? ""
+
+           if (newName != initData.nama) && (newEmail != initData.email) {
+               // Kedua nama dan email berubah, lakukan pembaruan untuk keduanya
+               updateDisplayName(newName) { nameError in
+                   if let nameError = nameError {
+                       self.showAlert(title: "Error", message: nameError.localizedDescription)
+                   } else {
+                       self.updateEmail(newEmail) { emailError in
+                           if let emailError = emailError {
+                               self.showAlert(title: "Error", message: emailError.localizedDescription)
+                           } else {
+                               self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: newName, phone: self.phoneTF.text, email: newEmail)
+                           }
+                       }
+                   }
+               }
+           } else if newName != initData.nama {
+               // Hanya nama yang berubah, lakukan pembaruan nama
+               updateDisplayName(newName) { nameError in
+                   if let nameError = nameError {
+                       self.showAlert(title: "Error", message: nameError.localizedDescription)
+                   } else {
+                       self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: newName, phone: self.phoneTF.text, email: newEmail)
+                   }
+               }
+           } else if newEmail != initData.email {
+               // Hanya email yang berubah, lakukan pembaruan email
+               updateEmail(newEmail) { emailError in
+                   if let emailError = emailError {
+                       self.showAlert(title: "Error", message: emailError.localizedDescription)
+                   } else {
+                       self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: newName, phone: self.phoneTF.text, email: newEmail)
+                   }
+               }
+           } else {
+               // Tidak ada perubahan yang perlu dilakukan
+               self.updateProfileDataAndPopToRoot(image: self.imageChosen, name: newName, phone: self.phoneTF.text, email: newEmail)
+           }
     }
     
     override func viewDidLoad() {
@@ -68,9 +87,14 @@ class EditProfileViewController: UIViewController {
     }
     
     func setInit() {
-        nameTF.text = existingName
-        phoneTF.text = existingPhone
-        emailTF.text = existingEmail
+        nameTF.text = initData.nama
+        phoneTF.text = initData.phone
+        emailTF.text = initData.email
+        // Set the profile image
+        if let image = UIImage(named: initData.image ?? "image_not_available") {
+            showImageProfile.image = image
+        }
+
     }
     func configureView() {
         openCameraButton.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
