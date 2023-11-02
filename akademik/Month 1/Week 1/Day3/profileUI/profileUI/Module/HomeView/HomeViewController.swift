@@ -36,15 +36,18 @@ class HomeViewController: UIViewController {
     func configureTable() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = UIColor.clear
         tableView.registerCellWithNib(TopCell.self)
         tableView.registerCellWithNib(MiddleCell.self)
+        tableView.registerCellWithNib(BottomCell.self)
     }
 }
 
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,10 +61,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as! MiddleCell
             cell.listFood = listFood
             return cell
+            
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
+            return cell
         default:
             return UITableViewCell()
         }
-
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -70,17 +77,27 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 180
         case 1:
-            let itemHeight: CGFloat = 280
+            let itemHeight: CGFloat = 250
             let itemsPerRow: Int = 2
             let rowCount = (listFood.count + 1) / itemsPerRow
             let totalHeight = CGFloat(rowCount) * itemHeight
             return totalHeight
+        case 2:
+            return 44
         default:
             return 0
         }
     }
     
-
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        if index == 3 {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
+        }
+       
+    }
+    
 }
 
 
