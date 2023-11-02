@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // set navigation controler
         let login = LoginViewController()
         let tabbar = TabBarViewController()
-        let navigationController = UINavigationController(rootViewController: login)
+        let splash = SplashViewController()
+        let navigationController = UINavigationController(rootViewController: splash)
         navigationController.isNavigationBarHidden = true
         
         // set to root
