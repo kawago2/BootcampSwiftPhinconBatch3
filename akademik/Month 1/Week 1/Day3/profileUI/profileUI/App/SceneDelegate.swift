@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let login = LoginViewController()
         let tabbar = TabBarViewController()
         let splash = SplashViewController()
-        let navigationController = UINavigationController(rootViewController: splash)
+        let home = HomeViewController()
+        let navigationController = UINavigationController(rootViewController: tabbar)
         navigationController.isNavigationBarHidden = true
         
         // set to root

@@ -3,17 +3,14 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="profileUI" customModuleProvider="target">
             <connections>
-                <outlet property="bannerButton" destination="ghU-SD-Q4b" id="PoH-yu-1qr"/>
-                <outlet property="listMakananButton" destination="sE7-4k-cOY" id="acF-YV-aVR"/>
-                <outlet property="listMinumanButton" destination="Omb-TF-2CG" id="JU9-t8-BAm"/>
-                <outlet property="threadsButton" destination="IIP-WJ-fKc" id="3WE-Gz-bat"/>
+                <outlet property="tableView" destination="MAq-yl-ROy" id="WQE-li-0bB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,10 +20,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvv-gU-hna">
-                    <rect key="frame" x="16" y="59" width="361" height="40"/>
+                    <rect key="frame" x="16" y="59" width="361" height="24"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhX-fb-wM2">
-                            <rect key="frame" x="130" y="0.0" width="101" height="40"/>
+                            <rect key="frame" x="130" y="0.0" width="101" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="101" id="X8i-93-y1x"/>
                             </constraints>
@@ -35,74 +32,35 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="bhX-fb-wM2" firstAttribute="centerX" secondItem="fvv-gU-hna" secondAttribute="centerX" id="Edp-aB-O1p"/>
                         <constraint firstAttribute="bottom" secondItem="bhX-fb-wM2" secondAttribute="bottom" id="UqJ-Jo-HEb"/>
                         <constraint firstItem="bhX-fb-wM2" firstAttribute="top" secondItem="fvv-gU-hna" secondAttribute="top" id="eoD-Qt-D2h"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMM-bf-lxT">
-                    <rect key="frame" x="0.0" y="153" width="393" height="371"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIP-WJ-fKc">
-                            <rect key="frame" x="224" y="8" width="150" height="150"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Threads"/>
-                            <connections>
-                                <action selector="threadsButtonTapped:" destination="-1" eventType="touchUpInside" id="rDh-eX-7CO"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sE7-4k-cOY">
-                            <rect key="frame" x="20" y="8" width="150" height="150"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="List Makanan"/>
-                            <connections>
-                                <action selector="listMakananButtonTapped:" destination="-1" eventType="touchUpInside" id="Uab-1Z-f0t"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghU-SD-Q4b">
-                            <rect key="frame" x="224" y="176" width="150" height="150"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Banner"/>
-                            <connections>
-                                <action selector="bannerButtonTapped:" destination="-1" eventType="touchUpInside" id="d9h-q5-BxJ"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omb-TF-2CG">
-                            <rect key="frame" x="20" y="176" width="150" height="150"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="List Minuman"/>
-                            <connections>
-                                <action selector="listMinumanButtonTapped:" destination="-1" eventType="touchUpInside" id="O40-x2-n8v"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MAq-yl-ROy">
+                    <rect key="frame" x="0.0" y="91" width="393" height="727"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="ThirdColor"/>
             <constraints>
                 <constraint firstItem="fvv-gU-hna" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="1tH-7j-Rme"/>
-                <constraint firstItem="fMM-bf-lxT" firstAttribute="top" secondItem="fvv-gU-hna" secondAttribute="bottom" constant="54" id="6X1-hs-g70"/>
-                <constraint firstItem="fMM-bf-lxT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BPz-6s-x4F"/>
-                <constraint firstAttribute="trailing" secondItem="fMM-bf-lxT" secondAttribute="trailing" id="TYj-DL-sCg"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fMM-bf-lxT" secondAttribute="bottom" constant="294" id="aD7-rq-Ncj"/>
+                <constraint firstItem="MAq-yl-ROy" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="309-2Z-G57"/>
+                <constraint firstItem="MAq-yl-ROy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HfX-RJ-DOm"/>
+                <constraint firstItem="fvv-gU-hna" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="WMm-7w-rjJ"/>
+                <constraint firstItem="MAq-yl-ROy" firstAttribute="top" secondItem="fvv-gU-hna" secondAttribute="bottom" constant="8" symbolic="YES" id="bRe-ZI-eBG"/>
                 <constraint firstItem="fvv-gU-hna" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gDa-DM-FQY"/>
-                <constraint firstItem="fvv-gU-hna" firstAttribute="centerX" secondItem="fMM-bf-lxT" secondAttribute="centerX" id="m1P-yt-UVr"/>
-                <constraint firstItem="fMM-bf-lxT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="153" id="tFg-YC-GdN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MAq-yl-ROy" secondAttribute="trailing" id="gLE-Nl-VUw"/>
             </constraints>
             <point key="canvasLocation" x="84.732824427480907" y="-1.4084507042253522"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="ThirdColor">
+            <color red="0.90588235294117647" green="0.92156862745098034" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
