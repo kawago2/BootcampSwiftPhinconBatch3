@@ -90,13 +90,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let index = indexPath.row
-        if index == 3 {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
-        }
-       
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let index = indexPath.row
+//        if index == 3 {
+//            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
+//        }
+//       
+//    }
     
 }
 
