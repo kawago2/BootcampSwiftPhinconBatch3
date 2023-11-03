@@ -1,13 +1,6 @@
-//
-//  HomeViewController.swift
-//  profileUI
-//
-//  Created by Phincon on 31/10/23.
-//
-
 import UIKit
 
-class HomeViewController: UIViewController {
+class DashboardViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -45,7 +38,13 @@ class HomeViewController: UIViewController {
 }
 
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension DashboardViewController: UITableViewDelegate, UITableViewDataSource, MiddleCellDelegate {
+    // Implement the MiddleCellDelegate method to handle navigation
+    func didSelectItem(_ item: ItemModel) {
+        let vc = DetailsViewController()
+        vc.data = item
+        navigationController?.pushViewController(vc, animated: true)
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -59,6 +58,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as! MiddleCell
+            cell.delegate = self
             cell.listFood = listFood
             return cell
             
@@ -83,21 +83,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let totalHeight = CGFloat(rowCount) * itemHeight
             return totalHeight
         case 2:
-            return 44
+            return 64
         default:
             return 0
         }
     }
-    
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let index = indexPath.row
-//        if index == 3 {
-//            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 60, right: 0)
-//        }
-//       
-//    }
-    
 }
 
 

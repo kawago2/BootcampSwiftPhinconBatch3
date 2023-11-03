@@ -70,7 +70,6 @@ extension ToolCell: BannerCellDelegate {
             if let navigationController = window?.rootViewController as? UINavigationController {
                 let vc = DetailsViewController()
                 vc.image = cellData[index]
-                vc.pageTitle = "Banner"
                 navigationController.pushViewController(vc, animated: true)
             }
         }

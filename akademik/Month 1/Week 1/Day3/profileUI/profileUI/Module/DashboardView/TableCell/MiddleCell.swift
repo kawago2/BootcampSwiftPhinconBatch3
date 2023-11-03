@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol MiddleCellDelegate {
+    func didSelectItem(_ item: ItemModel)
+}
+
 class MiddleCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var listFood: [ItemModel] = []
+    
+    var delegate: MiddleCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +26,6 @@ class MiddleCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
@@ -57,6 +62,11 @@ extension MiddleCell: UICollectionViewDataSource, UICollectionViewDelegate, UICo
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let food = listFood[index]
+        delegate?.didSelectItem(food)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Set the size for each cell

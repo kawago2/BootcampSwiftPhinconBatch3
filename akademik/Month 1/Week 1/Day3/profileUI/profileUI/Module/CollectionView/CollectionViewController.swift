@@ -64,8 +64,6 @@ extension CollectionViewController: UICollectionViewDataSource, UICollectionView
         let index = indexPath.row
         let minuman = listMinuman[index]
         let vc = DetailsViewController()
-        vc.pageTitle = "Minuman"
-        vc.data = minuman
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
