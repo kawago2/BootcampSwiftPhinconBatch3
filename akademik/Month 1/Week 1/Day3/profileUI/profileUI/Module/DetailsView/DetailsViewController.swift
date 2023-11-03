@@ -15,7 +15,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var totalItemLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
-    
+    @IBOutlet weak var buttonView: UIView!
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -38,13 +38,15 @@ class DetailsViewController: UIViewController {
     
     func configureUI() {
         topView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 40)
+        buttonView.backgroundColor = .black.withAlphaComponent(0.2)
+        
     }
     
     func loadData() {
         if let validFood = data {
             namaLabel.text = validFood.name ?? "Not Found"
             priceLabel.text = validFood.price?.toDollarFormat() ?? 0.toDollarFormat()
-            var isFavorite = validFood.isFavorite ?? false
+            let isFavorite = validFood.isFavorite ?? false
             isFavorited = isFavorite
             favoriteButton.tintColor = isFavorite ? UIColor.red : UIColor(named: "ProColor")
             if let image = UIImage(named: validFood.image ?? "image_not_available") {

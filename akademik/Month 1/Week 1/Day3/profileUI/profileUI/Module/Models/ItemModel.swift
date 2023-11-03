@@ -8,9 +8,10 @@
 import Foundation
 import UIKit
 
-struct ItemModel {
+struct ItemModel : Codable{
     var image: String?
     var name: String?
     var price: Int?
     var isFavorite: Bool?
 }
+

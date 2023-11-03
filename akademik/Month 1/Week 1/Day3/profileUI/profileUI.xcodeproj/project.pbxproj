@@ -23,6 +23,8 @@
 		36301F912AF48FFB00E8BFF5 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36301F902AF48FFB00E8BFF5 /* ApiManager.swift */; };
 		36301F942AF490D200E8BFF5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36301F932AF490D200E8BFF5 /* Endpoint.swift */; };
 		36354F722AF4A7B100EBDD90 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F712AF4A7B100EBDD90 /* DashboardViewController.swift */; };
+		36354F762AF4CEAE00EBDD90 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F742AF4CEAE00EBDD90 /* ChartViewController.swift */; };
+		36354F772AF4CEAE00EBDD90 /* ChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36354F752AF4CEAE00EBDD90 /* ChartViewController.xib */; };
 		365BA6D42AEBAC4300CF478C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365BA6D62AEBAC4300CF478C /* Localizable.strings */; };
 		365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6D92AEBB06B00CF478C /* ExtString.swift */; };
 		365BA6DC2AEBB25000CF478C /* ModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6DB2AEBB25000CF478C /* ModelItem.swift */; };
@@ -134,6 +136,8 @@
 		36301F902AF48FFB00E8BFF5 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		36301F932AF490D200E8BFF5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		36354F712AF4A7B100EBDD90 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		36354F742AF4CEAE00EBDD90 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		36354F752AF4CEAE00EBDD90 /* ChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartViewController.xib; sourceTree = "<group>"; };
 		365BA6D52AEBAC4300CF478C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		365BA6D72AEBACDF00CF478C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		365BA6D82AEBACEB00CF478C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -328,6 +332,15 @@
 				360B3A422AEFB5B000FD98BB /* ProfileViewController.xib */,
 			);
 			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		36354F732AF4CE8B00EBDD90 /* ChartView */ = {
+			isa = PBXGroup;
+			children = (
+				36354F742AF4CEAE00EBDD90 /* ChartViewController.swift */,
+				36354F752AF4CEAE00EBDD90 /* ChartViewController.xib */,
+			);
+			path = ChartView;
 			sourceTree = "<group>";
 		};
 		365BA6D12AEBABF900CF478C /* Localizable */ = {
@@ -564,6 +577,7 @@
 			children = (
 				365BA6DD2AEBB52C00CF478C /* Models */,
 				36A4325B2AF340AF0070E770 /* SplashView */,
+				36354F732AF4CE8B00EBDD90 /* ChartView */,
 				366FF0912AEFB09900F74907 /* MainTabBar */,
 				36FE9FB92AF2177100EBF492 /* RegisterView */,
 				369921B32AF0CBBC00DC4601 /* LoginView */,
@@ -817,6 +831,7 @@
 				360B3A442AEFB5B000FD98BB /* ProfileViewController.xib in Resources */,
 				36A432612AF3426E0070E770 /* SplashViewController.xib in Resources */,
 				365BA6FF2AEF509F00CF478C /* BannerCell.xib in Resources */,
+				36354F772AF4CEAE00EBDD90 /* ChartViewController.xib in Resources */,
 				36019BFF2AE8EF1500C07588 /* LaunchScreen.storyboard in Resources */,
 				2F22A9C02AEFDF63007C7427 /* Main.storyboard in Resources */,
 				36A432652AF3767B0070E770 /* MiddleCell.xib in Resources */,
@@ -993,6 +1008,7 @@
 				36301F942AF490D200E8BFF5 /* Endpoint.swift in Sources */,
 				367B0BA02AEB61B1009E72D4 /* DetailsViewController.swift in Sources */,
 				36A432692AF378C10070E770 /* FoodCell.swift in Sources */,
+				36354F762AF4CEAE00EBDD90 /* ChartViewController.swift in Sources */,
 				367B0BAD2AEB93EC009E72D4 /* ExtUICollectionView.swift in Sources */,
 				367B0BB52AEB9511009E72D4 /* DrinkCell.swift in Sources */,
 				36019BF32AE8EF1400C07588 /* AppDelegate.swift in Sources */,

@@ -9,9 +9,14 @@ import UIKit
 
 protocol MiddleCellDelegate {
     func didSelectItem(_ item: ItemModel)
+    func didTapAddButton(_ item: ItemModel)
 }
 
-class MiddleCell: UITableViewCell {
+class MiddleCell: UITableViewCell, FoodCellDelegate {
+    func didTapAddButton(_ item: ItemModel) {
+        self.delegate?.didTapAddButton(item)
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var listFood: [ItemModel] = []
     
@@ -31,9 +36,9 @@ class MiddleCell: UITableViewCell {
     
     func setup() {
         configureCell()
-        
     }
     
+
     func configureCell() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -58,6 +63,7 @@ extension MiddleCell: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = indexPath.row
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as FoodCell
+        cell.delegate = self
         cell.item = listFood[index]
         return cell
     }
@@ -75,3 +81,5 @@ extension MiddleCell: UICollectionViewDataSource, UICollectionViewDelegate, UICo
         return CGSize(width: itemWidth, height: 220)
     }
 }
+
+

@@ -61,11 +61,9 @@ class SplashViewController: UIViewController {
     
     @objc func navigateToNextPage() {
         // Assuming TabBarViewController is the next view controller
-        let tabBarController = TabBarViewController()
-        self.navigationController?.setViewControllers([tabBarController], animated: true)
+        let loginController = LoginViewController()
+        self.navigationController?.setViewControllers([loginController], animated: true)
     }
-    
-    
 }
 
 

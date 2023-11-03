@@ -7,13 +7,21 @@
 
 import UIKit
 
+protocol FoodCellDelegate: AnyObject {
+    func didTapAddButton(_ item: ItemModel)
+}
+
+
 class FoodCell: UICollectionViewCell {
     @IBOutlet weak var outerView: UIView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var plusButton: UIImageView!
+    @IBOutlet weak var addChartButton: UIButton!
+    
+    weak var delegate: FoodCellDelegate?
+    
     
     var isFavorited = false
     
@@ -22,7 +30,7 @@ class FoodCell: UICollectionViewCell {
             configureCell()
         }
     }
-
+    
     @objc func favoriteTapped() {
         isFavorited = !isFavorited
         if isFavorited {
@@ -31,7 +39,11 @@ class FoodCell: UICollectionViewCell {
             favoriteButton.tintColor = UIColor(named: "ProColor")
         }
     }
-
+    
+    @objc func addTapped() {
+        delegate?.didTapAddButton(item ?? ItemModel())
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,12 +51,15 @@ class FoodCell: UICollectionViewCell {
         setupUI()
         configureCell()
         favoriteButton.addTarget(self, action: #selector(favoriteTapped), for: .touchUpInside)
+        addChartButton.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
     }
     
     func setupUI() {
         outerView.layer.borderWidth = 1
         outerView.layer.cornerRadius = 20
         outerView.layer.borderColor = UIColor(named: "ProColor")?.cgColor
+        
+        imageView.setCircleNoBorder()
         
     }
     
@@ -54,7 +69,7 @@ class FoodCell: UICollectionViewCell {
             let name = item.name ?? "---"
             let price = item.price ?? 0
             let isFavorite = item.isFavorite ?? false
-
+            
             imageView.image = UIImage(named: image)
             nameLabel.text = name
             priceLabel.text = price.toDollarFormat()
@@ -63,6 +78,6 @@ class FoodCell: UICollectionViewCell {
         } else {
         }
     }
-
+    
     
 }

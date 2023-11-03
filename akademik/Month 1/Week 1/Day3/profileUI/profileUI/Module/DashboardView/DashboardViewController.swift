@@ -1,3 +1,4 @@
+
 import UIKit
 
 class DashboardViewController: UIViewController {
@@ -5,6 +6,7 @@ class DashboardViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var listFood: [ItemModel] = []
+    var listChart: [ItemModel] = []
     
     
     override func viewDidLoad() {
@@ -12,6 +14,7 @@ class DashboardViewController: UIViewController {
         setup()
         configureTable()
         loadData()
+        loadListFoodFromUserDefaults()
     }
     
     func setup() {
@@ -25,6 +28,12 @@ class DashboardViewController: UIViewController {
         listFood.append(ItemModel(image: "chicken_ball", name: "Chicken Ball", price: 25, isFavorite: true))
     }
     
+    func loadListFoodFromUserDefaults() {
+        if let savedData = UserDefaults.standard.data(forKey: "listChart"),
+           let decodedlistChart = try? JSONDecoder().decode([ItemModel].self, from: savedData) {
+            listChart = decodedlistChart
+        }
+    }
     
     func configureTable() {
         tableView.delegate = self
@@ -38,13 +47,8 @@ class DashboardViewController: UIViewController {
 }
 
 
-extension DashboardViewController: UITableViewDelegate, UITableViewDataSource, MiddleCellDelegate {
-    // Implement the MiddleCellDelegate method to handle navigation
-    func didSelectItem(_ item: ItemModel) {
-        let vc = DetailsViewController()
-        vc.data = item
-        navigationController?.pushViewController(vc, animated: true)
-    }
+extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -64,6 +68,14 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource, M
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
+            var sum = 0
+            if listChart.isEmpty == false {
+                for list in listChart {
+                    sum += list.price ?? 0
+                }
+            }
+            cell.manyItem = listChart.count
+            cell.totalPrice = sum
             return cell
         default:
             return UITableViewCell()
@@ -89,5 +101,42 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource, M
         }
     }
 }
+
+extension DashboardViewController : MiddleCellDelegate {
+    func didTapAddButton(_ item: ItemModel) {
+        if let existingData = LocalStorage.Base.data(forKey: "listChart") {
+            do {
+                var currentList = try JSONDecoder().decode([ItemModel].self, from: existingData)
+                currentList.append(item)
+
+                let updatedData = try JSONEncoder().encode(currentList)
+                LocalStorage.Base.set(updatedData, forKey: "listChart")
+                loadListFoodFromUserDefaults()
+            } catch {
+                print("Error decoding or encoding data: \(error)")
+            }
+        } else {
+            do {
+                let newData = [item]
+                let encodedData = try JSONEncoder().encode(newData)
+                LocalStorage.Base.set(encodedData, forKey: "listChart")
+            } catch {
+                print("Error encoding data: \(error)")
+            }
+        }
+
+        LocalStorage.Base.synchronize() // Synchronize after the data changes, outside the do-catch block
+        tableView.reloadData()
+    }
+    
+    // Implement the MiddleCellDelegate method to handle navigation
+    func didSelectItem(_ item: ItemModel) {
+        let vc = DetailsViewController()
+        vc.data = item
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+
 
 

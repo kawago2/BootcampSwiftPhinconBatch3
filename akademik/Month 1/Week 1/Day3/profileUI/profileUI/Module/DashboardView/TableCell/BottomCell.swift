@@ -8,23 +8,41 @@
 import UIKit
 
 class BottomCell: UITableViewCell {
-    @IBOutlet weak var barView: UIView!
+    @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var manyItemLabel: UILabel!
+    
+    var totalPrice = 0 {
+        didSet {
+            totalPriceLabel.text = totalPrice.toDollarFormat()
+        }
+    }
+    
+    var manyItem = 0 {
+        didSet {
+            manyItemLabel.text = "\(manyItem) Items"
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setup()
-        selectionStyle = .none
+        loadData()
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     func setup() {
-
+        selectionStyle = .none
     }
+    
+    func loadData() {        
+    }
+    
     
 }

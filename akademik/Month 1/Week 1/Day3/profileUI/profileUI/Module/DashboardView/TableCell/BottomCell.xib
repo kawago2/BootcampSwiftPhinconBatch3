@@ -29,13 +29,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="268" height="44"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 35.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0g-lW-c3y">
-                                <rect key="frame" x="173" y="8" width="67" height="27"/>
+                                <rect key="frame" x="173.33333333333334" y="8" width="66.666666666666657" height="27"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82B-b4-wD4">
-                                <rect key="frame" x="30" y="13" width="45" height="18"/>
+                                <rect key="frame" x="30.000000000000004" y="13" width="44.333333333333343" height="18"/>
                                 <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -66,6 +66,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="ThirdColor"/>
+            <connections>
+                <outlet property="manyItemLabel" destination="82B-b4-wD4" id="KJF-71-L1c"/>
+                <outlet property="totalPriceLabel" destination="w0g-lW-c3y" id="4Sj-3A-KwQ"/>
+            </connections>
             <point key="canvasLocation" x="36.641221374045799" y="31.690140845070424"/>
         </tableViewCell>
     </objects>
