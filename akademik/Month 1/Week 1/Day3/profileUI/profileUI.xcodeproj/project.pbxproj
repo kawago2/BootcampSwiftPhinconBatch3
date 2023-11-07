@@ -25,6 +25,9 @@
 		36354F722AF4A7B100EBDD90 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F712AF4A7B100EBDD90 /* DashboardViewController.swift */; };
 		36354F762AF4CEAE00EBDD90 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F742AF4CEAE00EBDD90 /* ChartViewController.swift */; };
 		36354F772AF4CEAE00EBDD90 /* ChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36354F752AF4CEAE00EBDD90 /* ChartViewController.xib */; };
+		36354F7F2AF9C68D00EBDD90 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F7D2AF9C68D00EBDD90 /* ChartCell.swift */; };
+		36354F802AF9C68D00EBDD90 /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36354F7E2AF9C68D00EBDD90 /* ChartCell.xib */; };
+		36354F832AF9CCEF00EBDD90 /* Food.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36354F812AF9CCEF00EBDD90 /* Food.xcdatamodeld */; };
 		365BA6D42AEBAC4300CF478C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365BA6D62AEBAC4300CF478C /* Localizable.strings */; };
 		365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6D92AEBB06B00CF478C /* ExtString.swift */; };
 		365BA6DC2AEBB25000CF478C /* ModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6DB2AEBB25000CF478C /* ModelItem.swift */; };
@@ -138,6 +141,9 @@
 		36354F712AF4A7B100EBDD90 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		36354F742AF4CEAE00EBDD90 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		36354F752AF4CEAE00EBDD90 /* ChartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartViewController.xib; sourceTree = "<group>"; };
+		36354F7D2AF9C68D00EBDD90 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
+		36354F7E2AF9C68D00EBDD90 /* ChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
+		36354F822AF9CCEF00EBDD90 /* Food.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Food.xcdatamodel; sourceTree = "<group>"; };
 		365BA6D52AEBAC4300CF478C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		365BA6D72AEBACDF00CF478C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		365BA6D82AEBACEB00CF478C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -337,10 +343,20 @@
 		36354F732AF4CE8B00EBDD90 /* ChartView */ = {
 			isa = PBXGroup;
 			children = (
+				36354F782AF9C60D00EBDD90 /* TableCell */,
 				36354F742AF4CEAE00EBDD90 /* ChartViewController.swift */,
 				36354F752AF4CEAE00EBDD90 /* ChartViewController.xib */,
 			);
 			path = ChartView;
+			sourceTree = "<group>";
+		};
+		36354F782AF9C60D00EBDD90 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				36354F7D2AF9C68D00EBDD90 /* ChartCell.swift */,
+				36354F7E2AF9C68D00EBDD90 /* ChartCell.xib */,
+			);
+			path = TableCell;
 			sourceTree = "<group>";
 		};
 		365BA6D12AEBABF900CF478C /* Localizable */ = {
@@ -568,6 +584,7 @@
 				36A432362AF230090070E770 /* Font */,
 				36019BFB2AE8EF1500C07588 /* Assets.xcassets */,
 				36019BFD2AE8EF1500C07588 /* LaunchScreen.storyboard */,
+				36354F812AF9CCEF00EBDD90 /* Food.xcdatamodeld */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -831,6 +848,7 @@
 				360B3A442AEFB5B000FD98BB /* ProfileViewController.xib in Resources */,
 				36A432612AF3426E0070E770 /* SplashViewController.xib in Resources */,
 				365BA6FF2AEF509F00CF478C /* BannerCell.xib in Resources */,
+				36354F802AF9C68D00EBDD90 /* ChartCell.xib in Resources */,
 				36354F772AF4CEAE00EBDD90 /* ChartViewController.xib in Resources */,
 				36019BFF2AE8EF1500C07588 /* LaunchScreen.storyboard in Resources */,
 				2F22A9C02AEFDF63007C7427 /* Main.storyboard in Resources */,
@@ -989,8 +1007,10 @@
 				36F741FD2AF0A3A500CAB136 /* SettingViewController.swift in Sources */,
 				365BA6DC2AEBB25000CF478C /* ModelItem.swift in Sources */,
 				360F6AFC2AEA4C3F004BE3CE /* ExtTableView.swift in Sources */,
+				36354F7F2AF9C68D00EBDD90 /* ChartCell.swift in Sources */,
 				36A432552AF32B070070E770 /* UserModel.swift in Sources */,
 				36354F722AF4A7B100EBDD90 /* DashboardViewController.swift in Sources */,
+				36354F832AF9CCEF00EBDD90 /* Food.xcdatamodeld in Sources */,
 				36F2C2BA2AE9FC590044729F /* EditProfileViewController.swift in Sources */,
 				367B0B9C2AEB609F009E72D4 /* ExtUIButton.swift in Sources */,
 				365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */,
@@ -1398,6 +1418,19 @@
 			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		36354F812AF9CCEF00EBDD90 /* Food.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				36354F822AF9CCEF00EBDD90 /* Food.xcdatamodel */,
+			);
+			currentVersion = 36354F822AF9CCEF00EBDD90 /* Food.xcdatamodel */;
+			path = Food.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 36019BE72AE8EF1400C07588 /* Project object */;
 }

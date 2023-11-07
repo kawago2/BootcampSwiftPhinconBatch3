@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let splash = SplashViewController()
         let home = DashboardViewController()
         let chart = ChartViewController()
-        let navigationController = UINavigationController(rootViewController: tabbar)
+        let navigationController = UINavigationController(rootViewController: chart)
         navigationController.isNavigationBarHidden = true
         
         // set to root

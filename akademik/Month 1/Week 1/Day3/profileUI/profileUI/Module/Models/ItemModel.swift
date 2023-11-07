@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct ItemModel : Codable{
+struct ItemModel : Codable, Hashable{
     var image: String?
     var name: String?
     var price: Int?
