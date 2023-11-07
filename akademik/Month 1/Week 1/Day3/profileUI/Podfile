@@ -6,7 +6,6 @@ target 'profileUI' do
   use_frameworks!
   pod 'Alamofire'
   pod 'Kingfisher'
-  pod 'SHSearchBar'
   pod 'RxSwift'
   pod 'RxCocoa'
   

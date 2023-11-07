@@ -1,22 +1,18 @@
 import UIKit
-import SHSearchBar
-
+import RxSwift
+import RxCocoa
 
 protocol TopCellDelegate {
     func didTapCartButton()
 }
 
-class TopCell: UITableViewCell, TopCellDelegate {
-    
-    @objc func didTapCartButton() {
-        self.delegate?.didTapCartButton()
-    }
-    
+class TopCell: UITableViewCell {
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var cartButton: UIButton!
     @IBOutlet weak var searchBar: SearchBar!
     
     var delegate: TopCellDelegate?
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -29,10 +25,16 @@ class TopCell: UITableViewCell, TopCellDelegate {
         setup()
     }
     
+    
+    @objc func didTapCartButton() {
+        self.delegate?.didTapCartButton()
+    }
+    
+    
     func setupUI() {
         // Create an array of the buttons
-        let buttons = [ filterButton, cartButton]
-
+        let buttons = [filterButton, cartButton]
+        
         for button in buttons {
             // Set rounded border using the custom function
             button?.setRoundedBorder(cornerRadius: 10, borderWidth: 2.0 ,borderColor: UIColor(named: "MainColor") ?? .black)
@@ -43,14 +45,4 @@ class TopCell: UITableViewCell, TopCellDelegate {
         searchBar.setup(placeholder: "Searching", isButtonHidden: true)
         cartButton.addTarget(self, action: #selector(didTapCartButton), for: .touchUpInside)
     }
-
-    
 }
-
-extension TopCell: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // Handle text field changes here
-        return true
-    }
-}
-

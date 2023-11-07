@@ -1,38 +1,49 @@
-
 import UIKit
 import CoreData
-import RxSwift
-import RxCocoa
-
 class DashboardViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    
     var listFood: [ItemModel] = []
     var fetchData: [ItemModel] = []
     var listChart: [ItemModel] = []
+    var filteredData: [ItemModel] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTable()
         loadData()
-//        setup()
+        //        setup()
         fetchCoreData()
+        
+
+    }
+    
+    // Add a method to filter your data based on the search text
+    func filterData(with searchText: String) {
+        filteredData = fetchData.filter { item in
+            if let name = item.name {
+                return name.lowercased().contains(searchText.lowercased())
+            }
+            return false
+        }
+        tableView.reloadData()
     }
     
     func setup() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-
+        
         for item in listFood {
             let entity = NSEntityDescription.entity(forEntityName: "Foods", in: context)
             let newFood = NSManagedObject(entity: entity!, insertInto: context)
-
+            
             newFood.setValue(item.name, forKey: "name")
             newFood.setValue(item.image, forKey: "image")
             newFood.setValue(item.price, forKey: "price")
-
+            
             do {
                 try context.save()
             } catch {
@@ -44,14 +55,14 @@ class DashboardViewController: UIViewController {
     func fetchCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-
+        
         // Create a fetch request for the "Foods" entity
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Foods")
-
+        
         do {
             // Execute the fetch request
             let fetchedResults = try context.fetch(fetchRequest)
-
+            
             if let foods = fetchedResults as? [NSManagedObject] {
                 for food in foods {
                     if let name = food.value(forKey: "name") as? String,
@@ -105,7 +116,11 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as! MiddleCell
             cell.delegate = self
-            cell.listFood = fetchData
+            if filteredData.isEmpty {
+                cell.listFood = fetchData
+            } else {
+                cell.listFood = filteredData
+            }
             return cell
             
         case 2:
@@ -144,31 +159,33 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
     }
 }
 
-extension DashboardViewController : MiddleCellDelegate , TopCellDelegate{
+extension DashboardViewController : MiddleCellDelegate , TopCellDelegate{    
     func didTapCartButton() {
         let vc = CartViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    
     func didTapAddButton(_ item: ItemModel) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-
+        
         // Create a new NSManagedObject for the selected item
         let entity = NSEntityDescription.entity(forEntityName: "CartItems", in: context)
         let newItem = NSManagedObject(entity: entity!, insertInto: context)
-
+        
         newItem.setValue(item.name, forKey: "name")
         newItem.setValue(item.image, forKey: "image")
         newItem.setValue(item.price, forKey: "price")
-
+        
         do {
             // Save the new item to Core Data
             try context.save()
-
+            
             // Add the item to the listChart array
             listChart.append(item)
-
+            
             // Reload the table view to update the UI
             tableView.reloadData()
         } catch {

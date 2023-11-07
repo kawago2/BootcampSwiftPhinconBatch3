@@ -16,7 +16,6 @@
 		36019C0A2AE8EF1500C07588 /* profileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019C092AE8EF1500C07588 /* profileUITests.swift */; };
 		36019C142AE8EF1500C07588 /* profileUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019C132AE8EF1500C07588 /* profileUIUITests.swift */; };
 		36019C162AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019C152AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift */; };
-		3603F0982AF9F4C9007EAD10 /* SearchbarTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3603F0972AF9F4C9007EAD10 /* SearchbarTitleView.swift */; };
 		3603F09D2AFA0A5C007EAD10 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3603F09C2AFA0A5C007EAD10 /* SearchBar.swift */; };
 		3603F0A32AFA0AD6007EAD10 /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3603F0A22AFA0AD6007EAD10 /* SearchBar.xib */; };
 		360B3A372AEFB12300FD98BB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B3A362AEFB12300FD98BB /* TabBarViewController.swift */; };
@@ -143,7 +142,6 @@
 		36019C0F2AE8EF1500C07588 /* profileUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = profileUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36019C132AE8EF1500C07588 /* profileUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileUIUITests.swift; sourceTree = "<group>"; };
 		36019C152AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3603F0972AF9F4C9007EAD10 /* SearchbarTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchbarTitleView.swift; sourceTree = "<group>"; };
 		3603F09C2AFA0A5C007EAD10 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		3603F0A22AFA0AD6007EAD10 /* SearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
 		360B3A362AEFB12300FD98BB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -439,7 +437,6 @@
 		365BA6E32AEBC0ED00CF478C /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				3603F0972AF9F4C9007EAD10 /* SearchbarTitleView.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -1083,7 +1080,6 @@
 				360B3A372AEFB12300FD98BB /* TabBarViewController.swift in Sources */,
 				369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */,
 				36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */,
-				3603F0982AF9F4C9007EAD10 /* SearchbarTitleView.swift in Sources */,
 				36019BF72AE8EF1400C07588 /* ViewController.swift in Sources */,
 				360B3A432AEFB5B000FD98BB /* ProfileViewController.swift in Sources */,
 				3675629A2AEA22D800F0A86F /* HalfScrollViewController.swift in Sources */,
