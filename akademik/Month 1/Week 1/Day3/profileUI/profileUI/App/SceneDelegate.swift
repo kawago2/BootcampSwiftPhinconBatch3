@@ -20,8 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabbar = TabBarViewController()
         let splash = SplashViewController()
         let home = DashboardViewController()
-        let chart = ChartViewController()
-        let navigationController = UINavigationController(rootViewController: chart)
+        let cart = CartViewController()
+        let fetch = FetchViewController()
+        let post = PostViewController()
+        let navigationController = UINavigationController(rootViewController: tabbar)
         navigationController.isNavigationBarHidden = true
         
         // set to root

@@ -1,24 +1,72 @@
 
 import UIKit
+import CoreData
+import RxSwift
+import RxCocoa
 
 class DashboardViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
     var listFood: [ItemModel] = []
+    var fetchData: [ItemModel] = []
     var listChart: [ItemModel] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
         configureTable()
         loadData()
-        loadListFoodFromUserDefaults()
+//        setup()
+        fetchCoreData()
     }
     
     func setup() {
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        for item in listFood {
+            let entity = NSEntityDescription.entity(forEntityName: "Foods", in: context)
+            let newFood = NSManagedObject(entity: entity!, insertInto: context)
+
+            newFood.setValue(item.name, forKey: "name")
+            newFood.setValue(item.image, forKey: "image")
+            newFood.setValue(item.price, forKey: "price")
+
+            do {
+                try context.save()
+            } catch {
+                print("Failed saving: \(error)")
+            }
+        }
+    }
+    
+    func fetchCoreData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        // Create a fetch request for the "Foods" entity
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Foods")
+
+        do {
+            // Execute the fetch request
+            let fetchedResults = try context.fetch(fetchRequest)
+
+            if let foods = fetchedResults as? [NSManagedObject] {
+                for food in foods {
+                    if let name = food.value(forKey: "name") as? String,
+                       let image = food.value(forKey: "image") as? String,
+                       let price = food.value(forKey: "price") as? Float {
+                        // You can use the retrieved data here
+                        print("Name: \(name), Image: \(image), Price: \(price)")
+                        let item = ItemModel(image: image, name: name, price: price)
+                        fetchData.append(item)
+                    }
+                }
+            }
+        } catch {
+            print("Failed to fetch data: \(error)")
+        }
     }
     
     func loadData() {
@@ -26,13 +74,6 @@ class DashboardViewController: UIViewController {
         listFood.append(ItemModel(image: "beef_pizza", name: "Beef Pizza", price: 15, isFavorite: false))
         listFood.append(ItemModel(image: "vagatale_salad", name: "Vagatale Salad", price: 5, isFavorite: false))
         listFood.append(ItemModel(image: "chicken_ball", name: "Chicken Ball", price: 25, isFavorite: true))
-    }
-    
-    func loadListFoodFromUserDefaults() {
-        if let savedData = UserDefaults.standard.data(forKey: "listChart"),
-           let decodedlistChart = try? JSONDecoder().decode([ItemModel].self, from: savedData) {
-            listChart = decodedlistChart
-        }
     }
     
     func configureTable() {
@@ -59,19 +100,20 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
         switch (index) {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopCell", for: indexPath) as! TopCell
+            cell.delegate = self
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as! MiddleCell
             cell.delegate = self
-            cell.listFood = listFood
+            cell.listFood = fetchData
             return cell
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
-            var sum = 0
+            var sum: Float = 0
             if listChart.isEmpty == false {
                 for list in listChart {
-                    sum += list.price ?? 0
+                    sum += list.price ?? 0.0
                 }
             }
             cell.manyItem = listChart.count
@@ -91,7 +133,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
         case 1:
             let itemHeight: CGFloat = 250
             let itemsPerRow: Int = 2
-            let rowCount = (listFood.count + 1) / itemsPerRow
+            let rowCount = (fetchData.count + 1) / itemsPerRow
             let totalHeight = CGFloat(rowCount) * itemHeight
             return totalHeight
         case 2:
@@ -102,31 +144,36 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
     }
 }
 
-extension DashboardViewController : MiddleCellDelegate {
+extension DashboardViewController : MiddleCellDelegate , TopCellDelegate{
+    func didTapCartButton() {
+        let vc = CartViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func didTapAddButton(_ item: ItemModel) {
-        if let existingData = LocalStorage.Base.data(forKey: "listChart") {
-            do {
-                var currentList = try JSONDecoder().decode([ItemModel].self, from: existingData)
-                currentList.append(item)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
 
-                let updatedData = try JSONEncoder().encode(currentList)
-                LocalStorage.Base.set(updatedData, forKey: "listChart")
-                loadListFoodFromUserDefaults()
-            } catch {
-                print("Error decoding or encoding data: \(error)")
-            }
-        } else {
-            do {
-                let newData = [item]
-                let encodedData = try JSONEncoder().encode(newData)
-                LocalStorage.Base.set(encodedData, forKey: "listChart")
-            } catch {
-                print("Error encoding data: \(error)")
-            }
+        // Create a new NSManagedObject for the selected item
+        let entity = NSEntityDescription.entity(forEntityName: "CartItems", in: context)
+        let newItem = NSManagedObject(entity: entity!, insertInto: context)
+
+        newItem.setValue(item.name, forKey: "name")
+        newItem.setValue(item.image, forKey: "image")
+        newItem.setValue(item.price, forKey: "price")
+
+        do {
+            // Save the new item to Core Data
+            try context.save()
+
+            // Add the item to the listChart array
+            listChart.append(item)
+
+            // Reload the table view to update the UI
+            tableView.reloadData()
+        } catch {
+            print("Failed to save data: \(error)")
         }
-
-        LocalStorage.Base.synchronize() // Synchronize after the data changes, outside the do-catch block
-        tableView.reloadData()
     }
     
     // Implement the MiddleCellDelegate method to handle navigation

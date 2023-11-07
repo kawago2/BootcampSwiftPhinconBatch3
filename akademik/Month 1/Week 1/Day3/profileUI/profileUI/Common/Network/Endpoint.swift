@@ -10,4 +10,5 @@ import UIKit
 
 enum Endpoint {
     case fetchData
+    case getDetailRocket(Int)
 }

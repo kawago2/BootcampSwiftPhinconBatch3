@@ -11,7 +11,7 @@ import UIKit
 struct ItemModel : Codable, Hashable{
     var image: String?
     var name: String?
-    var price: Int?
+    var price: Float?
     var isFavorite: Bool?
 }
 

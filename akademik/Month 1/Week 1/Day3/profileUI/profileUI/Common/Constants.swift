@@ -8,6 +8,12 @@
 import Foundation
 import UIKit
 
+
+enum BaseConstant {
+    static let baseUrl = "https://jsonplaceholder.typicode.com/todos"
+}
+
+
 enum LocalStorage {
     static let Base = UserDefaults.standard
 }

@@ -11,7 +11,7 @@ class BottomCell: UITableViewCell {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var manyItemLabel: UILabel!
     
-    var totalPrice = 0 {
+    var totalPrice: Float = 0 {
         didSet {
             totalPriceLabel.text = totalPrice.toDollarFormat()
         }
