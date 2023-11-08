@@ -18,7 +18,12 @@ class MiddleCell: UITableViewCell, FoodCellDelegate {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var listFood: [ItemModel] = []
+    
+    var listFood: [ItemModel] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     var delegate: MiddleCellDelegate?
     

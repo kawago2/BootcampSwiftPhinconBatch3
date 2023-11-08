@@ -1,5 +1,7 @@
 import UIKit
 import CoreData
+import RxSwift
+import RxCocoa
 class DashboardViewController: UIViewController {
     
     
@@ -9,6 +11,8 @@ class DashboardViewController: UIViewController {
     var fetchData: [ItemModel] = []
     var listChart: [ItemModel] = []
     var filteredData: [ItemModel] = []
+    var searchText = ""
+    let disposeBag = DisposeBag()
     
     
     override func viewDidLoad() {
@@ -18,18 +22,7 @@ class DashboardViewController: UIViewController {
         //        setup()
         fetchCoreData()
         
-
-    }
-    
-    // Add a method to filter your data based on the search text
-    func filterData(with searchText: String) {
-        filteredData = fetchData.filter { item in
-            if let name = item.name {
-                return name.lowercased().contains(searchText.lowercased())
-            }
-            return false
-        }
-        tableView.reloadData()
+        
     }
     
     func setup() {
@@ -100,7 +93,6 @@ class DashboardViewController: UIViewController {
 
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -112,17 +104,20 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopCell", for: indexPath) as! TopCell
             cell.delegate = self
+            // Observe changes in the search bar text input
+            let textField = cell.searchBar.textInput
+            let textFieldObservable = textField?.rx.text.orEmpty.asObservable()
+            textFieldObservable?
+                .subscribe(onNext: { text in
+                    self.searchText = text
+                })
+                .disposed(by: disposeBag)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as! MiddleCell
             cell.delegate = self
-            if filteredData.isEmpty {
-                cell.listFood = fetchData
-            } else {
-                cell.listFood = filteredData
-            }
+            cell.listFood = filteredData.isEmpty ? fetchData : filteredData
             return cell
-            
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
             var sum: Float = 0
@@ -159,7 +154,23 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
     }
 }
 
-extension DashboardViewController : MiddleCellDelegate , TopCellDelegate{    
+extension DashboardViewController : MiddleCellDelegate , TopCellDelegate {
+    func didTapFilterButton() {
+        // Implement the filter logic here
+        if !searchText.isEmpty {
+            filteredData = fetchData.filter { item in
+                if let name = item.name {
+                    return name.lowercased().contains(searchText.lowercased())
+                } else {
+                    return false
+                }
+            }
+        } else {
+            filteredData = []
+        }
+        tableView.reloadData()
+    }
+    
     func didTapCartButton() {
         let vc = CartViewController()
         navigationController?.pushViewController(vc, animated: true)

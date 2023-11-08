@@ -27,8 +27,8 @@
 		36354F722AF4A7B100EBDD90 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F712AF4A7B100EBDD90 /* DashboardViewController.swift */; };
 		36354F762AF4CEAE00EBDD90 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F742AF4CEAE00EBDD90 /* CartViewController.swift */; };
 		36354F772AF4CEAE00EBDD90 /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36354F752AF4CEAE00EBDD90 /* CartViewController.xib */; };
-		36354F7F2AF9C68D00EBDD90 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F7D2AF9C68D00EBDD90 /* ChartCell.swift */; };
-		36354F802AF9C68D00EBDD90 /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36354F7E2AF9C68D00EBDD90 /* ChartCell.xib */; };
+		36354F7F2AF9C68D00EBDD90 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F7D2AF9C68D00EBDD90 /* CartCell.swift */; };
+		36354F802AF9C68D00EBDD90 /* CartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36354F7E2AF9C68D00EBDD90 /* CartCell.xib */; };
 		36354F832AF9CCEF00EBDD90 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36354F812AF9CCEF00EBDD90 /* DataModel.xcdatamodeld */; };
 		36354F852AF9CE9300EBDD90 /* ExtFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F842AF9CE9300EBDD90 /* ExtFloat.swift */; };
 		36354F872AF9D12B00EBDD90 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F862AF9D12B00EBDD90 /* ToDo.swift */; };
@@ -153,8 +153,8 @@
 		36354F712AF4A7B100EBDD90 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		36354F742AF4CEAE00EBDD90 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		36354F752AF4CEAE00EBDD90 /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
-		36354F7D2AF9C68D00EBDD90 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
-		36354F7E2AF9C68D00EBDD90 /* ChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
+		36354F7D2AF9C68D00EBDD90 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		36354F7E2AF9C68D00EBDD90 /* CartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartCell.xib; sourceTree = "<group>"; };
 		36354F822AF9CCEF00EBDD90 /* Food.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Food.xcdatamodel; sourceTree = "<group>"; };
 		36354F842AF9CE9300EBDD90 /* ExtFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtFloat.swift; sourceTree = "<group>"; };
 		36354F862AF9D12B00EBDD90 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
@@ -382,8 +382,8 @@
 		36354F782AF9C60D00EBDD90 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
-				36354F7D2AF9C68D00EBDD90 /* ChartCell.swift */,
-				36354F7E2AF9C68D00EBDD90 /* ChartCell.xib */,
+				36354F7D2AF9C68D00EBDD90 /* CartCell.swift */,
+				36354F7E2AF9C68D00EBDD90 /* CartCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -904,7 +904,7 @@
 				360B3A442AEFB5B000FD98BB /* ProfileViewController.xib in Resources */,
 				36A432612AF3426E0070E770 /* SplashViewController.xib in Resources */,
 				365BA6FF2AEF509F00CF478C /* BannerCell.xib in Resources */,
-				36354F802AF9C68D00EBDD90 /* ChartCell.xib in Resources */,
+				36354F802AF9C68D00EBDD90 /* CartCell.xib in Resources */,
 				36354F772AF4CEAE00EBDD90 /* CartViewController.xib in Resources */,
 				36019BFF2AE8EF1500C07588 /* LaunchScreen.storyboard in Resources */,
 				2F22A9C02AEFDF63007C7427 /* Main.storyboard in Resources */,
@@ -1066,7 +1066,7 @@
 				36F741FD2AF0A3A500CAB136 /* SettingViewController.swift in Sources */,
 				365BA6DC2AEBB25000CF478C /* ModelItem.swift in Sources */,
 				360F6AFC2AEA4C3F004BE3CE /* ExtTableView.swift in Sources */,
-				36354F7F2AF9C68D00EBDD90 /* ChartCell.swift in Sources */,
+				36354F7F2AF9C68D00EBDD90 /* CartCell.swift in Sources */,
 				36A432552AF32B070070E770 /* UserModel.swift in Sources */,
 				36354F852AF9CE9300EBDD90 /* ExtFloat.swift in Sources */,
 				36354F872AF9D12B00EBDD90 /* ToDo.swift in Sources */,

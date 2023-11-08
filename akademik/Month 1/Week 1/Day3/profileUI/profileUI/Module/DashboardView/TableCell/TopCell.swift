@@ -4,6 +4,8 @@ import RxCocoa
 
 protocol TopCellDelegate {
     func didTapCartButton()
+    func didTapFilterButton()
+    
 }
 
 class TopCell: UITableViewCell {
@@ -12,6 +14,8 @@ class TopCell: UITableViewCell {
     @IBOutlet weak var searchBar: SearchBar!
     
     var delegate: TopCellDelegate?
+    let disposeBag = DisposeBag()
+
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,6 +34,10 @@ class TopCell: UITableViewCell {
         self.delegate?.didTapCartButton()
     }
     
+    @objc func didTapFilterButton() {
+        self.delegate?.didTapFilterButton()
+    }
+    
     
     func setupUI() {
         // Create an array of the buttons
@@ -44,5 +52,10 @@ class TopCell: UITableViewCell {
     func setup() {
         searchBar.setup(placeholder: "Searching", isButtonHidden: true)
         cartButton.addTarget(self, action: #selector(didTapCartButton), for: .touchUpInside)
+        filterButton.addTarget(self, action: #selector(didTapFilterButton), for: .touchUpInside)
+    }
+    
+    func inputx(query :String) {
+        searchBar.textInput.text = query
     }
 }
