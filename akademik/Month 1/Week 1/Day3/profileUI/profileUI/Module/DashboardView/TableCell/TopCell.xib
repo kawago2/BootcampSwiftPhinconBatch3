@@ -42,7 +42,7 @@
                         <rect key="frame" x="26" y="103" width="391" height="40"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZt-tb-dIE" customClass="SearchBar" customModule="profileUI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="273.66666666666669" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="286.66666666666669" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZpC-VN-xGg">
@@ -51,7 +51,7 @@
                                     <constraint firstAttribute="width" constant="40" id="c1N-5c-5ae"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="slider.vertical.3" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system">
                                     <color key="baseForegroundColor" name="MainColor"/>
                                 </buttonConfiguration>
                             </button>
@@ -97,7 +97,7 @@
     </objects>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
-        <image name="slider.vertical.3" catalog="system" width="128" height="110"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <namedColor name="MainColor">
             <color red="0.24705882352941178" green="0.78823529411764703" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

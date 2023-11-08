@@ -19,11 +19,12 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         configureTable()
         loadData()
-//                setup()
+//        initCoreData()
         fetchCoreData()
+//        cleanCoreData()
     }
     
-    func setup() {
+    func initCoreData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -67,6 +68,28 @@ class DashboardViewController: UIViewController {
             print("Failed to fetch data: \(error)")
         }
     }
+    
+    func cleanCoreData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Foods")
+        
+        do {
+            let fetchedResults = try context.fetch(fetchRequest)
+            
+            if let foods = fetchedResults as? [NSManagedObject] {
+                for food in foods {
+                    context.delete(food) // Delete each food item
+                }
+                
+                try context.save() // Save the changes
+            }
+        } catch {
+            print("Failed to clean data: \(error)")
+        }
+    }
+
     
     func loadData() {
         listFood.append(ItemModel(image: "fish_curry", name: "Fish Curry", price: 10, isFavorite: true))
