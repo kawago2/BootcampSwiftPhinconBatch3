@@ -21,6 +21,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="profileUI" customModuleProvider="target">
             <connections>
                 <outlet property="aboutView" destination="LqX-be-Vfu" id="NkK-vD-k3r"/>
+                <outlet property="backButton" destination="Hfh-BI-NOd" id="28m-zk-9D4"/>
                 <outlet property="emailTF" destination="uYb-AR-SW9" id="Rz3-y5-8Yc"/>
                 <outlet property="nameTF" destination="H1K-tR-lRZ" id="g7m-MA-eNK"/>
                 <outlet property="phoneTF" destination="Op7-jE-6b3" id="cus-q1-Oto"/>
@@ -188,9 +189,6 @@
                             <buttonConfiguration key="configuration" style="plain" image="rectangle.portrait.and.arrow.right" catalog="system">
                                 <color key="baseForegroundColor" systemColor="labelColor"/>
                             </buttonConfiguration>
-                            <connections>
-                                <action selector="signoutTapped:" destination="-1" eventType="touchUpInside" id="6vU-FU-bIB"/>
-                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

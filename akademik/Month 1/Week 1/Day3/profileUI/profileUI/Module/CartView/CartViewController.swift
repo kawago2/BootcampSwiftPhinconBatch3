@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import FloatingPanel
+
 
 protocol CartViewDelegate {
     func passData(listChart: [ItemModel])
@@ -16,6 +18,7 @@ class CartViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var payButton: UIButton!
     
     var listChart: [ItemModel] = []
     var uniqueCart: [ItemModel] = []
@@ -37,10 +40,35 @@ class CartViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func payButtonTapped() {
+        let fpc = FloatingPanelController()
+        fpc.delegate = self
+        fpc.surfaceView.backgroundColor = .white
+        fpc.surfaceView.grabberHandle.isHidden = true
+        fpc.contentMode = .fitToBounds
+        let vc = FloatingPanelView()
+        fpc.set(contentViewController: vc)
+        // Disable dragging
+        fpc.isRemovalInteractionEnabled = false
+        
+        // Set the height of the panel content
+        vc.view.layoutIfNeeded() // Ensure the view has been laid out
+        
+        present(fpc, animated: true, completion: nil)
+    }
+    
     func setup() {
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        payButton.addTarget(self, action: #selector(payButtonTapped), for: .touchUpInside)
     }
+    
     func setupUI() {
+        payButton.setRoundedBorder(cornerRadius: 20)
+        
+        if listChart.isEmpty {
+            payButton.isHidden = true
+        }
+        
         
     }
     
@@ -50,7 +78,7 @@ class CartViewController: UIViewController {
     
     func combineItemsInCart() {
         var combinedCart: [UUID: ItemModel] = [:]
-
+        
         for item in listChart {
             if var existingItem = combinedCart[item.id] {
                 // You need to update the quantity of the existing item in combinedCart
@@ -65,24 +93,22 @@ class CartViewController: UIViewController {
     
     func spreadItemChart() {
         uniqueCart = []
-
+        
         var spreadCart: [ItemModel] = []
-
+        
         for item in listChart {
             if item.quantity > 1 {
                 for _ in 1...item.quantity {
-                    // Create a new item for each quantity and add it to the spreadCart
                     spreadCart.append(ItemModel(id: item.id, image: item.image,name: item.name ,price: item.price,quantity: 1))
                 }
             } else {
-                // If quantity is 1, just add the item as is
                 spreadCart.append(item)
             }
         }
-
+        
         uniqueCart = spreadCart
     }
-
+    
     
     func totalPrice() {
         sum = 0
@@ -128,7 +154,6 @@ extension CartViewController: CartCellDelegate {
             // Found the item with the same ID in listChart, remove it
             listChart.remove(at: index)
             tableView.reloadData()
-            // Update your total price here
             totalPrice()
             spreadItemChart()
         }
@@ -157,5 +182,11 @@ extension CartViewController: CartCellDelegate {
             spreadItemChart()
         }
     }
-
+    
 }
+
+extension CartViewController: FloatingPanelControllerDelegate {
+    
+}
+
+

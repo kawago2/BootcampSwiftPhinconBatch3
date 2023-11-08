@@ -60,6 +60,8 @@
 		367B0BB12AEB943F009E72D4 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BAF2AEB943F009E72D4 /* CollectionViewController.xib */; };
 		367B0BB52AEB9511009E72D4 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0BB32AEB9511009E72D4 /* DrinkCell.swift */; };
 		367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BB42AEB9511009E72D4 /* DrinkCell.xib */; };
+		368D997A2AFB6F320072A977 /* FloatingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368D99782AFB6F320072A977 /* FloatingPanelView.swift */; };
+		368D997B2AFB6F320072A977 /* FloatingPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368D99792AFB6F320072A977 /* FloatingPanelView.xib */; };
 		369921B22AF0B24400DC4601 /* StepSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 369921B12AF0B24400DC4601 /* StepSlider */; };
 		369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921B52AF0CBE200DC4601 /* LoginViewController.swift */; };
 		369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921B62AF0CBE200DC4601 /* LoginViewController.xib */; };
@@ -187,6 +189,8 @@
 		367B0BAF2AEB943F009E72D4 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		367B0BB32AEB9511009E72D4 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
 		367B0BB42AEB9511009E72D4 /* DrinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkCell.xib; sourceTree = "<group>"; };
+		368D99782AFB6F320072A977 /* FloatingPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelView.swift; sourceTree = "<group>"; };
+		368D99792AFB6F320072A977 /* FloatingPanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingPanelView.xib; sourceTree = "<group>"; };
 		369921B52AF0CBE200DC4601 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		369921B62AF0CBE200DC4601 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		369921BA2AF0E2E200DC4601 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 		36354F732AF4CE8B00EBDD90 /* CartView */ = {
 			isa = PBXGroup;
 			children = (
+				368D99772AFB6F120072A977 /* FloatingPanel */,
 				36354F782AF9C60D00EBDD90 /* TableCell */,
 				36354F742AF4CEAE00EBDD90 /* CartViewController.swift */,
 				36354F752AF4CEAE00EBDD90 /* CartViewController.xib */,
@@ -501,6 +506,15 @@
 				367B0BB42AEB9511009E72D4 /* DrinkCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		368D99772AFB6F120072A977 /* FloatingPanel */ = {
+			isa = PBXGroup;
+			children = (
+				368D99782AFB6F320072A977 /* FloatingPanelView.swift */,
+				368D99792AFB6F320072A977 /* FloatingPanelView.xib */,
+			);
+			path = FloatingPanel;
 			sourceTree = "<group>";
 		};
 		369921B32AF0CBBC00DC4601 /* LoginView */ = {
@@ -895,6 +909,7 @@
 				36A4324E2AF23D810070E770 /* Poppins-SemiBold.ttf in Resources */,
 				369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */,
 				36A4324C2AF2305C0070E770 /* Poppins-Bold.ttf in Resources */,
+				368D997B2AFB6F320072A977 /* FloatingPanelView.xib in Resources */,
 				3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */,
 				365BA6D42AEBAC4300CF478C /* Localizable.strings in Resources */,
 				36A4326A2AF378C10070E770 /* FoodCell.xib in Resources */,
@@ -1086,6 +1101,7 @@
 				365BA6F92AEF4E5F00CF478C /* SectionViewController.swift in Sources */,
 				36301F942AF490D200E8BFF5 /* Endpoint.swift in Sources */,
 				367B0BA02AEB61B1009E72D4 /* DetailsViewController.swift in Sources */,
+				368D997A2AFB6F320072A977 /* FloatingPanelView.swift in Sources */,
 				36A432692AF378C10070E770 /* FoodCell.swift in Sources */,
 				36354F762AF4CEAE00EBDD90 /* CartViewController.swift in Sources */,
 				367B0BAD2AEB93EC009E72D4 /* ExtUICollectionView.swift in Sources */,

@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 import RxSwift
 import RxCocoa
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController  {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -80,10 +80,10 @@ class DashboardViewController: UIViewController {
             
             if let foods = fetchedResults as? [NSManagedObject] {
                 for food in foods {
-                    context.delete(food) // Delete each food item
+                    context.delete(food)
                 }
                 
-                try context.save() // Save the changes
+                try context.save()
             }
         } catch {
             print("Failed to clean data: \(error)")

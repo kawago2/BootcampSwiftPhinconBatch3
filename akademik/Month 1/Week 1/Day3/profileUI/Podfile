@@ -8,6 +8,7 @@ target 'profileUI' do
   pod 'Kingfisher'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'FloatingPanel'
   
   # Pods for profileUI
 
