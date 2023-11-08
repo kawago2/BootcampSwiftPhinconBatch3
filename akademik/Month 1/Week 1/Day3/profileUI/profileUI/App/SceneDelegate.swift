@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,7 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        // set navigation controler
         let login = LoginViewController()
         let tabbar = TabBarViewController()
         let splash = SplashViewController()
@@ -23,11 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let cart = CartViewController()
         let fetch = FetchViewController()
         let post = PostViewController()
-        let navigationController = UINavigationController(rootViewController: tabbar)
-        navigationController.isNavigationBarHidden = true
+        var navigationController = UINavigationController(rootViewController: splash)
         
-        // set to root
+        if Auth.auth().currentUser != nil {
+             navigationController = UINavigationController(rootViewController: tabbar)
+        }
+        
+        navigationController.isNavigationBarHidden = true
         window.rootViewController = navigationController
+        
         self.window = window
         window.makeKeyAndVisible()
     }
