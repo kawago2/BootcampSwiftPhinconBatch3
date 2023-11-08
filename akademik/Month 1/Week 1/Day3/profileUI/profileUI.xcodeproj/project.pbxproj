@@ -40,7 +40,6 @@
 		36354F952AF9E1B000EBDD90 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36354F942AF9E1B000EBDD90 /* Food.swift */; };
 		365BA6D42AEBAC4300CF478C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365BA6D62AEBAC4300CF478C /* Localizable.strings */; };
 		365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6D92AEBB06B00CF478C /* ExtString.swift */; };
-		365BA6DC2AEBB25000CF478C /* ModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6DB2AEBB25000CF478C /* ModelItem.swift */; };
 		365BA6DF2AEBB9D500CF478C /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6DE2AEBB9D500CF478C /* ExtUIViewController.swift */; };
 		365BA6E12AEBBABE00CF478C /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6E02AEBBABE00CF478C /* ScrollViewController.swift */; };
 		365BA6EE2AEF3B5700CF478C /* ToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6EC2AEF3B5700CF478C /* ToolCell.swift */; };
@@ -168,7 +167,6 @@
 		365BA6D72AEBACDF00CF478C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		365BA6D82AEBACEB00CF478C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		365BA6D92AEBB06B00CF478C /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
-		365BA6DB2AEBB25000CF478C /* ModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelItem.swift; sourceTree = "<group>"; };
 		365BA6DE2AEBB9D500CF478C /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		365BA6E02AEBBABE00CF478C /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		365BA6EC2AEF3B5700CF478C /* ToolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCell.swift; sourceTree = "<group>"; };
@@ -417,7 +415,6 @@
 		365BA6DD2AEBB52C00CF478C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				365BA6DB2AEBB25000CF478C /* ModelItem.swift */,
 				36A432542AF32B070070E770 /* UserModel.swift */,
 				36A4326B2AF38B6B0070E770 /* ItemModel.swift */,
 				36354F862AF9D12B00EBDD90 /* ToDo.swift */,
@@ -1064,7 +1061,6 @@
 				36354F952AF9E1B000EBDD90 /* Food.swift in Sources */,
 				367B0B982AEB5A97009E72D4 /* ExtInt.swift in Sources */,
 				36F741FD2AF0A3A500CAB136 /* SettingViewController.swift in Sources */,
-				365BA6DC2AEBB25000CF478C /* ModelItem.swift in Sources */,
 				360F6AFC2AEA4C3F004BE3CE /* ExtTableView.swift in Sources */,
 				36354F7F2AF9C68D00EBDD90 /* CartCell.swift in Sources */,
 				36A432552AF32B070070E770 /* UserModel.swift in Sources */,

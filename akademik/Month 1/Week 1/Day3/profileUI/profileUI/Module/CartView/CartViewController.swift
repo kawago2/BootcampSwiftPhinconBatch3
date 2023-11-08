@@ -8,28 +8,32 @@
 import UIKit
 import CoreData
 
+protocol CartViewDelegate {
+    func passData(listChart: [ItemModel])
+}
+
 class CartViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var backButton: UIButton!
-    
+    @IBOutlet weak var totalLabel: UILabel!
     
     var listChart: [ItemModel] = []
+    var uniqueCart: [ItemModel] = []
+    var sum: Float = 0
     
-    var itemCounts = [ItemModel: Int]()
-    
-    var mergedListChart: [ItemModel] = []
+    var delegate: CartViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         configureTable()
-        fetchCoreData()
         setupData()
         setup()
+        totalPrice()
     }
     
     @objc func backButtonTapped(_ sender: Any) {
+        delegate?.passData(listChart: uniqueCart)
         navigationController?.popViewController(animated: true)
     }
     
@@ -41,117 +45,117 @@ class CartViewController: UIViewController {
     }
     
     func setupData() {
-        for item in listChart {
-            if let count = itemCounts[item] {
-                itemCounts[item] = count + 1
-            } else {
-                itemCounts[item] = 1
-            }
-        }
-        
-        for (item, count) in itemCounts {
-            mergedListChart.append(ItemModel(name: (item.name ?? "") + " (\(count))"))
-        }
+        combineItemsInCart()
     }
     
+    func combineItemsInCart() {
+        var combinedCart: [UUID: ItemModel] = [:]
+
+        for item in listChart {
+            if var existingItem = combinedCart[item.id] {
+                // You need to update the quantity of the existing item in combinedCart
+                existingItem.quantity += 1
+                combinedCart[item.id] = existingItem
+            } else {
+                combinedCart[item.id] = item
+            }
+        }
+        listChart = Array(combinedCart.values)
+    }
     
+    func spreadItemChart() {
+        uniqueCart = []
+
+        var spreadCart: [ItemModel] = []
+
+        for item in listChart {
+            if item.quantity > 1 {
+                for _ in 1...item.quantity {
+                    // Create a new item for each quantity and add it to the spreadCart
+                    spreadCart.append(ItemModel(id: item.id, image: item.image,name: item.name ,price: item.price,quantity: 1))
+                }
+            } else {
+                // If quantity is 1, just add the item as is
+                spreadCart.append(item)
+            }
+        }
+
+        uniqueCart = spreadCart
+    }
+
+    
+    func totalPrice() {
+        sum = 0
+        for item in listChart {
+            let totalPerItem = (item.price ?? 0) * Float(item.quantity)
+            sum += totalPerItem
+        }
+        totalLabel.text = "Total: \(sum.toDollarFormat())"
+    }
     
     func configureTable() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCellWithNib(CartCell.self)
     }
-    
-    
-    func fetchCoreData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        // Create a fetch request for the "Foods" entity
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CartItems")
-        
-        do {
-            // Execute the fetch request
-            let fetchedResults = try context.fetch(fetchRequest)
-            
-            if let foods = fetchedResults as? [NSManagedObject] {
-                for food in foods {
-                    if let name = food.value(forKey: "name") as? String,
-                       let image = food.value(forKey: "image") as? String,
-                       let price = food.value(forKey: "price") as? Float {
-                        // You can use the retrieved data here
-                        print("Name: \(name), Image: \(image), Price: \(price)")
-                        let item = ItemModel(image: image, name: name, price: price)
-                        listChart.append(item)
-                    }
-                }
-            }
-        } catch {
-            print("Failed to fetch data: \(error)")
-        }
-    }
-    
-    
 }
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mergedListChart.count
+        return listChart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartCell
-        cell.configureData(name: mergedListChart[index].name ?? "")
+        cell.selectionStyle = .none
+        cell.delegate = self
+        cell.item = listChart[index]
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 134
     }
     
     
 }
+
+
 extension CartViewController: CartCellDelegate {
-    func didMinusTapped() {
-        print("jalan")
-        // Get the index of the cell where the minus button was tapped
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let index = indexPath.row
-
-            // Decrease the quantity of the item associated with the selected cell
-            let item = mergedListChart[index]
-
-            if let count = itemCounts[item], count > 1 {
-                itemCounts[item] = count - 1
-            } else {
-                // If the count is 1 or less, remove the item from the cart
-                itemCounts.removeValue(forKey: item)
-                mergedListChart.remove(at: index)
-            }
-
-            // Reload the table view to reflect the changes
+    func didTashTapped(_ item: ItemModel) {
+        if let index = listChart.firstIndex(where: { $0.id == item.id }) {
+            // Found the item with the same ID in listChart, remove it
+            listChart.remove(at: index)
             tableView.reloadData()
-          
+            // Update your total price here
+            totalPrice()
+            spreadItemChart()
+        }
+    }
+    
+    func didMinusTapped(_ item: ItemModel) {
+        if let index = listChart.firstIndex(where: { $0.id == item.id }) {
+            // Found the item with the same ID in listChart
+            if listChart[index].quantity > 0 {
+                listChart[index].quantity -= 1
+                tableView.reloadData()
+                // Update your total price here
+                totalPrice()
+                spreadItemChart()
+            }
+        }
+    }
+    
+    func didPlusTapped(_ item: ItemModel) {
+        if let index = listChart.firstIndex(where: { $0.id == item.id }) {
+            // Found the item with the same ID in listChart
+            listChart[index].quantity += 1
+            tableView.reloadData()
+            // Update your total price here
+            totalPrice()
+            spreadItemChart()
         }
     }
 
-    func didPlusTapped() {
-        // Get the index of the cell where the plus button was tapped
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let index = indexPath.row
-
-            // Increase the quantity of the item associated with the selected cell
-            let item = mergedListChart[index]
-
-            if let count = itemCounts[item] {
-                itemCounts[item] = count + 1
-            }
-
-            // Reload the table view to reflect the changes
-            tableView.reloadData()
-            print("jalan")
-        }
-    }
 }
-

@@ -19,10 +19,8 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         configureTable()
         loadData()
-        //        setup()
+//                setup()
         fetchCoreData()
-        
-        
     }
     
     func setup() {
@@ -32,7 +30,7 @@ class DashboardViewController: UIViewController {
         for item in listFood {
             let entity = NSEntityDescription.entity(forEntityName: "Foods", in: context)
             let newFood = NSManagedObject(entity: entity!, insertInto: context)
-            
+            newFood.setValue(item.id, forKey: "id")
             newFood.setValue(item.name, forKey: "name")
             newFood.setValue(item.image, forKey: "image")
             newFood.setValue(item.price, forKey: "price")
@@ -49,21 +47,18 @@ class DashboardViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        // Create a fetch request for the "Foods" entity
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Foods")
         
         do {
-            // Execute the fetch request
             let fetchedResults = try context.fetch(fetchRequest)
             
             if let foods = fetchedResults as? [NSManagedObject] {
                 for food in foods {
                     if let name = food.value(forKey: "name") as? String,
+                       let id = food.value(forKey: "id") as? UUID,
                        let image = food.value(forKey: "image") as? String,
                        let price = food.value(forKey: "price") as? Float {
-                        // You can use the retrieved data here
-                        print("Name: \(name), Image: \(image), Price: \(price)")
-                        let item = ItemModel(image: image, name: name, price: price)
+                        let item = ItemModel(id: id,image: image, name: name, price: price)
                         fetchData.append(item)
                     }
                 }
@@ -143,7 +138,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
         case 1:
             let itemHeight: CGFloat = 250
             let itemsPerRow: Int = 2
-            let rowCount = (fetchData.count + 1) / itemsPerRow
+            let rowCount = (filteredData.isEmpty ? fetchData.count : filteredData.count + 1) / itemsPerRow
             let totalHeight = CGFloat(rowCount) * itemHeight
             return totalHeight
         case 2:
@@ -154,7 +149,13 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
     }
 }
 
-extension DashboardViewController : MiddleCellDelegate , TopCellDelegate {
+extension DashboardViewController : MiddleCellDelegate , TopCellDelegate , CartViewDelegate{
+    func passData(listChart: [ItemModel]) {
+        print(listChart)
+        self.listChart = listChart
+        tableView.reloadData()
+    }
+    
     func didTapFilterButton() {
         // Implement the filter logic here
         if !searchText.isEmpty {
@@ -173,35 +174,22 @@ extension DashboardViewController : MiddleCellDelegate , TopCellDelegate {
     
     func didTapCartButton() {
         let vc = CartViewController()
+        vc.delegate = self
+        vc.listChart = listChart
+        vc.tableView?.reloadData()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     
     
     func didTapAddButton(_ item: ItemModel) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         
-        // Create a new NSManagedObject for the selected item
-        let entity = NSEntityDescription.entity(forEntityName: "CartItems", in: context)
-        let newItem = NSManagedObject(entity: entity!, insertInto: context)
+        // Add the item to the listChart array
+        listChart.append(item)
         
-        newItem.setValue(item.name, forKey: "name")
-        newItem.setValue(item.image, forKey: "image")
-        newItem.setValue(item.price, forKey: "price")
+        // Reload the table view to update the UI
+        tableView.reloadData()
         
-        do {
-            // Save the new item to Core Data
-            try context.save()
-            
-            // Add the item to the listChart array
-            listChart.append(item)
-            
-            // Reload the table view to update the UI
-            tableView.reloadData()
-        } catch {
-            print("Failed to save data: \(error)")
-        }
     }
     
     // Implement the MiddleCellDelegate method to handle navigation
