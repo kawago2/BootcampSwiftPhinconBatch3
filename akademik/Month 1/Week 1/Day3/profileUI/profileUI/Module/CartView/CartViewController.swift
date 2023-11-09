@@ -43,17 +43,16 @@ class CartViewController: UIViewController {
     @objc func payButtonTapped() {
         let fpc = FloatingPanelController()
         fpc.delegate = self
+        fpc.panGestureRecognizer.isEnabled = false
         fpc.surfaceView.backgroundColor = .white
         fpc.surfaceView.grabberHandle.isHidden = true
         fpc.contentMode = .fitToBounds
         let vc = FloatingPanelView()
         fpc.set(contentViewController: vc)
-        // Disable dragging
-        fpc.isRemovalInteractionEnabled = false
-        
-        // Set the height of the panel content
-        vc.view.layoutIfNeeded() // Ensure the view has been laid out
-        
+        fpc.backdropView.backgroundColor = .black
+        fpc.layout = CustomFloatingPanelLayout()
+        fpc.isRemovalInteractionEnabled = true
+        vc.view.layoutIfNeeded()
         present(fpc, animated: true, completion: nil)
     }
     
@@ -186,7 +185,23 @@ extension CartViewController: CartCellDelegate {
 }
 
 extension CartViewController: FloatingPanelControllerDelegate {
+    func floatingPanelWillEndDragging(_ fpc: FloatingPanelController, withVelocity velocity: CGPoint, targetState: UnsafeMutablePointer<FloatingPanelState>) {
+        if targetState.pointee != .full {
+            fpc.dismiss(animated: true)
+        }
+    }
+}
+
+class CustomFloatingPanelLayout: FloatingPanelLayout {
+    var position: FloatingPanel.FloatingPanelPosition = .bottom
     
+    var initialState: FloatingPanel.FloatingPanelState = .tip
+    
+    var anchors: [FloatingPanel.FloatingPanelState : FloatingPanel.FloatingPanelLayoutAnchoring] = [
+        .tip: FloatingPanelLayoutAnchor(fractionalInset: 0.5, edge: .bottom, referenceGuide: .safeArea)
+    ]
+    
+
 }
 
 

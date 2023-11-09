@@ -1,8 +1,22 @@
 import UIKit
 
 class FloatingPanelView: UIViewController {
+    @IBOutlet weak var exitButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        setup()
+    }
+    
+    @objc func exitTapped(){
+        self.dismiss(animated: true)
+    }
+    
+    func setup() {
+        exitButton.addTarget(self, action: #selector(exitTapped), for: .touchUpInside)
     }
 }
+
+
+
