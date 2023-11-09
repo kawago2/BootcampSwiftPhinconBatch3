@@ -11,7 +11,7 @@ import FloatingPanel
 
 
 protocol CartViewDelegate {
-    func passData(listChart: [ItemModel])
+    func passDataCart(listChart: [ItemModel])
 }
 
 class CartViewController: UIViewController {
@@ -22,26 +22,30 @@ class CartViewController: UIViewController {
     
     var listChart: [ItemModel] = []
     var uniqueCart: [ItemModel] = []
+    var listSeparated: [ItemModel] = []
     var sum: Float = 0
     var fpc: FloatingPanelController!
-    
+    var combinedCart: [UUID: ItemModel] = [:]
     var delegate: CartViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setup()
         configureTable()
         setupData()
-        setup()
-        totalPrice()
     }
-    
     @objc func backButtonTapped(_ sender: Any) {
-        delegate?.passData(listChart: uniqueCart)
+        separateLogic()
+        delegate?.passDataCart(listChart: listSeparated)
         navigationController?.popViewController(animated: true)
     }
     
     @objc func payButtonTapped() {
+        showFloatingPanel()
+    }
+    
+    private func showFloatingPanel() {
         fpc = FloatingPanelController()
         fpc.delegate = self
         fpc.panGestureRecognizer.isEnabled = false
@@ -64,71 +68,42 @@ class CartViewController: UIViewController {
     
     func setupUI() {
         payButton.setRoundedBorder(cornerRadius: 20)
-        
-        if listChart.isEmpty {
-            payButton.isHidden = true
-        }
-        
-        
+        payButton.isHidden = combinedCart.isEmpty
     }
     
     func setupData() {
-        combineItemsInCart()
+        totalPrice()
     }
-    
-    func combineItemsInCart() {
-        var combinedCart: [UUID: ItemModel] = [:]
-        
-        for item in listChart {
-            if var existingItem = combinedCart[item.id] {
-                // You need to update the quantity of the existing item in combinedCart
-                existingItem.quantity += 1
-                combinedCart[item.id] = existingItem
-            } else {
-                combinedCart[item.id] = item
-            }
-        }
-        listChart = Array(combinedCart.values)
-    }
-    
-    func spreadItemChart() {
-        uniqueCart = []
-        
-        var spreadCart: [ItemModel] = []
-        
-        for item in listChart {
-            if item.quantity > 1 {
-                for _ in 1...item.quantity {
-                    spreadCart.append(ItemModel(id: item.id, image: item.image,name: item.name ,price: item.price,quantity: 1))
-                }
-            } else {
-                spreadCart.append(item)
-            }
-        }
-        
-        uniqueCart = spreadCart
-    }
-    
     
     func totalPrice() {
-        sum = 0
-        for item in listChart {
-            let totalPerItem = (item.price ?? 0) * Float(item.quantity)
-            sum += totalPerItem
-        }
-        totalLabel.text = "Total: \(sum.toDollarFormat())"
+        let total = combinedCart.values.reduce(0.0) { $0 + ($1.price ?? 0) * Float($1.quantity) }
+        totalLabel.text = "Total: \(total.toDollarFormat())"
     }
+
     
     func configureTable() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCellWithNib(CartCell.self)
     }
+    
+    func separateLogic() {
+        listSeparated = []
+        for (_, var item) in combinedCart {
+            for _ in 1...item.quantity {
+                var updated = item
+                updated.quantity = 1
+                listSeparated.append(updated)
+            }
+        }
+        print(listSeparated)
+    }
+
 }
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listChart.count
+        return combinedCart.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -136,7 +111,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartCell
         cell.selectionStyle = .none
         cell.delegate = self
-        cell.item = listChart[index]
+        let keyAtIndex = Array(combinedCart.keys)[index]
+        let valueAtIndex = combinedCart[keyAtIndex]
+        cell.item = valueAtIndex
         return cell
     }
     
@@ -147,40 +124,43 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
 extension CartViewController: CartCellDelegate {
     func didTashTapped(_ item: ItemModel) {
-        if let index = listChart.firstIndex(where: { $0.id == item.id }) {
-            // Found the item with the same ID in listChart, remove it
-            listChart.remove(at: index)
-            tableView.reloadData()
+        let itemUUID = item.id // Assuming item.id is not optional
+        
+        if combinedCart[itemUUID] != nil {
+            combinedCart[itemUUID] = nil
+            // Reload the table view with the updated data
+            if let index = listChart.firstIndex(where: { $0.id == itemUUID }) {
+                listChart.remove(at: index)
+            }
             totalPrice()
-            spreadItemChart()
         }
+        self.tableView.reloadData()
     }
-    
+
+
     func didMinusTapped(_ item: ItemModel) {
-        if let index = listChart.firstIndex(where: { $0.id == item.id }) {
-            // Found the item with the same ID in listChart
-            if listChart[index].quantity > 0 {
-                listChart[index].quantity -= 1
-                tableView.reloadData()
-                // Update your total price here
+        let itemUUID = item.id // Assuming item.id is not optional
+        
+        if let existingItem = combinedCart[itemUUID] {
+            if existingItem.quantity > 0 {
+                combinedCart[itemUUID]?.quantity -= 1
                 totalPrice()
-                spreadItemChart()
             }
         }
+        self.tableView.reloadData()
     }
-    
+
+
     func didPlusTapped(_ item: ItemModel) {
-        if let index = listChart.firstIndex(where: { $0.id == item.id }) {
-            // Found the item with the same ID in listChart
-            listChart[index].quantity += 1
-            tableView.reloadData()
-            // Update your total price here
+        let itemUUID = item.id // Assuming item.id is not optional
+        
+        if let existingItem = combinedCart[itemUUID] {
+            combinedCart[itemUUID]?.quantity += 1
             totalPrice()
-            spreadItemChart()
         }
+        self.tableView.reloadData()
     }
     
 }
@@ -195,16 +175,14 @@ extension CartViewController: FloatingPanelControllerDelegate {
 
 class CustomFloatingPanelLayout: FloatingPanelLayout {
     var position: FloatingPanel.FloatingPanelPosition = .bottom
-    
+
     var initialState: FloatingPanel.FloatingPanelState = .tip
-    
+
     var anchors: [FloatingPanel.FloatingPanelState : FloatingPanel.FloatingPanelLayoutAnchoring] = [
         .tip: FloatingPanelLayoutAnchor(fractionalInset: 0.5, edge: .bottom, referenceGuide: .safeArea)
     ]
-    
+
     func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
         return 0.30
     }
 }
-
-

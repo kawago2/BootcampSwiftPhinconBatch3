@@ -5,6 +5,7 @@ import RxCocoa
 protocol TopCellDelegate {
     func didTapCartButton()
     func didTapFilterButton()
+    func textFieldDidChange(_ newText: String)
     
 }
 
@@ -15,7 +16,8 @@ class TopCell: UITableViewCell {
     
     var delegate: TopCellDelegate?
     let disposeBag = DisposeBag()
-
+    
+    var textSearch = BehaviorRelay<String>(value: "")
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,6 +31,14 @@ class TopCell: UITableViewCell {
         setup()
     }
     
+    func bindToViewModel(textSubject: PublishSubject<String>) {
+        searchBar.textInput.rx.text
+            .orEmpty
+            .subscribe(onNext: { text in
+                textSubject.onNext(text)
+            })
+            .disposed(by: disposeBag)
+    }
     
     @objc func didTapCartButton() {
         self.delegate?.didTapCartButton()
@@ -49,10 +59,15 @@ class TopCell: UITableViewCell {
         }
     }
     
+    @objc func textFieldEditingChanged(_ sender: UITextField) {
+            delegate?.textFieldDidChange(sender.text ?? "")
+        }
+    
     func setup() {
         searchBar.setup(placeholder: "Searching", isButtonHidden: true)
         cartButton.addTarget(self, action: #selector(didTapCartButton), for: .touchUpInside)
         filterButton.addTarget(self, action: #selector(didTapFilterButton), for: .touchUpInside)
+        searchBar.textInput.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
     
     func inputx(query :String) {

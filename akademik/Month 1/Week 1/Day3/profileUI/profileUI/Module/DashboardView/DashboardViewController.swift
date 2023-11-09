@@ -9,19 +9,29 @@ class DashboardViewController: UIViewController  {
     
     var listFood: [ItemModel] = []
     var fetchData: [ItemModel] = []
+    var listseparated: [ItemModel] = []
     var listChart: [ItemModel] = []
     var filteredData: [ItemModel] = []
-    var searchText = ""
-    let disposeBag = DisposeBag()
+    var combinedCart: [UUID: ItemModel] = [:]
     
+    var searchText = "" {
+        didSet {
+            let sectionToReload = 1 // Section index to reload
+            let indexSet = IndexSet(integer: sectionToReload) // Create an index set for the section
+            self.tableView.reloadSections(indexSet, with: .automatic)
+        }
+    }
+    let disposeBag = DisposeBag()
+    let textSubject = PublishSubject<String>()
+    let searchSubject = BehaviorRelay<String>(value: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTable()
         loadData()
-//        initCoreData()
+        //        initCoreData()
         fetchCoreData()
-//        cleanCoreData()
+        //        cleanCoreData()
     }
     
     func initCoreData() {
@@ -89,7 +99,7 @@ class DashboardViewController: UIViewController  {
             print("Failed to clean data: \(error)")
         }
     }
-
+    
     
     func loadData() {
         listFood.append(ItemModel(image: "fish_curry", name: "Fish Curry", price: 10, isFavorite: true))
@@ -107,6 +117,43 @@ class DashboardViewController: UIViewController  {
         tableView.registerCellWithNib(MiddleCell.self)
         tableView.registerCellWithNib(BottomCell.self)
     }
+    
+    func combineItemsInCart() {
+        combinedCart = [:]
+        for item in listChart {
+            if var existingItem = combinedCart[item.id] {
+                existingItem.quantity += 1
+                combinedCart[item.id] = existingItem
+            } else {
+                combinedCart[item.id] = item
+            }
+        }
+        listChart = Array(combinedCart.values)
+    }
+    
+    func setupRxSearch() {
+        searchSubject
+            .throttle(.microseconds(1000), scheduler: MainScheduler.instance)
+            .flatMapLatest { [weak self] query -> Observable<[ItemModel]> in
+                
+                guard let self = self else { return Observable.empty() }
+                let filteredData = self.fetchData.filter { item in
+                    if let name = item.name, !name.isEmpty {
+                        let lowercaseName = name.lowercased()
+                        let lowercaseQuery = query.lowercased()
+                        return lowercaseName.contains(lowercaseQuery)
+                    }
+                    return false
+                }
+                return Observable.just(filteredData).observe(on: MainScheduler.instance)
+            }
+            .subscribe(onNext: { [weak self] results in
+                guard let self = self else { return }
+                self.filteredData = results
+            })
+            .disposed(by: disposeBag)
+    }
+    
 }
 
 
@@ -125,19 +172,11 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopCell", for: indexPath) as! TopCell
             cell.delegate = self
-            // Observe changes in the search bar text input
-            let textField = cell.searchBar.textInput
-            let textFieldObservable = textField?.rx.text.orEmpty.asObservable()
-            textFieldObservable?
-                .subscribe(onNext: { text in
-                    self.searchText = text
-                })
-                .disposed(by: disposeBag)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MiddleCell", for: indexPath) as! MiddleCell
             cell.delegate = self
-            cell.listFood = filteredData.isEmpty ? fetchData : filteredData
+            cell.listFood = searchText.isEmpty ? fetchData : filteredData
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BottomCell", for: indexPath) as! BottomCell
@@ -164,7 +203,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
         case 1:
             let itemHeight: CGFloat = 250
             let itemsPerRow: Int = 2
-            let rowCount = (filteredData.isEmpty ? fetchData.count : filteredData.count + 1) / itemsPerRow
+            let rowCount = (searchText.isEmpty ? fetchData.count : filteredData.count + 1) / itemsPerRow
             let totalHeight = CGFloat(rowCount) * itemHeight
             return totalHeight
         case 2:
@@ -176,32 +215,26 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
 }
 
 extension DashboardViewController : MiddleCellDelegate , TopCellDelegate , CartViewDelegate{
-    func passData(listChart: [ItemModel]) {
-        print(listChart)
-        self.listChart = listChart
-        tableView.reloadData()
+    func didTapFilterButton() {
+        print("filter clicked")
     }
     
-    func didTapFilterButton() {
-        // Implement the filter logic here
-        if !searchText.isEmpty {
-            filteredData = fetchData.filter { item in
-                if let name = item.name {
-                    return name.lowercased().contains(searchText.lowercased())
-                } else {
-                    return false
-                }
-            }
-        } else {
-            filteredData = []
-        }
+    func textFieldDidChange(_ newText: String) {
+        searchText = newText
+        searchSubject.accept(newText)
+        setupRxSearch()
+    }
+    
+    func passDataCart(listChart: [ItemModel]) {
+        self.listChart = listChart
         tableView.reloadData()
     }
     
     func didTapCartButton() {
         let vc = CartViewController()
         vc.delegate = self
-        vc.listChart = listChart
+        combineItemsInCart()
+        vc.combinedCart = combinedCart
         vc.tableView?.reloadData()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -209,11 +242,7 @@ extension DashboardViewController : MiddleCellDelegate , TopCellDelegate , CartV
     
     
     func didTapAddButton(_ item: ItemModel) {
-        
-        // Add the item to the listChart array
         listChart.append(item)
-        
-        // Reload the table view to update the UI
         tableView.reloadData()
         
     }
