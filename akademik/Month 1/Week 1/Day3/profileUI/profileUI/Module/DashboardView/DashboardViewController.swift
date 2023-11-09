@@ -111,13 +111,16 @@ class DashboardViewController: UIViewController  {
 
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorColor = .clear
-        let index = indexPath.row
+        let index = indexPath.section
         switch (index) {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopCell", for: indexPath) as! TopCell
@@ -154,7 +157,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let index = indexPath.row
+        let index = indexPath.section
         switch (index) {
         case 0:
             return 180

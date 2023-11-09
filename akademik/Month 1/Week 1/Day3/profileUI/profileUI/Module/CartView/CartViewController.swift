@@ -23,6 +23,7 @@ class CartViewController: UIViewController {
     var listChart: [ItemModel] = []
     var uniqueCart: [ItemModel] = []
     var sum: Float = 0
+    var fpc: FloatingPanelController!
     
     var delegate: CartViewDelegate?
     
@@ -41,15 +42,15 @@ class CartViewController: UIViewController {
     }
     
     @objc func payButtonTapped() {
-        let fpc = FloatingPanelController()
+        fpc = FloatingPanelController()
         fpc.delegate = self
         fpc.panGestureRecognizer.isEnabled = false
-        fpc.surfaceView.backgroundColor = .white
+        fpc.surfaceView.makeCornerRadius(20)
         fpc.surfaceView.grabberHandle.isHidden = true
         fpc.contentMode = .fitToBounds
+        fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         let vc = FloatingPanelView()
         fpc.set(contentViewController: vc)
-        fpc.backdropView.backgroundColor = .black
         fpc.layout = CustomFloatingPanelLayout()
         fpc.isRemovalInteractionEnabled = true
         vc.view.layoutIfNeeded()
@@ -201,7 +202,9 @@ class CustomFloatingPanelLayout: FloatingPanelLayout {
         .tip: FloatingPanelLayoutAnchor(fractionalInset: 0.5, edge: .bottom, referenceGuide: .safeArea)
     ]
     
-
+    func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
+        return 0.30
+    }
 }
 
 
