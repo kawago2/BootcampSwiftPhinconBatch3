@@ -130,20 +130,30 @@ class DashboardViewController: UIViewController  {
         }
         listChart = Array(combinedCart.values)
     }
-    
     func setupRxSearch() {
         searchSubject
-            .throttle(.microseconds(1000), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance) // Use .milliseconds instead of .microseconds
             .flatMapLatest { [weak self] query -> Observable<[ItemModel]> in
-                
                 guard let self = self else { return Observable.empty() }
+                
                 let filteredData = self.fetchData.filter { item in
-                    if let name = item.name, !name.isEmpty {
-                        let lowercaseName = name.lowercased()
-                        let lowercaseQuery = query.lowercased()
-                        return lowercaseName.contains(lowercaseQuery)
+                    guard let name = item.name else {
+                        return false
                     }
-                    return false
+                    
+                    let lowercaseName = name.lowercased()
+                    let lowercaseQuery = query.lowercased()
+                    
+                    if lowercaseQuery.count > 1 {
+                        return lowercaseName.contains(lowercaseQuery)
+                    } else {
+                        for character in lowercaseName {
+                            if String(character) == lowercaseQuery {
+                                return true
+                            }
+                        }
+                        return false
+                    }
                 }
                 return Observable.just(filteredData).observe(on: MainScheduler.instance)
             }
@@ -153,7 +163,8 @@ class DashboardViewController: UIViewController  {
             })
             .disposed(by: disposeBag)
     }
-    
+
+
 }
 
 

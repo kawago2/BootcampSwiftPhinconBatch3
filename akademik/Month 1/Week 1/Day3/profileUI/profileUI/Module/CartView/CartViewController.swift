@@ -24,6 +24,7 @@ class CartViewController: UIViewController {
     var uniqueCart: [ItemModel] = []
     var listSeparated: [ItemModel] = []
     var sum: Float = 0
+    var total: Float = 0
     var fpc: FloatingPanelController!
     var combinedCart: [UUID: ItemModel] = [:]
     var delegate: CartViewDelegate?
@@ -51,10 +52,10 @@ class CartViewController: UIViewController {
         fpc.panGestureRecognizer.isEnabled = false
         fpc.surfaceView.makeCornerRadius(20)
         fpc.surfaceView.grabberHandle.isHidden = true
-        fpc.contentMode = .fitToBounds
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         let vc = FloatingPanelView()
         fpc.set(contentViewController: vc)
+        vc.initData(sum: total)
         fpc.layout = CustomFloatingPanelLayout()
         fpc.isRemovalInteractionEnabled = true
         vc.view.layoutIfNeeded()
@@ -76,7 +77,7 @@ class CartViewController: UIViewController {
     }
     
     func totalPrice() {
-        let total = combinedCart.values.reduce(0.0) { $0 + ($1.price ?? 0) * Float($1.quantity) }
+        total = combinedCart.values.reduce(0.0) { $0 + ($1.price ?? 0) * Float($1.quantity) }
         totalLabel.text = "Total: \(total.toDollarFormat())"
     }
 
