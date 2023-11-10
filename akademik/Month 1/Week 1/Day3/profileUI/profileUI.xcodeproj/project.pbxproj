@@ -62,6 +62,8 @@
 		367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BB42AEB9511009E72D4 /* DrinkCell.xib */; };
 		368D997A2AFB6F320072A977 /* FloatingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368D99782AFB6F320072A977 /* FloatingPanelView.swift */; };
 		368D997B2AFB6F320072A977 /* FloatingPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368D99792AFB6F320072A977 /* FloatingPanelView.xib */; };
+		368E86752AFDD06C002064E1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E86732AFDD06C002064E1 /* ResultViewController.swift */; };
+		368E86762AFDD06C002064E1 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E86742AFDD06C002064E1 /* ResultViewController.xib */; };
 		369921B22AF0B24400DC4601 /* StepSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 369921B12AF0B24400DC4601 /* StepSlider */; };
 		369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921B52AF0CBE200DC4601 /* LoginViewController.swift */; };
 		369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921B62AF0CBE200DC4601 /* LoginViewController.xib */; };
@@ -191,6 +193,8 @@
 		367B0BB42AEB9511009E72D4 /* DrinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkCell.xib; sourceTree = "<group>"; };
 		368D99782AFB6F320072A977 /* FloatingPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelView.swift; sourceTree = "<group>"; };
 		368D99792AFB6F320072A977 /* FloatingPanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingPanelView.xib; sourceTree = "<group>"; };
+		368E86732AFDD06C002064E1 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		368E86742AFDD06C002064E1 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		369921B52AF0CBE200DC4601 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		369921B62AF0CBE200DC4601 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		369921BA2AF0E2E200DC4601 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
@@ -374,6 +378,7 @@
 		36354F732AF4CE8B00EBDD90 /* CartView */ = {
 			isa = PBXGroup;
 			children = (
+				368E86722AFDD047002064E1 /* ResultView */,
 				368D99772AFB6F120072A977 /* FloatingPanel */,
 				36354F782AF9C60D00EBDD90 /* TableCell */,
 				36354F742AF4CEAE00EBDD90 /* CartViewController.swift */,
@@ -515,6 +520,15 @@
 				368D99792AFB6F320072A977 /* FloatingPanelView.xib */,
 			);
 			path = FloatingPanel;
+			sourceTree = "<group>";
+		};
+		368E86722AFDD047002064E1 /* ResultView */ = {
+			isa = PBXGroup;
+			children = (
+				368E86732AFDD06C002064E1 /* ResultViewController.swift */,
+				368E86742AFDD06C002064E1 /* ResultViewController.xib */,
+			);
+			path = ResultView;
 			sourceTree = "<group>";
 		};
 		369921B32AF0CBBC00DC4601 /* LoginView */ = {
@@ -924,6 +938,7 @@
 				36A432652AF3767B0070E770 /* MiddleCell.xib in Resources */,
 				367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */,
 				36A4324D2AF23D7C0070E770 /* Poppins-Regular.ttf in Resources */,
+				368E86762AFDD06C002064E1 /* ResultViewController.xib in Resources */,
 				36A4324F2AF23D830070E770 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				36019BFC2AE8EF1500C07588 /* Assets.xcassets in Resources */,
 				36FD06722AEA445A0088F415 /* TabelViewController.xib in Resources */,
@@ -1105,6 +1120,7 @@
 				36A432692AF378C10070E770 /* FoodCell.swift in Sources */,
 				36354F762AF4CEAE00EBDD90 /* CartViewController.swift in Sources */,
 				367B0BAD2AEB93EC009E72D4 /* ExtUICollectionView.swift in Sources */,
+				368E86752AFDD06C002064E1 /* ResultViewController.swift in Sources */,
 				3603F09D2AFA0A5C007EAD10 /* SearchBar.swift in Sources */,
 				367B0BB52AEB9511009E72D4 /* DrinkCell.swift in Sources */,
 				36019BF32AE8EF1400C07588 /* AppDelegate.swift in Sources */,

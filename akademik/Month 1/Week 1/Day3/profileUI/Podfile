@@ -9,6 +9,7 @@ target 'profileUI' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'FloatingPanel'
+  pod 'lottie-ios'
   
   # Pods for profileUI
 

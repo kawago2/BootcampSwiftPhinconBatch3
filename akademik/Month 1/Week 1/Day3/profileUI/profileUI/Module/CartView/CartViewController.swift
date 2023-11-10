@@ -23,8 +23,15 @@ class CartViewController: UIViewController {
     var listChart: [ItemModel] = []
     var uniqueCart: [ItemModel] = []
     var listSeparated: [ItemModel] = []
-    var sum: Float = 0
-    var total: Float = 0
+    var total: Float = 0 {
+        didSet {
+            if Int(self.total) == 0 {
+                self.payButton.isEnabled = false
+                self.payButton.tintColor = .gray
+            }
+        }
+    }
+    var context = ""
     var fpc: FloatingPanelController!
     var combinedCart: [UUID: ItemModel] = [:]
     var delegate: CartViewDelegate?
@@ -35,6 +42,15 @@ class CartViewController: UIViewController {
         setup()
         configureTable()
         setupData()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.context == "BottomCell" {
+            self.showFloatingPanel()
+        }
+     
     }
     @objc func backButtonTapped(_ sender: Any) {
         separateLogic()
@@ -54,6 +70,7 @@ class CartViewController: UIViewController {
         fpc.surfaceView.grabberHandle.isHidden = true
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         let vc = FloatingPanelView()
+        vc.delegate = self
         fpc.set(contentViewController: vc)
         vc.initData(sum: total)
         fpc.layout = CustomFloatingPanelLayout()
@@ -69,7 +86,6 @@ class CartViewController: UIViewController {
     
     func setupUI() {
         payButton.setRoundedBorder(cornerRadius: 20)
-        payButton.isHidden = combinedCart.isEmpty
     }
     
     func setupData() {
@@ -90,7 +106,7 @@ class CartViewController: UIViewController {
     
     func separateLogic() {
         listSeparated = []
-        for (_, var item) in combinedCart {
+        for (_, item) in combinedCart {
             for _ in 1...item.quantity {
                 var updated = item
                 updated.quantity = 1
@@ -125,7 +141,21 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension CartViewController: CartCellDelegate {
+extension CartViewController: CartCellDelegate, FloatingPanelViewDelegate, ResultViewControllerDelegate{
+    func didFinishTapped() {
+        let vc = TabBarViewController()
+        navigationController?.setViewControllers([vc], animated: false)
+    }
+    
+    func didConfirmTapped() {
+        let vc = ResultViewController()
+        vc.delegate = self
+        vc.initData(amount: total)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: false)
+    }
+    
     func didTashTapped(_ item: ItemModel) {
         let itemUUID = item.id // Assuming item.id is not optional
         
@@ -145,7 +175,7 @@ extension CartViewController: CartCellDelegate {
         let itemUUID = item.id // Assuming item.id is not optional
         
         if let existingItem = combinedCart[itemUUID] {
-            if existingItem.quantity > 0 {
+            if existingItem.quantity > 1 {
                 combinedCart[itemUUID]?.quantity -= 1
                 totalPrice()
             }

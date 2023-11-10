@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FloatingPanelView" customModule="profileUI" customModuleProvider="target">
             <connections>
+                <outlet property="confirmButton" destination="MQU-OW-XOM" id="02P-1e-2lF"/>
                 <outlet property="exitButton" destination="nFq-tZ-lbu" id="cdR-5g-U12"/>
                 <outlet property="totalLabel" destination="3eW-OF-g2K" id="ocv-8C-294"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -59,35 +60,40 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="107" translatesAutoresizingMaskIntoConstraints="NO" id="dns-nZ-gcz">
-                    <rect key="frame" x="16" y="191" width="99.333333333333343" height="50"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="Shz-5E-MdX">
+                    <rect key="frame" x="16" y="232" width="361" height="38"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Harga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eW-OF-g2K">
-                            <rect key="frame" x="0.0" y="0.0" width="99.333333333333329" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="150" height="38"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="wwN-YJ-Sa3"/>
+                                <constraint firstAttribute="width" constant="150" id="mVd-vx-B9E"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQU-OW-XOM">
+                            <rect key="frame" x="240" y="0.0" width="121" height="38"/>
+                            <color key="backgroundColor" name="MainColor"/>
+                            <color key="tintColor" name="ThirdColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="checkmark.seal.fill" catalog="system" title="Confirm">
+                                <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                            </buttonConfiguration>
+                        </button>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQU-OW-XOM">
-                    <rect key="frame" x="248" y="198" width="121" height="38"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="checkmark.seal.fill" catalog="system" title="Confirm">
-                        <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
-                    </buttonConfiguration>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="ProColor"/>
             <constraints>
+                <constraint firstItem="Shz-5E-MdX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="3RB-Vv-t6i"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="W9h-Vv-l3S" secondAttribute="bottom" constant="216" id="85i-q5-7Hf"/>
                 <constraint firstAttribute="trailing" secondItem="W9h-Vv-l3S" secondAttribute="trailing" constant="16" id="IHn-hR-9Zz"/>
                 <constraint firstItem="W9h-Vv-l3S" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="hWe-zX-19E"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Shz-5E-MdX" secondAttribute="bottom" constant="20" id="mDc-SX-DT7"/>
+                <constraint firstItem="Shz-5E-MdX" firstAttribute="top" secondItem="W9h-Vv-l3S" secondAttribute="bottom" constant="158" id="rjC-HY-YtI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Shz-5E-MdX" secondAttribute="trailing" constant="16" id="va3-Jf-x4U"/>
                 <constraint firstItem="W9h-Vv-l3S" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="33" id="y3l-MU-Yug"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -98,8 +104,14 @@
         <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="MainColor">
+            <color red="0.24705882352941178" green="0.78823529411764703" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ProColor">
             <color red="0.77254901960784317" green="0.77254901960784317" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ThirdColor">
+            <color red="0.90588235294117647" green="0.92156862745098034" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

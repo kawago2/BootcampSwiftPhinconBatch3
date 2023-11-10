@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol BottomCellDelegate {
+    func didButtonTapped()
+}
+
 class BottomCell: UITableViewCell {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var manyItemLabel: UILabel!
+    @IBOutlet weak var buttonView: UIView!
+    
+    var delegate: BottomCellDelegate?
     
     var totalPrice: Float = 0 {
         didSet {
@@ -33,12 +40,17 @@ class BottomCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
+    
+    @objc func buttonViewTapped() {
+        delegate?.didButtonTapped()
+    }
+
     
     func setup() {
         selectionStyle = .none
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(buttonViewTapped))
+        buttonView.addGestureRecognizer(tapGesture)
     }
     
     func loadData() {        

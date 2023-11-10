@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import RxSwift
 import RxCocoa
+
 class DashboardViewController: UIViewController  {
     
     
@@ -13,7 +14,6 @@ class DashboardViewController: UIViewController  {
     var listChart: [ItemModel] = []
     var filteredData: [ItemModel] = []
     var combinedCart: [UUID: ItemModel] = [:]
-    
     var searchText = "" {
         didSet {
             let sectionToReload = 1 // Section index to reload
@@ -130,9 +130,11 @@ class DashboardViewController: UIViewController  {
         }
         listChart = Array(combinedCart.values)
     }
+    
+    
     func setupRxSearch() {
         searchSubject
-            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance) // Use .milliseconds instead of .microseconds
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
             .flatMapLatest { [weak self] query -> Observable<[ItemModel]> in
                 guard let self = self else { return Observable.empty() }
                 
@@ -140,22 +142,11 @@ class DashboardViewController: UIViewController  {
                     guard let name = item.name else {
                         return false
                     }
-                    
                     let lowercaseName = name.lowercased()
                     let lowercaseQuery = query.lowercased()
-                    
-                    if lowercaseQuery.count > 1 {
-                        return lowercaseName.contains(lowercaseQuery)
-                    } else {
-                        for character in lowercaseName {
-                            if String(character) == lowercaseQuery {
-                                return true
-                            }
-                        }
-                        return false
-                    }
+                    return lowercaseName.contains(lowercaseQuery)
                 }
-                return Observable.just(filteredData).observe(on: MainScheduler.instance)
+                return Observable.just(filteredData)
             }
             .subscribe(onNext: { [weak self] results in
                 guard let self = self else { return }
@@ -163,7 +154,6 @@ class DashboardViewController: UIViewController  {
             })
             .disposed(by: disposeBag)
     }
-
 
 }
 
@@ -199,6 +189,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
             }
             cell.manyItem = listChart.count
             cell.totalPrice = sum
+            cell.delegate = self
             return cell
         default:
             return UITableViewCell()
@@ -225,7 +216,18 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
     }
 }
 
-extension DashboardViewController : MiddleCellDelegate , TopCellDelegate , CartViewDelegate{
+extension DashboardViewController : MiddleCellDelegate , TopCellDelegate , CartViewDelegate, BottomCellDelegate {
+    
+    func didButtonTapped() {
+        let vc = CartViewController()
+        vc.delegate = self
+        combineItemsInCart()
+        vc.combinedCart = combinedCart
+        vc.context = "BottomCell"
+        vc.tableView?.reloadData()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func didTapFilterButton() {
         print("filter clicked")
     }

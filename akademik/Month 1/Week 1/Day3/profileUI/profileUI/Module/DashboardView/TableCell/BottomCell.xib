@@ -67,6 +67,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="ThirdColor"/>
             <connections>
+                <outlet property="buttonView" destination="UI0-J6-dfM" id="OvH-mr-eXv"/>
                 <outlet property="manyItemLabel" destination="82B-b4-wD4" id="KJF-71-L1c"/>
                 <outlet property="totalPriceLabel" destination="w0g-lW-c3y" id="4Sj-3A-KwQ"/>
             </connections>
