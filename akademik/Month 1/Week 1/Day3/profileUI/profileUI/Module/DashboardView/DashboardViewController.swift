@@ -16,8 +16,8 @@
         
         var searchText = "" {
             didSet {
-                let sectionToReload = 1 // Section index to reload
-                let indexSet = IndexSet(integer: sectionToReload) // Create an index set for the section
+                let sectionToReload = 1
+                let indexSet = IndexSet(integer: sectionToReload)
                 self.tableView.reloadSections(indexSet, with: .automatic)
             }
         }
@@ -30,24 +30,9 @@
             configureTable()
             loadData()
             fetchCoreData()
-            bindViewModel()
         }
         
-        func bindViewModel() {
-            // Bind searchText from the view model to the searchSubject
-            viewModel.searchText
-                .bind(to: searchSubject)
-                .disposed(by: disposeBag)
-            
-            // Bind filteredData from the view model to update the UI
-            viewModel.filteredData
-                .drive(onNext: { [weak self] results in
-                    guard let self = self else { return }
-                    self.filteredData = results
-                    self.tableView.reloadData()
-                })
-                .disposed(by: disposeBag)
-        }
+
         
         func initCoreData() {
             CoreDataManager.shared.saveToCoreData(listFood)

@@ -13,38 +13,9 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var passwordField: InputField!
     @IBOutlet weak var emailField: InputField!
+    @IBOutlet weak var loginButton: UIButton!
     
-    @IBAction func loginTapped(_ sender: Any) {
-        let vc = LoginViewController()
-        navigationController?.popToRootViewController(animated: true)
-    }
-    
-    @IBAction func registerTapped(_ sender: Any) {
-        guard let email = emailField.inputText.text, let password = passwordField.inputText.text else {
-            // Handle the case where email or password is not valid
-            return
-        }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                // Handle registration error, such as displaying an alert
-                self.showAlert(title: "Error", message: error.localizedDescription)
-            } else {
-                // User registration successful
-                self.showRegistrationSuccessAlert()
-            }
-        }
-    }
-    
-
-    func showRegistrationSuccessAlert() {
-        let alert = UIAlertController(title: "Register Successful", message: "Please log in to enter the application", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-            let vc = LoginViewController()
-            self.navigationController?.setViewControllers([vc], animated: true)
-        })
-        self.present(alert, animated: true, completion: nil)
-    }
+    var viewModel: RegisterViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +25,48 @@ class RegisterViewController: UIViewController {
     func setup() {
         uiEmailField()
         uiPasswordField()
+        buttonEvent()
+        setupViewModel()
         registerButton.setRoundedBorder(cornerRadius: 20)
+    }
+    
+    func setupViewModel() {
+        viewModel = RegisterViewModel()
+        viewModel.onRegistrationSuccess = { [weak self] in
+            self?.showRegistrationSuccessAlert()
+        }
+
+        viewModel.onRegistrationFailure = { [weak self] message in
+            self?.showAlert(title: "Error", message: message)
+        }
+    }
+    
+    func buttonEvent() {
+        loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
         
     }
+    
+    @objc func loginTapped() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+
+    @objc func registerTapped() {
+        let email = emailField.inputText.text
+        let password = passwordField.inputText.text
+        viewModel.registerUser(email: email, password: password)
+    }
+    
+    
+    func showRegistrationSuccessAlert() {
+        let alert = UIAlertController(title: "Register Successful", message: "Please log in to enter the application", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            let vc = LoginViewController()
+            self?.navigationController?.setViewControllers([vc], animated: true)
+        })
+        present(alert, animated: true, completion: nil)
+    }
+
     
     func uiEmailField() {
         emailField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)

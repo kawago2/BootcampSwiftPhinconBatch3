@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="profileUI" customModuleProvider="target">
             <connections>
                 <outlet property="emailField" destination="lkK-uc-bpA" id="DaN-qb-cNx"/>
+                <outlet property="loginButton" destination="UNx-EN-clX" id="GNZ-ka-b09"/>
                 <outlet property="passwordField" destination="Ujx-8Q-lWW" id="ctb-7A-aA1"/>
                 <outlet property="registerButton" destination="QIl-Bw-87U" id="YfM-Rh-Eg4"/>
                 <outlet property="view" destination="PHF-TL-Ra4" id="IT7-QW-idh"/>
@@ -65,9 +66,6 @@
                                         <color key="baseForegroundColor" name="TextColor"/>
                                         <color key="baseBackgroundColor" name="SecColor"/>
                                     </buttonConfiguration>
-                                    <connections>
-                                        <action selector="registerTapped:" destination="-1" eventType="touchUpInside" id="jII-z7-gJZ"/>
-                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lkK-uc-bpA" customClass="InputField" customModule="profileUI" customModuleProvider="target">
                                     <rect key="frame" x="27" y="78" width="339" height="104"/>
@@ -94,9 +92,6 @@
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Login"/>
-                                            <connections>
-                                                <action selector="loginTapped:" destination="-1" eventType="touchUpInside" id="ity-ki-sm3"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
