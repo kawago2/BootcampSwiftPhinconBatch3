@@ -15,10 +15,6 @@ class DashboardViewModel {
     init() {
         let fetchData = BehaviorRelay<[ItemModel]>(value: [])
         
-        // Assuming fetchData is initialized and updated elsewhere in your code.
-        // You can replace it with the actual logic to fetch data.
-
-        // Combine searchText with fetchData to get filteredData
         filteredData = Observable.combineLatest(fetchData, searchText.asObservable())
             .map { (fetchData, query) in
                 return fetchData.filter { item in

@@ -150,7 +150,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="MainColor"/>
             <constraints>
                 <constraint firstItem="PD3-Bq-vD7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9Qb-ae-gSX"/>
                 <constraint firstItem="PD3-Bq-vD7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9St-6D-lvV"/>

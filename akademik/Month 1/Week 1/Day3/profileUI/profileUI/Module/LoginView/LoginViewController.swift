@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func registerTapped(_ sender: Any) {
         let vc = RegisterViewController()
-        navigationController?.setViewControllers([vc], animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {

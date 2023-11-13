@@ -66,6 +66,7 @@
 		368E86752AFDD06C002064E1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E86732AFDD06C002064E1 /* ResultViewController.swift */; };
 		368E86762AFDD06C002064E1 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E86742AFDD06C002064E1 /* ResultViewController.xib */; };
 		368FD7F92B01C851006AEABE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FD7F82B01C851006AEABE /* CoreDataManager.swift */; };
+		368FD7FB2B01D143006AEABE /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FD7FA2B01D143006AEABE /* SplashViewModel.swift */; };
 		369921B22AF0B24400DC4601 /* StepSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 369921B12AF0B24400DC4601 /* StepSlider */; };
 		369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921B52AF0CBE200DC4601 /* LoginViewController.swift */; };
 		369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921B62AF0CBE200DC4601 /* LoginViewController.xib */; };
@@ -199,6 +200,7 @@
 		368E86732AFDD06C002064E1 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		368E86742AFDD06C002064E1 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		368FD7F82B01C851006AEABE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		368FD7FA2B01D143006AEABE /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		369921B52AF0CBE200DC4601 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		369921B62AF0CBE200DC4601 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		369921BA2AF0E2E200DC4601 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		360B3A382AEFB17000FD98BB /* DashboardView */ = {
 			isa = PBXGroup;
 			children = (
+				367BDE1F2B01C51C000D2965 /* DashboardViewModel.swift */,
 				36A432662AF3772B0070E770 /* CollectionCell */,
 				36A432562AF336420070E770 /* TableCell */,
 				36F741EE2AF095A400CAB136 /* DashboardViewController.xib */,
@@ -433,7 +436,6 @@
 				36A4326B2AF38B6B0070E770 /* ItemModel.swift */,
 				36354F862AF9D12B00EBDD90 /* ToDo.swift */,
 				36354F942AF9E1B000EBDD90 /* Food.swift */,
-				367BDE1F2B01C51C000D2965 /* DashboardViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -606,6 +608,7 @@
 			children = (
 				36A4325E2AF3426E0070E770 /* SplashViewController.swift */,
 				36A4325F2AF3426E0070E770 /* SplashViewController.xib */,
+				368FD7FA2B01D143006AEABE /* SplashViewModel.swift */,
 			);
 			path = SplashView;
 			sourceTree = "<group>";
@@ -673,22 +676,22 @@
 			isa = PBXGroup;
 			children = (
 				365BA6DD2AEBB52C00CF478C /* Models */,
-				36354F8F2AF9DC4F00EBDD90 /* PostView */,
-				36354F8A2AF9D20100EBDD90 /* FetchView */,
 				36A4325B2AF340AF0070E770 /* SplashView */,
-				36354F732AF4CE8B00EBDD90 /* CartView */,
-				366FF0912AEFB09900F74907 /* MainTabBar */,
-				36FE9FB92AF2177100EBF492 /* RegisterView */,
 				369921B32AF0CBBC00DC4601 /* LoginView */,
+				36FE9FB92AF2177100EBF492 /* RegisterView */,
+				366FF0912AEFB09900F74907 /* MainTabBar */,
+				360B3A382AEFB17000FD98BB /* DashboardView */,
+				367B0BA22AEB61B7009E72D4 /* DetailsView */,
 				360B3A402AEFB57400FD98BB /* ProfileView */,
 				36FD067B2AEA45BF0088F415 /* EditProfileView */,
-				360B3A382AEFB17000FD98BB /* DashboardView */,
+				36354F732AF4CE8B00EBDD90 /* CartView */,
+				36354F8F2AF9DC4F00EBDD90 /* PostView */,
+				36354F8A2AF9D20100EBDD90 /* FetchView */,
 				36F741FA2AF0A38300CAB136 /* SettingView */,
 				36F741F12AF099E700CAB136 /* ThreadsView */,
 				365BA6E62AEF3A9800CF478C /* SectionView */,
 				365BA6E22AEBBB3000CF478C /* ScrollView */,
 				367B0BA92AEB9359009E72D4 /* CollectionView */,
-				367B0BA22AEB61B7009E72D4 /* DetailsView */,
 				36FD067D2AEA46170088F415 /* TabelView */,
 				36FD067C2AEA46020088F415 /* HalfScrollView */,
 				36FD067A2AEA45A00088F415 /* MainView */,
@@ -1102,6 +1105,7 @@
 				36354F7F2AF9C68D00EBDD90 /* CartCell.swift in Sources */,
 				36A432552AF32B070070E770 /* UserModel.swift in Sources */,
 				36354F852AF9CE9300EBDD90 /* ExtFloat.swift in Sources */,
+				368FD7FB2B01D143006AEABE /* SplashViewModel.swift in Sources */,
 				36354F872AF9D12B00EBDD90 /* ToDo.swift in Sources */,
 				36354F722AF4A7B100EBDD90 /* DashboardViewController.swift in Sources */,
 				36354F922AF9DC6600EBDD90 /* PostViewController.swift in Sources */,

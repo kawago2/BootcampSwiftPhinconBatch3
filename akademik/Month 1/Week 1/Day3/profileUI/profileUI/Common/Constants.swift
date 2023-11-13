@@ -13,6 +13,13 @@ enum BaseConstant {
     static let baseUrl = "https://jsonplaceholder.typicode.com/todos"
 }
 
+enum Constants {
+    static let topCellIdentifier = "TopCell"
+    static let middleCellIdentifier = "MiddleCell"
+    static let bottomCellIdentifier = "BottomCell"
+    static let coreDataEntityName = "Foods"
+    static let coreDataFileName = "DataModel"
+}
 
 enum LocalStorage {
     static let Base = UserDefaults.standard

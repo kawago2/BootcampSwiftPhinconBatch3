@@ -6,6 +6,8 @@ class SplashViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var buttonNavigate: UIButton!
     
+    private var viewModel = SplashViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
