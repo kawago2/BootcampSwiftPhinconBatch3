@@ -9,11 +9,11 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         configureUITabBarItems()
         configureTab()
+        configureAppearance()
         setFirstFocus(index: 0)
     }
     
     func configureUITabBarItems() {
-        // Create separate UITabBarItem objects for each view controller
         let dashboardTabBarItem = UITabBarItem(title: "Dashboard", image: IconSystem.dashboard, tag: 0)
         let profileTabBarItem = UITabBarItem(title: "Profile", image: IconSystem.profile, tag: 0)
         
@@ -22,16 +22,19 @@ class TabBarViewController: UITabBarController {
         
         viewControllers = [ dashboardViewController, profileViewController]
         
-        // Customize appearance for tab bar items
-        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor(named: "MainColor") ?? UIColor.black], for: .selected)
+    }
+    
+    func configureAppearance() {
+        let normalTextAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black]
+        let selectedTextAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(named: "MainColor") ?? UIColor.black]
+        
+        UITabBarItem.appearance().setTitleTextAttributes(normalTextAttributes, for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes(selectedTextAttributes, for: .selected)
         UITabBar.appearance().tintColor = UIColor(named: "MainColor") ?? UIColor.black
         UITabBar.appearance().barTintColor = UIColor(named: "ThirdColor") ?? UIColor.white
         
-        // Hide the separator and make the background clear
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().shadowImage = UIImage()
-        
     }
     
     func configureTab() {

@@ -8,67 +8,52 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var aboutView: UIView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var penButton: UIButton!
     
     var titlePage = "profile_string".localized
-    let notSetText = "Not Set"
-    let defaultText = "No User"
-    let image = "image_profile"
+    var viewModel = ProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         getUserData()
-        setupButton()
+        buttonEvent()
     }
     
-    func setupButton() {
+    func buttonEvent() {
         backButton.addTarget(self, action: #selector(signOutTapped), for: .touchUpInside)
+        penButton.addTarget(self, action: #selector(penButtonTapped), for: .touchUpInside)
     }
     
     func setupUI() {
-        // Set the profile image
-        if let image = UIImage(named: image) {
-            profileImg.image = image
-            profileImg.setCircleBorder()
-        }
+        profileImg.image = viewModel.profileImage
+        profileImg.setCircleBorder()
         
-        
-        // Set shadow for the aboutView
         aboutView.setShadow()
-        if Auth.auth().currentUser == nil {
-            backButton.isHidden = true
-        } else {
-            backButton.isHidden = false
-        }
+        backButton.isHidden = FAuth.auth.currentUser == nil
     }
     
     func getUserData() {
-        guard let user = Auth.auth().currentUser else {
-            nameTF.text = defaultText
-            phoneTF.text = defaultText
-            emailTF.text = defaultText
-            return
-        }
-        
-        nameTF.text = user.displayName ?? notSetText
-        emailTF.text = user.email ?? notSetText
-        phoneTF.text = user.phoneNumber ?? notSetText
+        nameTF.text = viewModel.name
+        emailTF.text = viewModel.email
+        phoneTF.text = viewModel.phone
     }
     
-    @objc func signOutTapped(){
-        do {
-            try Auth.auth().signOut()
-            let loginViewController = LoginViewController()
-            navigationController?.setViewControllers([loginViewController], animated: true)
-        } catch {
-            showAlert(title: "Error Sign Out", message: error.localizedDescription)
+    @objc func signOutTapped() {
+        viewModel.signOut { error in
+            if let error = error {
+                self.showAlert(title: "Error Sign Out", message: error.localizedDescription)
+            } else {
+                let loginViewController = LoginViewController()
+                self.navigationController?.setViewControllers([loginViewController], animated: true)
+            }
         }
     }
     
-    @IBAction func penButtonTapped(_ sender: Any) {
+    @objc func penButtonTapped() {
         let vc = EditProfileViewController()
         vc.delegate = self
-        vc.initData = UserModel(nama: nameTF.text, phone: phoneTF.text, email: emailTF.text, image: image)
+        vc.viewModel = EditProfileViewModel(authService: AuthService(), userData: UserModel(nama: viewModel.name, phone: viewModel.phone, email: viewModel.email, image: viewModel.image))
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -92,5 +77,4 @@ extension ProfileViewController: EditProfileViewControllerDelegate {
         }
     }
 }
-
 

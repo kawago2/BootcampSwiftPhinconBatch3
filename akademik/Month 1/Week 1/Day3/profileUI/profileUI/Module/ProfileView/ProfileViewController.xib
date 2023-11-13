@@ -24,6 +24,7 @@
                 <outlet property="backButton" destination="Hfh-BI-NOd" id="28m-zk-9D4"/>
                 <outlet property="emailTF" destination="uYb-AR-SW9" id="Rz3-y5-8Yc"/>
                 <outlet property="nameTF" destination="H1K-tR-lRZ" id="g7m-MA-eNK"/>
+                <outlet property="penButton" destination="oa7-9N-vE3" id="UUW-NN-Taj"/>
                 <outlet property="phoneTF" destination="Op7-jE-6b3" id="cus-q1-Oto"/>
                 <outlet property="profileImg" destination="SS0-kT-yj1" id="oA1-nX-ucU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -179,9 +180,6 @@
                                 <imageReference key="image" image="pencil" catalog="system" symbolScale="medium"/>
                                 <color key="baseForegroundColor" systemColor="labelColor"/>
                             </buttonConfiguration>
-                            <connections>
-                                <action selector="penButtonTapped:" destination="-1" eventType="touchUpInside" id="kNU-Pa-9DD"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfh-BI-NOd">
                             <rect key="frame" x="289" y="0.0" width="54" height="40"/>

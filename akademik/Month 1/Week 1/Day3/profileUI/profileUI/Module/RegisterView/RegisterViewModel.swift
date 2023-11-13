@@ -10,8 +10,7 @@ class RegisterViewModel {
             onRegistrationFailure?("Invalid email or password.")
             return
         }
-
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+        FAuth.auth.createUser(withEmail: email, password: password) { [weak self] authResult, error in
             guard let strongSelf = self else { return }
             if let error = error {
                 strongSelf.onRegistrationFailure?(error.localizedDescription)

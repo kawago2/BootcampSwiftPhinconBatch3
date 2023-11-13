@@ -1,18 +1,13 @@
-//
-//  Constants.swift
-//  profileUI
-//
-//  Created by Phincon on 30/10/23.
-//
-
 import Foundation
 import UIKit
-
+import FirebaseAuth
 
 enum BaseConstant {
     static let baseUrl = "https://jsonplaceholder.typicode.com/todos"
 }
-
+enum FAuth {
+    static let auth = Auth.auth()
+}
 enum Constants {
     static let topCellIdentifier = "TopCell"
     static let middleCellIdentifier = "MiddleCell"

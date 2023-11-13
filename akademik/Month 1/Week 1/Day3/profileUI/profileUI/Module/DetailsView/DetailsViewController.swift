@@ -16,51 +16,47 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var totalItemLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var buttonView: UIView!
+    
+    var viewModel: DetailsViewModel!
+    
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     // declarate
     var data: ItemModel?
-    var image: String?
-    var isFavorited: Bool = false
-    
+//    var image: String?
+//    var isFavorited: Bool = false
+//    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        buttonEvent()
     }
     
     func setup() {
         loadData()
         configureUI()
+    }
+    
+    func buttonEvent() {
         favoriteButton.addTarget(self, action: #selector(favoriteTapped), for: .touchUpInside)
     }
     
     func configureUI() {
         topView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 40)
         buttonView.backgroundColor = .black.withAlphaComponent(0.2)
-        
     }
     
     func loadData() {
-        if let validFood = data {
-            namaLabel.text = validFood.name ?? "Not Found"
-            priceLabel.text = validFood.price?.toDollarFormat() ?? 0.toDollarFormat()
-            let isFavorite = validFood.isFavorite ?? false
-            isFavorited = isFavorite
-            favoriteButton.tintColor = isFavorite ? UIColor.red : UIColor(named: "ProColor")
-            if let image = UIImage(named: validFood.image ?? "image_not_available") {
-                self.imgView.image = image
-            }
-        }
+        namaLabel.text = viewModel?.name
+        priceLabel.text = viewModel?.price
+        imgView.image = viewModel?.image
+        favoriteButton.tintColor = viewModel.isFavorited ? UIColor.red : UIColor(named: "ProColor")
     }
     
     @objc func favoriteTapped() {
-        isFavorited = !isFavorited
-        if isFavorited {
-            favoriteButton.tintColor = UIColor.red
-        } else {
-            favoriteButton.tintColor = UIColor(named: "ProColor")
-        }
+        viewModel?.toggleFavorite()
+        favoriteButton.tintColor = viewModel.isFavorited ? UIColor.red : UIColor(named: "ProColor")
     }
 }

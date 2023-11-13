@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let post = PostViewController()
         var navigationController = UINavigationController(rootViewController: splash)
         
-        if Auth.auth().currentUser != nil {
+        if FAuth.auth.currentUser != nil {
              navigationController = UINavigationController(rootViewController: tabbar)
         }
         
