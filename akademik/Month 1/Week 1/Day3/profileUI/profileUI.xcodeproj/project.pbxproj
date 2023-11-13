@@ -60,10 +60,12 @@
 		367B0BB12AEB943F009E72D4 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BAF2AEB943F009E72D4 /* CollectionViewController.xib */; };
 		367B0BB52AEB9511009E72D4 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0BB32AEB9511009E72D4 /* DrinkCell.swift */; };
 		367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BB42AEB9511009E72D4 /* DrinkCell.xib */; };
+		367BDE202B01C51C000D2965 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367BDE1F2B01C51C000D2965 /* DashboardViewModel.swift */; };
 		368D997A2AFB6F320072A977 /* FloatingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368D99782AFB6F320072A977 /* FloatingPanelView.swift */; };
 		368D997B2AFB6F320072A977 /* FloatingPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368D99792AFB6F320072A977 /* FloatingPanelView.xib */; };
 		368E86752AFDD06C002064E1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368E86732AFDD06C002064E1 /* ResultViewController.swift */; };
 		368E86762AFDD06C002064E1 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E86742AFDD06C002064E1 /* ResultViewController.xib */; };
+		368FD7F92B01C851006AEABE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FD7F82B01C851006AEABE /* CoreDataManager.swift */; };
 		369921B22AF0B24400DC4601 /* StepSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 369921B12AF0B24400DC4601 /* StepSlider */; };
 		369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921B52AF0CBE200DC4601 /* LoginViewController.swift */; };
 		369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921B62AF0CBE200DC4601 /* LoginViewController.xib */; };
@@ -191,10 +193,12 @@
 		367B0BAF2AEB943F009E72D4 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		367B0BB32AEB9511009E72D4 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
 		367B0BB42AEB9511009E72D4 /* DrinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkCell.xib; sourceTree = "<group>"; };
+		367BDE1F2B01C51C000D2965 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		368D99782AFB6F320072A977 /* FloatingPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelView.swift; sourceTree = "<group>"; };
 		368D99792AFB6F320072A977 /* FloatingPanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingPanelView.xib; sourceTree = "<group>"; };
 		368E86732AFDD06C002064E1 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		368E86742AFDD06C002064E1 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
+		368FD7F82B01C851006AEABE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		369921B52AF0CBE200DC4601 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		369921B62AF0CBE200DC4601 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		369921BA2AF0E2E200DC4601 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@
 				36A4326B2AF38B6B0070E770 /* ItemModel.swift */,
 				36354F862AF9D12B00EBDD90 /* ToDo.swift */,
 				36354F942AF9E1B000EBDD90 /* Food.swift */,
+				367BDE1F2B01C51C000D2965 /* DashboardViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 		365BA6E32AEBC0ED00CF478C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				368FD7F82B01C851006AEABE /* CoreDataManager.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -1087,6 +1093,7 @@
 				36A4326C2AF38B6B0070E770 /* ItemModel.swift in Sources */,
 				36D38E5D2AEA606900168143 /* ExtUIView.swift in Sources */,
 				36A432602AF3426E0070E770 /* SplashViewController.swift in Sources */,
+				368FD7F92B01C851006AEABE /* CoreDataManager.swift in Sources */,
 				36F741F82AF09A7B00CAB136 /* ThreadsViewController.swift in Sources */,
 				36354F952AF9E1B000EBDD90 /* Food.swift in Sources */,
 				367B0B982AEB5A97009E72D4 /* ExtInt.swift in Sources */,
@@ -1102,6 +1109,7 @@
 				36F2C2BA2AE9FC590044729F /* EditProfileViewController.swift in Sources */,
 				367B0B9C2AEB609F009E72D4 /* ExtUIButton.swift in Sources */,
 				365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */,
+				367BDE202B01C51C000D2965 /* DashboardViewModel.swift in Sources */,
 				36FE9FBC2AF217AA00EBF492 /* RegisterViewController.swift in Sources */,
 				360B3A372AEFB12300FD98BB /* TabBarViewController.swift in Sources */,
 				369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */,

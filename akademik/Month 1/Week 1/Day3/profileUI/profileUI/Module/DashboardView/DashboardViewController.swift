@@ -4,9 +4,8 @@ import RxSwift
 import RxCocoa
 
 class DashboardViewController: UIViewController  {
-    
-    
     @IBOutlet weak var tableView: UITableView!
+    let viewModel = DashboardViewModel()
     
     var listFood: [ItemModel] = []
     var fetchData: [ItemModel] = []
@@ -14,6 +13,7 @@ class DashboardViewController: UIViewController  {
     var listChart: [ItemModel] = []
     var filteredData: [ItemModel] = []
     var combinedCart: [UUID: ItemModel] = [:]
+    
     var searchText = "" {
         didSet {
             let sectionToReload = 1 // Section index to reload
@@ -29,76 +29,41 @@ class DashboardViewController: UIViewController  {
         super.viewDidLoad()
         configureTable()
         loadData()
-        //        initCoreData()
         fetchCoreData()
-        //        cleanCoreData()
+        bindViewModel()
     }
     
+    func bindViewModel() {
+        // Bind searchText from the view model to the searchSubject
+        viewModel.searchText
+            .bind(to: searchSubject)
+            .disposed(by: disposeBag)
+        
+        // Bind filteredData from the view model to update the UI
+        viewModel.filteredData
+            .drive(onNext: { [weak self] results in
+                guard let self = self else { return }
+                self.filteredData = results
+                self.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    // Ganti bagian initCoreData
     func initCoreData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        for item in listFood {
-            let entity = NSEntityDescription.entity(forEntityName: "Foods", in: context)
-            let newFood = NSManagedObject(entity: entity!, insertInto: context)
-            newFood.setValue(item.id, forKey: "id")
-            newFood.setValue(item.name, forKey: "name")
-            newFood.setValue(item.image, forKey: "image")
-            newFood.setValue(item.price, forKey: "price")
-            
-            do {
-                try context.save()
-            } catch {
-                print("Failed saving: \(error)")
-            }
-        }
+        CoreDataManager.shared.saveToCoreData(listFood)
     }
-    
+
+    // Ganti bagian fetchCoreData
     func fetchCoreData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Foods")
-        
-        do {
-            let fetchedResults = try context.fetch(fetchRequest)
-            
-            if let foods = fetchedResults as? [NSManagedObject] {
-                for food in foods {
-                    if let name = food.value(forKey: "name") as? String,
-                       let id = food.value(forKey: "id") as? UUID,
-                       let image = food.value(forKey: "image") as? String,
-                       let price = food.value(forKey: "price") as? Float {
-                        let item = ItemModel(id: id,image: image, name: name, price: price)
-                        fetchData.append(item)
-                    }
-                }
-            }
-        } catch {
-            print("Failed to fetch data: \(error)")
-        }
+        fetchData = CoreDataManager.shared.fetchFromCoreData()
     }
-    
+
+    // Ganti bagian cleanCoreData
     func cleanCoreData() {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Foods")
-        
-        do {
-            let fetchedResults = try context.fetch(fetchRequest)
-            
-            if let foods = fetchedResults as? [NSManagedObject] {
-                for food in foods {
-                    context.delete(food)
-                }
-                
-                try context.save()
-            }
-        } catch {
-            print("Failed to clean data: \(error)")
-        }
+        CoreDataManager.shared.cleanCoreData()
     }
+
     
     
     func loadData() {
