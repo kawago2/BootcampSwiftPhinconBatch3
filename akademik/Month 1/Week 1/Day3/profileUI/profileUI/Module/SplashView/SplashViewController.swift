@@ -1,15 +1,15 @@
 import UIKit
 
 class SplashViewController: UIViewController {
-    
     @IBOutlet weak var animateView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var buttonNavigate: UIButton!
     
-    private var viewModel = SplashViewModel()
-    
+    private var viewModel: SplashViewModel!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewModel()
         setupUI()
         buttonNavigate.addTarget(self, action: #selector(navigateToNextPage), for: .touchUpInside)
     }
@@ -30,41 +30,21 @@ class SplashViewController: UIViewController {
         titleLabel.alpha = 0
         buttonNavigate.alpha = 0
         
-        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut) {
-            // Animate translation and opacity for animateView
-            self.animateView.transform = .identity
-            self.animateView.alpha = 1
-        } completion: { finished in
-            if finished {
-                self.rotateAnimateView()
-                UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut) {
-                    self.titleLabel.transform = .identity
-                    self.titleLabel.alpha = 1
-                }
-                UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut) {
-                    self.buttonNavigate.transform = .identity
-                    self.buttonNavigate.alpha = 1
-                }
-            }
+        viewModel.performInitialAnimation { [weak self] in
+            self?.viewModel.rotateAnimateView()
         }
     }
     
-    private func rotateAnimateView() {
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear) {
-            self.animateView.transform = self.animateView.transform.rotated(by: .pi)
-        } completion: { finished in
-            if finished {
-                UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear) {
-                    self.animateView.transform = self.animateView.transform.rotated(by: .pi)
-                }
-            }
-        }
+    private func setupViewModel() {
+        viewModel = SplashViewModel()
+        viewModel.animateView = self.animateView
+        viewModel.buttonNavigate = self.buttonNavigate
+        viewModel.titleLabel = self.titleLabel
     }
     
     @objc func navigateToNextPage() {
-        // Assuming TabBarViewController is the next view controller
-        let loginController = LoginViewController()
-        self.navigationController?.setViewControllers([loginController], animated: true)
+        let vc = LoginViewController()
+        navigationController?.setViewControllers([vc], animated: true)
     }
 }
 

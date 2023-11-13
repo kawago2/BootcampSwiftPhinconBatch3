@@ -67,6 +67,7 @@
 		368E86762AFDD06C002064E1 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368E86742AFDD06C002064E1 /* ResultViewController.xib */; };
 		368FD7F92B01C851006AEABE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FD7F82B01C851006AEABE /* CoreDataManager.swift */; };
 		368FD7FB2B01D143006AEABE /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FD7FA2B01D143006AEABE /* SplashViewModel.swift */; };
+		368FD7FD2B01DCF0006AEABE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FD7FC2B01DCF0006AEABE /* LoginViewModel.swift */; };
 		369921B22AF0B24400DC4601 /* StepSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 369921B12AF0B24400DC4601 /* StepSlider */; };
 		369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921B52AF0CBE200DC4601 /* LoginViewController.swift */; };
 		369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921B62AF0CBE200DC4601 /* LoginViewController.xib */; };
@@ -201,6 +202,7 @@
 		368E86742AFDD06C002064E1 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		368FD7F82B01C851006AEABE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		368FD7FA2B01D143006AEABE /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		368FD7FC2B01DCF0006AEABE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		369921B52AF0CBE200DC4601 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		369921B62AF0CBE200DC4601 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		369921BA2AF0E2E200DC4601 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 			children = (
 				369921B52AF0CBE200DC4601 /* LoginViewController.swift */,
 				369921B62AF0CBE200DC4601 /* LoginViewController.xib */,
+				368FD7FC2B01DCF0006AEABE /* LoginViewModel.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -1110,6 +1113,7 @@
 				36354F722AF4A7B100EBDD90 /* DashboardViewController.swift in Sources */,
 				36354F922AF9DC6600EBDD90 /* PostViewController.swift in Sources */,
 				36354F832AF9CCEF00EBDD90 /* DataModel.xcdatamodeld in Sources */,
+				368FD7FD2B01DCF0006AEABE /* LoginViewModel.swift in Sources */,
 				36F2C2BA2AE9FC590044729F /* EditProfileViewController.swift in Sources */,
 				367B0B9C2AEB609F009E72D4 /* ExtUIButton.swift in Sources */,
 				365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */,

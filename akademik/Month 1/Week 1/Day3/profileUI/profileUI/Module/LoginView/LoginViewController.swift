@@ -12,36 +12,44 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordField: InputField!
     @IBOutlet weak var emailField: InputField!
+    @IBOutlet weak var registerButton: UIButton!
     
-    @IBAction func registerTapped(_ sender: Any) {
+    var viewModel: LoginViewModel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+        buttonEvent()
+    }
+    
+    func setup() {
+        setupViewModel()
+        uiEmailField()
+        uiPasswordField()
+        loginButton.setRoundedBorder(cornerRadius: 20)
+    }
+    
+    func setupViewModel() {
+        viewModel = LoginViewModel()
+        viewModel.onLoginSuccess = { [weak self] in
+            let vc = TabBarViewController()
+            self?.navigationController?.setViewControllers([vc], animated: true)
+        }
+        
+        viewModel.onLoginFailure = { [weak self] message in
+            self?.showLoginFailureAlert(message: message)
+        }
+    }
+    
+    @objc func registerTapped() {
         let vc = RegisterViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func loginButtonTapped(_ sender: Any) {
+    @objc func loginButtonTapped() {
         let email = emailField.inputText.text
         let password = passwordField.inputText.text
-        if signInWithFirebase(email: email, password: password) {
-        } else {
-            showLoginFailureAlert()
-        }
-    }
-    
-    func signInWithFirebase(email: String?, password: String?) -> Bool{
-        guard let email = email, let password = password else {
-            return false
-        }
-        
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let strongSelf = self else { return }
-            if let error = error {
-                strongSelf.showLoginFailureAlert(message: error.localizedDescription)
-            } else {
-                let vc = TabBarViewController()
-                strongSelf.navigationController?.setViewControllers([vc], animated: true)
-            }
-        }
-        return true
+        viewModel.signInWithFirebase(email: email, password: password)
     }
     
     func showLoginFailureAlert(message: String? = "Invalid email or password.") {
@@ -50,18 +58,10 @@ class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setup()
+    func buttonEvent() {
+        registerButton.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
-    
-    func setup() {
-        uiEmailField()
-        uiPasswordField()
-        loginButton.setRoundedBorder(cornerRadius: 20)
-    }
-    
     func uiEmailField() {
         emailField.self.setShadow(cornerRadius: 10, shadowOpacity: 0.5)
         emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
