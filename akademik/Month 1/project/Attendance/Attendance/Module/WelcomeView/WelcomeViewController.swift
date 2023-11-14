@@ -30,43 +30,54 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupUI()
         startAutoplay()
     }
     
-    func setup() {
+    func setupUI() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.isPagingEnabled = true
-        pageControl.numberOfPages = numberOfPages
-        pageControl.currentPage = 0
         registerButton.setRoundedBorder(cornerRadius: 10)
         loginButton.setRoundedBorder(cornerRadius: 10)
         collectionView.registerCellWithNib(SliderCell.self)
     }
     
+    func buttonEvent() {
+//        skipButton.addTarget(self, action: #selector(<#T##@objc method#>), for: .touchUpInside)
+    }
+    
     func startAutoplay() {
-        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoplay), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoplay), userInfo: nil, repeats: currentPages == 3 ? false : true)
     }
     
     @objc func autoplay() {
         currentPages = (currentPages + 1) % numberOfPages
         let index = IndexPath(item: currentPages, section: 0)
-        print(index)
-        collectionView.scrollToItem(at: index, at: .centeredVertically, animated: true)
-        setDataScroll(index: currentPages) // Call setDataScroll with the updated currentPage
+        collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        collectionView.layoutIfNeeded()
+        updateUIForCurrentPage()
     }
 
+    @IBAction func pageControlClicked(_ sender: Any) {
+        let currentPage = (sender as AnyObject).currentPage
+        let indexPath = IndexPath(item: currentPage ?? 0, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        updateUIForCurrentPage()
+    }
     
-    
-    func setDataScroll(index: Int) {
-        titleLabel.text = dataArray[index]["title"]
-        descLabel.text = dataArray[index]["desc"]
+    func updateUIForCurrentPage() {
+        guard currentPages < dataArray.count else { return }
+        titleLabel.text = dataArray[currentPages]["title"]
+        descLabel.text = dataArray[currentPages]["desc"]
     }
 }
 
 extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        pageControl.numberOfPages = dataArray.count
         return numberOfPages
     }
     
@@ -82,7 +93,7 @@ extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDel
         let pageWidth = scrollView.frame.width
         let currentPage = Int(scrollView.contentOffset.x / pageWidth)
         pageControl.currentPage = currentPage
-        setDataScroll(index :currentPage)
+        updateUIForCurrentPage()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -67,6 +67,9 @@
                             <rect key="frame" x="142" y="225" width="115.66666666666669" height="26"/>
                             <color key="pageIndicatorTintColor" name="SecondaryTextColor"/>
                             <color key="currentPageIndicatorTintColor" name="PrimaryTextColor"/>
+                            <connections>
+                                <action selector="pageControlClicked:" destination="-1" eventType="valueChanged" id="G7p-zY-kGC"/>
+                            </connections>
                         </pageControl>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SyL-SJ-VM3">
                             <rect key="frame" x="36" y="278" width="327" height="48"/>

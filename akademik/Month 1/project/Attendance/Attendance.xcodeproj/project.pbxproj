@@ -24,6 +24,8 @@
 		36210D6D2B02227E0009EBC0 /* ExtUICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D6C2B02227E0009EBC0 /* ExtUICollectionView.swift */; };
 		36210D712B0223A90009EBC0 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D6F2B0223A90009EBC0 /* SliderCell.swift */; };
 		36210D722B0223A90009EBC0 /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210D702B0223A90009EBC0 /* SliderCell.xib */; };
+		36210D762B0303040009EBC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D742B0303040009EBC0 /* LoginViewController.swift */; };
+		36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210D752B0303040009EBC0 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		36210D6C2B02227E0009EBC0 /* ExtUICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUICollectionView.swift; sourceTree = "<group>"; };
 		36210D6F2B0223A90009EBC0 /* SliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		36210D702B0223A90009EBC0 /* SliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
+		36210D742B0303040009EBC0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		36210D752B0303040009EBC0 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 		36210D552B0208940009EBC0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36210D732B0302D60009EBC0 /* LoginView */,
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
 				36210D582B0208C80009EBC0 /* SplashView */,
 				36210D572B0208B40009EBC0 /* MainView */,
@@ -213,6 +218,15 @@
 				36210D702B0223A90009EBC0 /* SliderCell.xib */,
 			);
 			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		36210D732B0302D60009EBC0 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				36210D742B0303040009EBC0 /* LoginViewController.swift */,
+				36210D752B0303040009EBC0 /* LoginViewController.xib */,
+			);
+			path = LoginView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +338,7 @@
 				36210D322B02084C0009EBC0 /* LaunchScreen.storyboard in Resources */,
 				36210D2F2B02084C0009EBC0 /* Assets.xcassets in Resources */,
 				36210D2D2B02084B0009EBC0 /* Main.storyboard in Resources */,
+				36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */,
 				36210D5D2B02094C0009EBC0 /* SplashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36210D762B0303040009EBC0 /* LoginViewController.swift in Sources */,
 				36210D2A2B02084B0009EBC0 /* ViewController.swift in Sources */,
 				36210D612B020B320009EBC0 /* WelcomeViewController.swift in Sources */,
 				36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */,
