@@ -41,6 +41,8 @@
 		36210D982B0324240009EBC0 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210D962B0324240009EBC0 /* ProfileViewController.xib */; };
 		36210D9B2B03245F0009EBC0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D9A2B03245F0009EBC0 /* TabBarViewController.swift */; };
 		36210D9D2B0327900009EBC0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D9C2B0327900009EBC0 /* Constants.swift */; };
+		36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210DA32B0348270009EBC0 /* LocationCell.swift */; };
+		36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210DA42B0348270009EBC0 /* LocationCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		36210D962B0324240009EBC0 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		36210D9A2B03245F0009EBC0 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		36210D9C2B0327900009EBC0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		36210DA32B0348270009EBC0 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		36210DA42B0348270009EBC0 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,11 +184,11 @@
 		36210D552B0208940009EBC0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				36210D992B03245F0009EBC0 /* MainTabBar */,
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
 				36210D732B0302D60009EBC0 /* LoginView */,
 				36210D802B031BF10009EBC0 /* RegisterView */,
 				36210D852B0321A30009EBC0 /* ForgotView */,
+				36210D992B03245F0009EBC0 /* MainTabBar */,
 				36210D8A2B0323D70009EBC0 /* HomeView */,
 				36210D8F2B0323EE0009EBC0 /* HistoryView */,
 				36210D942B03240F0009EBC0 /* ProfileView */,
@@ -306,6 +310,7 @@
 		36210D8A2B0323D70009EBC0 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				36210DA02B0347D60009EBC0 /* TableCell */,
 				36210D8B2B0323E80009EBC0 /* HomeViewController.swift */,
 				36210D8C2B0323E80009EBC0 /* HomeViewController.xib */,
 			);
@@ -337,6 +342,15 @@
 			);
 			name = MainTabBar;
 			path = "../../../../Week 1/Day3/profileUI/profileUI/Module/MainTabBar";
+			sourceTree = "<group>";
+		};
+		36210DA02B0347D60009EBC0 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				36210DA32B0348270009EBC0 /* LocationCell.swift */,
+				36210DA42B0348270009EBC0 /* LocationCell.xib */,
+			);
+			path = TableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +465,7 @@
 				36210D2F2B02084C0009EBC0 /* Assets.xcassets in Resources */,
 				36210D842B031C0B0009EBC0 /* RegisterViewController.xib in Resources */,
 				36210D2D2B02084B0009EBC0 /* Main.storyboard in Resources */,
+				36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */,
 				36210D892B0321B70009EBC0 /* ForgotViewController.xib in Resources */,
 				36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */,
 				36210D5D2B02094C0009EBC0 /* SplashViewController.xib in Resources */,
@@ -495,6 +510,7 @@
 				36210D282B02084B0009EBC0 /* SceneDelegate.swift in Sources */,
 				36210D5C2B02094C0009EBC0 /* SplashViewController.swift in Sources */,
 				36210D6B2B0221190009EBC0 /* ExtUIButton.swift in Sources */,
+				36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */,
 				36210D712B0223A90009EBC0 /* SliderCell.swift in Sources */,
 				36210D6D2B02227E0009EBC0 /* ExtUICollectionView.swift in Sources */,
 				36210D9D2B0327900009EBC0 /* Constants.swift in Sources */,
