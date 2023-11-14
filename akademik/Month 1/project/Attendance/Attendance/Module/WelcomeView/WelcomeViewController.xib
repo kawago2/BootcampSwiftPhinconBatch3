@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="Attendance" customModuleProvider="target">
             <connections>
+                <outlet property="bottonView" destination="f5q-BK-lcw" id="u2F-EH-B5a"/>
                 <outlet property="collectionView" destination="Yew-b7-whf" id="VsL-3N-AYq"/>
                 <outlet property="descLabel" destination="UhP-5g-izu" id="riI-k1-Ybr"/>
                 <outlet property="loginButton" destination="gUd-Bv-rnv" id="IrT-nU-NXM"/>

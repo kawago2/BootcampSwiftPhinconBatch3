@@ -1,10 +1,3 @@
-//
-//  WelcomeViewController.swift
-//  Attendance
-//
-//  Created by Phincon on 13/11/23.
-//
-
 import UIKit
 
 class WelcomeViewController: UIViewController {
@@ -15,6 +8,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var bottonView: UIView!
     
     let dataArray = [
         ["title": "DIGITAL ABSENSI", "desc": "Kehadiran sistem absensi digital merupakan penemuan yang mampu menggantikan pencatatan data kehadiran secara manual", "img": "slide-1"],
@@ -32,6 +26,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         startAutoplay()
+        buttonEvent()
     }
     
     func setupUI() {
@@ -39,11 +34,17 @@ class WelcomeViewController: UIViewController {
         collectionView.delegate = self
         registerButton.setRoundedBorder(cornerRadius: 10)
         loginButton.setRoundedBorder(cornerRadius: 10)
+        bottonView.makeCornerRadius(30,maskedCorner: [.layerMinXMinYCorner,.layerMaxXMinYCorner])
         collectionView.registerCellWithNib(SliderCell.self)
     }
     
     func buttonEvent() {
-//        skipButton.addTarget(self, action: #selector(<#T##@objc method#>), for: .touchUpInside)
+        skipButton.addTarget(self, action: #selector(navigateLogin), for: .touchUpInside)
+    }
+    
+    @objc func navigateLogin() {
+        let vc = LoginViewController()
+        navigationController?.setViewControllers([vc], animated: true)
     }
     
     func startAutoplay() {

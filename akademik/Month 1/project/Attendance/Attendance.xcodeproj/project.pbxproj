@@ -26,6 +26,9 @@
 		36210D722B0223A90009EBC0 /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210D702B0223A90009EBC0 /* SliderCell.xib */; };
 		36210D762B0303040009EBC0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D742B0303040009EBC0 /* LoginViewController.swift */; };
 		36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210D752B0303040009EBC0 /* LoginViewController.xib */; };
+		36210D7B2B0304CC0009EBC0 /* InputField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210D792B0304CC0009EBC0 /* InputField.xib */; };
+		36210D7C2B0304CC0009EBC0 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D7A2B0304CC0009EBC0 /* InputField.swift */; };
+		36210D7F2B0309240009EBC0 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D7E2B0309240009EBC0 /* ExtUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		36210D702B0223A90009EBC0 /* SliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
 		36210D742B0303040009EBC0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		36210D752B0303040009EBC0 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		36210D792B0304CC0009EBC0 /* InputField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputField.xib; sourceTree = "<group>"; };
+		36210D7A2B0304CC0009EBC0 /* InputField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		36210D7E2B0309240009EBC0 /* ExtUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +203,7 @@
 		36210D682B0220F40009EBC0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				36210D7D2B0304D40009EBC0 /* Component */,
 				36210D692B0221050009EBC0 /* Extension */,
 			);
 			path = Common;
@@ -205,6 +212,7 @@
 		36210D692B0221050009EBC0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				36210D7E2B0309240009EBC0 /* ExtUIView.swift */,
 				36210D6A2B0221190009EBC0 /* ExtUIButton.swift */,
 				36210D6C2B02227E0009EBC0 /* ExtUICollectionView.swift */,
 			);
@@ -227,6 +235,23 @@
 				36210D752B0303040009EBC0 /* LoginViewController.xib */,
 			);
 			path = LoginView;
+			sourceTree = "<group>";
+		};
+		36210D782B0304CC0009EBC0 /* InputField */ = {
+			isa = PBXGroup;
+			children = (
+				36210D792B0304CC0009EBC0 /* InputField.xib */,
+				36210D7A2B0304CC0009EBC0 /* InputField.swift */,
+			);
+			path = InputField;
+			sourceTree = "<group>";
+		};
+		36210D7D2B0304D40009EBC0 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				36210D782B0304CC0009EBC0 /* InputField */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +361,7 @@
 				36210D722B0223A90009EBC0 /* SliderCell.xib in Resources */,
 				36210D622B020B320009EBC0 /* WelcomeViewController.xib in Resources */,
 				36210D322B02084C0009EBC0 /* LaunchScreen.storyboard in Resources */,
+				36210D7B2B0304CC0009EBC0 /* InputField.xib in Resources */,
 				36210D2F2B02084C0009EBC0 /* Assets.xcassets in Resources */,
 				36210D2D2B02084B0009EBC0 /* Main.storyboard in Resources */,
 				36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */,
@@ -367,6 +393,8 @@
 				36210D762B0303040009EBC0 /* LoginViewController.swift in Sources */,
 				36210D2A2B02084B0009EBC0 /* ViewController.swift in Sources */,
 				36210D612B020B320009EBC0 /* WelcomeViewController.swift in Sources */,
+				36210D7F2B0309240009EBC0 /* ExtUIView.swift in Sources */,
+				36210D7C2B0304CC0009EBC0 /* InputField.swift in Sources */,
 				36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */,
 				36210D282B02084B0009EBC0 /* SceneDelegate.swift in Sources */,
 				36210D5C2B02094C0009EBC0 /* SplashViewController.swift in Sources */,
