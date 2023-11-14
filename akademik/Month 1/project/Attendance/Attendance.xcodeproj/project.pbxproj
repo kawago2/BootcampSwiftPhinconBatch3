@@ -43,6 +43,7 @@
 		36210D9D2B0327900009EBC0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D9C2B0327900009EBC0 /* Constants.swift */; };
 		36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210DA32B0348270009EBC0 /* LocationCell.swift */; };
 		36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210DA42B0348270009EBC0 /* LocationCell.xib */; };
+		36210DA82B034A420009EBC0 /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210DA72B034A420009EBC0 /* ExtTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		36210D9C2B0327900009EBC0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36210DA32B0348270009EBC0 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		36210DA42B0348270009EBC0 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		36210DA72B034A420009EBC0 /* ExtTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtTableView.swift; path = "../../../../../Week 1/Day3/profileUI/profileUI/Common/Extension/ExtTableView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 		36210D692B0221050009EBC0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				36210DA72B034A420009EBC0 /* ExtTableView.swift */,
 				36210D7E2B0309240009EBC0 /* ExtUIView.swift */,
 				36210D6A2B0221190009EBC0 /* ExtUIButton.swift */,
 				36210D6C2B02227E0009EBC0 /* ExtUICollectionView.swift */,
@@ -512,6 +515,7 @@
 				36210D6B2B0221190009EBC0 /* ExtUIButton.swift in Sources */,
 				36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */,
 				36210D712B0223A90009EBC0 /* SliderCell.swift in Sources */,
+				36210DA82B034A420009EBC0 /* ExtTableView.swift in Sources */,
 				36210D6D2B02227E0009EBC0 /* ExtUICollectionView.swift in Sources */,
 				36210D9D2B0327900009EBC0 /* Constants.swift in Sources */,
 			);
