@@ -13,11 +13,11 @@
             <connections>
                 <outlet property="bottonView" destination="sAU-P8-iRL" id="gUX-s4-YBu"/>
                 <outlet property="circleView" destination="cca-hx-ZSd" id="pWJ-wf-TKt"/>
+                <outlet property="emailField" destination="vi3-lX-FGp" id="uWf-xO-GwT"/>
                 <outlet property="forgotButton" destination="ajI-Y5-eCp" id="inh-ou-BBB"/>
                 <outlet property="loginButton" destination="ySz-f5-ZhS" id="nvj-qY-zfp"/>
                 <outlet property="passwordField" destination="6F3-bE-8bb" id="kQE-Kl-Okj"/>
                 <outlet property="registerButton" destination="daW-gm-LSs" id="ZG0-nA-wox"/>
-                <outlet property="usernameField" destination="vi3-lX-FGp" id="uWf-xO-GwT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -53,14 +53,13 @@
                             <rect key="frame" x="30" y="48" width="323" height="98"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajI-Y5-eCp">
-                            <rect key="frame" x="227" y="367" width="126" height="30.666666666666686"/>
-                            <color key="tintColor" name="MainColor"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Forgot Password ?">
-                                <fontDescription key="titleFontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
-                            </buttonConfiguration>
-                        </button>
+                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="6F3-bE-8bb" customClass="InputField" customModule="Attendance" customModuleProvider="target">
+                            <rect key="frame" x="30" y="163" width="323" height="98"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="323" id="0pQ-xp-AUh"/>
+                            </constraints>
+                        </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySz-f5-ZhS">
                             <rect key="frame" x="30" y="513" width="323" height="57"/>
                             <color key="backgroundColor" name="ButtonColor"/>
@@ -73,18 +72,19 @@
                                 <fontDescription key="titleFontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
                             </buttonConfiguration>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Gap-is-dw1">
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gap-is-dw1">
                             <rect key="frame" x="57" y="578" width="269" height="16"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Don't Have Account? please" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhX-Dn-QS6">
-                                    <rect key="frame" x="0.0" y="0.0" width="177.66666666666666" height="16"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Don't Have Account? please" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhX-Dn-QS6">
+                                    <rect key="frame" x="0.0" y="0.0" width="194" height="16"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
                                     <color key="textColor" name="LoginColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daW-gm-LSs">
-                                    <rect key="frame" x="179.66666666666666" y="0.0" width="89.333333333333343" height="16"/>
+                                    <rect key="frame" x="194" y="0.0" width="75" height="16"/>
                                     <constraints>
+                                        <constraint firstAttribute="width" constant="75" id="0cP-f8-sOl"/>
                                         <constraint firstAttribute="height" constant="16" id="Vc3-8g-fX9"/>
                                     </constraints>
                                     <color key="tintColor" name="MainColor"/>
@@ -95,13 +95,14 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="6F3-bE-8bb" customClass="InputField" customModule="Attendance" customModuleProvider="target">
-                            <rect key="frame" x="30" y="163" width="323" height="161"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="323" id="0pQ-xp-AUh"/>
-                            </constraints>
-                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajI-Y5-eCp">
+                            <rect key="frame" x="227" y="269" width="126" height="30.666666666666686"/>
+                            <color key="tintColor" name="MainColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Forgot Password ?">
+                                <fontDescription key="titleFontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                            </buttonConfiguration>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -109,11 +110,11 @@
                         <constraint firstItem="6F3-bE-8bb" firstAttribute="top" secondItem="vi3-lX-FGp" secondAttribute="bottom" constant="17" id="Cd1-s7-MoL"/>
                         <constraint firstItem="Gap-is-dw1" firstAttribute="top" secondItem="ySz-f5-ZhS" secondAttribute="bottom" constant="8" id="Dde-kg-VCa"/>
                         <constraint firstAttribute="trailing" secondItem="ajI-Y5-eCp" secondAttribute="trailing" constant="30" id="Nza-tY-fna"/>
-                        <constraint firstAttribute="bottom" secondItem="ajI-Y5-eCp" secondAttribute="bottom" constant="239.33333333333331" id="V1G-Op-KZx"/>
+                        <constraint firstAttribute="bottom" secondItem="ajI-Y5-eCp" secondAttribute="bottom" constant="337.33333333333331" id="V1G-Op-KZx"/>
                         <constraint firstItem="ySz-f5-ZhS" firstAttribute="trailing" secondItem="ajI-Y5-eCp" secondAttribute="trailing" id="Xh3-0D-NpT"/>
                         <constraint firstItem="ajI-Y5-eCp" firstAttribute="leading" secondItem="sAU-P8-iRL" secondAttribute="leading" constant="227" id="Yuw-ZG-ZTV"/>
                         <constraint firstItem="ySz-f5-ZhS" firstAttribute="centerX" secondItem="Gap-is-dw1" secondAttribute="centerX" id="ZOB-Ae-0zy"/>
-                        <constraint firstItem="ajI-Y5-eCp" firstAttribute="top" secondItem="6F3-bE-8bb" secondAttribute="bottom" constant="43" id="f6U-6Z-U49"/>
+                        <constraint firstItem="ajI-Y5-eCp" firstAttribute="top" secondItem="6F3-bE-8bb" secondAttribute="bottom" constant="8" id="f6U-6Z-U49"/>
                         <constraint firstItem="6F3-bE-8bb" firstAttribute="top" secondItem="sAU-P8-iRL" secondAttribute="top" constant="163" id="fEy-es-WLg"/>
                         <constraint firstItem="Gap-is-dw1" firstAttribute="leading" secondItem="sAU-P8-iRL" secondAttribute="leading" constant="57" id="gTR-dR-l4d"/>
                         <constraint firstItem="vi3-lX-FGp" firstAttribute="top" secondItem="sAU-P8-iRL" secondAttribute="top" constant="48" id="gxF-6J-cbG"/>

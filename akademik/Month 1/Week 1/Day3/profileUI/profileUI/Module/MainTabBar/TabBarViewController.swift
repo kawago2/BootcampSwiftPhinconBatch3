@@ -2,7 +2,8 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    let dashboardViewController = DashboardViewController()
+    let homeViewController = HomeViewController()
+    let historyViewController = HistoryViewController()
     let profileViewController = ProfileViewController()
     
     override func viewDidLoad() {
@@ -14,33 +15,39 @@ class TabBarViewController: UITabBarController {
     }
     
     func configureUITabBarItems() {
-        let dashboardTabBarItem = UITabBarItem(title: "Dashboard", image: IconSystem.dashboard, tag: 0)
-        let profileTabBarItem = UITabBarItem(title: "Profile", image: IconSystem.profile, tag: 0)
+        let homeTabBarItem = UITabBarItem(title: "Home", image: Icons.home, tag: 0)
+        let historyTabBarItem = UITabBarItem(title: "History", image: Icons.history, tag: 1)
+        let profileTabBarItem = UITabBarItem(title: "Profile", image: Icons.profile, tag: 2)
         
-        dashboardViewController.tabBarItem = dashboardTabBarItem
+        homeViewController.tabBarItem = homeTabBarItem
+        historyViewController.tabBarItem = historyTabBarItem
         profileViewController.tabBarItem = profileTabBarItem
         
-        viewControllers = [ dashboardViewController, profileViewController]
-        
+        viewControllers = [homeViewController, historyViewController, profileViewController]
     }
     
     func configureAppearance() {
-        let normalTextAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.black]
+        let normalTextAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(named: "unselectColor") ?? UIColor.black]
         let selectedTextAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(named: "MainColor") ?? UIColor.black]
         
         UITabBarItem.appearance().setTitleTextAttributes(normalTextAttributes, for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes(selectedTextAttributes, for: .selected)
-        UITabBar.appearance().tintColor = UIColor(named: "MainColor") ?? UIColor.black
-        UITabBar.appearance().barTintColor = UIColor(named: "ThirdColor") ?? UIColor.white
+        
+        let iconColor = UIColor(named: "MainColor") ?? UIColor.black
+        UITabBar.appearance().tintColor = iconColor
+        
+        let bgColor = UIColor.white
+        UITabBar.appearance().barTintColor = bgColor
         
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().shadowImage = UIImage()
     }
     
     func configureTab() {
-        setViewControllers([dashboardViewController, profileViewController], animated: true)
+        setViewControllers(viewControllers, animated: true)
     }
-    func setFirstFocus(index: Int){
+    
+    func setFirstFocus(index: Int) {
         selectedIndex = index
     }
 }

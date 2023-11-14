@@ -23,9 +23,6 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tittle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGS-ou-ybO">
                     <rect key="frame" x="0.0" y="10" width="428" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="Haa-BZ-qwY"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -47,11 +44,11 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="Jdr-Se-dic" firstAttribute="leading" secondItem="CJu-Ef-iQf" secondAttribute="leading" id="0SK-tr-5hU"/>
-                        <constraint firstItem="Jdr-Se-dic" firstAttribute="centerY" secondItem="CJu-Ef-iQf" secondAttribute="centerY" id="LJv-kJ-49P"/>
-                        <constraint firstItem="Jdr-Se-dic" firstAttribute="top" secondItem="Cp4-d5-Xr7" secondAttribute="top" id="dDh-CL-FXP"/>
-                        <constraint firstItem="Jdr-Se-dic" firstAttribute="trailing" secondItem="Cp4-d5-Xr7" secondAttribute="trailing" id="eB6-5v-otI"/>
-                        <constraint firstAttribute="trailing" secondItem="Cp4-d5-Xr7" secondAttribute="trailing" id="wdL-Fr-yda"/>
+                        <constraint firstItem="Jdr-Se-dic" firstAttribute="trailing" secondItem="Cp4-d5-Xr7" secondAttribute="trailing" id="4bS-WZ-rDK"/>
+                        <constraint firstAttribute="trailing" secondItem="Cp4-d5-Xr7" secondAttribute="trailing" id="7he-WJ-eVA"/>
+                        <constraint firstItem="Jdr-Se-dic" firstAttribute="centerY" secondItem="CJu-Ef-iQf" secondAttribute="centerY" id="EPR-Hg-hKP"/>
+                        <constraint firstItem="Jdr-Se-dic" firstAttribute="leading" secondItem="CJu-Ef-iQf" secondAttribute="leading" id="HCL-1j-jM0"/>
+                        <constraint firstItem="Jdr-Se-dic" firstAttribute="top" secondItem="Cp4-d5-Xr7" secondAttribute="top" id="Z3m-TY-y6Z"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gs2-Wl-JAv">
@@ -64,16 +61,16 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ZGS-ou-ybO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Egs-FZ-h5j"/>
-                <constraint firstItem="CJu-Ef-iQf" firstAttribute="trailing" secondItem="Gs2-Wl-JAv" secondAttribute="trailing" id="Ua3-Wh-nYU"/>
-                <constraint firstItem="ZGS-ou-ybO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="UbZ-Bk-rJd"/>
-                <constraint firstAttribute="trailing" secondItem="ZGS-ou-ybO" secondAttribute="trailing" id="ct2-3z-WVs"/>
-                <constraint firstItem="ZGS-ou-ybO" firstAttribute="leading" secondItem="CJu-Ef-iQf" secondAttribute="leading" id="fkm-xn-2zE"/>
-                <constraint firstItem="CJu-Ef-iQf" firstAttribute="leading" secondItem="Gs2-Wl-JAv" secondAttribute="leading" id="iVI-SQ-ygS"/>
-                <constraint firstItem="CJu-Ef-iQf" firstAttribute="top" secondItem="ZGS-ou-ybO" secondAttribute="bottom" constant="8" symbolic="YES" id="mJc-Tf-x6u"/>
-                <constraint firstAttribute="bottom" secondItem="Gs2-Wl-JAv" secondAttribute="bottom" constant="19" id="o1x-eg-t5S"/>
-                <constraint firstItem="Gs2-Wl-JAv" firstAttribute="top" secondItem="CJu-Ef-iQf" secondAttribute="bottom" constant="8" symbolic="YES" id="uRS-b0-v5U"/>
-                <constraint firstItem="ZGS-ou-ybO" firstAttribute="trailing" secondItem="CJu-Ef-iQf" secondAttribute="trailing" id="vIs-Ck-TFu"/>
+                <constraint firstItem="CJu-Ef-iQf" firstAttribute="top" secondItem="ZGS-ou-ybO" secondAttribute="bottom" constant="8" symbolic="YES" id="0la-z3-bep"/>
+                <constraint firstItem="ZGS-ou-ybO" firstAttribute="leading" secondItem="CJu-Ef-iQf" secondAttribute="leading" id="0v3-h0-yry"/>
+                <constraint firstItem="ZGS-ou-ybO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4LW-aH-k7Y"/>
+                <constraint firstItem="CJu-Ef-iQf" firstAttribute="trailing" secondItem="Gs2-Wl-JAv" secondAttribute="trailing" id="7mo-jt-LWa"/>
+                <constraint firstAttribute="trailing" secondItem="ZGS-ou-ybO" secondAttribute="trailing" id="FrL-jR-Mwj"/>
+                <constraint firstItem="ZGS-ou-ybO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="IkE-8m-Pq1"/>
+                <constraint firstAttribute="bottom" secondItem="Gs2-Wl-JAv" secondAttribute="bottom" constant="19" id="OuJ-jW-MRE"/>
+                <constraint firstItem="CJu-Ef-iQf" firstAttribute="leading" secondItem="Gs2-Wl-JAv" secondAttribute="leading" id="Sdv-ns-jrP"/>
+                <constraint firstItem="Gs2-Wl-JAv" firstAttribute="top" secondItem="CJu-Ef-iQf" secondAttribute="bottom" constant="8" symbolic="YES" id="qMC-p8-EOV"/>
+                <constraint firstItem="ZGS-ou-ybO" firstAttribute="trailing" secondItem="CJu-Ef-iQf" secondAttribute="trailing" id="w9u-am-IxS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="222.90076335877862" y="-249.64788732394368"/>

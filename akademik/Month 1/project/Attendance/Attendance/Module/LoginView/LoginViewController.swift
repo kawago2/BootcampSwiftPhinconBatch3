@@ -4,7 +4,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var bottonView: UIView!
     @IBOutlet weak var circleView: UIImageView!
-    @IBOutlet weak var usernameField: InputField!
+    @IBOutlet weak var emailField: InputField!
     @IBOutlet weak var passwordField: InputField!
     @IBOutlet weak var forgotButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
@@ -13,29 +13,50 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        buttonEvent()
+    }
+    
+    func buttonEvent() {
+        registerButton.addTarget(self, action: #selector(navigateRegister), for: .touchUpInside)
+        forgotButton.addTarget(self, action: #selector(navigateForgot), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(navigateTabBar), for: .touchUpInside)
+    }
+    
+    @objc func navigateRegister() {
+        let vc = RegisterViewController()
+        navigationController?.setViewControllers([vc], animated: false)
+    }
+    
+    @objc func navigateTabBar() {
+        let vc = TabBarViewController()
+        navigationController?.setViewControllers([vc], animated: false)
+    }
+    
+    @objc func navigateForgot() {
+        let vc = ForgotViewController()
+        navigationController?.setViewControllers([vc], animated: false)
     }
     
     func setupUI() {
         setUsernameField()
         setPasswordField()
+        circleView.tintColor = .white.withAlphaComponent(0.05)
         loginButton.setRoundedBorder(cornerRadius: 10)
         bottonView.roundCorners(corners: [.topLeft,.topRight], radius: 20)
     }
     
     func setUsernameField() {
-        usernameField.setup(title: "Username", placeholder: "Username", isSecure: false)
-        usernameField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        usernameField.titleField.textColor = UIColor(named: "LoginColor")
+        emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
+        emailField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
+        emailField.titleField.textColor = UIColor(named: "LoginColor")
     }
     
     func setPasswordField() {
-        passwordField.setup(title: "Password", placeholder: "Password", isSecure: true)
+        passwordField.setup(title: "Password", placeholder: "***********", isSecure: true)
         passwordField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
         passwordField.titleField.textColor = UIColor(named: "LoginColor")
         passwordField.obsecureButton.imageView?.tintColor = UIColor(named: "LoginColor")
         passwordField.obsecureButton.tintColor = UIColor(named: "LoginColor")
-        
-        
     }
 }
 

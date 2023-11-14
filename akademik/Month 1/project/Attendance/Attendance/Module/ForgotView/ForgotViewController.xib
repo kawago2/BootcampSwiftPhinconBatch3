@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForgotViewController" customModule="Attendance" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomView" destination="n3q-4V-rXc" id="qnb-Mn-OfF"/>
+                <outlet property="circleView" destination="jAa-DR-m4K" id="2RJ-rZ-PRj"/>
+                <outlet property="emailField" destination="nTG-tw-iML" id="Bnr-kB-VMr"/>
+                <outlet property="loginButton" destination="tih-Kf-g9N" id="BcO-gy-dhX"/>
+                <outlet property="resetButton" destination="eNb-B5-NH6" id="5Ie-LG-ior"/>
+                <outlet property="view" destination="Yzr-O5-mOD" id="eo3-mw-3vZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Yzr-O5-mOD">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jAa-DR-m4K">
+                    <rect key="frame" x="190" y="-94" width="319" height="305"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="319" id="YSg-ye-7WH"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcD-y8-J0P">
+                    <rect key="frame" x="30" y="89" width="240" height="33"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill Email to reset your account" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RD-qd-Vwz">
+                    <rect key="frame" x="30" y="132" width="333" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="ai0-vh-BYt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3q-4V-rXc">
+                    <rect key="frame" x="5" y="215" width="383" height="637"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTG-tw-iML" customClass="InputField" customModule="Attendance" customModuleProvider="target">
+                            <rect key="frame" x="30" y="48" width="323" height="98"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNb-B5-NH6">
+                            <rect key="frame" x="30" y="513" width="323" height="57"/>
+                            <color key="backgroundColor" name="ButtonColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="57" id="Ebi-gu-BgN"/>
+                            </constraints>
+                            <color key="tintColor" name="ButtonTextColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Reset Password">
+                                <fontDescription key="titleFontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                            </buttonConfiguration>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLm-2n-vOe">
+                            <rect key="frame" x="78" y="578" width="227" height="16"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Already Have Account? please" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emi-MC-EjT">
+                                    <rect key="frame" x="0.0" y="0.0" width="152" height="16"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="11"/>
+                                    <color key="textColor" name="LoginColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tih-Kf-g9N">
+                                    <rect key="frame" x="152" y="0.0" width="75" height="16"/>
+                                    <color key="tintColor" name="MainColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Login">
+                                        <fontDescription key="titleFontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
+                                    </buttonConfiguration>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="nTG-tw-iML" firstAttribute="top" secondItem="n3q-4V-rXc" secondAttribute="top" constant="48" id="7dU-CZ-RL7"/>
+                        <constraint firstItem="DLm-2n-vOe" firstAttribute="leading" secondItem="n3q-4V-rXc" secondAttribute="leading" constant="78" id="7xW-jI-yDF"/>
+                        <constraint firstItem="eNb-B5-NH6" firstAttribute="centerX" secondItem="DLm-2n-vOe" secondAttribute="centerX" id="9ZO-m8-OMn"/>
+                        <constraint firstItem="DLm-2n-vOe" firstAttribute="top" secondItem="n3q-4V-rXc" secondAttribute="top" constant="578" id="D7b-XD-IZs"/>
+                        <constraint firstItem="nTG-tw-iML" firstAttribute="leading" secondItem="eNb-B5-NH6" secondAttribute="leading" id="X2F-Z1-qby"/>
+                        <constraint firstAttribute="bottom" secondItem="DLm-2n-vOe" secondAttribute="bottom" constant="43" id="gSi-D3-8MM"/>
+                        <constraint firstItem="DLm-2n-vOe" firstAttribute="top" secondItem="eNb-B5-NH6" secondAttribute="bottom" constant="8" id="kmg-GU-xmX"/>
+                        <constraint firstItem="nTG-tw-iML" firstAttribute="leading" secondItem="n3q-4V-rXc" secondAttribute="leading" constant="30" id="kqo-C9-IgR"/>
+                        <constraint firstItem="nTG-tw-iML" firstAttribute="centerX" secondItem="n3q-4V-rXc" secondAttribute="centerX" id="w5c-2N-eeB"/>
+                        <constraint firstItem="nTG-tw-iML" firstAttribute="trailing" secondItem="eNb-B5-NH6" secondAttribute="trailing" id="w60-jm-F25"/>
+                        <constraint firstAttribute="bottom" secondItem="nTG-tw-iML" secondAttribute="bottom" constant="491" id="wXL-dt-8or"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="QN6-ze-hqN"/>
+            <color key="backgroundColor" name="bg2Color"/>
+            <constraints>
+                <constraint firstItem="n3q-4V-rXc" firstAttribute="leading" secondItem="QN6-ze-hqN" secondAttribute="leading" constant="5" id="3CV-Ig-9la"/>
+                <constraint firstItem="QN6-ze-hqN" firstAttribute="trailing" secondItem="IcD-y8-J0P" secondAttribute="trailing" constant="123" id="3gc-gZ-N7e"/>
+                <constraint firstItem="0RD-qd-Vwz" firstAttribute="centerX" secondItem="n3q-4V-rXc" secondAttribute="centerX" id="8L3-Tt-NnT"/>
+                <constraint firstItem="0RD-qd-Vwz" firstAttribute="centerX" secondItem="Yzr-O5-mOD" secondAttribute="centerX" id="GiE-r4-St3"/>
+                <constraint firstAttribute="bottom" secondItem="n3q-4V-rXc" secondAttribute="bottom" id="HJw-up-wVn"/>
+                <constraint firstItem="IcD-y8-J0P" firstAttribute="leading" secondItem="0RD-qd-Vwz" secondAttribute="leading" id="Re6-wo-Duy"/>
+                <constraint firstItem="jAa-DR-m4K" firstAttribute="leading" secondItem="QN6-ze-hqN" secondAttribute="leading" constant="190" id="Xeb-4r-PQr"/>
+                <constraint firstItem="0RD-qd-Vwz" firstAttribute="top" secondItem="IcD-y8-J0P" secondAttribute="bottom" constant="10" id="beb-L9-oRM"/>
+                <constraint firstItem="IcD-y8-J0P" firstAttribute="leading" secondItem="QN6-ze-hqN" secondAttribute="leading" constant="30" id="gWn-PV-0rx"/>
+                <constraint firstItem="jAa-DR-m4K" firstAttribute="top" secondItem="Yzr-O5-mOD" secondAttribute="top" constant="-95" id="iCJ-rh-B3b"/>
+                <constraint firstItem="n3q-4V-rXc" firstAttribute="top" secondItem="jAa-DR-m4K" secondAttribute="bottom" constant="3.6666666666666856" id="j6b-EZ-5ly"/>
+                <constraint firstItem="IcD-y8-J0P" firstAttribute="top" secondItem="QN6-ze-hqN" secondAttribute="top" constant="30" id="qfi-Nl-OCn"/>
+                <constraint firstItem="n3q-4V-rXc" firstAttribute="top" secondItem="0RD-qd-Vwz" secondAttribute="bottom" constant="28" id="wV7-7L-Mgd"/>
+            </constraints>
+            <point key="canvasLocation" x="46.564885496183201" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="ButtonColor">
+            <color red="1" green="0.76470588235294112" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ButtonTextColor">
+            <color red="0.25490196078431371" green="0.29411764705882354" blue="0.35294117647058826" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LoginColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainColor">
+            <color red="0.0" green="0.38823529411764707" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="bg2Color">
+            <color red="0.0" green="0.3843137254901961" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

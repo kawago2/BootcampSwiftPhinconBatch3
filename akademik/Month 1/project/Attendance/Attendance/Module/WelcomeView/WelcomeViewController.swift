@@ -40,10 +40,17 @@ class WelcomeViewController: UIViewController {
     
     func buttonEvent() {
         skipButton.addTarget(self, action: #selector(navigateLogin), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(navigateLogin), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(navigateRegister), for: .touchUpInside)
     }
     
     @objc func navigateLogin() {
         let vc = LoginViewController()
+        navigationController?.setViewControllers([vc], animated: true)
+    }
+    
+    @objc func navigateRegister() {
+        let vc = RegisterViewController()
         navigationController?.setViewControllers([vc], animated: true)
     }
     
