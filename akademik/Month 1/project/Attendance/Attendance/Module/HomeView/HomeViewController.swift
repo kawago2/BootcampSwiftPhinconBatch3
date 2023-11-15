@@ -1,10 +1,3 @@
-//
-//  HomeViewController.swift
-//  Attendance
-//
-//  Created by Phincon on 14/11/23.
-//
-
 import UIKit
 
 class HomeViewController: UIViewController {
@@ -46,7 +39,6 @@ class HomeViewController: UIViewController {
         updateCheck()
         tableView.reloadData()
         if isCheckIn == false {
-            print(self.selectedCell)
             setDefaultSelected()
         }
     }

@@ -22,6 +22,32 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(navigateTabBar), for: .touchUpInside)
     }
     
+    @objc func loginTapped() {
+        let email = emailField.inputText.text
+        let password = passwordField.inputText.text
+        
+        
+        guard let email = email, !email.isEmpty,
+              let password = password, !password.isEmpty else {
+                showAlert(title: "Error", message: "Please fill in all fields.")
+                return
+        }
+        
+        FAuth.loginUser(email: email, password: password) { result in
+            switch result {
+            case .success(let user):
+                print("Login berhasil, user: \(user)")
+                self.navigateTabBar()
+                
+            case .failure(let error):
+                // Handle error login
+                print("Login gagal dengan error: \(error.localizedDescription)")
+                self.showAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
+    }
+
+    
     @objc func navigateRegister() {
         let vc = RegisterViewController()
         navigationController?.setViewControllers([vc], animated: false)

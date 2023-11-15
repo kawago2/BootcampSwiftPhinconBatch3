@@ -29,12 +29,62 @@ class RegisterViewController: UIViewController {
     
     func buttonEvent() {
         loginButton.addTarget(self, action: #selector(navigateToLogin), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
     }
     
     @objc func navigateToLogin() {
         let vc = LoginViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }
+    
+    @objc func registerTapped() {
+        let fullname = fullnameField.inputText.text
+        let email = emailField.inputText.text
+        let password = passwordField.inputText.text
+        let repassword = repasswordField.inputText.text
+        
+        // Validasi input
+        guard let email = email, !email.isEmpty,
+              let password = password, !password.isEmpty,
+              let repassword = repassword, !repassword.isEmpty,
+              let fullname = fullname, !fullname.isEmpty else {
+                // Handle error, missing input
+                showAlert(title: "Error", message: "Please fill in all fields.")
+                return
+        }
+        
+        // Validasi password dan repassword
+        guard password == repassword else {
+            // Handle error, password tidak sesuai
+            showAlert(title: "Error", message: "Passwords do not match.")
+            return
+        }
+        
+        FAuth.registerUser(email: email, password: password) { result in
+            switch result {
+            case .success(let user):
+                print("Registrasi berhasil, user: \(user)")
+                
+                FAuth.updateDisplayName(newName: fullname) { updateResult in
+                    switch updateResult {
+                    case .success:
+                        print("Update display name berhasil")
+                    case .failure(let updateError):
+                        print("Update display name gagal dengan error: \(updateError.localizedDescription)")
+                    }
+                }
+                self.showAlert(title: "Success", message: "Register Successfuly.")
+                self.navigateToLogin()
+                
+            case .failure(let error):
+                // Handle error registrasi
+                print("Registrasi gagal dengan error: \(error.localizedDescription)")
+                self.showAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
+    }
+
+
     
     func setupUI() {
         setEmailField()

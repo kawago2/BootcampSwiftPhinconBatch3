@@ -25,6 +25,25 @@ class ForgotViewController: UIViewController {
         
     }
     
+    @objc func resetTapped() {
+        guard let email = emailField.inputText.text, !email.isEmpty else {
+            showAlert(title: "Error", message: "Please fill email first.")
+            return
+        }
+
+        FAuth.resetPassword(email: email) { result in
+            switch result {
+            case .success:
+                print("Password reset email sent successfully.")
+                self.showAlert(title: "Success", message: "Password reset email sent successfully\nPlease, check your email including spam.")
+                self.navigateToLogin()
+            case .failure(let error):
+                print("Failed to reset password with error: \(error.localizedDescription)")
+                self.showAlert(title: "Error", message: "Failed to reset password. \(error.localizedDescription)")
+            }
+        }
+    }
+    
     @objc func navigateToLogin() {
         let vc = LoginViewController()
         navigationController?.setViewControllers([vc], animated: false)
