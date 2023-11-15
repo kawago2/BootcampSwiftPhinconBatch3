@@ -18,7 +18,6 @@
 		36019C162AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36019C152AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift */; };
 		3603F09D2AFA0A5C007EAD10 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3603F09C2AFA0A5C007EAD10 /* SearchBar.swift */; };
 		3603F0A32AFA0AD6007EAD10 /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3603F0A22AFA0AD6007EAD10 /* SearchBar.xib */; };
-		360B3A372AEFB12300FD98BB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B3A362AEFB12300FD98BB /* TabBarViewController.swift */; };
 		360B3A432AEFB5B000FD98BB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360B3A412AEFB5B000FD98BB /* ProfileViewController.swift */; };
 		360B3A442AEFB5B000FD98BB /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 360B3A422AEFB5B000FD98BB /* ProfileViewController.xib */; };
 		360F6AFC2AEA4C3F004BE3CE /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360F6AFB2AEA4C3F004BE3CE /* ExtTableView.swift */; };
@@ -48,7 +47,6 @@
 		365BA6FA2AEF4E5F00CF478C /* SectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365BA6F82AEF4E5F00CF478C /* SectionViewController.xib */; };
 		365BA6FE2AEF509F00CF478C /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA6FC2AEF509F00CF478C /* BannerCell.swift */; };
 		365BA6FF2AEF509F00CF478C /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365BA6FD2AEF509F00CF478C /* BannerCell.xib */; };
-		365BA7042AEF821500CF478C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365BA7032AEF821500CF478C /* Constants.swift */; };
 		3675629A2AEA22D800F0A86F /* HalfScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367562982AEA22D800F0A86F /* HalfScrollViewController.swift */; };
 		3675629B2AEA22D800F0A86F /* HalfScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367562992AEA22D800F0A86F /* HalfScrollViewController.xib */; };
 		367B0B982AEB5A97009E72D4 /* ExtInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0B972AEB5A97009E72D4 /* ExtInt.swift */; };
@@ -101,6 +99,8 @@
 		36A4326C2AF38B6B0070E770 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A4326B2AF38B6B0070E770 /* ItemModel.swift */; };
 		36A4326F2AF3A31A0070E770 /* BottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A4326D2AF3A31A0070E770 /* BottomCell.swift */; };
 		36A432702AF3A31A0070E770 /* BottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A4326E2AF3A31A0070E770 /* BottomCell.xib */; };
+		36C287382B0478E500F17ADA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287372B0478E400F17ADA /* Constants.swift */; };
+		36C2873E2B047A6800F17ADA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C2873D2B047A6800F17ADA /* TabBarViewController.swift */; };
 		36D38E5D2AEA606900168143 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5C2AEA606900168143 /* ExtUIView.swift */; };
 		36D38E5F2AEA69FA00168143 /* ExtUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */; };
 		36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D38E602AEA6A3800168143 /* ExtUIImageView.swift */; };
@@ -156,7 +156,6 @@
 		36019C152AE8EF1500C07588 /* profileUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3603F09C2AFA0A5C007EAD10 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		3603F0A22AFA0AD6007EAD10 /* SearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
-		360B3A362AEFB12300FD98BB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		360B3A412AEFB5B000FD98BB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		360B3A422AEFB5B000FD98BB /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		360F6AFB2AEA4C3F004BE3CE /* ExtTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtTableView.swift; sourceTree = "<group>"; };
@@ -188,7 +187,6 @@
 		365BA6F82AEF4E5F00CF478C /* SectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionViewController.xib; sourceTree = "<group>"; };
 		365BA6FC2AEF509F00CF478C /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		365BA6FD2AEF509F00CF478C /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
-		365BA7032AEF821500CF478C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		367562982AEA22D800F0A86F /* HalfScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfScrollViewController.swift; sourceTree = "<group>"; };
 		367562992AEA22D800F0A86F /* HalfScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HalfScrollViewController.xib; sourceTree = "<group>"; };
 		367B0B972AEB5A97009E72D4 /* ExtInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtInt.swift; sourceTree = "<group>"; };
@@ -248,6 +246,8 @@
 		36A4326B2AF38B6B0070E770 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		36A4326D2AF3A31A0070E770 /* BottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCell.swift; sourceTree = "<group>"; };
 		36A4326E2AF3A31A0070E770 /* BottomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomCell.xib; sourceTree = "<group>"; };
+		36C287372B0478E400F17ADA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		36C2873D2B047A6800F17ADA /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		36D38E5C2AEA606900168143 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		36D38E5E2AEA69FA00168143 /* ExtUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUILabel.swift; sourceTree = "<group>"; };
 		36D38E602AEA6A3800168143 /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
@@ -339,6 +339,7 @@
 				365BA6D12AEBABF900CF478C /* Localizable */,
 				36FD06732AEA45080088F415 /* App */,
 				36FD06742AEA45100088F415 /* Common */,
+				36C287372B0478E400F17ADA /* Constants.swift */,
 				36FD06752AEA451C0088F415 /* Resource */,
 				36FD06762AEA45260088F415 /* Module */,
 				36019C002AE8EF1500C07588 /* Info.plist */,
@@ -502,7 +503,7 @@
 		366FF0912AEFB09900F74907 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				360B3A362AEFB12300FD98BB /* TabBarViewController.swift */,
+				36C2873D2B047A6800F17ADA /* TabBarViewController.swift */,
 			);
 			path = MainTabBar;
 			sourceTree = "<group>";
@@ -672,7 +673,6 @@
 				36FD06792AEA457F0088F415 /* Component */,
 				36FD06782AEA45700088F415 /* Network */,
 				36FD06772AEA45660088F415 /* Extension */,
-				365BA7032AEF821500CF478C /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1116,6 +1116,7 @@
 				36A432602AF3426E0070E770 /* SplashViewController.swift in Sources */,
 				368FD7F92B01C851006AEABE /* CoreDataManager.swift in Sources */,
 				368FD8032B01F3EC006AEABE /* DetailsViewModel.swift in Sources */,
+				36C2873E2B047A6800F17ADA /* TabBarViewController.swift in Sources */,
 				36F741F82AF09A7B00CAB136 /* ThreadsViewController.swift in Sources */,
 				36354F952AF9E1B000EBDD90 /* Food.swift in Sources */,
 				367B0B982AEB5A97009E72D4 /* ExtInt.swift in Sources */,
@@ -1137,7 +1138,6 @@
 				365BA6DA2AEBB06B00CF478C /* ExtString.swift in Sources */,
 				367BDE202B01C51C000D2965 /* DashboardViewModel.swift in Sources */,
 				36FE9FBC2AF217AA00EBF492 /* RegisterViewController.swift in Sources */,
-				360B3A372AEFB12300FD98BB /* TabBarViewController.swift in Sources */,
 				369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */,
 				36D38E612AEA6A3800168143 /* ExtUIImageView.swift in Sources */,
 				368FD8092B02002F006AEABE /* AuthService.swift in Sources */,
@@ -1150,6 +1150,7 @@
 				365BA6DF2AEBB9D500CF478C /* ExtUIViewController.swift in Sources */,
 				365BA6F92AEF4E5F00CF478C /* SectionViewController.swift in Sources */,
 				36301F942AF490D200E8BFF5 /* Endpoint.swift in Sources */,
+				36C287382B0478E500F17ADA /* Constants.swift in Sources */,
 				367B0BA02AEB61B1009E72D4 /* DetailsViewController.swift in Sources */,
 				368D997A2AFB6F320072A977 /* FloatingPanelView.swift in Sources */,
 				36A432692AF378C10070E770 /* FoodCell.swift in Sources */,
@@ -1164,7 +1165,6 @@
 				36301F912AF48FFB00E8BFF5 /* ApiManager.swift in Sources */,
 				36019BF52AE8EF1400C07588 /* SceneDelegate.swift in Sources */,
 				365BA6EE2AEF3B5700CF478C /* ToolCell.swift in Sources */,
-				365BA7042AEF821500CF478C /* Constants.swift in Sources */,
 				36A432642AF3767B0070E770 /* MiddleCell.swift in Sources */,
 				36A4326F2AF3A31A0070E770 /* BottomCell.swift in Sources */,
 				36A432592AF336750070E770 /* TopCell.swift in Sources */,

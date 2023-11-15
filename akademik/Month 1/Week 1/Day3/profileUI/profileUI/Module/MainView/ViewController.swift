@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        hiddenBack()
     }
     
     @IBAction func penButtonTapped(_ sender: Any) {

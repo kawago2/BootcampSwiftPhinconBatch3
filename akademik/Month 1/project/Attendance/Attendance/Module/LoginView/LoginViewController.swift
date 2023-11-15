@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     func buttonEvent() {
         registerButton.addTarget(self, action: #selector(navigateRegister), for: .touchUpInside)
         forgotButton.addTarget(self, action: #selector(navigateForgot), for: .touchUpInside)
-        loginButton.addTarget(self, action: #selector(navigateTabBar), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
     }
     
     @objc func loginTapped() {
@@ -37,7 +37,6 @@ class LoginViewController: UIViewController {
             switch result {
             case .success(let user):
                 print("Login berhasil, user: \(user)")
-                self.navigateTabBar()
                 
             case .failure(let error):
                 // Handle error login

@@ -12,7 +12,7 @@ class ScrollViewController : UIViewController {
     var titlePage = "Threads"
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavTitle(title: titlePage)
+        
     }
     
     

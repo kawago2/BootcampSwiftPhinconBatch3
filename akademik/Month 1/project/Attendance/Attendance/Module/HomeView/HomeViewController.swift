@@ -10,16 +10,17 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var checkView: UIView!
     @IBOutlet weak var circleButton: UIView!
     
-    let locationArray = [
-        ["title": "PT. Phincon", "desc": "Office. 88 @Kasablanka Office Tower 18th Floor", "img": "id_1"],
-        ["title": "Telkomsel Smart Office", "desc": "Jl. Jend. Gatot Subroto Kav. 52. Jakarta Selatan", "img": "id_2"],
-        ["title": "Rumah", "desc": "Jakarta", "img": "id_3"]
+    let locationArray: [InfoItem] = [
+        InfoItem(title: "PT. Phincon", description: "Office. 88 @Kasablanka Office Tower 18th Floor", imageName: "id_1"),
+        InfoItem(title: "Telkomsel Smart Office", description: "Jl. Jend. Gatot Subroto Kav. 52. Jakarta Selatan", imageName: "id_2"),
+        InfoItem(title: "Rumah", description: "Jakarta", imageName: "id_3")
     ]
     
-    var locationSelected: [String: String] = [:]
+    var locationSelected: InfoItem = InfoItem(title: "", description: "", imageName: "")
     var isCheckIn = false
     var timer: Timer?
     var selectedCell = 0
+    var currentDate = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,54 @@ class HomeViewController: UIViewController {
         if isCheckIn == false {
             setDefaultSelected()
         }
+        addToFirebase()
     }
+    
+    func addToFirebase() {
+        guard let uid = FAuth.auth.currentUser?.uid else {
+            print("User not logged in")
+            return
+        }
+        let check = isCheckIn
+        let currentCell = self.selectedCell
+        
+        let dataToSet: [String: Any] = [
+            "is_check": check as Bool,
+            "uid": uid as String,
+            "active_page": currentCell as Int,
+        ]
+
+        FFirestore.setDocument(documentID: uid, data: dataToSet, inCollection: "users") { result in
+            switch result {
+            case .success:
+                print("Document set successfully")
+            case .failure(let error):
+                print("Error setting document: \(error.localizedDescription)")
+            }
+        }
+        
+        let documentID = uid
+        let collection = "users"
+        let subcollectionPath = "history"
+        let dataToAdd: [String:Any] = [
+            "checkTime": self.currentDate,
+            "descLocation": locationArray[currentCell].description,
+            "titleLocation": locationArray[currentCell].title,
+            "image": locationArray[currentCell].imageName,
+            "isCheck": self.isCheckIn,
+        ]
+
+        FFirestore.addDataToSubcollection(documentID: documentID, inCollection: collection, subcollectionPath: subcollectionPath, data: dataToAdd) { result in
+            switch result {
+            case .success:
+                print("Data added to subcollection successfully")
+            case .failure(let error):
+                print("Error adding data to subcollection: \(error.localizedDescription)")
+            }
+        }
+
+    }
+
     
     func setupUI() {
         circleButton.layer.cornerRadius = circleButton.bounds.width / 2.0
@@ -67,8 +115,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func updateTimeLabels() {
-        let currentDate = Date()
-
+        self.currentDate = Date()
         // Format date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMMM yyyy"
@@ -112,7 +159,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             tableView.delegate?.tableView?(tableView, didSelectRowAt: defaultIndexPath)
         }
         cell.context = isCheckIn ? true : false
-        cell.initData(title: location["title"] ?? "", desc: location["desc"] ?? "", img: location["img"] ?? "image_not_available")
+        cell.isUseSelected = true
+        cell.initData(title: location.title , desc: location.description , img: location.imageName )
         
         
         return cell

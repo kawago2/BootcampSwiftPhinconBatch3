@@ -9,11 +9,15 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    // Helper function to show an alert
+    func showAlert(title: String, message: String, completion: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            // Panggil completion handler jika ada
+            completion?()
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
-    
 }
 
