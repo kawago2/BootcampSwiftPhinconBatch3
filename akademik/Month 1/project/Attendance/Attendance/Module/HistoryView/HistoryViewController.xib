@@ -5,26 +5,164 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="Attendance" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="bottomView" destination="NeX-m7-sMw" id="hSs-fD-quW"/>
+                <outlet property="circleView" destination="0g0-Ru-0ZM" id="GDH-mr-nOr"/>
+                <outlet property="dayButton" destination="H0v-Av-DyX" id="yeP-2R-vkg"/>
+                <outlet property="monthButton" destination="n5J-4Q-e9p" id="1Gy-9d-n24"/>
+                <outlet property="tableView" destination="hJ9-Oe-Ws1" id="aMX-br-baK"/>
+                <outlet property="view" destination="Jwz-KR-pyG" id="2L4-Lt-qRP"/>
+                <outlet property="weekButton" destination="4Ux-he-aCO" id="agf-WZ-i5G"/>
+                <outlet property="yearButton" destination="P7Z-eH-Chc" id="KV7-mK-40d"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Jwz-KR-pyG">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9f-gR-89R">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="243"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0g0-Ru-0ZM">
+                            <rect key="frame" x="217" y="-94" width="303" height="245"/>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="303" id="ddG-hE-irW"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attendance History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBn-f9-WAX">
+                            <rect key="frame" x="25" y="77" width="292" height="27.333333333333329"/>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="bell.badge.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e8b-nC-q8X">
+                            <rect key="frame" x="346" y="77.333333333333329" width="25" height="26.666666666666671"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="2m5-u4-HKr"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" name="bg2Color"/>
+                    <constraints>
+                        <constraint firstItem="0g0-Ru-0ZM" firstAttribute="top" secondItem="A9f-gR-89R" secondAttribute="top" constant="-95" id="BA5-5w-HwK"/>
+                        <constraint firstItem="EBn-f9-WAX" firstAttribute="bottom" secondItem="e8b-nC-q8X" secondAttribute="bottom" id="C1x-E6-mCj"/>
+                        <constraint firstItem="EBn-f9-WAX" firstAttribute="leading" secondItem="A9f-gR-89R" secondAttribute="leading" constant="25" id="C6f-h2-TuQ"/>
+                        <constraint firstItem="e8b-nC-q8X" firstAttribute="top" secondItem="A9f-gR-89R" secondAttribute="top" constant="76.999999999999986" id="Rgt-uX-gZ2"/>
+                        <constraint firstAttribute="trailing" secondItem="e8b-nC-q8X" secondAttribute="trailing" constant="22" id="XFn-hY-si3"/>
+                        <constraint firstItem="e8b-nC-q8X" firstAttribute="leading" secondItem="EBn-f9-WAX" secondAttribute="trailing" constant="29" id="gXA-LV-xMR"/>
+                        <constraint firstItem="EBn-f9-WAX" firstAttribute="centerY" secondItem="e8b-nC-q8X" secondAttribute="centerY" id="hJT-nY-TgS"/>
+                        <constraint firstItem="0g0-Ru-0ZM" firstAttribute="leading" secondItem="A9f-gR-89R" secondAttribute="leading" constant="217" id="ivh-UX-kbF"/>
+                        <constraint firstAttribute="bottom" secondItem="0g0-Ru-0ZM" secondAttribute="bottom" constant="91.666666666666686" id="lV9-1L-sHe"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NeX-m7-sMw">
+                    <rect key="frame" x="12" y="143" width="369" height="675"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Logs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdA-fH-3FF">
+                            <rect key="frame" x="25" y="27" width="318" height="27"/>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                            <color key="textColor" name="PrimaryTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hJ9-Oe-Ws1">
+                            <rect key="frame" x="10" y="119" width="351" height="556"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="7Wm-G6-sZJ">
+                            <rect key="frame" x="25" y="62" width="319" height="32"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0v-Av-DyX">
+                                    <rect key="frame" x="0.0" y="0.0" width="64" height="32"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Day"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Day">
+                                        <fontDescription key="titleFontDescription" name="Avenir-Heavy" family="Avenir" pointSize="13"/>
+                                        <color key="baseForegroundColor" name="SecondaryTextColor"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ux-he-aCO">
+                                    <rect key="frame" x="85" y="0.0" width="64" height="32"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Week">
+                                        <fontDescription key="titleFontDescription" name="Avenir-Heavy" family="Avenir" pointSize="13"/>
+                                        <color key="baseForegroundColor" name="SecondaryTextColor"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5J-4Q-e9p">
+                                    <rect key="frame" x="170" y="0.0" width="64" height="32"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Month">
+                                        <fontDescription key="titleFontDescription" name="Avenir-Heavy" family="Avenir" pointSize="13"/>
+                                        <color key="baseForegroundColor" name="SecondaryTextColor"/>
+                                    </buttonConfiguration>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7Z-eH-Chc">
+                                    <rect key="frame" x="255" y="0.0" width="64" height="32"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Year">
+                                        <fontDescription key="titleFontDescription" name="Avenir-Heavy" family="Avenir" pointSize="13"/>
+                                        <color key="baseForegroundColor" name="SecondaryTextColor"/>
+                                    </buttonConfiguration>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="ZdA-fH-3FF" firstAttribute="leading" secondItem="7Wm-G6-sZJ" secondAttribute="leading" id="7aZ-tG-s4d"/>
+                        <constraint firstItem="ZdA-fH-3FF" firstAttribute="top" secondItem="NeX-m7-sMw" secondAttribute="top" constant="27" id="LVV-oo-d0k"/>
+                        <constraint firstItem="ZdA-fH-3FF" firstAttribute="centerX" secondItem="NeX-m7-sMw" secondAttribute="centerX" id="Ljr-qc-biF"/>
+                        <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="trailing" secondItem="NeX-m7-sMw" secondAttribute="trailingMargin" id="SXQ-2o-Sqn"/>
+                        <constraint firstItem="ZdA-fH-3FF" firstAttribute="centerX" secondItem="7Wm-G6-sZJ" secondAttribute="centerX" id="c0b-eI-Qz5"/>
+                        <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="top" secondItem="7Wm-G6-sZJ" secondAttribute="bottom" constant="25" id="cCS-Bm-NOr"/>
+                        <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="leading" secondItem="NeX-m7-sMw" secondAttribute="leading" constant="10" id="dUV-dn-neQ"/>
+                        <constraint firstAttribute="bottom" secondItem="hJ9-Oe-Ws1" secondAttribute="bottom" id="fRZ-E6-nec"/>
+                        <constraint firstItem="7Wm-G6-sZJ" firstAttribute="top" secondItem="ZdA-fH-3FF" secondAttribute="bottom" constant="8" symbolic="YES" id="wqn-7f-cRo"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="SZ6-A4-7Ee"/>
             <color key="backgroundColor" name="bgColor"/>
-            <point key="canvasLocation" x="-11" y="20"/>
+            <constraints>
+                <constraint firstItem="NeX-m7-sMw" firstAttribute="top" secondItem="SZ6-A4-7Ee" secondAttribute="top" constant="84" id="5tF-XU-ElB"/>
+                <constraint firstItem="NeX-m7-sMw" firstAttribute="bottom" secondItem="SZ6-A4-7Ee" secondAttribute="bottom" id="AFq-FP-ha5"/>
+                <constraint firstItem="A9f-gR-89R" firstAttribute="top" secondItem="Jwz-KR-pyG" secondAttribute="top" id="ROI-sZ-RZi"/>
+                <constraint firstItem="A9f-gR-89R" firstAttribute="leading" secondItem="Jwz-KR-pyG" secondAttribute="leading" id="Tg3-bq-VzM"/>
+                <constraint firstItem="NeX-m7-sMw" firstAttribute="leading" secondItem="SZ6-A4-7Ee" secondAttribute="leading" constant="12" id="VkL-LJ-YUw"/>
+                <constraint firstAttribute="trailing" secondItem="A9f-gR-89R" secondAttribute="trailing" id="YwH-zl-iWL"/>
+                <constraint firstItem="A9f-gR-89R" firstAttribute="centerX" secondItem="NeX-m7-sMw" secondAttribute="centerX" id="ewN-wj-Kkd"/>
+                <constraint firstItem="SZ6-A4-7Ee" firstAttribute="bottom" secondItem="A9f-gR-89R" secondAttribute="bottom" constant="575" id="x4q-k4-aCJ"/>
+            </constraints>
+            <point key="canvasLocation" x="-11.450381679389313" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
+        <image name="bell.badge.fill" catalog="system" width="123" height="128"/>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="PrimaryTextColor">
+            <color red="0.015686274509803921" green="0.17254901960784313" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryTextColor">
+            <color red="0.46666666666666667" green="0.52549019607843139" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="bg2Color">
+            <color red="0.0" green="0.3843137254901961" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="bgColor">
             <color red="0.97299998998641968" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

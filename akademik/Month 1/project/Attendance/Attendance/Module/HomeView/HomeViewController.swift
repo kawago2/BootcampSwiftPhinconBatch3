@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
         InfoItem(title: "Rumah", description: "Jakarta", imageName: "id_3")
     ]
     
-    var locationSelected: InfoItem = InfoItem(title: "", description: "", imageName: "")
+    var locationSelected: InfoItem?
     var isCheckIn = false
     var timer: Timer?
     var selectedCell = 0
@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCurrentData()
         setupUI()
         buttonEvent()
         setupRealTimeClock()
@@ -90,7 +91,6 @@ class HomeViewController: UIViewController {
 
     }
 
-    
     func setupUI() {
         circleButton.layer.cornerRadius = circleButton.bounds.width / 2.0
         circleButton.clipsToBounds = true
@@ -123,7 +123,7 @@ class HomeViewController: UIViewController {
 
         // Format time
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH:mm"
+        timeFormatter.dateFormat = "hh:mm a"
         let formattedTime = timeFormatter.string(from: currentDate)
 
         // Update labels
@@ -132,11 +132,48 @@ class HomeViewController: UIViewController {
     }
     
     func setDefaultSelected() {
-        let defaultIndexPath = IndexPath(row: selectedCell, section: 0)
+        let defaultIndexPath = IndexPath(row: self.selectedCell, section: 0)
         tableView.selectRow(at: defaultIndexPath, animated: false, scrollPosition: .none)
         tableView.delegate?.tableView?(tableView, didSelectRowAt: defaultIndexPath)
     }
     
+    func getCurrentData() {
+        guard let uid = FAuth.auth.currentUser?.uid else {
+            print("User not logged in")
+            return
+        }
+        
+        let documentID = uid
+        let collection = "users"
+        
+        FFirestore.getDocument(collection: collection,documentID: documentID) { result in
+            switch result {
+            case .success(let documentSnapshot):
+                // Handle the document snapshot here
+                let data = documentSnapshot.data()
+                if let currentData = data {
+                    if let isCheckIn = currentData["is_check"] as? Bool,
+                       let activePage = currentData["active_page"] as? Int {
+                        self.isCheckIn = isCheckIn
+                        self.selectedCell = activePage
+                        self.locationSelected = self.locationArray[activePage]
+                        self.updateCheck()
+                        self.setDefaultSelected()
+                        if isCheckIn == true {
+                            
+                            self.tableView.reloadData()
+                        }
+                    } else {
+                        print("Error: Unable to parse document data")
+                    }
+                }
+            case .failure(let error):
+                print("Error getting document: \(error.localizedDescription)")
+                // Handle the error
+            }
+        }
+    }
+
 }
 
 
@@ -160,7 +197,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         }
         cell.context = isCheckIn ? true : false
         cell.isUseSelected = true
-        cell.initData(title: location.title , desc: location.description , img: location.imageName )
+        cell.initData(title: location?.title ?? "" , desc: location?.description ?? "", img: location?.imageName ?? "image_not_available")
         
         
         return cell

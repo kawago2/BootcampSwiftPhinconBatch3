@@ -88,7 +88,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
         let index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
         let profile = profileArray[index]
-        cell.initData(title: profile.title, desc: profile.description, img: profile.imageName)
+        cell.initData(title: profile.title ?? "", desc: profile.description ?? "", img: profile.imageName ?? "image_not_available")
         cell.context = false
         return cell
     }
