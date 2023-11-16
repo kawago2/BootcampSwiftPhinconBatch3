@@ -37,10 +37,9 @@ class LoginViewController: UIViewController {
             switch result {
             case .success(let user):
                 print("Login berhasil, user: \(user)")
-                self.navigationController?.setViewControllers([LoginViewController()], animated: true)
+                self.navigateTabBar()
                 
             case .failure(let error):
-                // Handle error login
                 print("Login gagal dengan error: \(error.localizedDescription)")
                 self.showAlert(title: "Error", message: error.localizedDescription)
             }

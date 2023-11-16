@@ -46,7 +46,7 @@
 		363D48442B047AF300B1329F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D48432B047AF300B1329F /* TabBarViewController.swift */; };
 		3670C6772B05B6800011985F /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C6762B05B6800011985F /* CustomLoading.swift */; };
 		3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3670C6782B05B68E0011985F /* CustomLoading.xib */; };
-		3670C67B2B05C9510011985F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67A2B05C9510011985F /* Date.swift */; };
+		3670C67B2B05C9510011985F /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67A2B05C9510011985F /* ExtDate.swift */; };
 		3670C67F2B05D3C60011985F /* TimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67D2B05D3C60011985F /* TimesheetViewController.swift */; };
 		3670C6802B05D3C60011985F /* TimesheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3670C67E2B05D3C60011985F /* TimesheetViewController.xib */; };
 		3670C6852B05D7FC0011985F /* TimesheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C6832B05D7FC0011985F /* TimesheetCell.swift */; };
@@ -124,7 +124,7 @@
 		363D48432B047AF300B1329F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3670C6762B05B6800011985F /* CustomLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoading.swift; sourceTree = "<group>"; };
 		3670C6782B05B68E0011985F /* CustomLoading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLoading.xib; sourceTree = "<group>"; };
-		3670C67A2B05C9510011985F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		3670C67A2B05C9510011985F /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
 		3670C67D2B05D3C60011985F /* TimesheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetViewController.swift; sourceTree = "<group>"; };
 		3670C67E2B05D3C60011985F /* TimesheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimesheetViewController.xib; sourceTree = "<group>"; };
 		3670C6832B05D7FC0011985F /* TimesheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetCell.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 				36210D7E2B0309240009EBC0 /* ExtUIView.swift */,
 				36210D6A2B0221190009EBC0 /* ExtUIButton.swift */,
 				36210D6C2B02227E0009EBC0 /* ExtUICollectionView.swift */,
-				3670C67A2B05C9510011985F /* Date.swift */,
+				3670C67A2B05C9510011985F /* ExtDate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -752,7 +752,7 @@
 				36210D922B0323FE0009EBC0 /* HistoryViewController.swift in Sources */,
 				36210D882B0321B70009EBC0 /* ForgotViewController.swift in Sources */,
 				36210D832B031C0B0009EBC0 /* RegisterViewController.swift in Sources */,
-				3670C67B2B05C9510011985F /* Date.swift in Sources */,
+				3670C67B2B05C9510011985F /* ExtDate.swift in Sources */,
 				36210D972B0324240009EBC0 /* ProfileViewController.swift in Sources */,
 				36210D8D2B0323E80009EBC0 /* HomeViewController.swift in Sources */,
 				36C287322B04766100F17ADA /* InfoItem.swift in Sources */,

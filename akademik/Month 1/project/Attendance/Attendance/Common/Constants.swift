@@ -15,8 +15,6 @@ enum Icons {
 enum FAuth {
     static let auth = Auth.auth()
     
-    // MARK: - Authentication
-    
     static func loginUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         auth.signIn(withEmail: email, password: password) { (authResult, error) in
             if let user = authResult?.user {
@@ -87,9 +85,6 @@ enum FAuth {
 enum FFirestore {
     static let db = Firestore.firestore()
     
-    // Add your Firestore-related functions here
-    
-    // Example: Function to get a document
     static func getDocument(collection:String, documentID: String, completion: @escaping (Result<DocumentSnapshot, Error>) -> Void) {
         let documentRef = db.collection(collection).document(documentID)
         
@@ -102,7 +97,6 @@ enum FFirestore {
         }
     }
     
-    // Example: Function to add a document
     static func addDocument(data: [String: Any], toCollection collection: String, completion: @escaping (Result<Void, Error>) -> Void) {
         db.collection(collection).addDocument(data: data) { error in
             if let error = error {
@@ -128,7 +122,6 @@ enum FFirestore {
     static func addDataToSubcollection(documentID: String, inCollection collection: String, subcollectionPath: String, data: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
         let documentRef = db.collection(collection).document(documentID)
         
-        // Check if the subcollection already exists
         documentRef.collection(subcollectionPath).addDocument(data: data) { error in
             if let error = error {
                 completion(.failure(error))
@@ -150,5 +143,18 @@ enum FFirestore {
             }
         }
     }
+    
+    static func deleteDataFromSubcollection(documentID: String, inCollection collection: String, subcollectionPath: String, documentIDToDelete: String, completion: @escaping (Result<Void, Error>) -> Void) {
+            let db = Firestore.firestore()
+            let documentReference = db.collection(collection).document(documentID).collection(subcollectionPath).document(documentIDToDelete)
+
+            documentReference.delete { error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    completion(.success(()))
+                }
+            }
+        }
     
 }

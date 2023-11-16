@@ -1,10 +1,3 @@
-//
-//  HistoryViewController.swift
-//  Attendance
-//
-//  Created by Phincon on 14/11/23.
-//
-
 import UIKit
 import FirebaseFirestore
 
@@ -19,6 +12,8 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var loadingView: CustomLoading!
     
     
+    let scrollToTopButton = UIButton(type: .system)
+    
     
     var allData: [InfoItem] = []
     var allDataHistory: [HistoryItem] = []
@@ -28,13 +23,12 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         buttonEvent()
+        setupScrollToTopButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         dayButtonTapped()
     }
-    
-    
     
     func buttonEvent() {
         dayButton.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
@@ -90,27 +84,20 @@ class HistoryViewController: UIViewController {
         tableView.registerCellWithNib(LocationCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func setupScrollToTopButton() {
+        scrollToTopButton.setImage(UIImage(systemName: "arrow.up.circle"), for: .normal)
+        scrollToTopButton.addTarget(self, action: #selector(goToTopButtonTapped), for: .touchUpInside)
+        scrollToTopButton.translatesAutoresizingMaskIntoConstraints = false
+        scrollToTopButton.isHidden = true
+        view.addSubview(scrollToTopButton)
+
+        scrollToTopButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-30)
+            make.bottom.equalToSuperview().offset(-100)
+        }
         
-        let goToTopButton = UIButton(type: .system)
-        goToTopButton.setTitle("Go to Top", for: .normal)
-        goToTopButton.addTarget(self, action: #selector(goToTopButtonTapped), for: .touchUpInside)
-        goToTopButton.translatesAutoresizingMaskIntoConstraints = false
-
-        let buttonContainerView = UIView()
-        buttonContainerView.addSubview(goToTopButton)
-
-        tableView.tableFooterView = buttonContainerView
-
-        let footerHeight: CGFloat = 50
-        buttonContainerView.snp.makeConstraints { make in
-            make.height.equalTo(footerHeight)
-        }
-
-        goToTopButton.snp.makeConstraints { make in
-            make.centerX.equalTo(buttonContainerView)
-            make.centerY.equalTo(buttonContainerView)
-        }
-
     }
     
     @objc func goToTopButtonTapped() {
@@ -144,13 +131,13 @@ class HistoryViewController: UIViewController {
                         
                         let checkString = isCheck ? "Check In" : "Check Out"
                         
-                        // Format time with AM/PM
-                        let timeFormatter = DateFormatter()
-                        timeFormatter.dateFormat = "hh:mm a"
-                        let formattedTime = timeFormatter.string(from: date?.dateValue() ?? Date())
+                        let formattedTime = date?.dateValue().formattedFullDateString() ?? Date().formattedFullDateString()
+
 
                         let infoItem = InfoItem(title: "\(checkString) - \(title) - \(formattedTime)", description: description, imageName: imageName)
                         let historyItem = HistoryItem(checkTime: date?.dateValue(), descLocation: description, image: imageName, isCheck: isCheck, titleLocation: title)
+                        
+                        
                         self.allData.append(infoItem)
                         self.allDataHistory.append(historyItem)
                     }
@@ -158,7 +145,6 @@ class HistoryViewController: UIViewController {
                 self.tableView.reloadData()
                 self.loadingView.stopAnimating()
                 
-                // Call the completion handler when data fetching is completed
                 completion()
             case .failure(let error):
                 print("Error getting data from subcollection: \(error.localizedDescription)")
@@ -214,6 +200,13 @@ class HistoryViewController: UIViewController {
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
+    func deleteRow(at indexPath: IndexPath) {
+        let deletedItem = filteredData.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+
+        print("Deleted item: \(deletedItem)")
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filteredData.isEmpty {
             return 0
@@ -234,7 +227,6 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 let checkString = filter.isCheck ?? false ? "Check In" : "Check Out"
                 
-                // Format time with AM/PM
                 let timeFormatter = DateFormatter()
                 timeFormatter.dateFormat = "hh:mm a"
                 let formattedTime = timeFormatter.string(from: filter.checkTime ?? Date())
@@ -252,4 +244,15 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         return 90
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let screenHeight = scrollView.frame.size.height
+
+        if offset >= contentHeight - screenHeight {
+            scrollToTopButton.isHidden = false
+        } else {
+            scrollToTopButton.isHidden = true
+        }
+    }
 }

@@ -13,7 +13,6 @@ extension UICollectionView {
                 let cellWidth = cell.bounds.size.width
                 let cellCenter = Float(cell.frame.origin.x + cellWidth / 2)
 
-                // Now calculate closest cell
                 let distance: Float = fabsf(visibleCenterPositionOfScrollView - cellCenter)
                 if distance < closestDistance {
                     closestDistance = distance

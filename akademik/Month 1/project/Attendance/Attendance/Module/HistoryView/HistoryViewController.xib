@@ -117,15 +117,9 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="L0i-jx-q75" customClass="CustomLoading" customModule="Attendance" customModuleProvider="target">
-                            <rect key="frame" x="10" y="119" width="351" height="556"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="L0i-jx-q75" secondAttribute="bottom" id="0ZQ-1v-ati"/>
-                        <constraint firstAttribute="trailing" secondItem="L0i-jx-q75" secondAttribute="trailing" constant="8" id="6aJ-Dq-nVU"/>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="leading" secondItem="7Wm-G6-sZJ" secondAttribute="leading" id="7aZ-tG-s4d"/>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="top" secondItem="NeX-m7-sMw" secondAttribute="top" constant="27" id="LVV-oo-d0k"/>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="centerX" secondItem="NeX-m7-sMw" secondAttribute="centerX" id="Ljr-qc-biF"/>
@@ -134,10 +128,14 @@
                         <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="top" secondItem="7Wm-G6-sZJ" secondAttribute="bottom" constant="25" id="cCS-Bm-NOr"/>
                         <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="leading" secondItem="NeX-m7-sMw" secondAttribute="leading" constant="10" id="dUV-dn-neQ"/>
                         <constraint firstAttribute="bottom" secondItem="hJ9-Oe-Ws1" secondAttribute="bottom" id="fRZ-E6-nec"/>
-                        <constraint firstItem="L0i-jx-q75" firstAttribute="leading" secondItem="NeX-m7-sMw" secondAttribute="leading" constant="10" id="j8u-zJ-Ucw"/>
-                        <constraint firstItem="L0i-jx-q75" firstAttribute="top" secondItem="7Wm-G6-sZJ" secondAttribute="bottom" constant="24.670000000000002" id="tcq-Ql-AoE"/>
                         <constraint firstItem="7Wm-G6-sZJ" firstAttribute="top" secondItem="ZdA-fH-3FF" secondAttribute="bottom" constant="8" symbolic="YES" id="wqn-7f-cRo"/>
                     </constraints>
+                </view>
+                <view contentMode="scaleAspectFit" id="L0i-jx-q75" customClass="CustomLoading" customModule="Attendance" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="BhC-lq-6nr"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="SZ6-A4-7Ee"/>

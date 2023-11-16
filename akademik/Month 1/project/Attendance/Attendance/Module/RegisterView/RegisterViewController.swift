@@ -1,10 +1,3 @@
-//
-//  RegisterViewController.swift
-//  Attendance
-//
-//  Created by Phincon on 14/11/23.
-//
-
 import UIKit
 
 class RegisterViewController: UIViewController {
@@ -43,19 +36,15 @@ class RegisterViewController: UIViewController {
         let password = passwordField.inputText.text
         let repassword = repasswordField.inputText.text
         
-        // Validasi input
         guard let email = email, !email.isEmpty,
               let password = password, !password.isEmpty,
               let repassword = repassword, !repassword.isEmpty,
               let fullname = fullname, !fullname.isEmpty else {
-                // Handle error, missing input
                 showAlert(title: "Error", message: "Please fill in all fields.")
                 return
         }
         
-        // Validasi password dan repassword
         guard password == repassword else {
-            // Handle error, password tidak sesuai
             showAlert(title: "Error", message: "Passwords do not match.")
             return
         }
@@ -77,7 +66,6 @@ class RegisterViewController: UIViewController {
                 self.navigateToLogin()
                 
             case .failure(let error):
-                // Handle error registrasi
                 print("Registrasi gagal dengan error: \(error.localizedDescription)")
                 self.showAlert(title: "Error", message: error.localizedDescription)
             }

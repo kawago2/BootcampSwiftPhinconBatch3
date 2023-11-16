@@ -72,11 +72,11 @@ class HomeViewController: UIViewController {
         let documentID = uid
         let collection = "users"
         let subcollectionPath = "history"
-        let dataToAdd: [String:Any] = [
-            "checkTime": self.currentDate,
-            "descLocation": locationArray[currentCell].description,
-            "titleLocation": locationArray[currentCell].title,
-            "image": locationArray[currentCell].imageName,
+        let dataToAdd: [String: Any] = [
+            "checkTime": self.currentDate ,
+            "descLocation": locationArray[currentCell].description ?? "",
+            "titleLocation": locationArray[currentCell].title ?? "",
+            "image": locationArray[currentCell].imageName ?? "",
             "isCheck": self.isCheckIn,
         ]
 
@@ -116,17 +116,11 @@ class HomeViewController: UIViewController {
     
     @objc func updateTimeLabels() {
         self.currentDate = Date()
-        // Format date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM yyyy"
-        let formattedDate = dateFormatter.string(from: currentDate)
+        
+        let formattedDate = currentDate.formattedFullDateString()
+        let formattedTime = currentDate.formattedFullTimeString()
 
-        // Format time
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "hh:mm a"
-        let formattedTime = timeFormatter.string(from: currentDate)
 
-        // Update labels
         dateLabel.text = "\(formattedDate)"
         clockLabel.text = "Hour: \(formattedTime)\n"
     }
@@ -149,7 +143,6 @@ class HomeViewController: UIViewController {
         FFirestore.getDocument(collection: collection,documentID: documentID) { result in
             switch result {
             case .success(let documentSnapshot):
-                // Handle the document snapshot here
                 let data = documentSnapshot.data()
                 if let currentData = data {
                     if let isCheckIn = currentData["is_check"] as? Bool,
@@ -169,7 +162,6 @@ class HomeViewController: UIViewController {
                 }
             case .failure(let error):
                 print("Error getting document: \(error.localizedDescription)")
-                // Handle the error
             }
         }
     }

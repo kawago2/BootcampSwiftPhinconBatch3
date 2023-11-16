@@ -1,10 +1,3 @@
-//
-//  ForgotViewController.swift
-//  Attendance
-//
-//  Created by Phincon on 14/11/23.
-//
-
 import UIKit
 
 class ForgotViewController: UIViewController {

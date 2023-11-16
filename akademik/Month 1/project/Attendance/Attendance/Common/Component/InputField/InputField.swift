@@ -1,10 +1,3 @@
-//
-//  InputField.swift
-//  profileUI
-//
-//  Created by Phincon on 31/10/23.
-//
-
 import UIKit
 
 @IBDesignable

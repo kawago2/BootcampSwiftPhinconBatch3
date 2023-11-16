@@ -1,10 +1,3 @@
-//
-//  TimesheetCell.swift
-//  Attendance
-//
-//  Created by Phincon on 16/11/23.
-//
-
 import UIKit
 
 class TimesheetCell: UITableViewCell {
@@ -15,6 +8,7 @@ class TimesheetCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

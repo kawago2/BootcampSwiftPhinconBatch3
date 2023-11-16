@@ -16,6 +16,7 @@ struct HistoryItem {
 }
 
 struct TimesheetItem {
+    let id: String?
     let startDate: Date?
     let endDate: Date?
     let position: String?
