@@ -15,3 +15,9 @@ struct HistoryItem {
     let titleLocation: String?
 }
 
+struct TimesheetItem {
+    let startDate: Date?
+    let endDate: Date?
+    let position: String?
+    let task: String?
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddFormViewController" customModule="Attendance" customModuleProvider="target">
+            <connections>
+                <outlet property="addButton" destination="l4E-Bt-QJd" id="ooJ-nm-w5j"/>
+                <outlet property="endDatePicker" destination="ATc-JK-aps" id="jjP-Os-xNJ"/>
+                <outlet property="positionField" destination="WgA-pV-mrp" id="C0y-b5-lBK"/>
+                <outlet property="startDatePicker" destination="Thx-yJ-Sy0" id="Afl-7F-ial"/>
+                <outlet property="taskField" destination="L2B-Jg-I4l" id="BDM-HF-7gU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YPu-I4-6l7">
+                    <rect key="frame" x="47" y="456" width="299.66666666666669" height="204"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Position" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WgA-pV-mrp">
+                            <rect key="frame" x="0.0" y="0.0" width="299.66666666666669" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" placeholder="Task" textAlignment="justified" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L2B-Jg-I4l">
+                            <rect key="frame" x="0.0" y="54" width="299.66666666666669" height="150"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="300" id="8Y6-Wl-qNP"/>
+                                <constraint firstAttribute="height" constant="150" id="AkG-OO-TCf"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TwY-g6-ipc">
+                    <rect key="frame" x="87.999999999999986" y="161" width="217.66666666666663" height="218"/>
+                    <subviews>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="Thx-yJ-Sy0">
+                            <rect key="frame" x="0.0" y="0.0" width="218" height="98"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        </datePicker>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="ATc-JK-aps">
+                            <rect key="frame" x="0.0" y="106" width="218" height="112"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        </datePicker>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4E-Bt-QJd">
+                    <rect key="frame" x="47" y="698" width="300" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="TwY-g6-ipc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="88" id="Ex1-Bs-qzn"/>
+                <constraint firstItem="YPu-I4-6l7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="47" id="GV6-i5-dmD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YPu-I4-6l7" secondAttribute="bottom" constant="158" id="MR3-On-lRw"/>
+                <constraint firstItem="TwY-g6-ipc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="102" id="OCB-ew-HF8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TwY-g6-ipc" secondAttribute="trailing" constant="88" id="PaJ-MH-sLJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YPu-I4-6l7" secondAttribute="trailing" constant="47" id="XUj-I7-wu1"/>
+                <constraint firstItem="YPu-I4-6l7" firstAttribute="top" secondItem="TwY-g6-ipc" secondAttribute="bottom" constant="77" id="dxq-f6-cPA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-2.2900763358778624" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

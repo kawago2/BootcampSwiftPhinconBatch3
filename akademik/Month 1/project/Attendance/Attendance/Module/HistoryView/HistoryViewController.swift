@@ -90,6 +90,32 @@ class HistoryViewController: UIViewController {
         tableView.registerCellWithNib(LocationCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let goToTopButton = UIButton(type: .system)
+        goToTopButton.setTitle("Go to Top", for: .normal)
+        goToTopButton.addTarget(self, action: #selector(goToTopButtonTapped), for: .touchUpInside)
+        goToTopButton.translatesAutoresizingMaskIntoConstraints = false
+
+        let buttonContainerView = UIView()
+        buttonContainerView.addSubview(goToTopButton)
+
+        tableView.tableFooterView = buttonContainerView
+
+        let footerHeight: CGFloat = 50
+        buttonContainerView.snp.makeConstraints { make in
+            make.height.equalTo(footerHeight)
+        }
+
+        goToTopButton.snp.makeConstraints { make in
+            make.centerX.equalTo(buttonContainerView)
+            make.centerY.equalTo(buttonContainerView)
+        }
+
+    }
+    
+    @objc func goToTopButtonTapped() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
     
     func fetchData(completion: @escaping () -> Void?) {
@@ -144,7 +170,7 @@ class HistoryViewController: UIViewController {
     func filterData(by component: Calendar.Component) {
         var setCalendar = Calendar.current
         setCalendar.timeZone = .gmt
-        var calendar = setCalendar
+        let calendar = setCalendar
         let currentDate = Date()
 
         var startDate: Date
@@ -225,4 +251,5 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+    
 }

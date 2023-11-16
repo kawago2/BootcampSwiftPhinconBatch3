@@ -4,7 +4,9 @@ class TabBarViewController: UITabBarController {
     
     let homeViewController = HomeViewController()
     let historyViewController = HistoryViewController()
+    let timesheetViewController = TimesheetViewController()
     let profileViewController = ProfileViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +19,15 @@ class TabBarViewController: UITabBarController {
     func configureUITabBarItems() {
         let homeTabBarItem = UITabBarItem(title: "Home", image: Icons.home, tag: 0)
         let historyTabBarItem = UITabBarItem(title: "History", image: Icons.history, tag: 1)
-        let profileTabBarItem = UITabBarItem(title: "Profile", image: Icons.profile, tag: 2)
+        let timesheetTabBarItem = UITabBarItem(title: "Timesheet", image: Icons.timesheet, tag: 2)
+        let profileTabBarItem = UITabBarItem(title: "Profile", image: Icons.profile, tag: 3)
         
         homeViewController.tabBarItem = homeTabBarItem
         historyViewController.tabBarItem = historyTabBarItem
+        timesheetViewController.tabBarItem = timesheetTabBarItem
         profileViewController.tabBarItem = profileTabBarItem
         
-        viewControllers = [homeViewController, historyViewController, profileViewController]
+        viewControllers = [homeViewController, historyViewController, timesheetViewController, profileViewController]
     }
     
     func configureAppearance() {

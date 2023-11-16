@@ -11,6 +11,7 @@ target 'Attendance' do
   pod 'FirebaseAuth'
   pod 'lottie-ios'
   pod 'SnapKit'
+  pod 'FloatingPanel'
 
   target 'AttendanceTests' do
     inherit! :search_paths
