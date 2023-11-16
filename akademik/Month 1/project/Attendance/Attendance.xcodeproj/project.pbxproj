@@ -44,6 +44,9 @@
 		36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210DA42B0348270009EBC0 /* LocationCell.xib */; };
 		36210DA82B034A420009EBC0 /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210DA72B034A420009EBC0 /* ExtTableView.swift */; };
 		363D48442B047AF300B1329F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D48432B047AF300B1329F /* TabBarViewController.swift */; };
+		3670C6772B05B6800011985F /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C6762B05B6800011985F /* CustomLoading.swift */; };
+		3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3670C6782B05B68E0011985F /* CustomLoading.xib */; };
+		3670C67B2B05C9510011985F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67A2B05C9510011985F /* Date.swift */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C2872F2B04693700F17ADA /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C2872E2B04693700F17ADA /* ExtUIViewController.swift */; };
 		36C287322B04766100F17ADA /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* InfoItem.swift */; };
@@ -113,6 +116,9 @@
 		36210DA42B0348270009EBC0 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		36210DA72B034A420009EBC0 /* ExtTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtTableView.swift; path = "../../../../../Week 1/Day3/profileUI/profileUI/Common/Extension/ExtTableView.swift"; sourceTree = "<group>"; };
 		363D48432B047AF300B1329F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		3670C6762B05B6800011985F /* CustomLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoading.swift; sourceTree = "<group>"; };
+		3670C6782B05B68E0011985F /* CustomLoading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLoading.xib; sourceTree = "<group>"; };
+		3670C67A2B05C9510011985F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C2872E2B04693700F17ADA /* ExtUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtUIViewController.swift; path = "../../../../../Week 1/Day3/profileUI/profileUI/Common/Extension/ExtUIViewController.swift"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
@@ -283,6 +289,7 @@
 				36210D7E2B0309240009EBC0 /* ExtUIView.swift */,
 				36210D6A2B0221190009EBC0 /* ExtUIButton.swift */,
 				36210D6C2B02227E0009EBC0 /* ExtUICollectionView.swift */,
+				3670C67A2B05C9510011985F /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -317,6 +324,7 @@
 		36210D7D2B0304D40009EBC0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				3670C6752B05B6570011985F /* CustomLoading */,
 				36210D782B0304CC0009EBC0 /* InputField */,
 			);
 			path = Component;
@@ -334,8 +342,8 @@
 		36210D852B0321A30009EBC0 /* ForgotView */ = {
 			isa = PBXGroup;
 			children = (
-				36210D862B0321B70009EBC0 /* ForgotViewController.swift */,
 				36210D872B0321B70009EBC0 /* ForgotViewController.xib */,
+				36210D862B0321B70009EBC0 /* ForgotViewController.swift */,
 			);
 			path = ForgotView;
 			sourceTree = "<group>";
@@ -384,6 +392,15 @@
 				36210DA42B0348270009EBC0 /* LocationCell.xib */,
 			);
 			path = TableCell;
+			sourceTree = "<group>";
+		};
+		3670C6752B05B6570011985F /* CustomLoading */ = {
+			isa = PBXGroup;
+			children = (
+				3670C6762B05B6800011985F /* CustomLoading.swift */,
+				3670C6782B05B68E0011985F /* CustomLoading.xib */,
+			);
+			path = CustomLoading;
 			sourceTree = "<group>";
 		};
 		3691F9ED2B049E1000F050C0 /* Class */ = {
@@ -543,6 +560,7 @@
 				36210D842B031C0B0009EBC0 /* RegisterViewController.xib in Resources */,
 				36210D2D2B02084B0009EBC0 /* Main.storyboard in Resources */,
 				36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */,
+				3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */,
 				36210D892B0321B70009EBC0 /* ForgotViewController.xib in Resources */,
 				36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */,
 				36210D5D2B02094C0009EBC0 /* SplashViewController.xib in Resources */,
@@ -681,6 +699,7 @@
 				36210D922B0323FE0009EBC0 /* HistoryViewController.swift in Sources */,
 				36210D882B0321B70009EBC0 /* ForgotViewController.swift in Sources */,
 				36210D832B031C0B0009EBC0 /* RegisterViewController.swift in Sources */,
+				3670C67B2B05C9510011985F /* Date.swift in Sources */,
 				36210D972B0324240009EBC0 /* ProfileViewController.swift in Sources */,
 				36210D8D2B0323E80009EBC0 /* HomeViewController.swift in Sources */,
 				36C287322B04766100F17ADA /* InfoItem.swift in Sources */,
@@ -697,6 +716,7 @@
 				36210D712B0223A90009EBC0 /* SliderCell.swift in Sources */,
 				36210DA82B034A420009EBC0 /* ExtTableView.swift in Sources */,
 				36210D6D2B02227E0009EBC0 /* ExtUICollectionView.swift in Sources */,
+				3670C6772B05B6800011985F /* CustomLoading.swift in Sources */,
 				36210D9D2B0327900009EBC0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

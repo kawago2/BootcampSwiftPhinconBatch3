@@ -14,6 +14,7 @@
                 <outlet property="bottomView" destination="NeX-m7-sMw" id="hSs-fD-quW"/>
                 <outlet property="circleView" destination="0g0-Ru-0ZM" id="GDH-mr-nOr"/>
                 <outlet property="dayButton" destination="H0v-Av-DyX" id="yeP-2R-vkg"/>
+                <outlet property="loadingView" destination="L0i-jx-q75" id="wEv-ua-xFB"/>
                 <outlet property="monthButton" destination="n5J-4Q-e9p" id="1Gy-9d-n24"/>
                 <outlet property="tableView" destination="hJ9-Oe-Ws1" id="aMX-br-baK"/>
                 <outlet property="view" destination="Jwz-KR-pyG" id="2L4-Lt-qRP"/>
@@ -73,13 +74,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hJ9-Oe-Ws1">
-                            <rect key="frame" x="10" y="119" width="351" height="556"/>
+                            <rect key="frame" x="10" y="119.33333333333331" width="351" height="555.66666666666674"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="7Wm-G6-sZJ">
-                            <rect key="frame" x="25" y="62" width="319" height="32"/>
+                            <rect key="frame" x="25" y="62.333333333333343" width="319" height="32"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0v-Av-DyX">
                                     <rect key="frame" x="0.0" y="0.0" width="64" height="32"/>
@@ -116,9 +117,15 @@
                                 </button>
                             </subviews>
                         </stackView>
+                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="L0i-jx-q75" customClass="CustomLoading" customModule="Attendance" customModuleProvider="target">
+                            <rect key="frame" x="10" y="119" width="351" height="556"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="L0i-jx-q75" secondAttribute="bottom" id="0ZQ-1v-ati"/>
+                        <constraint firstAttribute="trailing" secondItem="L0i-jx-q75" secondAttribute="trailing" constant="8" id="6aJ-Dq-nVU"/>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="leading" secondItem="7Wm-G6-sZJ" secondAttribute="leading" id="7aZ-tG-s4d"/>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="top" secondItem="NeX-m7-sMw" secondAttribute="top" constant="27" id="LVV-oo-d0k"/>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="centerX" secondItem="NeX-m7-sMw" secondAttribute="centerX" id="Ljr-qc-biF"/>
@@ -127,6 +134,8 @@
                         <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="top" secondItem="7Wm-G6-sZJ" secondAttribute="bottom" constant="25" id="cCS-Bm-NOr"/>
                         <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="leading" secondItem="NeX-m7-sMw" secondAttribute="leading" constant="10" id="dUV-dn-neQ"/>
                         <constraint firstAttribute="bottom" secondItem="hJ9-Oe-Ws1" secondAttribute="bottom" id="fRZ-E6-nec"/>
+                        <constraint firstItem="L0i-jx-q75" firstAttribute="leading" secondItem="NeX-m7-sMw" secondAttribute="leading" constant="10" id="j8u-zJ-Ucw"/>
+                        <constraint firstItem="L0i-jx-q75" firstAttribute="top" secondItem="7Wm-G6-sZJ" secondAttribute="bottom" constant="24.670000000000002" id="tcq-Ql-AoE"/>
                         <constraint firstItem="7Wm-G6-sZJ" firstAttribute="top" secondItem="ZdA-fH-3FF" secondAttribute="bottom" constant="8" symbolic="YES" id="wqn-7f-cRo"/>
                     </constraints>
                 </view>

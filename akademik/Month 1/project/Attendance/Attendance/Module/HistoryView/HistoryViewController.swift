@@ -16,6 +16,9 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var monthButton: UIButton!
     @IBOutlet weak var yearButton: UIButton!
+    @IBOutlet weak var loadingView: CustomLoading!
+    
+    
     
     var allData: [InfoItem] = []
     var allDataHistory: [HistoryItem] = []
@@ -25,7 +28,9 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         buttonEvent()
-        fetchData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         dayButtonTapped()
     }
     
@@ -39,35 +44,44 @@ class HistoryViewController: UIViewController {
     }
     
     @objc func dayButtonTapped() {
+        fetchData() {
+            self.filterData(by: .day)
+        }
         dayButton.isSelected = true
         weekButton.isSelected = false
         monthButton.isSelected = false
         yearButton.isSelected = false
-        filterData(by: .day)
     }
 
     @objc func weekButtonTapped() {
+        fetchData() {
+            self.filterData(by: .weekOfYear)
+        }
         dayButton.isSelected = false
         weekButton.isSelected = true
         monthButton.isSelected = false
         yearButton.isSelected = false
-        filterData(by: .weekOfYear)
     }
 
     @objc func monthButtonTapped() {
+        fetchData() {
+            self.filterData(by: .month)
+        }
         dayButton.isSelected = false
         weekButton.isSelected = false
         monthButton.isSelected = true
         yearButton.isSelected = false
-        filterData(by: .month)
+        
     }
 
     @objc func yearButtonTapped() {
+        fetchData() {
+            self.filterData(by: .year)
+        }
         dayButton.isSelected = false
         weekButton.isSelected = false
         monthButton.isSelected = false
         yearButton.isSelected = true
-        filterData(by: .year)
     }
     
     func setupUI() {
@@ -78,7 +92,10 @@ class HistoryViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    func fetchData() {
+    func fetchData(completion: @escaping () -> Void?) {
+        loadingView.startAnimating()
+        allData = []
+        allDataHistory = []
         guard let uid = FAuth.auth.currentUser?.uid else {
             print("User not logged in")
             return
@@ -113,32 +130,68 @@ class HistoryViewController: UIViewController {
                     }
                 }
                 self.tableView.reloadData()
+                self.loadingView.stopAnimating()
+                
+                // Call the completion handler when data fetching is completed
+                completion()
             case .failure(let error):
                 print("Error getting data from subcollection: \(error.localizedDescription)")
             }
         }
     }
+
     
     func filterData(by component: Calendar.Component) {
+        var setCalendar = Calendar.current
+        setCalendar.timeZone = .gmt
+        var calendar = setCalendar
         let currentDate = Date()
-        let calendar = Calendar.current
-        let filteredDate = calendar.date(byAdding: component, value: -1, to: currentDate) ?? Date()
 
+        var startDate: Date
+        var endDate: Date
+
+        switch component {
+        case .day:
+            startDate = calendar.startOfDay(for: currentDate)
+            endDate = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: currentDate) ?? currentDate
+        case .weekOfYear:
+            guard let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: currentDate)) else {
+                return
+            }
+            startDate = startOfWeek
+            endDate = calendar.date(byAdding: .day, value: 6, to: startOfWeek) ?? currentDate
+        case .month:
+            guard let startOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: currentDate)) else {
+                return
+            }
+            startDate = startOfMonth
+            endDate = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth) ?? currentDate
+        case .year:
+            guard let startOfYear = calendar.date(from: calendar.dateComponents([.year], from: currentDate)) else {
+                return
+            }
+            startDate = startOfYear
+            endDate = calendar.date(byAdding: DateComponents(year: 1, day: -1), to: startOfYear) ?? currentDate
+        default:
+            return
+        }
         filteredData = allDataHistory.filter { item in
             if let checkTime = item.checkTime {
-                return checkTime > filteredDate
+                let checker = checkTime >= startDate && checkTime <= endDate
+                return checker
             }
-            return true
+            return false
         }
         tableView.reloadData()
     }
-
 
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if filteredData.isEmpty { return allData.isEmpty ? 1 : allData.count}
+        if filteredData.isEmpty {
+            return 0
+        }
         return filteredData.count
     }
     
@@ -149,8 +202,6 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         } else {
             if filteredData.isEmpty {
-                let fetch = allData[index]
-                cell.initData(title: fetch.title ?? "", desc: fetch.description ?? "", img: fetch.imageName ?? "image_not_available")
                 return cell
             } else {
                 let filter = filteredData[index]
