@@ -132,7 +132,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleAspectFit" id="L0i-jx-q75" customClass="CustomLoading" customModule="Attendance" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <rect key="frame" x="0.0" y="263" width="393" height="589"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <viewLayoutGuide key="safeArea" id="BhC-lq-6nr"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

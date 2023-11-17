@@ -245,6 +245,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if filteredData.isEmpty {return}
         let offset = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let screenHeight = scrollView.frame.size.height

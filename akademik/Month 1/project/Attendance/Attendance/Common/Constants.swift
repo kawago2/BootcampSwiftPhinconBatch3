@@ -11,6 +11,9 @@ enum Icons {
     
 }
 
+enum Variables {
+    static let optionArray = ["Completed", "In Progress", "Rejected"]
+}
 
 enum FAuth {
     static let auth = Auth.auth()
@@ -145,16 +148,29 @@ enum FFirestore {
     }
     
     static func deleteDataFromSubcollection(documentID: String, inCollection collection: String, subcollectionPath: String, documentIDToDelete: String, completion: @escaping (Result<Void, Error>) -> Void) {
-            let db = Firestore.firestore()
-            let documentReference = db.collection(collection).document(documentID).collection(subcollectionPath).document(documentIDToDelete)
-
-            documentReference.delete { error in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(()))
-                }
+        let db = Firestore.firestore()
+        let documentReference = db.collection(collection).document(documentID).collection(subcollectionPath).document(documentIDToDelete)
+        
+        documentReference.delete { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
             }
         }
+    }
     
+    static func editDataInSubcollection(documentID: String, inCollection collection: String, subcollectionPath: String, documentIDToEdit: String, newData: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
+        let db = Firestore.firestore()
+        let documentReference = db.collection(collection).document(documentID).collection(subcollectionPath).document(documentIDToEdit)
+        
+        documentReference.updateData(newData) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+
 }

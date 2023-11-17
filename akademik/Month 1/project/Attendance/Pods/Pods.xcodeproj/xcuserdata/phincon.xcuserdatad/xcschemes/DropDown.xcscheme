@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4874E7E655CEB4C01E4572AD903AEA21"
-               BuildableName = "FloatingPanel.framework"
-               BlueprintName = "FloatingPanel"
+               BlueprintIdentifier = "E9F9401E9C74C0C393164FD8D86D0068"
+               BuildableName = "DropDown.framework"
+               BlueprintName = "DropDown"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

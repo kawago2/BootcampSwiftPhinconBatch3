@@ -11,63 +11,63 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>FirebaseAppCheckInterop.xcscheme</key>
+		<key>DropDown.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>FirebaseAuth.xcscheme</key>
+		<key>FirebaseAppCheckInterop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>FirebaseCore.xcscheme</key>
+		<key>FirebaseAuth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>FirebaseCoreExtension.xcscheme</key>
+		<key>FirebaseCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>FirebaseCoreInternal.xcscheme</key>
+		<key>FirebaseCoreExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>FirebaseFirestore.xcscheme</key>
+		<key>FirebaseCoreInternal.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>FirebaseFirestoreInternal.xcscheme</key>
+		<key>FirebaseFirestore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>FirebaseSharedSwift.xcscheme</key>
+		<key>FirebaseFirestoreInternal.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
-		<key>FloatingPanel.xcscheme</key>
+		<key>FirebaseSharedSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double FloatingPanelVersionNumber;
-FOUNDATION_EXPORT const unsigned char FloatingPanelVersionString[];
+FOUNDATION_EXPORT double DropDownVersionNumber;
+FOUNDATION_EXPORT const unsigned char DropDownVersionString[];
 

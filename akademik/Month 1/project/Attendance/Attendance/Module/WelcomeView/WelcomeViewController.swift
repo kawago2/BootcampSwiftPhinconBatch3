@@ -55,13 +55,14 @@ class WelcomeViewController: UIViewController {
     }
     
     func startAutoplay() {
-        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoplay), userInfo: nil, repeats: currentPages == 3 ? false : true)
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoplay), userInfo: nil, repeats: true)
     }
     
     @objc func autoplay() {
         currentPages = (currentPages + 1) % numberOfPages
-        let index = IndexPath(item: currentPages, section: 0)
-        collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        pageControl.currentPage = currentPages
+        let newOffset = CGPoint(x: collectionView.frame.width * CGFloat(currentPages), y: collectionView.contentOffset.y)
+        collectionView.setContentOffset(newOffset, animated: true)
         collectionView.layoutIfNeeded()
         updateUIForCurrentPage()
     }

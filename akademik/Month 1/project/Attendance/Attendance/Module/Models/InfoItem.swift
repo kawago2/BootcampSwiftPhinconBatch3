@@ -21,4 +21,5 @@ struct TimesheetItem {
     let endDate: Date?
     let position: String?
     let task: String?
+    let status: Int?
 }

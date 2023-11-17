@@ -1,15 +1,15 @@
 import UIKit
 import FirebaseFirestore
-import FloatingPanel
 
 class TimesheetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingView: CustomLoading!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var emptyView: UIView!
+    
     
     var timesheetData: [TimesheetItem] = []
-    var floatingPanelController: FloatingPanelController!
     
     
     override func viewDidLoad() {
@@ -19,35 +19,34 @@ class TimesheetViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         fetchData(completion: {
-            self.tableView.reloadData()
             self.loadingView.stopAnimating()
+            self.tableView.reloadData()
         })
+        
     }
     func buttonEvent() {
         addButton.addTarget(self, action: #selector(navigateFP), for: .touchUpInside)
     }
     
     func setupUI() {
+        emptyView.isHidden = true
+        
+        
         tableView.registerCellWithNib(TimesheetCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
     }
     
     @objc func navigateFP() {
-        floatingPanelController = FloatingPanelController()
-        floatingPanelController.delegate = self
-        floatingPanelController.panGestureRecognizer.isEnabled = true
-        floatingPanelController.surfaceView.grabberHandle.isHidden = true
-        
-        let customLayout = CustomFloatingPanelLayout()
-        floatingPanelController.layout = customLayout
-        
         let contentVC = AddFormViewController()
+        contentVC.context = "add"
         contentVC.delegate = self
-        floatingPanelController.set(contentViewController: contentVC)
-        floatingPanelController.backdropView.dismissalTapGestureRecognizer.isEnabled = true
-        
-        present(floatingPanelController, animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: contentVC)
+        navController.modalTransitionStyle = .crossDissolve
+        navController.modalPresentationStyle = .overFullScreen
+        present(navController, animated: true)
+
     }
     
     func fetchData(completion: @escaping () -> Void?) {
@@ -73,12 +72,17 @@ class TimesheetViewController: UIViewController {
                         let endDate = data["end_date"] as? Timestamp
                         let position = data["position"] as? String
                         let task = data["task"] as? String
+                        let status = data["status"] as? Int
                         
-                        let timesheetItem = TimesheetItem(id:id, startDate: startDate?.dateValue(), endDate: endDate?.dateValue(), position: position, task: task)
+                        let timesheetItem = TimesheetItem(id:id, startDate: startDate?.dateValue(), endDate: endDate?.dateValue(), position: position, task: task, status: status)
                         self.timesheetData.append(timesheetItem)
                     }
                 }
                 completion()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    if self.timesheetData.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
+                    
+                }
             case .failure(let error):
                 print("Error getting data from subcollection: \(error.localizedDescription)")
             }
@@ -101,6 +105,7 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
         let endDate = timesheet.endDate
         let position = timesheet.position
         let task = timesheet.task
+        let status = timesheet.status ?? 4
         
         var formattedStartDate = ""
         if let startDate = startDate {
@@ -117,16 +122,16 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
             formattedEndTime = endDate.formattedShortTimeString()
         }
         
-        let clockString = "\(formattedStartTime)\n - \n\(formattedEndTime)"
+        let clockString = "•\(formattedStartTime) - \(formattedEndTime)"
         
-        cell.initData(date: formattedStartDate, clock: clockString, position: position ?? "", task: task ?? "")
+        cell.initData(date: formattedStartDate, clock: clockString, position: position ?? "", task: task ?? "", status: status)
         
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 132
+        return 200
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -163,49 +168,63 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
             }
         }
         fetchData(completion: {
-            self.tableView.reloadData()
             self.loadingView.stopAnimating()
+            self.tableView.reloadData()
+           
         })
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
         
+        let timesheetItem = timesheetData[index]
         
-        
+        let vc = AddFormViewController()
+        vc.delegate = self
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        vc.context = "edit"
+        vc.documentID = timesheetItem.id ?? ""
+        vc.initData(startDate: timesheetItem.startDate ?? Date(), endDate: timesheetItem.endDate ?? Date(), position: timesheetItem.position ?? "" , task: timesheetItem.task ?? "" , status:  timesheetItem.status ?? 4)
+        present(vc, animated: true)
     }
     
-}
-
-extension TimesheetViewController : FloatingPanelControllerDelegate {
-    
-    func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
-        return CustomFloatingPanelLayout()
-    }
-}
-
-class CustomFloatingPanelLayout: FloatingPanelLayout {
-    
-    var position: FloatingPanel.FloatingPanelPosition {
-        return .bottom
-    }
-    
-    var initialState: FloatingPanel.FloatingPanelState {
-        return .half
-    }
-    
-    var anchors: [FloatingPanel.FloatingPanelState : FloatingPanel.FloatingPanelLayoutAnchoring] {
-        return [
-            .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
-            .half: FloatingPanelLayoutAnchor(absoluteInset: 264.0, edge: .bottom, referenceGuide: .safeArea),
-            .tip: FloatingPanelLayoutAnchor(absoluteInset: 44.0, edge: .bottom, referenceGuide: .safeArea)
-        ]
-    }
-    
-    func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
-        return 0.30
-    }
 }
 
 
 extension TimesheetViewController: AddFormViewControllerDelegate {
-    func didAddTapped(startDate: Date, endDate: Date, position: String, task: String) {
+    func didEditTapped(startDate: Date, endDate: Date, position: String, task: String, status: Int,id : String) {
+        guard let uid = FAuth.auth.currentUser?.uid else {
+            print("User not logged in")
+            return
+        }
+        let collection = "users"
+        let subcollectionPath = "timesheets"
+        let editedDocumentID = id
+        
+        let dataToEdit: [String:Any] = [
+            "start_date": startDate,
+            "end_date": endDate,
+            "position": position,
+            "task": task,
+            "status": status
+        ]
+        
+        FFirestore.editDataInSubcollection(documentID: uid, inCollection: collection, subcollectionPath: subcollectionPath, documentIDToEdit: editedDocumentID, newData: dataToEdit) { result in
+            switch result {
+            case .success:
+                print("Document updated successfully")
+            case .failure(let error):
+                print("Error updating document: \(error)")
+            }
+        }
+        fetchData(completion: {
+            self.loadingView.stopAnimating()
+            self.tableView.reloadData()
+        })
+    }
+    
+    func didAddTapped(startDate: Date, endDate: Date, position: String, task: String, status: Int) {
         guard let uid = FAuth.auth.currentUser?.uid else {
             print("User not logged in")
             return
@@ -217,7 +236,8 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
             "start_date": startDate,
             "end_date": endDate,
             "position": position,
-            "task": task
+            "task": task,
+            "status": status
         ]
         
         FFirestore.addDataToSubcollection(documentID: documentID, inCollection: collection, subcollectionPath: subcollectionPath, data: dataToAdd) { result in
@@ -231,8 +251,8 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
             }
         }
         fetchData(completion: {
-            self.tableView.reloadData()
             self.loadingView.stopAnimating()
+            self.tableView.reloadData()
         })
     }
 }
