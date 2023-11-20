@@ -122,6 +122,19 @@ enum FFirestore {
         }
     }
     
+    static func editDocument(inCollection collection: String, documentIDToEdit: String, newData: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
+        let db = Firestore.firestore()
+        let documentReference = db.collection(collection).document(documentIDToEdit)
+        
+        documentReference.updateData(newData) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
     static func addDataToSubcollection(documentID: String, inCollection collection: String, subcollectionPath: String, data: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
         let documentRef = db.collection(collection).document(documentID)
         

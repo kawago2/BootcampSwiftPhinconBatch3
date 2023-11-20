@@ -23,3 +23,11 @@ struct TimesheetItem {
     let task: String?
     let status: Int?
 }
+
+
+struct ProfileItem {
+    let nik: String?
+    let alamat: String?
+    let name: String?
+    let posisi: String?
+}

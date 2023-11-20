@@ -59,6 +59,8 @@
 		36C287342B04783500F17ADA /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287332B04783500F17ADA /* ExtUIImageView.swift */; };
 		36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9162B076E0E00350039 /* SortbyCell.swift */; };
 		36DDA9192B076E0E00350039 /* SortbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9172B076E0E00350039 /* SortbyCell.xib */; };
+		36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9222B0B015600350039 /* EditProfileViewController.xib */; };
+		36DDA9282B0B024E00350039 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9272B0B024E00350039 /* EditProfileViewController.swift */; };
 		B1E1774B943AB8A5C01DB78F /* Pods_Attendance_AttendanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAECF607A441FA574498C652 /* Pods_Attendance_AttendanceUITests.framework */; };
 		C5627142753BCB96501D7B8B /* Pods_AttendanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECEAC74AD363A243F40027 /* Pods_AttendanceTests.framework */; };
 		ED55387EC593B8E517BC291C /* Pods_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCFAA6DB742D8E3512902BF /* Pods_Attendance.framework */; };
@@ -139,6 +141,8 @@
 		36C287332B04783500F17ADA /* ExtUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtUIImageView.swift; path = "../../../../../Week 1/Day3/profileUI/profileUI/Common/Extension/ExtUIImageView.swift"; sourceTree = "<group>"; };
 		36DDA9162B076E0E00350039 /* SortbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortbyCell.swift; sourceTree = "<group>"; };
 		36DDA9172B076E0E00350039 /* SortbyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortbyCell.xib; sourceTree = "<group>"; };
+		36DDA9222B0B015600350039 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		36DDA9272B0B024E00350039 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		49ECEAC74AD363A243F40027 /* Pods_AttendanceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttendanceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCFAA6DB742D8E3512902BF /* Pods_Attendance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attendance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B14140D0BF9E00F09FA4773 /* Pods-Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attendance.release.xcconfig"; path = "Target Support Files/Pods-Attendance/Pods-Attendance.release.xcconfig"; sourceTree = "<group>"; };
@@ -234,8 +238,8 @@
 		36210D552B0208940009EBC0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				3670C67C2B05D3AB0011985F /* TimesheetView */,
 				36C287302B04764D00F17ADA /* Models */,
+				3670C67C2B05D3AB0011985F /* TimesheetView */,
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
 				36210D732B0302D60009EBC0 /* LoginView */,
 				36210D802B031BF10009EBC0 /* RegisterView */,
@@ -387,6 +391,7 @@
 		36210D942B03240F0009EBC0 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				36DDA9202B0B015600350039 /* EditProfileView */,
 				36210D952B0324240009EBC0 /* ProfileViewController.swift */,
 				36210D962B0324240009EBC0 /* ProfileViewController.xib */,
 			);
@@ -474,6 +479,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		36DDA9202B0B015600350039 /* EditProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				36DDA9222B0B015600350039 /* EditProfileViewController.xib */,
+				36DDA9272B0B024E00350039 /* EditProfileViewController.swift */,
+			);
+			path = EditProfileView;
+			sourceTree = "<group>";
+		};
 		85DC592CD31FF06123276D3B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,7 +522,7 @@
 				36210D1E2B02084B0009EBC0 /* Sources */,
 				36210D1F2B02084B0009EBC0 /* Frameworks */,
 				36210D202B02084B0009EBC0 /* Resources */,
-				395D414AD2721FD4939C71DF /* [CP] Embed Pods Frameworks */,
+				D4C0867E978DDD85EA0572B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -546,7 +560,7 @@
 				36210D3E2B02084C0009EBC0 /* Sources */,
 				36210D3F2B02084C0009EBC0 /* Frameworks */,
 				36210D402B02084C0009EBC0 /* Resources */,
-				ACB2BA93C135FD77BABFA8D4 /* [CP] Embed Pods Frameworks */,
+				3D3610506ED9DA9D75DF11BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -623,6 +637,7 @@
 				3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */,
 				36210D892B0321B70009EBC0 /* ForgotViewController.xib in Resources */,
 				36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */,
+				36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */,
 				36210D5D2B02094C0009EBC0 /* SplashViewController.xib in Resources */,
 				36210D8E2B0323E80009EBC0 /* HomeViewController.xib in Resources */,
 				36210D932B0323FE0009EBC0 /* HistoryViewController.xib in Resources */,
@@ -646,23 +661,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		395D414AD2721FD4939C71DF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Attendance/Pods-Attendance-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Attendance/Pods-Attendance-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Attendance/Pods-Attendance-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3CA7EFCE710E09767E5A5B97 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -683,6 +681,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D3610506ED9DA9D75DF11BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Attendance-AttendanceUITests/Pods-Attendance-AttendanceUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Attendance-AttendanceUITests/Pods-Attendance-AttendanceUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Attendance-AttendanceUITests/Pods-Attendance-AttendanceUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9DADA16CA93345B0970023CD /* [CP] Check Pods Manifest.lock */ = {
@@ -707,21 +722,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ACB2BA93C135FD77BABFA8D4 /* [CP] Embed Pods Frameworks */ = {
+		D4C0867E978DDD85EA0572B8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Attendance-AttendanceUITests/Pods-Attendance-AttendanceUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Attendance/Pods-Attendance-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Attendance-AttendanceUITests/Pods-Attendance-AttendanceUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Attendance/Pods-Attendance-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Attendance-AttendanceUITests/Pods-Attendance-AttendanceUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Attendance/Pods-Attendance-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EB1A231014FA3CD1354D4EEB /* [CP] Check Pods Manifest.lock */ = {
@@ -761,6 +776,7 @@
 				36210D832B031C0B0009EBC0 /* RegisterViewController.swift in Sources */,
 				3670C67B2B05C9510011985F /* ExtDate.swift in Sources */,
 				36210D972B0324240009EBC0 /* ProfileViewController.swift in Sources */,
+				36DDA9282B0B024E00350039 /* EditProfileViewController.swift in Sources */,
 				36210D8D2B0323E80009EBC0 /* HomeViewController.swift in Sources */,
 				36C287322B04766100F17ADA /* InfoItem.swift in Sources */,
 				36210D7F2B0309240009EBC0 /* ExtUIView.swift in Sources */,

@@ -14,6 +14,7 @@
                 <outlet property="circleView" destination="3tm-Ub-i4H" id="3zD-B6-6re"/>
                 <outlet property="nameLabel" destination="5GZ-vt-Z6j" id="bWt-Wc-98j"/>
                 <outlet property="pencilButton" destination="qiY-RT-n24" id="hDe-kr-QYf"/>
+                <outlet property="posisiLabel" destination="otF-H3-vaH" id="F5R-hx-JFL"/>
                 <outlet property="profileImage" destination="8rs-CH-RGx" id="vrn-4Q-631"/>
                 <outlet property="profileView" destination="xKC-uP-gcB" id="QAk-ej-hOU"/>
                 <outlet property="signoutButton" destination="z1N-jN-INM" id="PRq-6v-hr9"/>
@@ -47,7 +48,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qiY-RT-n24">
+                                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qiY-RT-n24">
                                     <rect key="frame" x="266" y="2.9999999999999982" width="30" height="22.333333333333336"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
