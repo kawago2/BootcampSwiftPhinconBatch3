@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
@@ -17,6 +18,7 @@ class ProfileViewController: UIViewController {
     var name = ""
     var alamat = ""
     var posisi = ""
+    var imageUrl = ""
     
     
     override func viewDidLoad() {
@@ -60,7 +62,7 @@ class ProfileViewController: UIViewController {
     @objc func navigateFP() {
         let contentVC = EditProfileViewController()
         contentVC.delegate = self
-        contentVC.initData(image: "profile", nik: self.nik, alamat: self.alamat, name: self.name, posisi: self.posisi)
+        contentVC.initData(image: imageUrl, nik: self.nik, alamat: self.alamat, name: self.name, posisi: self.posisi)
         let navController = UINavigationController(rootViewController: contentVC)
         navController.modalTransitionStyle = .crossDissolve
         navController.modalPresentationStyle = .overFullScreen
@@ -134,6 +136,21 @@ class ProfileViewController: UIViewController {
                 print("Error fetching user profile from Firestore: \(error.localizedDescription)")
             }
         }
+        let imagePath = "images/profile-\(uid)"
+        FStorage.getImageURL(atPath: imagePath) { result in
+            switch result {
+            case .success(let imageURL):
+                if let url = URL(string: imageURL) {
+                    self.profileImage.kf.setImage(with: url)
+                    self.imageUrl = imageURL
+                } else {
+                    print("Invalid URL")
+                }
+            case .failure(let error):
+                print("Error retrieving image URL: \(error.localizedDescription)")
+            }
+        }
+
     }
 }
 
@@ -186,7 +203,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource{
 
 
 extension ProfileViewController: EditProfileViewDelegate {
-    func didSaveTapped(item: ProfileItem) {
+    func didSaveTapped(item: ProfileItem, image: UIImage?) {
         guard
             let nik = item.nik,
             let alamat = item.alamat,
@@ -203,6 +220,13 @@ extension ProfileViewController: EditProfileViewDelegate {
         let collection = "users"
         let documentID = uid
         
+        let oldData = [
+            "profile.nik": self.nik,
+            "profile.alamat": self.alamat,
+            "profile.name": self.name,
+            "profile.posisi": self.posisi
+        ]
+        
         let updatedData = [
             "profile.nik": nik,
             "profile.alamat": alamat,
@@ -210,18 +234,45 @@ extension ProfileViewController: EditProfileViewDelegate {
             "profile.posisi": posisi
         ]
         
-        FFirestore.editDocument(inCollection: collection, documentIDToEdit: documentID, newData: updatedData) { result in
-            switch result {
-            case .success:
-                print("Profile updated successfully")
-                self.showAlert(title: "Success", message: "Profile updated successfully") {
-                    self.loadDataGeneral() {
-                        self.setupData()
-                    }
+        let dispatchGroup = DispatchGroup()
+        
+        
+        
+        if oldData != updatedData {
+            dispatchGroup.enter()
+            FFirestore.editDocument(inCollection: collection, documentIDToEdit: documentID, newData: updatedData) { result in
+                switch result {
+                case .success:
+                    print("Profile updated successfully")
+                    dispatchGroup.leave()
+                case .failure(let error):
+                    print("Error updating profile: \(error.localizedDescription)")
                 }
-            case .failure(let error):
-                print("Error updating profile: \(error.localizedDescription)")
-                self.showAlert(title: "Failed", message: "Error updating profile: \(error.localizedDescription)")
+            }
+        }
+
+
+
+        
+        if let imageToUpload = image {
+            let storagePath = "images/profile-\(uid)"
+            dispatchGroup.enter()
+            FStorage.uploadImage(imageToUpload, toPath: storagePath) { result in
+                switch result {
+                case .success(let downloadURL):
+                    print("Image uploaded successfully. Download URL: \(downloadURL)")
+                    dispatchGroup.leave()
+                case .failure(let error):
+                    print("Error uploading image: \(error.localizedDescription)")
+                }
+            }
+        }
+        // Notify when both tasks are completed
+        dispatchGroup.notify(queue: .main) {
+            self.showAlert(title: "Success", message: "Profile and Photo updated successfully") {
+                self.loadDataGeneral() {
+                    self.setupData()
+                }
             }
         }
     }

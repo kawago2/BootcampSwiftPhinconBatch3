@@ -1,7 +1,7 @@
 import UIKit
 
 protocol EditProfileViewDelegate {
-    func didSaveTapped(item: ProfileItem)
+    func didSaveTapped(item: ProfileItem, image: UIImage?)
 }
 
 class EditProfileViewController: UIViewController {
@@ -16,6 +16,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var nikField: UITextField!
     @IBOutlet weak var alamatField: UITextField!
     @IBOutlet weak var posisiField: UITextField!
+    @IBOutlet weak var loadingView: CustomLoading!
     
     var delegate: EditProfileViewDelegate?
     
@@ -24,8 +25,7 @@ class EditProfileViewController: UIViewController {
     var alamat = ""
     var name = ""
     var posisi = ""
-    
-    
+    var resultImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,11 @@ class EditProfileViewController: UIViewController {
     }
     
     func setupData() {
-        profileImage.image = UIImage(named: self.image)
+        if let url = URL(string: image) {
+            profileImage.kf.setImage(with: url)
+        } else {
+            profileImage.image = UIImage(named: self.image)
+        }
         alamatField.text = self.alamat
         nikField.text = self.nik
         nameField.text = self.name
@@ -63,6 +67,8 @@ class EditProfileViewController: UIViewController {
         backgroundButton.addTarget(self, action: #selector(popToView), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(popToView), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
+        galeryButton.addTarget(self, action: #selector(openGallery), for: .touchUpInside)
+        cameraButton.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
     }
     
     @objc func popToView() {
@@ -70,9 +76,14 @@ class EditProfileViewController: UIViewController {
     }
     
     @objc func saveTapped() {
-        let item = ProfileItem(nik: nikField.text, alamat: alamatField.text, name: nameField.text, posisi: posisiField.text)
-        delegate?.didSaveTapped(item: item)
-            dismiss(animated: true)
+        loadingView.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            let item = ProfileItem(nik: self.nikField.text, alamat: self.alamatField.text, name: self.nameField.text, posisi: self.posisiField.text)
+            self.delegate?.didSaveTapped(item: item, image: self.resultImage)
+            self.loadingView.stopAnimating()
+            self.dismiss(animated: true)
+        }
+
     }
     
     func initData(image: String, nik: String, alamat: String, name: String, posisi: String) {
@@ -81,6 +92,22 @@ class EditProfileViewController: UIViewController {
         self.alamat = alamat
         self.name = name
         self.posisi = posisi
+    }
+    
+    @objc func openGallery() {
+        showImagePicker(sourceType: .photoLibrary)
+    }
+
+    @objc func openCamera() {
+        showImagePicker(sourceType: .camera)
+    }
+
+    func showImagePicker(sourceType: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
     }
 }
 
@@ -96,5 +123,21 @@ extension EditProfileViewController: UITextFieldDelegate {
         }
         return false
     }
+    
+    
 
+}
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            profileImage.image = selectedImage
+            resultImage = selectedImage
+        }
+        dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }

@@ -2,6 +2,8 @@ import UIKit
 import FirebaseFirestore
 
 class TimesheetViewController: UIViewController {
+
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingView: CustomLoading!
@@ -10,6 +12,9 @@ class TimesheetViewController: UIViewController {
     
     
     var timesheetData: [TimesheetItem] = []
+    var completedTimesheets: [TimesheetItem] = []
+    var cellContexts: [String] = ["date", "option"]
+    
     
     
     override func viewDidLoad() {
@@ -30,12 +35,14 @@ class TimesheetViewController: UIViewController {
     
     func setupUI() {
         emptyView.isHidden = true
-        
-        
         tableView.registerCellWithNib(TimesheetCell.self)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        
+        collectionView.registerCellWithNib(SortbyCell.self)
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     @objc func navigateFP() {
@@ -93,14 +100,14 @@ class TimesheetViewController: UIViewController {
 
 extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return timesheetData.count
+        return completedTimesheets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimesheetCell", for: indexPath) as! TimesheetCell
         
-        let timesheet = timesheetData[index]
+        let timesheet = completedTimesheets[index]
         let startDate = timesheet.startDate
         let endDate = timesheet.endDate
         let position = timesheet.position
@@ -157,7 +164,7 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
         let documentID = uid
         let collection = "users"
         let subcollectionPath = "timesheets"
-        let deletedDocumentID = timesheetData[index].id ?? ""
+        let deletedDocumentID = completedTimesheets[index].id ?? ""
         FFirestore.deleteDataFromSubcollection(documentID: documentID, inCollection: collection, subcollectionPath: subcollectionPath, documentIDToDelete: deletedDocumentID) { result in
             switch result {
             case .success:
@@ -177,7 +184,7 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
         
-        let timesheetItem = timesheetData[index]
+        let timesheetItem = completedTimesheets[index]
         
         let vc = AddFormViewController()
         vc.delegate = self
@@ -255,4 +262,81 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
             self.tableView.reloadData()
         })
     }
+}
+
+
+extension TimesheetViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let index = indexPath.item
+        switch index {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
+            cell.delegate = self
+            cell.context = "date"
+            cell.initData(title: "Date")
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
+            cell.delegate = self
+            cell.context = "option"
+            cell.initData(title: "Status")
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
+        
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 50)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+}
+
+
+extension TimesheetViewController : SortbyCellDelegate {
+    func didLabelTapped(sortby: String?) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            guard let sortBy = sortby else { return }
+            self.sortByStatus(sortby: sortBy)
+            self.sortByDate(sortby: sortBy)
+        })
+    }
+
+    func sortByStatus(sortby: String) {
+        switch sortby {
+        case "completed":
+            completedTimesheets = timesheetData.filter { $0.status == 0 }
+        case "in progress":
+            completedTimesheets = timesheetData.filter { $0.status == 1 }
+        case "rejected":
+            completedTimesheets = timesheetData.filter { $0.status == 2 }
+        default:
+            break
+        }
+
+        self.tableView.reloadData()
+    }
+
+    func sortByDate(sortby: String) {
+        switch sortby {
+        case "ascendant":
+            completedTimesheets = completedTimesheets.sorted { $0.startDate ?? Date() < $1.startDate ?? Date() }
+        case "descendant":
+            completedTimesheets = completedTimesheets.sorted { $0.startDate ?? Date() > $1.startDate ?? Date() }
+        default:
+            break
+        }
+
+        self.tableView.reloadData()
+    }
+
 }

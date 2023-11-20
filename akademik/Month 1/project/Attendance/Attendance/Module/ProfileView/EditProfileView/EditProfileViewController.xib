@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,6 +18,7 @@
                 <outlet property="cancelButton" destination="Xv2-Ym-WNE" id="ipZ-mm-Z20"/>
                 <outlet property="cardView" destination="h6x-2K-nkU" id="CBh-eF-ejy"/>
                 <outlet property="galeryButton" destination="iCc-kT-rPc" id="liR-cY-HRq"/>
+                <outlet property="loadingView" destination="83U-0G-vKE" id="MVd-eA-EGF"/>
                 <outlet property="nameField" destination="eUa-vg-xdm" id="R0n-9Y-ElR"/>
                 <outlet property="nikField" destination="VJ7-05-Qgx" id="ncM-MZ-9WC"/>
                 <outlet property="posisiField" destination="k9q-Ga-RcS" id="Y7d-2c-ynQ"/>
@@ -38,8 +40,12 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6x-2K-nkU">
                     <rect key="frame" x="22" y="162" width="349" height="529"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rPB-dv-w7R">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rPB-dv-w7R">
                             <rect key="frame" x="40" y="11" width="125" height="125"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="125" id="EBR-JO-l1L"/>
+                                <constraint firstAttribute="height" constant="125" id="eFf-AU-jns"/>
+                            </constraints>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DfF-WW-lCY">
                             <rect key="frame" x="173" y="28.000000000000007" width="154" height="90.666666666666686"/>
@@ -185,11 +191,16 @@
                                 </button>
                             </subviews>
                         </stackView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83U-0G-vKE" customClass="CustomLoading" customModule="Attendance" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="349" height="529"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="bgColor"/>
                     <constraints>
                         <constraint firstItem="o0y-9z-V6Z" firstAttribute="top" secondItem="DfF-WW-lCY" secondAttribute="bottom" constant="28.333333333333343" id="091-7R-Ckb"/>
                         <constraint firstItem="o0y-9z-V6Z" firstAttribute="top" secondItem="rPB-dv-w7R" secondAttribute="bottom" constant="11" id="1z6-1Y-PJV"/>
+                        <constraint firstAttribute="trailing" secondItem="83U-0G-vKE" secondAttribute="trailing" id="39z-vK-lwt"/>
                         <constraint firstItem="o0y-9z-V6Z" firstAttribute="top" secondItem="h6x-2K-nkU" secondAttribute="top" constant="147" id="5hV-0h-30M"/>
                         <constraint firstItem="o0y-9z-V6Z" firstAttribute="leading" secondItem="h6x-2K-nkU" secondAttribute="leading" constant="16" id="8mo-sy-GhB"/>
                         <constraint firstItem="rPB-dv-w7R" firstAttribute="leading" secondItem="h6x-2K-nkU" secondAttribute="leading" constant="40" id="Cig-hP-Gk4"/>
@@ -198,8 +209,11 @@
                         <constraint firstAttribute="trailing" secondItem="DfF-WW-lCY" secondAttribute="trailing" constant="22" id="Kl4-sx-Gpp"/>
                         <constraint firstItem="DfF-WW-lCY" firstAttribute="leading" secondItem="rPB-dv-w7R" secondAttribute="trailing" constant="8" id="RJB-yu-cFu"/>
                         <constraint firstItem="rPB-dv-w7R" firstAttribute="top" secondItem="h6x-2K-nkU" secondAttribute="top" constant="11" id="RcI-Su-kga"/>
+                        <constraint firstItem="83U-0G-vKE" firstAttribute="top" secondItem="h6x-2K-nkU" secondAttribute="top" id="TNO-lv-kWt"/>
                         <constraint firstItem="pKX-47-74P" firstAttribute="leading" secondItem="h6x-2K-nkU" secondAttribute="leading" constant="8" id="VHk-jc-RLA"/>
                         <constraint firstAttribute="trailing" secondItem="pKX-47-74P" secondAttribute="trailing" constant="8" id="WZe-Ic-bTx"/>
+                        <constraint firstItem="83U-0G-vKE" firstAttribute="leading" secondItem="h6x-2K-nkU" secondAttribute="leading" id="Xdd-f4-B5p"/>
+                        <constraint firstAttribute="bottom" secondItem="83U-0G-vKE" secondAttribute="bottom" id="ZR2-Hx-z33"/>
                         <constraint firstItem="DfF-WW-lCY" firstAttribute="leading" secondItem="rPB-dv-w7R" secondAttribute="trailing" constant="8" id="bzW-sq-hpY"/>
                         <constraint firstAttribute="trailing" secondItem="o0y-9z-V6Z" secondAttribute="trailing" constant="16" id="dgq-Na-r5f"/>
                         <constraint firstAttribute="bottom" secondItem="pKX-47-74P" secondAttribute="bottom" constant="20.666666666666686" id="e6L-vX-38n"/>
@@ -232,5 +246,8 @@
         <namedColor name="bgColor">
             <color red="0.97299998998641968" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

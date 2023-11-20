@@ -9,11 +9,13 @@ target 'Attendance' do
   pod 'FirebaseCore'
   pod 'FirebaseFirestore'
   pod 'FirebaseAuth'
+  pod 'FirebaseStorage'
   pod 'lottie-ios'
   pod 'SnapKit'
   pod 'DropDown'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Kingfisher'
 
   target 'AttendanceTests' do
     inherit! :search_paths
