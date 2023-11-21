@@ -2,15 +2,18 @@ import UIKit
 
 class SplashViewController: UIViewController {
 
+    // Tambahkan property viewModel
+    var viewModel: SplashViewModel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigateToNextAfterDelay()
-    }
-    
-    
-    func navigateToNextAfterDelay() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.navigateToNext()
+
+        // Inisialisasi viewModel
+        viewModel = SplashViewModel()
+
+        // Panggil fungsi navigateToNextAfterDelay melalui viewModel
+        viewModel.navigateToNextAfterDelay { [weak self] in
+            self?.navigateToNext()
         }
     }
 
@@ -19,4 +22,3 @@ class SplashViewController: UIViewController {
         navigationController?.setViewControllers([vc], animated: false)
     }
 }
-
