@@ -15,7 +15,7 @@ class TimesheetViewController: UIViewController {
     var completedTimesheets: [TimesheetItem] = []
     var cellContexts: [String] = ["date", "option"]
     
-    
+    var currentSortBy = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,17 +88,21 @@ class TimesheetViewController: UIViewController {
                             self.timesheetData.append(timesheetItem)
                         }
                     }
+                    self.didLabelTapped(sortby: self.currentSortBy)
+                    self.updateEmptyView()
                     completion()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        if self.timesheetData.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
-                        
-                    }
                 case .failure(let error):
                     print("Error getting data from subcollection: \(error.localizedDescription)")
                 }
             }
         case .notConnected:
             print("fetch tidak di execute")
+        }
+    }
+    
+    func updateEmptyView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if self.completedTimesheets.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
         }
     }
 }
@@ -307,11 +311,13 @@ extension TimesheetViewController:  UICollectionViewDelegate, UICollectionViewDa
 
 
 extension TimesheetViewController : SortbyCellDelegate {
-    func didLabelTapped(sortby: String?) {
+    func didLabelTapped(sortby: String) {
+        self.currentSortBy = sortby
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            guard let sortBy = sortby else { return }
-            self.sortByStatus(sortby: sortBy)
-            self.sortByDate(sortby: sortBy)
+            self.sortByStatus(sortby: sortby)
+            self.sortByDate(sortby: sortby)
+            self.updateEmptyView()
         })
     }
 

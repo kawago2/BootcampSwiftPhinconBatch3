@@ -52,18 +52,28 @@ class RegisterViewController: UIViewController {
         FAuth.registerUser(email: email, password: password) { result in
             switch result {
             case .success(let user):
-                print("Registrasi berhasil, user: \(user)")
                 
-                FAuth.updateDisplayName(newName: fullname) { updateResult in
-                    switch updateResult {
+                let uid = user.uid
+                let collection = "users"
+                let documentID = uid
+                let updatedData = [
+                    "profile": [
+                            "name": fullname
+                        ]
+                ]
+
+                FFirestore.setDocument(documentID: documentID, data: updatedData, inCollection: collection) { result in
+                    switch result {
                     case .success:
-                        print("Update display name berhasil")
-                    case .failure(let updateError):
-                        print("Update display name gagal dengan error: \(updateError.localizedDescription)")
+                        print("Profile updated successfully")
+                    case .failure(let error):
+                        print("Error updating profile: \(error.localizedDescription)")
                     }
                 }
-                self.showAlert(title: "Success", message: "Register Successfuly.")
-                self.navigateToLogin()
+                
+                self.showAlert(title: "Success", message: "Register Successfuly.") {
+                    self.navigateToLogin()
+                }
                 
             case .failure(let error):
                 print("Registrasi gagal dengan error: \(error.localizedDescription)")

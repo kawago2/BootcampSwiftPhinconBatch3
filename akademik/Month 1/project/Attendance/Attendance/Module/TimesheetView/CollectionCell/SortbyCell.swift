@@ -2,7 +2,7 @@ import UIKit
 import DropDown
 
 protocol SortbyCellDelegate {
-    func didLabelTapped(sortby: String?)
+    func didLabelTapped(sortby: String)
 }
 
 class SortbyCell: UICollectionViewCell {
@@ -33,6 +33,8 @@ class SortbyCell: UICollectionViewCell {
     
     func setupUI() {
         cardView.makeCornerRadius(20)
+        cardView.layer.borderWidth = 1
+        cardView.layer.borderColor = UIColor.black.cgColor
     }
     
     @objc func didLabelTapped() {
@@ -56,7 +58,7 @@ class SortbyCell: UICollectionViewCell {
         if !dropDown.dataSource.isEmpty {
             dropDown.selectRow(0)
             sortNameLabel.text = dropDown.selectedItem
-            delegate?.didLabelTapped(sortby: dropDown.selectedItem?.lowercased())
+            delegate?.didLabelTapped(sortby: dropDown.selectedItem?.lowercased() ?? "show all")
         }
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in

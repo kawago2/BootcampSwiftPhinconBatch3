@@ -53,6 +53,8 @@ class HomeViewController: UIViewController {
         }
         let check = isCheckIn
         let currentCell = self.selectedCell
+        let collection =  "users"
+        let documentID = uid
         
         let dataToSet: [String: Any] = [
             "is_check": check as Bool,
@@ -60,7 +62,7 @@ class HomeViewController: UIViewController {
             "active_page": currentCell as Int,
         ]
 
-        FFirestore.setDocument(documentID: uid, data: dataToSet, inCollection: "users") { result in
+        FFirestore.editDocument(inCollection: collection, documentIDToEdit: documentID, newData: dataToSet) { result in
             switch result {
             case .success:
                 print("Document set successfully")
@@ -69,8 +71,7 @@ class HomeViewController: UIViewController {
             }
         }
         
-        let documentID = uid
-        let collection = "users"
+       
         let subcollectionPath = "history"
         let dataToAdd: [String: Any] = [
             "checkTime": self.currentDate ,

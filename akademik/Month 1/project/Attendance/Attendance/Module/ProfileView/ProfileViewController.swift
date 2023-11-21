@@ -14,10 +14,10 @@ class ProfileViewController: UIViewController {
     
     
     var profileArray: [InfoItem] = []
-    var nik = ""
-    var name = ""
-    var alamat = ""
-    var posisi = ""
+    var nik = "Not set"
+    var name = "Not set"
+    var alamat = "Not set"
+    var posisi = "Not set"
     var imageUrl = ""
     
     
@@ -28,10 +28,6 @@ class ProfileViewController: UIViewController {
             self.setupData()
         }
         buttonEvent()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-
     }
     
     func buttonEvent() {
@@ -106,10 +102,10 @@ class ProfileViewController: UIViewController {
             switch result {
             case .success(let document):
                 if let profileData = document.data()?["profile"] as? [String: Any] {
-                    let nik = profileData["nik"] as? String ?? ""
-                    let alamat = profileData["alamat"] as? String ?? ""
-                    let name = profileData["name"] as? String ?? ""
-                    let posisi = profileData["posisi"] as? String ?? ""
+                    let nik = profileData["nik"] as? String ?? "Not set"
+                    let alamat = profileData["alamat"] as? String ?? "Not set"
+                    let name = profileData["name"] as? String ?? "Not set"
+                    let posisi = profileData["posisi"] as? String ?? "Not set"
                     
                     self.nik = nik
                     self.alamat = alamat
@@ -122,14 +118,13 @@ class ProfileViewController: UIViewController {
                         InfoItem(title: "Change Password", description: "***************", imageName: "password")
                     ]
                     self.tableView.reloadData()
-                    
-                    
                 } else {
                     self.profileArray = [
-                        InfoItem(title: "No. Karyawan", description: "", imageName: "identity"),
-                        InfoItem(title: "Alamat", description: "", imageName: "address"),
+                        InfoItem(title: "No. Karyawan", description: self.nik, imageName: "identity"),
+                        InfoItem(title: "Alamat", description: self.alamat, imageName: "address"),
                         InfoItem(title: "Change Password", description: "***************", imageName: "password")
                     ]
+                    self.tableView.reloadData()
                 }
                 completion()
 
@@ -137,6 +132,7 @@ class ProfileViewController: UIViewController {
                 print("Error fetching user profile from Firestore: \(error.localizedDescription)")
             }
         }
+        
         let imagePath = "images/profile-\(uid)"
         FStorage.getImageURL(atPath: imagePath) { result in
             switch result {
@@ -149,6 +145,7 @@ class ProfileViewController: UIViewController {
                 }
             case .failure(let error):
                 print("Error retrieving image URL: \(error.localizedDescription)")
+                self.profileImage.image = UIImage(named: "image_not_available")
             }
         }
 

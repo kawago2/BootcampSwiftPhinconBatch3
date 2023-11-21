@@ -14,6 +14,7 @@
                 <outlet property="bottomView" destination="NeX-m7-sMw" id="hSs-fD-quW"/>
                 <outlet property="circleView" destination="0g0-Ru-0ZM" id="GDH-mr-nOr"/>
                 <outlet property="dayButton" destination="H0v-Av-DyX" id="yeP-2R-vkg"/>
+                <outlet property="emptyView" destination="Asy-4N-lXY" id="pDf-eF-jNV"/>
                 <outlet property="loadingView" destination="L0i-jx-q75" id="wEv-ua-xFB"/>
                 <outlet property="monthButton" destination="n5J-4Q-e9p" id="1Gy-9d-n24"/>
                 <outlet property="tableView" destination="hJ9-Oe-Ws1" id="aMX-br-baK"/>
@@ -63,6 +64,12 @@
                         <constraint firstItem="0g0-Ru-0ZM" firstAttribute="leading" secondItem="A9f-gR-89R" secondAttribute="leading" constant="217" id="ivh-UX-kbF"/>
                         <constraint firstAttribute="bottom" secondItem="0g0-Ru-0ZM" secondAttribute="bottom" constant="91.666666666666686" id="lV9-1L-sHe"/>
                     </constraints>
+                </view>
+                <view hidden="YES" contentMode="scaleAspectFit" id="L0i-jx-q75" customClass="CustomLoading" customModule="Attendance" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="263" width="393" height="589"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="BhC-lq-6nr"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NeX-m7-sMw">
                     <rect key="frame" x="12" y="143" width="369" height="675"/>
@@ -117,25 +124,41 @@
                                 </button>
                             </subviews>
                         </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Asy-4N-lXY">
+                            <rect key="frame" x="10" y="119" width="351" height="556"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data is Empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV1-st-39j">
+                                    <rect key="frame" x="98" y="243" width="154" height="71"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="NV1-st-39j" firstAttribute="top" secondItem="Asy-4N-lXY" secondAttribute="top" constant="243" id="Cxt-3H-Irg"/>
+                                <constraint firstItem="NV1-st-39j" firstAttribute="leading" secondItem="Asy-4N-lXY" secondAttribute="leading" constant="98" id="FEB-RI-ktW"/>
+                                <constraint firstAttribute="trailing" secondItem="NV1-st-39j" secondAttribute="trailing" constant="99" id="PQ0-J3-npc"/>
+                                <constraint firstAttribute="bottom" secondItem="NV1-st-39j" secondAttribute="bottom" constant="242" id="ZqY-3S-bUo"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="leading" secondItem="7Wm-G6-sZJ" secondAttribute="leading" id="7aZ-tG-s4d"/>
+                        <constraint firstItem="Asy-4N-lXY" firstAttribute="top" secondItem="NeX-m7-sMw" secondAttribute="top" constant="119" id="Gfu-BI-c80"/>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="top" secondItem="NeX-m7-sMw" secondAttribute="top" constant="27" id="LVV-oo-d0k"/>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="centerX" secondItem="NeX-m7-sMw" secondAttribute="centerX" id="Ljr-qc-biF"/>
+                        <constraint firstItem="Asy-4N-lXY" firstAttribute="bottom" secondItem="hJ9-Oe-Ws1" secondAttribute="bottom" id="Q56-dv-3Wl"/>
                         <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="trailing" secondItem="NeX-m7-sMw" secondAttribute="trailingMargin" id="SXQ-2o-Sqn"/>
+                        <constraint firstItem="Asy-4N-lXY" firstAttribute="leading" secondItem="hJ9-Oe-Ws1" secondAttribute="leading" id="TIN-BL-YFE"/>
                         <constraint firstItem="ZdA-fH-3FF" firstAttribute="centerX" secondItem="7Wm-G6-sZJ" secondAttribute="centerX" id="c0b-eI-Qz5"/>
                         <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="top" secondItem="7Wm-G6-sZJ" secondAttribute="bottom" constant="25" id="cCS-Bm-NOr"/>
                         <constraint firstItem="hJ9-Oe-Ws1" firstAttribute="leading" secondItem="NeX-m7-sMw" secondAttribute="leading" constant="10" id="dUV-dn-neQ"/>
                         <constraint firstAttribute="bottom" secondItem="hJ9-Oe-Ws1" secondAttribute="bottom" id="fRZ-E6-nec"/>
+                        <constraint firstItem="Asy-4N-lXY" firstAttribute="trailing" secondItem="hJ9-Oe-Ws1" secondAttribute="trailing" id="poi-Sn-L0T"/>
                         <constraint firstItem="7Wm-G6-sZJ" firstAttribute="top" secondItem="ZdA-fH-3FF" secondAttribute="bottom" constant="8" symbolic="YES" id="wqn-7f-cRo"/>
                     </constraints>
-                </view>
-                <view contentMode="scaleAspectFit" id="L0i-jx-q75" customClass="CustomLoading" customModule="Attendance" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="263" width="393" height="589"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <viewLayoutGuide key="safeArea" id="BhC-lq-6nr"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="SZ6-A4-7Ee"/>
