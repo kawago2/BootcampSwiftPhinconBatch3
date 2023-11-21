@@ -62,7 +62,8 @@ class ProfileViewController: UIViewController {
     @objc func navigateFP() {
         let contentVC = EditProfileViewController()
         contentVC.delegate = self
-        contentVC.initData(image: imageUrl, nik: self.nik, alamat: self.alamat, name: self.name, posisi: self.posisi)
+        let item = ProfileItem(nik: self.nik, alamat: self.alamat, name: self.name, posisi: self.posisi)
+        contentVC.initData(image: imageUrl, item: item)
         let navController = UINavigationController(rootViewController: contentVC)
         navController.modalTransitionStyle = .crossDissolve
         navController.modalPresentationStyle = .overFullScreen

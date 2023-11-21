@@ -1,24 +1,63 @@
 import UIKit
+import RxSwift
+import RxCocoa
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    let disposeBag = DisposeBag()
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        guard let windowScene = scene as? UIWindowScene else { return }
+        
         let window = UIWindow(windowScene: windowScene)
         let tabbar = TabBarViewController()
         let splash = SplashViewController()
-        let navigationControllers = UINavigationController(rootViewController: splash)
+        let navigationController = UINavigationController(rootViewController: splash)
         
+        let status = NetworkStatus.getStatus()
+        switch status {
+        case .connected:
+            self.handleNetworkAvailable(navigationController: navigationController, tabbar: tabbar)
+        case .notConnected:
+            break
+        }
+        
+        
+        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
+            let status = NetworkStatus.getStatus()
+            
+            switch status {
+            case .connected:
+                print("Connected to the internet.")
+                // Jika terhubung, jalankan metode handleNetworkAvailable
+                //                 self.handleNetworkAvailable(navigationController: navigationController, tabbar: tabbar)
+            case .notConnected:
+                print("No internet connection.")
+                // Jika tidak terhubung, tampilkan alert
+                self.showNoInternetAlert()
+            }
+        }
+        
+        
+        navigationController.isNavigationBarHidden = true
+        window.rootViewController = navigationController
+        self.window = window
+        window.makeKeyAndVisible()
+    }
+    
+    func handleNetworkAvailable(navigationController: UINavigationController, tabbar: UIViewController) {
         FAuth.getCurrentUser { result in
             switch result {
             case .success(let user):
                 if let currentUser = user {
                     print("User is logged in: \(currentUser)")
                     DispatchQueue.main.async {
-                        navigationControllers.setViewControllers([tabbar], animated: true)
+                        navigationController.setViewControllers([tabbar], animated: true)
                     }
                 } else {
                     print("No user is currently logged in.")
@@ -26,14 +65,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             case .failure(let error):
                 print("Error checking current user: \(error.localizedDescription)")
             }
-            
-            navigationControllers.isNavigationBarHidden = true
-            window.rootViewController = navigationControllers
-            self.window = window
-            window.makeKeyAndVisible()
         }
     }
-
+    
+    
+    func showNoInternetAlert() {
+        guard let topViewController = topViewController() else {
+            return
+        }
+        
+        let alertController = UIAlertController(
+            title: "No Internet Connection",
+            message: "Please check your internet connection and try again.",
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        
+        topViewController.present(alertController, animated: true, completion: nil)
+    }
+    
+    func topViewController() -> UIViewController? {
+        if var topController = window?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            return topController
+        }
+        return nil
+    }
+    
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

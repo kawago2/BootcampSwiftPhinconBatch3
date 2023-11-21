@@ -86,12 +86,13 @@ class EditProfileViewController: UIViewController {
 
     }
     
-    func initData(image: String, nik: String, alamat: String, name: String, posisi: String) {
-        self.image = image
-        self.nik = nik
-        self.alamat = alamat
-        self.name = name
-        self.posisi = posisi
+    func initData(image: String?, item: ProfileItem?) {
+        self.image = image ?? "image_not available"
+        guard let item = item else { return }
+        self.nik = item.nik ?? ""
+        self.alamat = item.alamat ?? ""
+        self.name = item.name ?? ""
+        self.posisi = item.posisi ?? ""
     }
     
     @objc func openGallery() {

@@ -3,6 +3,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
+import Reachability
 
 enum Icons {
     static let home = UIImage(systemName: "house")
@@ -267,3 +268,15 @@ enum FStorage {
     }
 }
 
+enum NetworkStatus {
+    case connected, notConnected
+
+    static func getStatus() -> NetworkStatus {
+        guard let reachability = try? Reachability() else {
+            return .notConnected
+        }
+
+        return reachability.connection != .unavailable ? .connected : .notConnected
+    }
+    
+}

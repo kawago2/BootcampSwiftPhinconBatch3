@@ -44,7 +44,9 @@ class SortbyCell: UICollectionViewCell {
         if context == "date" {
             dropDown.dataSource = Variables.dateSort
         } else if context == "option" {
-            dropDown.dataSource = Variables.optionArray
+            var optionMod = Variables.optionArray
+            optionMod.insert(contentsOf: ["Show All"], at: 0)
+            dropDown.dataSource = optionMod
         }
         dropDown.backgroundColor = UIColor.white
         dropDown.cornerRadius = 20

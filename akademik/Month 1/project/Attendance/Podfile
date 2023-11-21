@@ -16,6 +16,7 @@ target 'Attendance' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Kingfisher'
+  pod 'ReachabilitySwift'
 
   target 'AttendanceTests' do
     inherit! :search_paths

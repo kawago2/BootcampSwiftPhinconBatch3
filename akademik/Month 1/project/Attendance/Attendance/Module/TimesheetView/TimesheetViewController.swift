@@ -57,42 +57,48 @@ class TimesheetViewController: UIViewController {
     }
     
     func fetchData(completion: @escaping () -> Void?) {
-        loadingView.startAnimating()
-        timesheetData = []
-        guard let uid = FAuth.auth.currentUser?.uid else {
-            print("User not logged in")
-            return
-        }
-        
-        let documentID = uid
-        let collection = "users"
-        let subcollectionPath = "timesheets"
-        
-        FFirestore.getDataFromSubcollection(documentID: documentID, inCollection: collection, subcollectionPath: subcollectionPath) { result in
-            switch result {
-            case .success(let documents):
-                
-                for document in documents {
-                    let id = document.documentID
-                    if let data = document.data() {
-                        let startDate = data["start_date"] as? Timestamp
-                        let endDate = data["end_date"] as? Timestamp
-                        let position = data["position"] as? String
-                        let task = data["task"] as? String
-                        let status = data["status"] as? Int
-                        
-                        let timesheetItem = TimesheetItem(id:id, startDate: startDate?.dateValue(), endDate: endDate?.dateValue(), position: position, task: task, status: status)
-                        self.timesheetData.append(timesheetItem)
-                    }
-                }
-                completion()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    if self.timesheetData.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
-                    
-                }
-            case .failure(let error):
-                print("Error getting data from subcollection: \(error.localizedDescription)")
+        let status = NetworkStatus.getStatus()
+        switch status {
+        case .connected:
+            loadingView.startAnimating()
+            timesheetData = []
+            guard let uid = FAuth.auth.currentUser?.uid else {
+                print("User not logged in")
+                return
             }
+            
+            let documentID = uid
+            let collection = "users"
+            let subcollectionPath = "timesheets"
+            
+            FFirestore.getDataFromSubcollection(documentID: documentID, inCollection: collection, subcollectionPath: subcollectionPath) { result in
+                switch result {
+                case .success(let documents):
+                    
+                    for document in documents {
+                        let id = document.documentID
+                        if let data = document.data() {
+                            let startDate = data["start_date"] as? Timestamp
+                            let endDate = data["end_date"] as? Timestamp
+                            let position = data["position"] as? String
+                            let task = data["task"] as? String
+                            let status = data["status"] as? Int
+                            
+                            let timesheetItem = TimesheetItem(id:id, startDate: startDate?.dateValue(), endDate: endDate?.dateValue(), position: position, task: task, status: status)
+                            self.timesheetData.append(timesheetItem)
+                        }
+                    }
+                    completion()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        if self.timesheetData.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
+                        
+                    }
+                case .failure(let error):
+                    print("Error getting data from subcollection: \(error.localizedDescription)")
+                }
+            }
+        case .notConnected:
+            print("fetch tidak di execute")
         }
     }
 }
@@ -137,9 +143,6 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
         
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -239,6 +242,7 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
         let documentID = uid
         let collection = "users"
         let subcollectionPath = "timesheets"
+        
         let dataToAdd: [String:Any] = [
             "start_date": startDate,
             "end_date": endDate,
@@ -297,14 +301,14 @@ extension TimesheetViewController:  UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 }
 
 
 extension TimesheetViewController : SortbyCellDelegate {
     func didLabelTapped(sortby: String?) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             guard let sortBy = sortby else { return }
             self.sortByStatus(sortby: sortBy)
             self.sortByDate(sortby: sortBy)
@@ -320,7 +324,7 @@ extension TimesheetViewController : SortbyCellDelegate {
         case "rejected":
             completedTimesheets = timesheetData.filter { $0.status == 2 }
         default:
-            break
+            completedTimesheets = timesheetData
         }
 
         self.tableView.reloadData()
