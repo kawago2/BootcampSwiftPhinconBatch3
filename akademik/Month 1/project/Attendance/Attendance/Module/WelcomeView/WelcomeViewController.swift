@@ -42,6 +42,7 @@ class WelcomeViewController: UIViewController {
         skipButton.addTarget(self, action: #selector(navigateLogin), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(navigateLogin), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(navigateRegister), for: .touchUpInside)
+        pageControl.addTarget(self, action: #selector(pageControlClicked), for: .valueChanged)
     }
     
     @objc func navigateLogin() {
@@ -67,9 +68,9 @@ class WelcomeViewController: UIViewController {
         updateUIForCurrentPage()
     }
 
-    @IBAction func pageControlClicked(_ sender: Any) {
-        let currentPage = (sender as AnyObject).currentPage
-        let indexPath = IndexPath(item: currentPage ?? 0, section: 0)
+    @objc func pageControlClicked() {
+        let currentPage = pageControl.currentPage
+        let indexPath = IndexPath(item: currentPage, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         updateUIForCurrentPage()
     }

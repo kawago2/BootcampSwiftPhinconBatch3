@@ -21,7 +21,8 @@ class SplashViewController: UIViewController {
         viewModel.navigateToNext
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
-                self?.navigateToNext()
+                guard let self = self else { return }
+                self.navigateToNext()
             })
             .disposed(by: disposeBag)
     }
