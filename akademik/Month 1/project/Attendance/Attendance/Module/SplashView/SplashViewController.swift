@@ -1,22 +1,31 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SplashViewController: UIViewController {
-
-    // Tambahkan property viewModel
+    
     var viewModel: SplashViewModel!
-
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Inisialisasi viewModel
+        
         viewModel = SplashViewModel()
-
-        // Panggil fungsi navigateToNextAfterDelay melalui viewModel
-        viewModel.navigateToNextAfterDelay { [weak self] in
-            self?.navigateToNext()
-        }
+        
+        bindViewModel()
+        
+        viewModel.navigateToNextAfterDelay()
     }
-
+    
+    func bindViewModel() {
+        viewModel.navigateToNext
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.navigateToNext()
+            })
+            .disposed(by: disposeBag)
+    }
+    
     func navigateToNext() {
         let vc = WelcomeViewController()
         navigationController?.setViewControllers([vc], animated: false)

@@ -62,6 +62,7 @@
 		36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9222B0B015600350039 /* EditProfileViewController.xib */; };
 		36DDA9282B0B024E00350039 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9272B0B024E00350039 /* EditProfileViewController.swift */; };
 		36DDAC362B0C8E06001D9ACD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDAC352B0C8E06001D9ACD /* SplashViewModel.swift */; };
+		36DDAC382B0C8EE1001D9ACD /* WelcomeViewModle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDAC372B0C8EE1001D9ACD /* WelcomeViewModle.swift */; };
 		B1E1774B943AB8A5C01DB78F /* Pods_Attendance_AttendanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAECF607A441FA574498C652 /* Pods_Attendance_AttendanceUITests.framework */; };
 		C5627142753BCB96501D7B8B /* Pods_AttendanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECEAC74AD363A243F40027 /* Pods_AttendanceTests.framework */; };
 		ED55387EC593B8E517BC291C /* Pods_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCFAA6DB742D8E3512902BF /* Pods_Attendance.framework */; };
@@ -145,6 +146,7 @@
 		36DDA9222B0B015600350039 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		36DDA9272B0B024E00350039 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		36DDAC352B0C8E06001D9ACD /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		36DDAC372B0C8EE1001D9ACD /* WelcomeViewModle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModle.swift; sourceTree = "<group>"; };
 		49ECEAC74AD363A243F40027 /* Pods_AttendanceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttendanceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCFAA6DB742D8E3512902BF /* Pods_Attendance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attendance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B14140D0BF9E00F09FA4773 /* Pods-Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attendance.release.xcconfig"; path = "Target Support Files/Pods-Attendance/Pods-Attendance.release.xcconfig"; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				36210D6E2B02237F0009EBC0 /* CollectionCell */,
 				36210D5F2B020B320009EBC0 /* WelcomeViewController.swift */,
 				36210D602B020B320009EBC0 /* WelcomeViewController.xib */,
+				36DDAC372B0C8EE1001D9ACD /* WelcomeViewModle.swift */,
 			);
 			path = WelcomeView;
 			sourceTree = "<group>";
@@ -780,6 +783,7 @@
 				3670C67B2B05C9510011985F /* ExtDate.swift in Sources */,
 				36210D972B0324240009EBC0 /* ProfileViewController.swift in Sources */,
 				36DDA9282B0B024E00350039 /* EditProfileViewController.swift in Sources */,
+				36DDAC382B0C8EE1001D9ACD /* WelcomeViewModle.swift in Sources */,
 				36210D8D2B0323E80009EBC0 /* HomeViewController.swift in Sources */,
 				36C287322B04766100F17ADA /* InfoItem.swift in Sources */,
 				36210D7F2B0309240009EBC0 /* ExtUIView.swift in Sources */,

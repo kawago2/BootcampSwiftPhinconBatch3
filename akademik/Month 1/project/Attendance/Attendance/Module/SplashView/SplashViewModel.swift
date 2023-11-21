@@ -1,11 +1,17 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
-// Buat SplashViewModel
 class SplashViewModel {
-    func navigateToNextAfterDelay(completion: @escaping () -> Void) {
+    private let navigateToNextSubject = PublishSubject<Void>()
+
+    var navigateToNext: Observable<Void> {
+        return navigateToNextSubject.asObservable()
+    }
+
+    func navigateToNextAfterDelay() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            // Panggil completion handler setelah delay
-            completion()
+            self.navigateToNextSubject.onNext(())
         }
     }
 }
