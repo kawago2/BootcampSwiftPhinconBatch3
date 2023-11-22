@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 
 class LoginViewController: UIViewController {
     
@@ -10,54 +11,70 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
+    var viewModel: LoginViewModel!
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewModel()
         setupUI()
         buttonEvent()
     }
     
-    func buttonEvent() {
-        registerButton.addTarget(self, action: #selector(navigateRegister), for: .touchUpInside)
-        forgotButton.addTarget(self, action: #selector(navigateForgot), for: .touchUpInside)
-        loginButton.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
+    func setupViewModel() {
+        viewModel = LoginViewModel()
     }
     
-    @objc func loginTapped() {
-        let email = emailField.inputText.text
-        let password = passwordField.inputText.text
+    func buttonEvent() {
+        emailField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.emailInput)
+            .disposed(by: disposeBag)
         
+        passwordField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.passwordInput)
+            .disposed(by: disposeBag)
         
-        guard let email = email, !email.isEmpty,
-              let password = password, !password.isEmpty else {
-                showAlert(title: "Error", message: "Please fill in all fields.")
-                return
-        }
-        
-        FAuth.loginUser(email: email, password: password) { result in
-            switch result {
-            case .success(let user):
-                print("Login berhasil, user: \(user)")
+        loginButton.rx.tap
+            .bind(to: viewModel.loginButtonTap)
+            .disposed(by: disposeBag)
+
+        viewModel.navigateToTabBar
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
                 self.navigateTabBar()
-                
-            case .failure(let error):
-                print("Login gagal dengan error: \(error.localizedDescription)")
-                self.showAlert(title: "Error", message: error.localizedDescription)
-            }
-        }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.showAlert
+            .subscribe(onNext: { [weak self] (title, message) in
+                guard let self = self else { return }
+                self.showAlert(title: title, message: message)
+            })
+            .disposed(by: disposeBag)
+
+        registerButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.navigateRegister()
+        }).disposed(by: disposeBag)
+        
+        forgotButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.navigateForgot()
+        }).disposed(by: disposeBag)
     }
 
     
-    @objc func navigateRegister() {
+    func navigateRegister() {
         let vc = RegisterViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }
     
-    @objc func navigateTabBar() {
+    func navigateTabBar() {
         let vc = TabBarViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }
     
-    @objc func navigateForgot() {
+    func navigateForgot() {
         let vc = ForgotViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }

@@ -50,8 +50,6 @@ class ForgotViewController: UIViewController {
                 self.showAlert(title: title, message: message)
             })
             .disposed(by: disposeBag)
-
-        
     }
     
     func setupUI() {
