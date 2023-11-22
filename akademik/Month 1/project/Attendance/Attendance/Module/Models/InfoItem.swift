@@ -30,4 +30,5 @@ struct ProfileItem {
     let alamat: String?
     let name: String?
     let posisi: String?
+    var imageUrl: String?
 }

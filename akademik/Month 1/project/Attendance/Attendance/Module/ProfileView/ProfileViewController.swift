@@ -1,5 +1,7 @@
 import UIKit
 import Kingfisher
+import RxSwift
+import RxCocoa
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
@@ -20,6 +22,7 @@ class ProfileViewController: UIViewController {
     var posisi = "Not set"
     var imageUrl = ""
     
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
