@@ -42,4 +42,10 @@ extension UIView {
         NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: container, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
         NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: container, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
     }
+    func setRoundedBorder(cornerRadius: CGFloat, borderWidth: CGFloat = 1.0, borderColor: UIColor = .black) {
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.masksToBounds = true
+    }
 }

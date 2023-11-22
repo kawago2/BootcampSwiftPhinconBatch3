@@ -36,6 +36,7 @@ class InputField: UIView {
         inputText.placeholder = placeholder
         isObscured = isSecure
         obsecureButton.isHidden = !isSecure
+        formView.setRoundedBorder(cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black)
         updateSecureTextEntry()
         setupButton()
     }

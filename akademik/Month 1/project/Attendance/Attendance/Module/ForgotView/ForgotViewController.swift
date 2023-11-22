@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ForgotViewController: UIViewController {
     @IBOutlet weak var circleView: UIImageView!
@@ -6,40 +8,50 @@ class ForgotViewController: UIViewController {
     @IBOutlet weak var emailField: InputField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-
+    
+    private let disposeBag = DisposeBag()
+    private var viewModel: ForgotViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupViewModel()
         buttonEvent()
     }
     
+    func setupViewModel() {
+        viewModel = ForgotViewModel()
+    }
+    
     func buttonEvent() {
-        loginButton.addTarget(self, action: #selector(navigateToLogin), for: .touchUpInside)
+        emailField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.emailInput)
+            .disposed(by: disposeBag)
         
-    }
-    
-    @objc func resetTapped() {
-        guard let email = emailField.inputText.text, !email.isEmpty else {
-            showAlert(title: "Error", message: "Please fill email first.")
-            return
-        }
-
-        FAuth.resetPassword(email: email) { result in
-            switch result {
-            case .success:
-                print("Password reset email sent successfully.")
-                self.showAlert(title: "Success", message: "Password reset email sent successfully\nPlease, check your email including spam.")
+        resetButton.rx.tap
+            .bind(to: viewModel.resetButtonTap)
+            .disposed(by: disposeBag)
+        
+        loginButton.rx.tap
+            .bind(to: viewModel.loginButtonTap)
+            .disposed(by: disposeBag)
+        
+        viewModel.navigateToLogin
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
                 self.navigateToLogin()
-            case .failure(let error):
-                print("Failed to reset password with error: \(error.localizedDescription)")
-                self.showAlert(title: "Error", message: "Failed to reset password. \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    @objc func navigateToLogin() {
-        let vc = LoginViewController()
-        navigationController?.setViewControllers([vc], animated: false)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.showAlert
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (title, message) in
+                guard let self = self else { return }
+                self.showAlert(title: title, message: message)
+            })
+            .disposed(by: disposeBag)
+
+        
     }
     
     func setupUI() {
@@ -54,5 +66,11 @@ class ForgotViewController: UIViewController {
         emailField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
         emailField.titleField.textColor = UIColor(named: "LoginColor")
     }
-
+    
+    func navigateToLogin() {
+        let vc = LoginViewController()
+        self.navigationController?.setViewControllers([vc], animated: false)
+        
+    }
+    
 }

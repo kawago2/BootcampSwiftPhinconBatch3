@@ -100,7 +100,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let loadingView = UIView(frame: window?.bounds ?? UIScreen.main.bounds)
         loadingView.backgroundColor = UIColor(white: 0, alpha: 0.5)
 
-        let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = loadingView.center
         activityIndicator.startAnimating()
 
