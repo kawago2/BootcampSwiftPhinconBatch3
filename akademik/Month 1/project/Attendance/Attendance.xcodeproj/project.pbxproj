@@ -55,6 +55,7 @@
 		3670C68B2B05F2710011985F /* AddFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3670C6892B05F2710011985F /* AddFormViewController.xib */; };
 		367C5D1D2B0D912000C1678F /* ForgotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D1C2B0D912000C1678F /* ForgotViewModel.swift */; };
 		367C5D1F2B0DA03B00C1678F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */; };
+		367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C2872F2B04693700F17ADA /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C2872E2B04693700F17ADA /* ExtUIViewController.swift */; };
 		36C287322B04766100F17ADA /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* InfoItem.swift */; };
@@ -140,6 +141,7 @@
 		3670C6892B05F2710011985F /* AddFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFormViewController.xib; sourceTree = "<group>"; };
 		367C5D1C2B0D912000C1678F /* ForgotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewModel.swift; sourceTree = "<group>"; };
 		367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C2872E2B04693700F17ADA /* ExtUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtUIViewController.swift; path = "../../../../../Week 1/Day3/profileUI/profileUI/Common/Extension/ExtUIViewController.swift"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			children = (
 				36210D812B031C0B0009EBC0 /* RegisterViewController.swift */,
 				36210D822B031C0B0009EBC0 /* RegisterViewController.xib */,
+				367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				36210D832B031C0B0009EBC0 /* RegisterViewController.swift in Sources */,
 				3670C67B2B05C9510011985F /* ExtDate.swift in Sources */,
 				36210D972B0324240009EBC0 /* ProfileViewController.swift in Sources */,
+				367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */,
 				36DDA9282B0B024E00350039 /* EditProfileViewController.swift in Sources */,
 				36210D8D2B0323E80009EBC0 /* HomeViewController.swift in Sources */,
 				36C287322B04766100F17ADA /* InfoItem.swift in Sources */,

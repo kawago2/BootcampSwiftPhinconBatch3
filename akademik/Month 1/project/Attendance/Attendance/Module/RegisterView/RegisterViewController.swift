@@ -1,7 +1,9 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 class RegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var fullnameField: InputField!
@@ -11,78 +13,60 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
-    
-    
+    private var viewModel: RegisterViewModel!
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewModel()
         setupUI()
         buttonEvent()
     }
     
-    func buttonEvent() {
-        loginButton.addTarget(self, action: #selector(navigateToLogin), for: .touchUpInside)
-        registerButton.addTarget(self, action: #selector(registerTapped), for: .touchUpInside)
+    func setupViewModel() {
+        viewModel = RegisterViewModel()
     }
     
-    @objc func navigateToLogin() {
+    func buttonEvent() {
+        
+        fullnameField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.fullnameInput)
+            .disposed(by: disposeBag)
+        
+        emailField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.emailInput)
+            .disposed(by: disposeBag)
+        
+        passwordField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.passwordInput)
+            .disposed(by: disposeBag)
+        
+        repasswordField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.repasswordInput)
+            .disposed(by: disposeBag)
+        
+        
+        loginButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.navigateToLogin()
+        }).disposed(by: disposeBag)
+        
+        registerButton.rx.tap
+            .bind(to: viewModel.registerButtonTap)
+            .disposed(by: disposeBag)
+        
+        viewModel.showAlert
+            .subscribe(onNext: { [weak self] (title, message, completion) in
+                guard let self = self else { return }
+                self.showAlert(title: title, message: message, completion: completion)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func navigateToLogin() {
         let vc = LoginViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }
-    
-    @objc func registerTapped() {
-        let fullname = fullnameField.inputText.text
-        let email = emailField.inputText.text
-        let password = passwordField.inputText.text
-        let repassword = repasswordField.inputText.text
-        
-        guard let email = email, !email.isEmpty,
-              let password = password, !password.isEmpty,
-              let repassword = repassword, !repassword.isEmpty,
-              let fullname = fullname, !fullname.isEmpty else {
-                showAlert(title: "Error", message: "Please fill in all fields.")
-                return
-        }
-        
-        guard password == repassword else {
-            showAlert(title: "Error", message: "Passwords do not match.")
-            return
-        }
-        
-        FAuth.registerUser(email: email, password: password) { result in
-            switch result {
-            case .success(let user):
-                
-                let uid = user.uid
-                let collection = "users"
-                let documentID = uid
-                let updatedData = [
-                    "profile": [
-                            "name": fullname
-                        ]
-                ]
-
-                FFirestore.setDocument(documentID: documentID, data: updatedData, inCollection: collection) { result in
-                    switch result {
-                    case .success:
-                        print("Profile updated successfully")
-                    case .failure(let error):
-                        print("Error updating profile: \(error.localizedDescription)")
-                    }
-                }
-                
-                self.showAlert(title: "Success", message: "Register Successfuly.") {
-                    self.navigateToLogin()
-                }
-                
-            case .failure(let error):
-                print("Registrasi gagal dengan error: \(error.localizedDescription)")
-                self.showAlert(title: "Error", message: error.localizedDescription)
-            }
-        }
-    }
-
-
     
     func setupUI() {
         setEmailField()
@@ -99,14 +83,14 @@ class RegisterViewController: UIViewController {
         emailField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
         emailField.titleField.textColor = UIColor(named: "LoginColor")
     }
-
+    
     func setFullnameField() {
         fullnameField.setup(title: "Fullname", placeholder: "Fullname", isSecure: false)
         fullnameField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
         fullnameField.titleField.textColor = UIColor(named: "LoginColor")
     }
     func setPasswordField() {
-        passwordField.setup(title: "Password", placeholder: "***********", isSecure: true)
+        passwordField.setup(title:  "Password", placeholder: "***********", isSecure: true)
         passwordField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
         passwordField.titleField.textColor = UIColor(named: "LoginColor")
         passwordField.obsecureButton.imageView?.tintColor = UIColor(named: "LoginColor")

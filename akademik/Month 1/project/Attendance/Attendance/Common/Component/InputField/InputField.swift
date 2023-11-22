@@ -28,8 +28,11 @@ class InputField: UIView {
         view.backgroundColor = .clear
         errorField.text = ""
         self.addSubview(view)
-//        fixInView(self)
     }
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+         return false
+     }
 
     func setup(title: String, placeholder: String, isSecure: Bool) {
         titleField.text = title
