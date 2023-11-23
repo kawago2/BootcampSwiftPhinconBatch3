@@ -80,9 +80,7 @@ class AddFormViewController: UIViewController {
         dropDown.anchorView = statusButton
         dropDown.dataSource = Variables.optionArray
         
-        dropDown.backgroundColor = UIColor.white
-        dropDown.cornerRadius = 20
-        dropDown.selectionBackgroundColor = UIColor.lightGray
+        dropDown.setupUI()
         if context == "edit" {
             updateStatusLabel(withIndex: statusInit)
         }

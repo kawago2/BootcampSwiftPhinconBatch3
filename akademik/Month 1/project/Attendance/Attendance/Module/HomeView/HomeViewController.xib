@@ -11,12 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Attendance" customModuleProvider="target">
             <connections>
-                <outlet property="bellView" destination="3Kc-Yy-GCn" id="txX-O7-1cl"/>
                 <outlet property="checkView" destination="emv-YE-CBa" id="Zge-Rk-psh"/>
                 <outlet property="circleButton" destination="xKM-T8-GxO" id="tXT-6d-FWJ"/>
                 <outlet property="circleView" destination="myc-87-NvJ" id="GGZ-be-nSt"/>
                 <outlet property="clockLabel" destination="LNp-cV-XuH" id="CpZ-rV-yHy"/>
                 <outlet property="dateLabel" destination="tFh-cB-IUX" id="jgN-Hp-K8I"/>
+                <outlet property="formView" destination="3Kc-Yy-GCn" id="txX-O7-1cl"/>
                 <outlet property="isCheckInLabel" destination="Xje-SF-YfW" id="kwq-Aj-rYg"/>
                 <outlet property="tableView" destination="nL5-Gi-HzS" id="6UM-pd-qia"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -43,8 +43,8 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="bell.badge.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3Kc-Yy-GCn">
-                            <rect key="frame" x="341" y="77" width="25" height="27"/>
+                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="list.bullet.clipboard.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3Kc-Yy-GCn">
+                            <rect key="frame" x="341" y="75.333333333333343" width="25" height="29.666666666666671"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="c9g-lf-D01"/>
@@ -147,8 +147,8 @@
         </view>
     </objects>
     <resources>
-        <image name="bell.badge.fill" catalog="system" width="123" height="128"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
+        <image name="list.bullet.clipboard.fill" catalog="system" width="103" height="128"/>
         <namedColor name="PrimaryTextColor">
             <color red="0.015686274509803921" green="0.17254901960784313" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -159,7 +159,7 @@
             <color red="0.0" green="0.3843137254901961" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="bgColor">
-            <color red="0.97254901960784312" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.97299998998641968" green="0.97600001096725464" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

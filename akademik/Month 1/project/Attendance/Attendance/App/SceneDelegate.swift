@@ -17,7 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let splash = SplashViewController()
         let navigationController = UINavigationController(rootViewController: splash)
 
-        checkInternetConnection(navigationController: navigationController, tabbar: tabbar)
+        let result = checkInternetConnection(navigationController: navigationController, tabbar: tabbar)
+        if result {
+            DispatchQueue.main.async {
+                navigationController.setViewControllers([tabbar], animated: true)
+            }
+        }
 
         Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
@@ -30,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
     }
 
-    func checkInternetConnection(navigationController: UINavigationController, tabbar: UIViewController) {
+    func checkInternetConnection(navigationController: UINavigationController, tabbar: UIViewController) -> Bool {
         let status = NetworkStatus.getStatus()
 
         switch status {
@@ -39,10 +44,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // Dismiss the loading view if it's currently presented
             dismissLoadingView()
             handleNetworkAvailable(navigationController: navigationController, tabbar: tabbar)
+            return true
         case .notConnected:
             print("No internet connection.")
             // Show the loading view if it's not currently presented
             showLoadingView()
+            return false
         }
     }
 
@@ -52,9 +59,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             case .success(let user):
                 if let currentUser = user {
                     print("User is logged in: \(currentUser)")
-                    DispatchQueue.main.async {
-                        navigationController.setViewControllers([tabbar], animated: true)
-                    }
                 } else {
                     print("No user is currently logged in.")
                 }

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3609C76D2B0EE45F000DE5B7 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3609C76B2B0EE45F000DE5B7 /* PermissionViewController.swift */; };
+		3609C76E2B0EE45F000DE5B7 /* PermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3609C76C2B0EE45F000DE5B7 /* PermissionViewController.xib */; };
+		3609C7702B0EE85E000DE5B7 /* PermissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3609C76F2B0EE85E000DE5B7 /* PermissionModel.swift */; };
+		3609C7742B0EFEDE000DE5B7 /* AddPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3609C7722B0EFEDE000DE5B7 /* AddPermissionViewController.swift */; };
+		3609C7752B0EFEDE000DE5B7 /* AddPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3609C7732B0EFEDE000DE5B7 /* AddPermissionViewController.xib */; };
+		3609C7772B0F1078000DE5B7 /* ExtDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3609C7762B0F1078000DE5B7 /* ExtDropDown.swift */; };
 		36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D252B02084B0009EBC0 /* AppDelegate.swift */; };
 		36210D282B02084B0009EBC0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D272B02084B0009EBC0 /* SceneDelegate.swift */; };
 		36210D2A2B02084B0009EBC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D292B02084B0009EBC0 /* ViewController.swift */; };
@@ -43,6 +49,8 @@
 		36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210DA32B0348270009EBC0 /* LocationCell.swift */; };
 		36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210DA42B0348270009EBC0 /* LocationCell.xib */; };
 		36210DA82B034A420009EBC0 /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210DA72B034A420009EBC0 /* ExtTableView.swift */; };
+		363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */; };
+		363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */; };
 		363D48442B047AF300B1329F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D48432B047AF300B1329F /* TabBarViewController.swift */; };
 		3670C6772B05B6800011985F /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C6762B05B6800011985F /* CustomLoading.swift */; };
 		3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3670C6782B05B68E0011985F /* CustomLoading.xib */; };
@@ -90,6 +98,12 @@
 
 /* Begin PBXFileReference section */
 		35E0795EEA7A9036FDB62956 /* Pods-AttendanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceTests.debug.xcconfig"; path = "Target Support Files/Pods-AttendanceTests/Pods-AttendanceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3609C76B2B0EE45F000DE5B7 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
+		3609C76C2B0EE45F000DE5B7 /* PermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionViewController.xib; sourceTree = "<group>"; };
+		3609C76F2B0EE85E000DE5B7 /* PermissionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionModel.swift; sourceTree = "<group>"; };
+		3609C7722B0EFEDE000DE5B7 /* AddPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPermissionViewController.swift; sourceTree = "<group>"; };
+		3609C7732B0EFEDE000DE5B7 /* AddPermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPermissionViewController.xib; sourceTree = "<group>"; };
+		3609C7762B0F1078000DE5B7 /* ExtDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDropDown.swift; sourceTree = "<group>"; };
 		36210D222B02084B0009EBC0 /* Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36210D252B02084B0009EBC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36210D272B02084B0009EBC0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +144,8 @@
 		36210DA32B0348270009EBC0 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		36210DA42B0348270009EBC0 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		36210DA72B034A420009EBC0 /* ExtTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtTableView.swift; path = "../../../../../Week 1/Day3/profileUI/profileUI/Common/Extension/ExtTableView.swift"; sourceTree = "<group>"; };
+		363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCell.swift; sourceTree = "<group>"; };
+		363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionCell.xib; sourceTree = "<group>"; };
 		363D48432B047AF300B1329F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3670C6762B05B6800011985F /* CustomLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoading.swift; sourceTree = "<group>"; };
 		3670C6782B05B68E0011985F /* CustomLoading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLoading.xib; sourceTree = "<group>"; };
@@ -191,6 +207,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3609C76A2B0EE43D000DE5B7 /* PermissionView */ = {
+			isa = PBXGroup;
+			children = (
+				363884CC2B0F2CCB00B92C0D /* TableCell */,
+				3609C7712B0EFB75000DE5B7 /* AddFormView */,
+				3609C76B2B0EE45F000DE5B7 /* PermissionViewController.swift */,
+				3609C76C2B0EE45F000DE5B7 /* PermissionViewController.xib */,
+			);
+			path = PermissionView;
+			sourceTree = "<group>";
+		};
+		3609C7712B0EFB75000DE5B7 /* AddFormView */ = {
+			isa = PBXGroup;
+			children = (
+				3609C7722B0EFEDE000DE5B7 /* AddPermissionViewController.swift */,
+				3609C7732B0EFEDE000DE5B7 /* AddPermissionViewController.xib */,
+			);
+			path = AddFormView;
+			sourceTree = "<group>";
+		};
 		36210D192B02084B0009EBC0 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				36C287302B04764D00F17ADA /* Models */,
+				3609C76A2B0EE43D000DE5B7 /* PermissionView */,
+				36C5115F2B0F440F00B2EA7C /* ApproveView */,
 				3670C67C2B05D3AB0011985F /* TimesheetView */,
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
 				36210D732B0302D60009EBC0 /* LoginView */,
@@ -322,6 +360,7 @@
 				36210D6A2B0221190009EBC0 /* ExtUIButton.swift */,
 				36210D6C2B02227E0009EBC0 /* ExtUICollectionView.swift */,
 				3670C67A2B05C9510011985F /* ExtDate.swift */,
+				3609C7762B0F1078000DE5B7 /* ExtDropDown.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -431,6 +470,15 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		363884CC2B0F2CCB00B92C0D /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */,
+				363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
 		3670C6752B05B6570011985F /* CustomLoading */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,7 +491,7 @@
 		3670C67C2B05D3AB0011985F /* TimesheetView */ = {
 			isa = PBXGroup;
 			children = (
-				3670C6872B05F2480011985F /* FloatingPanel */,
+				3670C6872B05F2480011985F /* CustomPopUp */,
 				3670C6822B05D7CD0011985F /* CollectionCell */,
 				3670C6812B05D7C40011985F /* TableCell */,
 				3670C67D2B05D3C60011985F /* TimesheetViewController.swift */,
@@ -470,13 +518,13 @@
 			path = CollectionCell;
 			sourceTree = "<group>";
 		};
-		3670C6872B05F2480011985F /* FloatingPanel */ = {
+		3670C6872B05F2480011985F /* CustomPopUp */ = {
 			isa = PBXGroup;
 			children = (
 				3670C6882B05F2710011985F /* AddFormViewController.swift */,
 				3670C6892B05F2710011985F /* AddFormViewController.xib */,
 			);
-			path = FloatingPanel;
+			path = CustomPopUp;
 			sourceTree = "<group>";
 		};
 		3691F9ED2B049E1000F050C0 /* Class */ = {
@@ -490,8 +538,16 @@
 			isa = PBXGroup;
 			children = (
 				36C287312B04766100F17ADA /* InfoItem.swift */,
+				3609C76F2B0EE85E000DE5B7 /* PermissionModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		36C5115F2B0F440F00B2EA7C /* ApproveView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ApproveView;
 			sourceTree = "<group>";
 		};
 		36DDA9202B0B015600350039 /* EditProfileView */ = {
@@ -639,7 +695,9 @@
 				3670C68B2B05F2710011985F /* AddFormViewController.xib in Resources */,
 				36210D622B020B320009EBC0 /* WelcomeViewController.xib in Resources */,
 				36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */,
+				363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */,
 				36210D322B02084C0009EBC0 /* LaunchScreen.storyboard in Resources */,
+				3609C76E2B0EE45F000DE5B7 /* PermissionViewController.xib in Resources */,
 				36210D982B0324240009EBC0 /* ProfileViewController.xib in Resources */,
 				36DDA9192B076E0E00350039 /* SortbyCell.xib in Resources */,
 				36210D7B2B0304CC0009EBC0 /* InputField.xib in Resources */,
@@ -652,6 +710,7 @@
 				3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */,
 				36210D892B0321B70009EBC0 /* ForgotViewController.xib in Resources */,
 				36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */,
+				3609C7752B0EFEDE000DE5B7 /* AddPermissionViewController.xib in Resources */,
 				36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */,
 				36210D5D2B02094C0009EBC0 /* SplashViewController.xib in Resources */,
 				36210D8E2B0323E80009EBC0 /* HomeViewController.xib in Resources */,
@@ -783,7 +842,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3609C7772B0F1078000DE5B7 /* ExtDropDown.swift in Sources */,
 				36210D762B0303040009EBC0 /* LoginViewController.swift in Sources */,
+				3609C76D2B0EE45F000DE5B7 /* PermissionViewController.swift in Sources */,
 				36210D2A2B02084B0009EBC0 /* ViewController.swift in Sources */,
 				367C5D1F2B0DA03B00C1678F /* LoginViewModel.swift in Sources */,
 				36210D612B020B320009EBC0 /* WelcomeViewController.swift in Sources */,
@@ -795,6 +856,7 @@
 				367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */,
 				36DDA9282B0B024E00350039 /* EditProfileViewController.swift in Sources */,
 				36210D8D2B0323E80009EBC0 /* HomeViewController.swift in Sources */,
+				3609C7702B0EE85E000DE5B7 /* PermissionModel.swift in Sources */,
 				36C287322B04766100F17ADA /* InfoItem.swift in Sources */,
 				36210D7F2B0309240009EBC0 /* ExtUIView.swift in Sources */,
 				36210D7C2B0304CC0009EBC0 /* InputField.swift in Sources */,
@@ -812,8 +874,10 @@
 				3670C6852B05D7FC0011985F /* TimesheetCell.swift in Sources */,
 				3670C67F2B05D3C60011985F /* TimesheetViewController.swift in Sources */,
 				36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */,
+				363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */,
 				36210D712B0223A90009EBC0 /* SliderCell.swift in Sources */,
 				36210DA82B034A420009EBC0 /* ExtTableView.swift in Sources */,
+				3609C7742B0EFEDE000DE5B7 /* AddPermissionViewController.swift in Sources */,
 				36210D6D2B02227E0009EBC0 /* ExtUICollectionView.swift in Sources */,
 				3670C6772B05B6800011985F /* CustomLoading.swift in Sources */,
 				36210D9D2B0327900009EBC0 /* Constants.swift in Sources */,

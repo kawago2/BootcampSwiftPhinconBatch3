@@ -1,8 +1,10 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var circleView: UIImageView!
-    @IBOutlet weak var bellView: UIImageView!
+    @IBOutlet weak var formView: UIImageView!
     @IBOutlet weak var clockLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var isCheckInLabel: UILabel!
@@ -32,8 +34,10 @@ class HomeViewController: UIViewController {
     }
     
     func buttonEvent() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(checkToggle))
-        isCheckInLabel.addGestureRecognizer(tapGesture)
+        let tapCheck = UITapGestureRecognizer(target: self, action: #selector(checkToggle))
+        isCheckInLabel.addGestureRecognizer(tapCheck)
+        let tapForm = UITapGestureRecognizer(target: self, action: #selector(navigateToForm))
+        formView.addGestureRecognizer(tapForm)
     }
 
     @objc func checkToggle() {
@@ -44,6 +48,11 @@ class HomeViewController: UIViewController {
             setDefaultSelected()
         }
         addToFirebase()
+    }
+    
+    @objc func navigateToForm() {
+        let vc = PermissionViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func addToFirebase() {

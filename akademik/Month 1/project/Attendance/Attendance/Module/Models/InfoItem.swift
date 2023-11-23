@@ -32,3 +32,4 @@ struct ProfileItem {
     let posisi: String?
     var imageUrl: String?
 }
+

@@ -24,7 +24,9 @@ enum FAuth {
     static func loginUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         auth.signIn(withEmail: email, password: password) { (authResult, error) in
             if let user = authResult?.user {
+                
                 completion(.success(user))
+                
             } else if let error = error {
                 completion(.failure(error))
             }
@@ -270,12 +272,12 @@ enum FStorage {
 
 enum NetworkStatus {
     case connected, notConnected
-
+    
     static func getStatus() -> NetworkStatus {
         guard let reachability = try? Reachability() else {
             return .notConnected
         }
-
+        
         return reachability.connection != .unavailable ? .connected : .notConnected
     }
     

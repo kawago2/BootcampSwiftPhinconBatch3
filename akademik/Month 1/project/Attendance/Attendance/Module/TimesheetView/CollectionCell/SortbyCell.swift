@@ -50,9 +50,7 @@ class SortbyCell: UICollectionViewCell {
             optionMod.insert(contentsOf: ["Show All"], at: 0)
             dropDown.dataSource = optionMod
         }
-        dropDown.backgroundColor = UIColor.white
-        dropDown.cornerRadius = 20
-        dropDown.selectionBackgroundColor = UIColor.lightGray
+        dropDown.setupUI()
 
         // Check if the array is not empty before selecting the first row
         if !dropDown.dataSource.isEmpty {
