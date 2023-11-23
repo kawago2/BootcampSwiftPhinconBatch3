@@ -85,8 +85,6 @@ class PermissionViewController: UIViewController {
                     if let data = document.data() {
                         var permissionForm = PermissionForm()
                         permissionForm.fromDictionary(dictionary: data)
-                        
-                        // Assuming permissionData is an array
                         self.permissionData.append(permissionForm)
                     } else {
                         print("Error: Unable to create PermissionForm from data")

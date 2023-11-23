@@ -65,10 +65,14 @@
 		367C5D1F2B0DA03B00C1678F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */; };
 		367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */; };
 		367C5D232B0DBEBB00C1678F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D222B0DBEBB00C1678F /* ProfileViewModel.swift */; };
+		36ADC91D2B0F490300E135DC /* ApproveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC91B2B0F490300E135DC /* ApproveCell.swift */; };
+		36ADC91E2B0F490300E135DC /* ApproveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC91C2B0F490300E135DC /* ApproveCell.xib */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C2872F2B04693700F17ADA /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C2872E2B04693700F17ADA /* ExtUIViewController.swift */; };
 		36C287322B04766100F17ADA /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* InfoItem.swift */; };
 		36C287342B04783500F17ADA /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287332B04783500F17ADA /* ExtUIImageView.swift */; };
+		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
+		36C511632B0F447100B2EA7C /* ApproveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C511612B0F447100B2EA7C /* ApproveViewController.xib */; };
 		36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9162B076E0E00350039 /* SortbyCell.swift */; };
 		36DDA9192B076E0E00350039 /* SortbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9172B076E0E00350039 /* SortbyCell.xib */; };
 		36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9222B0B015600350039 /* EditProfileViewController.xib */; };
@@ -160,10 +164,14 @@
 		367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		367C5D222B0DBEBB00C1678F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		36ADC91B2B0F490300E135DC /* ApproveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveCell.swift; sourceTree = "<group>"; };
+		36ADC91C2B0F490300E135DC /* ApproveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApproveCell.xib; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C2872E2B04693700F17ADA /* ExtUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtUIViewController.swift; path = "../../../../../Week 1/Day3/profileUI/profileUI/Common/Extension/ExtUIViewController.swift"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		36C287332B04783500F17ADA /* ExtUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtUIImageView.swift; path = "../../../../../Week 1/Day3/profileUI/profileUI/Common/Extension/ExtUIImageView.swift"; sourceTree = "<group>"; };
+		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
+		36C511612B0F447100B2EA7C /* ApproveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApproveViewController.xib; sourceTree = "<group>"; };
 		36DDA9162B076E0E00350039 /* SortbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortbyCell.swift; sourceTree = "<group>"; };
 		36DDA9172B076E0E00350039 /* SortbyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortbyCell.xib; sourceTree = "<group>"; };
 		36DDA9222B0B015600350039 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
@@ -534,6 +542,15 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
+		36ADC91A2B0F48E000E135DC /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC91B2B0F490300E135DC /* ApproveCell.swift */,
+				36ADC91C2B0F490300E135DC /* ApproveCell.xib */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
 		36C287302B04764D00F17ADA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +563,9 @@
 		36C5115F2B0F440F00B2EA7C /* ApproveView */ = {
 			isa = PBXGroup;
 			children = (
+				36ADC91A2B0F48E000E135DC /* TableCell */,
+				36C511602B0F447100B2EA7C /* ApproveViewController.swift */,
+				36C511612B0F447100B2EA7C /* ApproveViewController.xib */,
 			);
 			path = ApproveView;
 			sourceTree = "<group>";
@@ -710,9 +730,11 @@
 				3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */,
 				36210D892B0321B70009EBC0 /* ForgotViewController.xib in Resources */,
 				36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */,
+				36ADC91E2B0F490300E135DC /* ApproveCell.xib in Resources */,
 				3609C7752B0EFEDE000DE5B7 /* AddPermissionViewController.xib in Resources */,
 				36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */,
 				36210D5D2B02094C0009EBC0 /* SplashViewController.xib in Resources */,
+				36C511632B0F447100B2EA7C /* ApproveViewController.xib in Resources */,
 				36210D8E2B0323E80009EBC0 /* HomeViewController.xib in Resources */,
 				36210D932B0323FE0009EBC0 /* HistoryViewController.xib in Resources */,
 			);
@@ -844,6 +866,7 @@
 			files = (
 				3609C7772B0F1078000DE5B7 /* ExtDropDown.swift in Sources */,
 				36210D762B0303040009EBC0 /* LoginViewController.swift in Sources */,
+				36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */,
 				3609C76D2B0EE45F000DE5B7 /* PermissionViewController.swift in Sources */,
 				36210D2A2B02084B0009EBC0 /* ViewController.swift in Sources */,
 				367C5D1F2B0DA03B00C1678F /* LoginViewModel.swift in Sources */,
@@ -872,6 +895,7 @@
 				36210D6B2B0221190009EBC0 /* ExtUIButton.swift in Sources */,
 				36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */,
 				3670C6852B05D7FC0011985F /* TimesheetCell.swift in Sources */,
+				36ADC91D2B0F490300E135DC /* ApproveCell.swift in Sources */,
 				3670C67F2B05D3C60011985F /* TimesheetViewController.swift in Sources */,
 				36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */,
 				363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */,

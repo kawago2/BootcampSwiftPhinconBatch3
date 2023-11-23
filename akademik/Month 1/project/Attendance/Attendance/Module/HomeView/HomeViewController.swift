@@ -11,6 +11,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var checkView: UIView!
     @IBOutlet weak var circleButton: UIView!
+    @IBOutlet weak var validatorView: UIImageView!
+    
     
     let locationArray: [InfoItem] = [
         InfoItem(title: "PT. Phincon", description: "Office. 88 @Kasablanka Office Tower 18th Floor", imageName: "id_1"),
@@ -23,6 +25,7 @@ class HomeViewController: UIViewController {
     var timer: Timer?
     var selectedCell = 0
     var currentDate = Date()
+    var isValidator = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,9 @@ class HomeViewController: UIViewController {
         isCheckInLabel.addGestureRecognizer(tapCheck)
         let tapForm = UITapGestureRecognizer(target: self, action: #selector(navigateToForm))
         formView.addGestureRecognizer(tapForm)
+        let tapValidator = UITapGestureRecognizer(target: self, action: #selector(navigateToValidator))
+        validatorView.addGestureRecognizer(tapValidator)
+        
     }
 
     @objc func checkToggle() {
@@ -54,6 +60,12 @@ class HomeViewController: UIViewController {
         let vc = PermissionViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc func navigateToValidator() {
+        let vc = ApproveViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func addToFirebase() {
         guard let uid = FAuth.auth.currentUser?.uid else {
@@ -110,6 +122,7 @@ class HomeViewController: UIViewController {
         tableView.registerCellWithNib(LocationCell.self)
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
     
     func updateCheck() {
@@ -156,7 +169,14 @@ class HomeViewController: UIViewController {
                 let data = documentSnapshot.data()
                 if let currentData = data {
                     if let isCheckIn = currentData["is_check"] as? Bool,
-                       let activePage = currentData["active_page"] as? Int {
+                       let activePage = currentData["active_page"] as? Int{
+                        // Check if "isValidator" exists in the document data
+                        if let isValidator = currentData["isValidator"] as? Bool {
+                            self.isValidator = isValidator
+                        } else {
+                            // Default value if "isValidator" is not present
+                            self.isValidator = false
+                        }
                         self.isCheckIn = isCheckIn
                         self.selectedCell = activePage
                         self.locationSelected = self.locationArray[activePage]
@@ -170,10 +190,13 @@ class HomeViewController: UIViewController {
                         print("Error: Unable to parse document data")
                     }
                 }
+            self.validatorView.isHidden = !self.isValidator
             case .failure(let error):
                 print("Error getting document: \(error.localizedDescription)")
             }
         }
+        
+       
     }
 
 }

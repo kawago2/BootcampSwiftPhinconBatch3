@@ -93,6 +93,28 @@ enum FAuth {
 enum FFirestore {
     static let db = Firestore.firestore()
     
+    static func getAllDocuments(collection: String, completion: @escaping (Result<[QueryDocumentSnapshot], Error>) -> Void) {
+        let collectionRef = db.collection(collection)
+
+        collectionRef.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                // Handle the error
+                completion(.failure(error))
+            } else {
+                // Check if there are documents in the collection
+                guard let documents = querySnapshot?.documents else {
+                    // No documents found
+                    completion(.success([]))
+                    return
+                }
+
+                // Successfully retrieved documents
+                completion(.success(documents))
+            }
+        }
+    }
+
+    
     static func getDocument(collection:String, documentID: String, completion: @escaping (Result<DocumentSnapshot, Error>) -> Void) {
         let documentRef = db.collection(collection).document(documentID)
         
