@@ -57,7 +57,7 @@ class TimesheetCell: UITableViewCell {
         positionLabel.text = position
         taskLabel.text = task
         statusLabel.text = status.rawValue
-        statusLabel.textColor = colorForTaskStatus(status)
+        colorView.backgroundColor = colorForTaskStatus(status)
     }
     
     

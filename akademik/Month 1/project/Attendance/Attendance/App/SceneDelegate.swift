@@ -20,7 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let result = checkInternetConnection(navigationController: navigationController, tabbar: tabbar)
         if result {
             DispatchQueue.main.async {
-                navigationController.setViewControllers([tabbar], animated: true)
+                if FAuth.auth.currentUser != nil {
+                    navigationController.setViewControllers([tabbar], animated: true)
+                }
+                
             }
         }
 

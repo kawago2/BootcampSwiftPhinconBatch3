@@ -18,6 +18,7 @@ class ApproveViewController: UIViewController {
     }
     
     let dataArray = ["Date Permission", "Status"]
+    var currentSortBy = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +63,7 @@ class ApproveViewController: UIViewController {
                     permissionForm.fromDictionary(dictionary: data)
                     self.permissionData.append(permissionForm)
                 }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                self.didLabelTapped(sortby: self.currentSortBy)
             case .failure(let error):
                 print("Error: \(error)")
             }
@@ -229,7 +228,7 @@ extension ApproveViewController:  UICollectionViewDelegate, UICollectionViewData
 
 extension ApproveViewController : SortbyCellDelegate {
     func didLabelTapped(sortby: String) {
-//        self.currentSortBy = sortby
+        self.currentSortBy = sortby
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.sortByStatus(sortby: sortby)

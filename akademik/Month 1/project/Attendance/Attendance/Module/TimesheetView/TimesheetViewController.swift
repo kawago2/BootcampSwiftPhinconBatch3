@@ -86,8 +86,8 @@ class TimesheetViewController: UIViewController {
                             let endDate = data["end_date"] as? Timestamp
                             let position = data["position"] as? String
                             let task = data["task"] as? String
-                            let status = data["status"] as? TaskStatus
-                            
+                            let statusString = data["status"] as? String
+                            let status = TaskStatus(rawValue: statusString ?? "")
                             let timesheetItem = TimesheetItem(id:id, startDate: startDate?.dateValue(), endDate: endDate?.dateValue(), position: position, task: task, status: status)
                             self.timesheetData.append(timesheetItem)
                         }
@@ -219,7 +219,6 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
         let documentID = uid
         let collection = "users"
         let subcollectionPath = "timesheets"
-        
         let dataToAdd: [String:Any] = [
             "start_date": item.startDate ?? Date(),
             "end_date": item.endDate ?? Date(),
@@ -259,7 +258,7 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
             "end_date": item.endDate ?? Date(),
             "position": item.position ?? "",
             "task": item.task ?? "",
-            "status": item.status ?? .inProgress
+            "status": item.status?.rawValue ?? ""
         ]
         
         FFirestore.editDataInSubcollection(documentID: uid, inCollection: collection, subcollectionPath: subcollectionPath, documentIDToEdit: editedDocumentID, newData: dataToEdit) { result in
@@ -324,16 +323,17 @@ extension TimesheetViewController : SortbyCellDelegate {
             self.sortByStatus(sortby: sortby)
             self.sortByDate(sortby: sortby)
             self.updateEmptyView()
+            self.tableView.reloadData()
         })
     }
 
     func sortByStatus(sortby: String) {
         switch sortby {
-        case TaskStatus.completed.rawValue:
+        case TaskStatus.completed.rawValue.lowercased():
             completedTimesheets = timesheetData.filter { $0.status == .completed }
-        case TaskStatus.inProgress.rawValue:
+        case TaskStatus.inProgress.rawValue.lowercased():
             completedTimesheets = timesheetData.filter { $0.status == .inProgress }
-        case TaskStatus.rejected.rawValue:
+        case TaskStatus.rejected.rawValue.lowercased():
             completedTimesheets = timesheetData.filter { $0.status == .rejected }
         default:
             completedTimesheets = timesheetData
@@ -341,7 +341,9 @@ extension TimesheetViewController : SortbyCellDelegate {
     }
     
     func sortByDate(sortby: String) {
+        print(sortby)
         switch sortby {
+            
         case DateSortOption.oldest.rawValue.lowercased():
             completedTimesheets = completedTimesheets.sorted { $0.startDate ?? Date() < $1.startDate ?? Date() }
         case DateSortOption.newest.rawValue.lowercased():

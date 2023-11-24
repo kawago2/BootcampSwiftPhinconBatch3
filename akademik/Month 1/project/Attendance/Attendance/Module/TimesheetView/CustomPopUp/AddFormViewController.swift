@@ -51,8 +51,8 @@ class AddFormViewController: UIViewController {
     var endInit = Date()
     var positionInit = ""
     var taskInit = ""
-    var statusInit: TaskStatus = .inProgress
-    var statusCurrent: TaskStatus = .inProgress
+    var statusInit: TaskStatus = .completed
+    var statusCurrent: TaskStatus = .completed
     
     
     private let disposeBag = DisposeBag()
@@ -82,9 +82,14 @@ class AddFormViewController: UIViewController {
         if context == "edit" {
             updateStatusLabel(withStatus: .completed) // Set a default status here
         }
+        if context == "add" {
+            dropDown.selectRow(0)
+            updateStatusLabel(withStatus: .completed)
+        }
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             if let selectedStatus = TaskStatus(rawValue: item) {
+                print(selectedStatus)
                 updateStatusLabel(withStatus: selectedStatus)
             }
         }
@@ -114,12 +119,13 @@ class AddFormViewController: UIViewController {
         do {
             try checkFields()
             
+            print(statusCurrent)
             switch self.context {
             case "add":
-                let item = TimesheetItem(id: "", startDate: startDatePicker.date, endDate: endDatePicker.date, position: positionField.text ?? "", task: taskField.text ?? "", status: statusCurrent)
+                let item = TimesheetItem(id: "", startDate: startDatePicker.date, endDate: endDatePicker.date, position: positionField.text ?? "", task: taskField.text ?? "", status: self.statusCurrent)
                   delegate?.didAddTapped(item: item)
             case "edit":
-                let item = TimesheetItem( id: documentID, startDate: startDatePicker.date, endDate: endDatePicker.date, position: positionField.text ?? "", task: taskField.text ?? "", status: statusCurrent)
+                let item = TimesheetItem( id: documentID, startDate: startDatePicker.date, endDate: endDatePicker.date, position: positionField.text ?? "", task: taskField.text ?? "", status: self.statusCurrent)
                   delegate?.didEditTapped(item: item)
             default:
                 break
