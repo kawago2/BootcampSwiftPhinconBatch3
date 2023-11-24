@@ -21,9 +21,20 @@ struct TimesheetItem {
     let endDate: Date?
     let position: String?
     let task: String?
-    let status: Int?
+    let status: TaskStatus?
 }
 
+
+enum DateSortOption: String, CaseIterable {
+    case newest = "Newest"
+    case oldest = "Oldest"
+}
+
+enum TaskStatus: String, CaseIterable {
+    case completed = "Completed"
+    case inProgress = "In Progress"
+    case rejected = "Rejected"
+}
 
 struct ProfileItem {
     let nik: String?

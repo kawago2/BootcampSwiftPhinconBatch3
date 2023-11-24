@@ -14,9 +14,73 @@
             filePath = "Attendance/Module/PermissionView/PermissionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "getData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B742E69-502C-4211-9F74-46F601384D1A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Attendance/Module/TimesheetView/CollectionCell/SortbyCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "setupDropDown()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7B742E69-502C-4211-9F74-46F601384D1A - 66d2add8b61f90b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Attendance.SortbyCell.setupDropDown() -&gt; ()"
+                  moduleName = "Attendance"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/phincon/Documents/workspace/BootcampSwiftPhinconBatch3/akademik/Month%201/project/Attendance/Attendance/Module/TimesheetView/CollectionCell/SortbyCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "360">
+               </Location>
+               <Location
+                  uuid = "7B742E69-502C-4211-9F74-46F601384D1A - 8d729dd533525fa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Attendance.DateSortOption) -&gt; Swift.String in Attendance.SortbyCell.setupDropDown() -&gt; ()"
+                  moduleName = "Attendance"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/phincon/Documents/workspace/BootcampSwiftPhinconBatch3/akademik/Month%201/project/Attendance/Attendance/Module/TimesheetView/CollectionCell/SortbyCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE1CA81E-E6A7-4471-A7F7-123C45B543CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Attendance/Module/ApproveView/TableCell/ApproveCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "initData(permission:name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

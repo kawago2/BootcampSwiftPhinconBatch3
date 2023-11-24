@@ -30,6 +30,7 @@ class PermissionCell: UITableViewCell {
     
     func setupUI() {
         cardView.makeCornerRadius(20)
+        selectionStyle = .none
     }
     
     func initData(permission: PermissionForm) {

@@ -138,6 +138,7 @@
                 <outlet property="permissionDateLabel" destination="LCC-o5-T6Z" id="xJF-mN-gIZ"/>
                 <outlet property="reasonLabel" destination="ahM-Zu-JRL" id="uiI-Nz-SY7"/>
                 <outlet property="statusLabel" destination="HcX-Jy-VCk" id="eKe-ZP-HQg"/>
+                <outlet property="toggleButton" destination="Dv7-Ar-MaW" id="VTz-CG-IW4"/>
                 <outlet property="typeLabel" destination="C6s-Yi-ktQ" id="5LE-bk-eui"/>
             </connections>
             <point key="canvasLocation" x="0.76335877862595414" y="-57.04225352112676"/>

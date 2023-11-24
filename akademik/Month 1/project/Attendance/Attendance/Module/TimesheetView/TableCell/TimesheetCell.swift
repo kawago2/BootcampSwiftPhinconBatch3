@@ -40,7 +40,6 @@ class TimesheetCell: UITableViewCell {
     func setupUI() {
         selectionStyle = .none
         cardView.makeCornerRadius(20)
-        colorView.makeCornerRadius(20, maskedCorner: [.layerMinXMinYCorner,.layerMinXMaxYCorner])
         taskLabel.isHidden = true
     }
     
@@ -52,23 +51,24 @@ class TimesheetCell: UITableViewCell {
         }
     }
     
-    func initData(date: String, clock: String, position: String, task: String, status: Int) {
+    func initData(date: String, clock: String, position: String, task: String, status: TaskStatus) {
         dateLabel.text = date
         clockLabel.text = clock
         positionLabel.text = position
         taskLabel.text = task
-        statusLabel.text = Variables.optionArray[status]
-        
-        switch status {
-        case 0:
-            self.colorView.backgroundColor = UIColor.systemGreen
-        case 1:
-            self.colorView.backgroundColor = UIColor.systemOrange
-        case 2:
-            self.colorView.backgroundColor = UIColor.systemRed
-        default:
-            self.colorView.backgroundColor = UIColor.systemGray
-        }
+        statusLabel.text = status.rawValue
+        statusLabel.textColor = colorForTaskStatus(status)
     }
     
+    
+    func colorForTaskStatus(_ taskStatus: TaskStatus) -> UIColor {
+        switch taskStatus {
+        case .completed:
+            return UIColor.systemGreen
+        case .inProgress:
+            return UIColor.systemOrange
+        case .rejected:
+            return UIColor.systemRed
+        }
+    }
 }

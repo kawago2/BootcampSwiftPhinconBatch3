@@ -12,7 +12,11 @@ class TimesheetViewController: UIViewController {
     
     
     var timesheetData: [TimesheetItem] = []
-    var completedTimesheets: [TimesheetItem] = []
+    var completedTimesheets: [TimesheetItem] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     var cellContexts: [String] = ["date", "option"]
     
     var currentSortBy = ""
@@ -82,7 +86,7 @@ class TimesheetViewController: UIViewController {
                             let endDate = data["end_date"] as? Timestamp
                             let position = data["position"] as? String
                             let task = data["task"] as? String
-                            let status = data["status"] as? Int
+                            let status = data["status"] as? TaskStatus
                             
                             let timesheetItem = TimesheetItem(id:id, startDate: startDate?.dateValue(), endDate: endDate?.dateValue(), position: position, task: task, status: status)
                             self.timesheetData.append(timesheetItem)
@@ -122,7 +126,7 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
         let endDate = timesheet.endDate
         let position = timesheet.position
         let task = timesheet.task
-        let status = timesheet.status ?? 4
+        let status = timesheet.status
         
         var formattedStartDate = ""
         if let startDate = startDate {
@@ -141,7 +145,7 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
         
         let clockString = "•\(formattedStartTime) - \(formattedEndTime)"
         
-        cell.initData(date: formattedStartDate, clock: clockString, position: position ?? "", task: task ?? "", status: status)
+        cell.initData(date: formattedStartDate, clock: clockString, position: position ?? "", task: task ?? "", status: status ?? .inProgress)
         
         return cell
         
@@ -199,7 +203,7 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
         vc.modalPresentationStyle = .overFullScreen
         vc.context = "edit"
         vc.documentID = timesheetItem.id ?? ""
-        vc.initData(startDate: timesheetItem.startDate ?? Date(), endDate: timesheetItem.endDate ?? Date(), position: timesheetItem.position ?? "" , task: timesheetItem.task ?? "" , status:  timesheetItem.status ?? 4)
+        vc.initData(startDate: timesheetItem.startDate ?? Date(), endDate: timesheetItem.endDate ?? Date(), position: timesheetItem.position ?? "" , task: timesheetItem.task ?? "" , status:  timesheetItem.status ?? .inProgress)
         present(vc, animated: true)
     }
     
@@ -207,38 +211,7 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
 
 
 extension TimesheetViewController: AddFormViewControllerDelegate {
-    func didEditTapped(startDate: Date, endDate: Date, position: String, task: String, status: Int,id : String) {
-        guard let uid = FAuth.auth.currentUser?.uid else {
-            print("User not logged in")
-            return
-        }
-        let collection = "users"
-        let subcollectionPath = "timesheets"
-        let editedDocumentID = id
-        
-        let dataToEdit: [String:Any] = [
-            "start_date": startDate,
-            "end_date": endDate,
-            "position": position,
-            "task": task,
-            "status": status
-        ]
-        
-        FFirestore.editDataInSubcollection(documentID: uid, inCollection: collection, subcollectionPath: subcollectionPath, documentIDToEdit: editedDocumentID, newData: dataToEdit) { result in
-            switch result {
-            case .success:
-                print("Document updated successfully")
-            case .failure(let error):
-                print("Error updating document: \(error)")
-            }
-        }
-        fetchData(completion: {
-            self.loadingView.stopAnimating()
-            self.tableView.reloadData()
-        })
-    }
-    
-    func didAddTapped(startDate: Date, endDate: Date, position: String, task: String, status: Int) {
+    func didAddTapped(item: TimesheetItem) {
         guard let uid = FAuth.auth.currentUser?.uid else {
             print("User not logged in")
             return
@@ -248,11 +221,11 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
         let subcollectionPath = "timesheets"
         
         let dataToAdd: [String:Any] = [
-            "start_date": startDate,
-            "end_date": endDate,
-            "position": position,
-            "task": task,
-            "status": status
+            "start_date": item.startDate ?? Date(),
+            "end_date": item.endDate ?? Date(),
+            "position": item.position ?? "",
+            "task": item.task ?? "",
+            "status": item.status?.rawValue ?? ""
         ]
         
         FFirestore.addDataToSubcollection(documentID: documentID, inCollection: collection, subcollectionPath: subcollectionPath, data: dataToAdd) { result in
@@ -269,7 +242,40 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
             self.loadingView.stopAnimating()
             self.tableView.reloadData()
         })
+    
     }
+    
+    func didEditTapped(item: TimesheetItem) {
+        guard let uid = FAuth.auth.currentUser?.uid else {
+            print("User not logged in")
+            return
+        }
+        let collection = "users"
+        let subcollectionPath = "timesheets"
+        let editedDocumentID = item.id ?? ""
+        
+        let dataToEdit: [String:Any] = [
+            "start_date": item.startDate ?? Date(),
+            "end_date": item.endDate ?? Date(),
+            "position": item.position ?? "",
+            "task": item.task ?? "",
+            "status": item.status ?? .inProgress
+        ]
+        
+        FFirestore.editDataInSubcollection(documentID: uid, inCollection: collection, subcollectionPath: subcollectionPath, documentIDToEdit: editedDocumentID, newData: dataToEdit) { result in
+            switch result {
+            case .success:
+                print("Document updated successfully")
+            case .failure(let error):
+                print("Error updating document: \(error)")
+            }
+        }
+        fetchData(completion: {
+            self.loadingView.stopAnimating()
+            self.tableView.reloadData()
+        })
+    }
+        
 }
 
 
@@ -323,30 +329,26 @@ extension TimesheetViewController : SortbyCellDelegate {
 
     func sortByStatus(sortby: String) {
         switch sortby {
-        case "completed":
-            completedTimesheets = timesheetData.filter { $0.status == 0 }
-        case "in progress":
-            completedTimesheets = timesheetData.filter { $0.status == 1 }
-        case "rejected":
-            completedTimesheets = timesheetData.filter { $0.status == 2 }
+        case TaskStatus.completed.rawValue:
+            completedTimesheets = timesheetData.filter { $0.status == .completed }
+        case TaskStatus.inProgress.rawValue:
+            completedTimesheets = timesheetData.filter { $0.status == .inProgress }
+        case TaskStatus.rejected.rawValue:
+            completedTimesheets = timesheetData.filter { $0.status == .rejected }
         default:
             completedTimesheets = timesheetData
         }
-
-        self.tableView.reloadData()
     }
-
+    
     func sortByDate(sortby: String) {
         switch sortby {
-        case "ascendant":
+        case DateSortOption.oldest.rawValue.lowercased():
             completedTimesheets = completedTimesheets.sorted { $0.startDate ?? Date() < $1.startDate ?? Date() }
-        case "descendant":
+        case DateSortOption.newest.rawValue.lowercased():
             completedTimesheets = completedTimesheets.sorted { $0.startDate ?? Date() > $1.startDate ?? Date() }
         default:
             break
         }
-
-        self.tableView.reloadData()
     }
 
 }

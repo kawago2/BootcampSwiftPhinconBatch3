@@ -44,10 +44,14 @@ class SortbyCell: UICollectionViewCell {
     func setupDropDown() {
         dropDown.anchorView = sortNameLabel
         if context == "date" {
-            dropDown.dataSource = Variables.dateSort
+            dropDown.dataSource = DateSortOption.allCases.map { $0.rawValue }
         } else if context == "option" {
-            var optionMod = Variables.optionArray
+            var optionMod = TaskStatus.allCases.map { $0.rawValue }
             optionMod.insert(contentsOf: ["Show All"], at: 0)
+            dropDown.dataSource = optionMod
+        } else if context == "status" {
+            var optionMod = PermissionStatus.allCases.map { $0.rawValue }
+            optionMod.insert("Show All", at: 0)
             dropDown.dataSource = optionMod
         }
         dropDown.setupUI()
@@ -61,7 +65,9 @@ class SortbyCell: UICollectionViewCell {
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.sortNameLabel.text = item
+  
             delegate?.didLabelTapped(sortby: item.lowercased())
+            
         }
 
     }

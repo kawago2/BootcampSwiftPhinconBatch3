@@ -58,6 +58,7 @@ class PermissionViewController: UIViewController {
     
     func navigateFP() {
         let vc = AddPermissionViewController()
+        vc.delegate = self
         fpc.set(contentViewController: vc)
         present(fpc, animated: true, completion: nil)
     }
@@ -70,6 +71,7 @@ class PermissionViewController: UIViewController {
     }
     
     func getData() {
+        permissionData = []
         guard let uid = FAuth.auth.currentUser?.uid else {
             print("Error: Current user ID is nil")
             return
@@ -118,6 +120,16 @@ extension PermissionViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension PermissionViewController: AddPermissionDelegate {
+    func didAddTap() {
+        getData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+}
 
 
 extension PermissionViewController :FloatingPanelControllerDelegate {
@@ -140,7 +152,4 @@ class AddPermissionFloatingPanel: FloatingPanelLayout {
     func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
         return 0.20
     }
-    
-    
-    
 }

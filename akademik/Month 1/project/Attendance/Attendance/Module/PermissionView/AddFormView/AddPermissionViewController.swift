@@ -4,6 +4,10 @@ import RxCocoa
 import DropDown
 import FirebaseFirestore
 
+protocol AddPermissionDelegate {
+    func didAddTap()
+}
+
 class AddPermissionViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
@@ -15,6 +19,8 @@ class AddPermissionViewController: UIViewController {
     let disposeBag = DisposeBag()
     let typeDropDown = DropDown()
     var typeCurrent:  PermissionType = .sickLeave
+    var delegate: AddPermissionDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -27,13 +33,14 @@ class AddPermissionViewController: UIViewController {
         addButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
             self.addTapped()
-            print("apakek")
             
         }).disposed(by: disposeBag)
         
         let typeGesture = UITapGestureRecognizer(target: self, action: #selector(showDropdown))
         typeLabel.isUserInteractionEnabled = true
         typeLabel.addGestureRecognizer(typeGesture)
+        
+
     }
     
     func setupUI() {
@@ -65,6 +72,20 @@ class AddPermissionViewController: UIViewController {
     }
     
     func addTapped() {
+        let reasonTextObservable = reasonTextField.inputText.text ?? ""
+        let durationTextObservable = durationTextField.inputText.text ?? ""
+
+        if reasonTextObservable.isEmpty && durationTextObservable.isEmpty {
+            showAlert(title: "Invalid", message: "Please fill in all fields")
+        } else if reasonTextObservable.isEmpty || durationTextObservable.isEmpty{
+            showAlert(title: "Invalid", message: "Please fill in fields")
+        }
+        
+        
+
+      
+
+
         guard let uid = FAuth.auth.currentUser?.uid else { return }
         let documentID = uid
         let inCollection = "permissions"
@@ -84,12 +105,15 @@ class AddPermissionViewController: UIViewController {
         
         let dataPermission = permission.toDictionary()
         
-        FFirestore.addDataToSubcollection(documentID: documentID, inCollection: inCollection, subcollectionPath: subcollectionPath, data: dataPermission) {result in
+        FFirestore.addDataToSubcollectionWithAutoID(documentID: documentID, inCollection: inCollection, subcollectionPath: subcollectionPath, data: dataPermission) {result in
             switch result {
             case .success:
                 print("Data added to subcollection successfully")
                 self.showAlert(title: "Success", message: "Form successly created\nPlease wait Approval.", completion: {
-                    self.dismiss(animated: true)
+                    self.dismiss(animated: true) {
+                        self.delegate?.didAddTap()
+                    }
+                    
                 })
             case .failure(let error):
                 print("Error adding data to subcollection: \(error.localizedDescription)")

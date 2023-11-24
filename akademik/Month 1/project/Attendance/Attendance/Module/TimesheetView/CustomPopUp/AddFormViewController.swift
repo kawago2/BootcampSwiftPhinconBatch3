@@ -24,8 +24,8 @@ enum ThrowError: Error {
 
 
 protocol AddFormViewControllerDelegate {
-    func didAddTapped(startDate: Date, endDate: Date, position: String, task: String, status: Int)
-    func didEditTapped(startDate: Date, endDate: Date, position: String, task: String, status: Int ,id:String)
+    func didAddTapped(item : TimesheetItem)
+    func didEditTapped(item : TimesheetItem)
 }
 
 class AddFormViewController: UIViewController {
@@ -43,7 +43,6 @@ class AddFormViewController: UIViewController {
     
     let dropDown = DropDown()
     
-    var indexDropdown = 0
     
     var context = ""
     var documentID = ""
@@ -52,7 +51,8 @@ class AddFormViewController: UIViewController {
     var endInit = Date()
     var positionInit = ""
     var taskInit = ""
-    var statusInit = 0
+    var statusInit: TaskStatus = .inProgress
+    var statusCurrent: TaskStatus = .inProgress
     
     
     private let disposeBag = DisposeBag()
@@ -75,37 +75,35 @@ class AddFormViewController: UIViewController {
     }
     
     func setupDropDown() {
-        
-        
         dropDown.anchorView = statusButton
-        dropDown.dataSource = Variables.optionArray
+        dropDown.dataSource = TaskStatus.allCases.map { $0.rawValue }
         
         dropDown.setupUI()
         if context == "edit" {
-            updateStatusLabel(withIndex: statusInit)
+            updateStatusLabel(withStatus: .completed) // Set a default status here
         }
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            updateStatusLabel(withIndex: index)
+            if let selectedStatus = TaskStatus(rawValue: item) {
+                updateStatusLabel(withStatus: selectedStatus)
+            }
         }
     }
-    
-    func updateStatusLabel(withIndex index: Int) {
-        switch index {
-        case 0:
+
+    func updateStatusLabel(withStatus status: TaskStatus) {
+        switch status {
+        case .completed:
             self.statusLabel.textColor = UIColor.systemGreen
-        case 1:
+        case .inProgress:
             self.statusLabel.textColor = UIColor.systemOrange
-        case 2:
+        case .rejected:
             self.statusLabel.textColor = UIColor.systemRed
-        default:
-            self.statusLabel.textColor = UIColor.systemGray
-            self.statusLabel.text = "-"
-            break
         }
-        self.statusLabel.text = Variables.optionArray[index]
-        self.indexDropdown = index
+        
+        self.statusLabel.text = status.rawValue
+        self.statusCurrent = status
     }
+
 
     
     @objc func showDropDown() {
@@ -118,9 +116,11 @@ class AddFormViewController: UIViewController {
             
             switch self.context {
             case "add":
-                delegate?.didAddTapped(startDate: startDatePicker.date, endDate: endDatePicker.date, position: positionField.text ?? "", task: taskField.text ?? "", status: indexDropdown)
+                let item = TimesheetItem(id: "", startDate: startDatePicker.date, endDate: endDatePicker.date, position: positionField.text ?? "", task: taskField.text ?? "", status: statusCurrent)
+                  delegate?.didAddTapped(item: item)
             case "edit":
-                delegate?.didEditTapped(startDate: startDatePicker.date, endDate: endDatePicker.date, position: positionField.text ?? "", task: taskField.text ?? "", status: indexDropdown, id: documentID)
+                let item = TimesheetItem( id: documentID, startDate: startDatePicker.date, endDate: endDatePicker.date, position: positionField.text ?? "", task: taskField.text ?? "", status: statusCurrent)
+                  delegate?.didEditTapped(item: item)
             default:
                 break
             }
@@ -164,7 +164,7 @@ class AddFormViewController: UIViewController {
 
     }
     
-    func initData(startDate: Date, endDate: Date, position: String, task: String, status: Int) {
+    func initData(startDate: Date, endDate: Date, position: String, task: String, status: TaskStatus) {
         self.startInit = startDate
         self.endInit = endDate
         self.positionInit = position
