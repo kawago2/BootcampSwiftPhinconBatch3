@@ -95,7 +95,7 @@ enum FFirestore {
     
     static func getAllDocuments(collection: String, completion: @escaping (Result<[QueryDocumentSnapshot], Error>) -> Void) {
         let collectionRef = db.collection(collection)
-
+        
         collectionRef.getDocuments { (querySnapshot, error) in
             if let error = error {
                 // Handle the error
@@ -107,13 +107,13 @@ enum FFirestore {
                     completion(.success([]))
                     return
                 }
-
+                
                 // Successfully retrieved documents
                 completion(.success(documents))
             }
         }
     }
-
+    
     
     static func getDocument(collection:String, documentID: String, completion: @escaping (Result<DocumentSnapshot, Error>) -> Void) {
         let documentRef = db.collection(collection).document(documentID)
@@ -178,6 +178,19 @@ enum FFirestore {
         let documentRef = db.collection(collection).document(documentID).collection(subcollectionPath)
         
         documentRef.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let querySnapshot = querySnapshot {
+                let documents = querySnapshot.documents
+                completion(.success(documents))
+            }
+        }
+    }
+    
+    static func getAllDocumentsFromSubcollection(collectionGroupPath: String, completion: @escaping (Result<[QueryDocumentSnapshot], Error>) -> Void) {
+        let subcollectionRef = db.collectionGroup(collectionGroupPath)
+        
+        subcollectionRef.getDocuments { (querySnapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let querySnapshot = querySnapshot {

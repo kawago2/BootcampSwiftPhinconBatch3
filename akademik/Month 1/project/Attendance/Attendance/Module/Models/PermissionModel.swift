@@ -10,7 +10,6 @@ enum PermissionStatus: String, CaseIterable {
     case submitted = "Submitted"
     case approved = "Approved"
     case rejected = "Rejected"
-    case inProgress = "In Progress"
 }
 
 struct PermissionForm {

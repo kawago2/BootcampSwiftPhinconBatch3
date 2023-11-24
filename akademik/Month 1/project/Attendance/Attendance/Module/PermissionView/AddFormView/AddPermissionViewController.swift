@@ -42,7 +42,7 @@ class AddPermissionViewController: UIViewController {
     }
     
     func bindDatePicker() {
-        let minimumDate = Calendar.current.date(byAdding: .day, value: 5, to: Date()) ?? Date()
+        let minimumDate = Calendar.current.date(byAdding: .weekOfMonth, value: 2, to: Date()) ?? Date()
         Observable.just(minimumDate)
             .bind(to: permissionDate.rx.minimumDate)
             .disposed(by: disposeBag)

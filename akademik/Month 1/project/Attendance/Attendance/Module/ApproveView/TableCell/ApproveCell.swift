@@ -23,27 +23,28 @@ class ApproveCell: UITableViewCell {
     
     func setupUI() {
         cardView.makeCornerRadius(20)
+        selectionStyle = .none
     }
     
     func initData(permission: PermissionForm, name: String) {
-        nameLabel.text = name
+        nameLabel.text = "Name: " + name
         statusLabel.text = permission.status?.rawValue
         typeLabel.text = permission.type?.rawValue
         
         if let permissionTime = permission.permissionTime {
-            permissionDateLabel.text = permissionTime.formattedShortDateString()
+            permissionDateLabel.text = "Permission: " + permissionTime.formattedShortDateString()
         } else {
             permissionDateLabel.isHidden = true
             
         }
         if let approvalTime = permission.approvalTime {
-            approvalDateLabel.text = approvalTime.formattedShortDateString()
+            approvalDateLabel.text = approvalTime.formattedShortDateString() + " ✓"
         } else {
             approvalDateLabel.isHidden = true
         }
         
-        durationLabel.text = permission.additionalInfo?.duration
-        reasonLabel.text = permission.additionalInfo?.reason
+        durationLabel.text = "Duration: " + (permission.additionalInfo?.duration ?? "")
+        reasonLabel.text = "Reason: " + (permission.additionalInfo?.reason ?? "")
         updateColorView(status: permission.status)
     }
     
@@ -51,12 +52,10 @@ class ApproveCell: UITableViewCell {
         switch status {
         case .approved:
             colorView.backgroundColor = UIColor.systemGreen
-        case .inProgress:
-            colorView.backgroundColor = UIColor.systemOrange
         case .rejected:
             colorView.backgroundColor = UIColor.systemRed
         default:
-            colorView.backgroundColor = UIColor.gray
+            colorView.backgroundColor = UIColor.systemOrange
         }
     }
     

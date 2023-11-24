@@ -57,12 +57,10 @@ class PermissionCell: UITableViewCell {
         switch status {
         case .approved:
             colorView.backgroundColor = UIColor.systemGreen
-        case .inProgress:
-            colorView.backgroundColor = UIColor.systemOrange
         case .rejected:
             colorView.backgroundColor = UIColor.systemRed
         default:
-            colorView.backgroundColor = UIColor.gray
+            colorView.backgroundColor = UIColor.systemOrange
         }
     }
     

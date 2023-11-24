@@ -52,6 +52,7 @@ class PermissionViewController: UIViewController {
         fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         fpc.surfaceView.isUserInteractionEnabled = true
         fpc.surfaceView.grabberHandle.isHidden = true
+        fpc.surfaceView.gestureRecognizers = nil
         fpc.isRemovalInteractionEnabled = false
     }
     
