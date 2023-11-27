@@ -10,12 +10,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var bottonView: UIView!
     
-    let dataArray = [
-        ["title": "DIGITAL ABSENSI", "desc": "Kehadiran sistem absensi digital merupakan penemuan yang mampu menggantikan pencatatan data kehadiran secara manual", "img": "slide-1"],
-        ["title": "ATTENDANCE SYSTEM", "desc": "Pengelolaan karyawan di era digital yang baik, menghasilkan karyawan terbaik pula, salah satunya absensi karyawan", "img": "slide-2"],
-        ["title": "SELALU PAKAI MASKER", "desc": "Guna mencegah penyebaran virus Covid-19, Pemerintah telah mengeluarkan kebijakan Physical Distancing serta kebijakan bekerja, belajar, dan beribadah dari rumah.", "img": "slide-3"]
-    ]
-    
+    var contentSlider: [InfoItem] = []
     let numberOfPages = 3
     var timer: Timer?
     var currentPages = 0
@@ -24,6 +19,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
         setupUI()
         startAutoplay()
         buttonEvent()
@@ -43,6 +39,15 @@ class WelcomeViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(navigateLogin), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(navigateRegister), for: .touchUpInside)
         pageControl.addTarget(self, action: #selector(pageControlClicked), for: .valueChanged)
+    }
+    
+    func loadData() {
+        contentSlider.append(contentsOf: [
+            InfoItem(title: "DIGITAL ABSENSI", description: "Kehadiran sistem absensi digital merupakan penemuan yang mampu menggantikan pencatatan data kehadiran secara manual", imageName: "slide-1"),
+            InfoItem(title: "ATTENDANCE SYSTEM", description: "Pengelolaan karyawan di era digital yang baik, menghasilkan karyawan terbaik pula, salah satunya absensi karyawan", imageName: "slide-2"),
+            InfoItem(title: "SELALU PAKAI MASKER", description: "Guna mencegah penyebaran virus Covid-19, Pemerintah telah mengeluarkan kebijakan Physical Distancing serta kebijakan bekerja, belajar, dan beribadah dari rumah.", imageName: "slide-3")
+        ])
+        
     }
     
     @objc func navigateLogin() {
@@ -76,9 +81,9 @@ class WelcomeViewController: UIViewController {
     }
     
     func updateUIForCurrentPage() {
-        guard currentPages < dataArray.count else { return }
-        titleLabel.text = dataArray[currentPages]["title"]
-        descLabel.text = dataArray[currentPages]["desc"]
+        guard currentPages < contentSlider.count else { return }
+        titleLabel.text = contentSlider[currentPages].title ?? ""
+        descLabel.text = contentSlider[currentPages].description ?? ""
     }
 }
 
@@ -87,14 +92,14 @@ extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDel
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        pageControl.numberOfPages = dataArray.count
+        pageControl.numberOfPages = contentSlider.count
         return numberOfPages
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = indexPath.item
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCell
-        let image = dataArray[index]["img"] ?? ""
+        let image = contentSlider[index].imageName ?? ""
         cell.initData(img: image)
         return cell
     }
