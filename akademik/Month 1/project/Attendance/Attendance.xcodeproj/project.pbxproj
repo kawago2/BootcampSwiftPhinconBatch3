@@ -64,7 +64,6 @@
 		367C5D1D2B0D912000C1678F /* ForgotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D1C2B0D912000C1678F /* ForgotViewModel.swift */; };
 		367C5D1F2B0DA03B00C1678F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */; };
 		367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */; };
-		367C5D232B0DBEBB00C1678F /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D222B0DBEBB00C1678F /* ProfileViewModel.swift */; };
 		36ADC91D2B0F490300E135DC /* ApproveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC91B2B0F490300E135DC /* ApproveCell.swift */; };
 		36ADC91E2B0F490300E135DC /* ApproveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC91C2B0F490300E135DC /* ApproveCell.xib */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
@@ -163,7 +162,6 @@
 		367C5D1C2B0D912000C1678F /* ForgotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewModel.swift; sourceTree = "<group>"; };
 		367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
-		367C5D222B0DBEBB00C1678F /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		36ADC91B2B0F490300E135DC /* ApproveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveCell.swift; sourceTree = "<group>"; };
 		36ADC91C2B0F490300E135DC /* ApproveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApproveCell.xib; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -455,7 +453,6 @@
 				36DDA9202B0B015600350039 /* EditProfileView */,
 				36210D952B0324240009EBC0 /* ProfileViewController.swift */,
 				36210D962B0324240009EBC0 /* ProfileViewController.xib */,
-				367C5D222B0DBEBB00C1678F /* ProfileViewModel.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -890,7 +887,6 @@
 				36210D282B02084B0009EBC0 /* SceneDelegate.swift in Sources */,
 				36210D5C2B02094C0009EBC0 /* SplashViewController.swift in Sources */,
 				36C2872F2B04693700F17ADA /* ExtUIViewController.swift in Sources */,
-				367C5D232B0DBEBB00C1678F /* ProfileViewModel.swift in Sources */,
 				363D48442B047AF300B1329F /* TabBarViewController.swift in Sources */,
 				36210D6B2B0221190009EBC0 /* ExtUIButton.swift in Sources */,
 				36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */,
