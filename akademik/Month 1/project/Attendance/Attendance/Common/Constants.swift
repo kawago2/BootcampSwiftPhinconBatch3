@@ -13,6 +13,10 @@ enum Icons {
     
 }
 
+enum Variables {
+    static let dataArray = ["Date Permission", "Status"]
+}
+
 
 
 enum FAuth {

@@ -18,6 +18,7 @@ target 'Attendance' do
   pod 'Kingfisher'
   pod 'ReachabilitySwift'
   pod 'FloatingPanel'
+  pod 'netfox', :configurations => 'Debug'
 
   target 'AttendanceTests' do
     inherit! :search_paths

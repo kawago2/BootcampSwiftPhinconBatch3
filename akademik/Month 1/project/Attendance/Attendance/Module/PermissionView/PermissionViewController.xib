@@ -12,6 +12,8 @@
             <connections>
                 <outlet property="addButton" destination="ciT-nX-9T9" id="KSy-Ww-TEb"/>
                 <outlet property="backButton" destination="y5d-ZT-cnD" id="yC6-Pk-D4W"/>
+                <outlet property="collectionView" destination="HvK-ip-Kms" id="tDh-2w-4zV"/>
+                <outlet property="emptyView" destination="IsP-6V-CCL" id="r1F-5j-3be"/>
                 <outlet property="tableView" destination="94B-kM-aKi" id="aUY-iE-j4s"/>
                 <outlet property="view" destination="hxh-6X-rEM" id="9ah-El-1Ar"/>
             </connections>

@@ -14,8 +14,8 @@
             filePath = "Attendance/Module/PermissionView/PermissionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "Attendance/Module/PermissionView/PermissionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "deleteRow(at:)"
             landmarkType = "7">
          </BreakpointContent>

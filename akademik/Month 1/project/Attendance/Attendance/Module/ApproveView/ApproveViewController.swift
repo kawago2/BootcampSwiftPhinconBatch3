@@ -3,6 +3,7 @@ import RxCocoa
 import RxSwift
 class ApproveViewController: UIViewController {
     
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,7 +18,7 @@ class ApproveViewController: UIViewController {
         }
     }
     
-    let dataArray = ["Date Permission", "Status"]
+    
     var currentSortBy = ""
     
     override func viewDidLoad() {
@@ -67,6 +68,12 @@ class ApproveViewController: UIViewController {
             case .failure(let error):
                 print("Error: \(error)")
             }
+        }
+    }
+    
+    func updateEmptyView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if self.completedPermission.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
         }
     }
 }
@@ -213,7 +220,7 @@ extension ApproveViewController:  UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let data = self.dataArray[indexPath.item]
+        let data = Variables.dataArray[indexPath.item]
         var uiLabel = UILabel()
         uiLabel.text = data
         uiLabel.sizeToFit()
@@ -234,6 +241,7 @@ extension ApproveViewController : SortbyCellDelegate {
             self.sortByStatus(sortby: sortby)
             self.sortByDate(sortby: sortby)
             self.tableView.reloadData()
+            self.updateEmptyView()
         })
     }
 
