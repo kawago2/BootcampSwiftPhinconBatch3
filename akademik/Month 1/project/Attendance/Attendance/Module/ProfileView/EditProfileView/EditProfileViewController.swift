@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 protocol EditProfileViewDelegate {
     func didSaveTapped(item: ProfileItem, image: UIImage?)
@@ -26,6 +28,8 @@ class EditProfileViewController: UIViewController {
     var name = ""
     var posisi = ""
     var resultImage: UIImage!
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,12 +68,33 @@ class EditProfileViewController: UIViewController {
     
     
     func buttonEvent() {
-        backgroundButton.addTarget(self, action: #selector(popToView), for: .touchUpInside)
-        cancelButton.addTarget(self, action: #selector(popToView), for: .touchUpInside)
-        saveButton.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
-        galeryButton.addTarget(self, action: #selector(openGallery), for: .touchUpInside)
-        cameraButton.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
+        backgroundButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.popToView()
+        }).disposed(by: disposeBag)
+        
+        cancelButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.popToView()
+        }).disposed(by: disposeBag)
+        
+        saveButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.saveTapped()
+        }).disposed(by: disposeBag)
+        
+        galeryButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.openGallery()
+        }).disposed(by: disposeBag)
+        
+        cameraButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.openCamera()
+        }).disposed(by: disposeBag)
+        
     }
+    
     
     @objc func popToView() {
         self.dismiss(animated: true)
@@ -83,7 +108,7 @@ class EditProfileViewController: UIViewController {
             self.loadingView.stopAnimating()
             self.dismiss(animated: true)
         }
-
+        
     }
     
     func initData(image: String?, item: ProfileItem?) {
@@ -98,11 +123,11 @@ class EditProfileViewController: UIViewController {
     @objc func openGallery() {
         showImagePicker(sourceType: .photoLibrary)
     }
-
+    
     @objc func openCamera() {
         showImagePicker(sourceType: .camera)
     }
-
+    
     func showImagePicker(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -126,7 +151,7 @@ extension EditProfileViewController: UITextFieldDelegate {
     }
     
     
-
+    
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -137,7 +162,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         }
         dismiss(animated: true, completion: nil)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

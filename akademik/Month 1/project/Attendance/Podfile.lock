@@ -771,6 +771,9 @@ PODS:
   - RxCocoa (6.6.0):
     - RxRelay (= 6.6.0)
     - RxSwift (= 6.6.0)
+  - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.6.0):
     - RxSwift (= 6.6.0)
   - RxSwift (6.6.0)
@@ -788,6 +791,7 @@ DEPENDENCIES:
   - netfox
   - ReachabilitySwift
   - RxCocoa
+  - RxGesture
   - RxSwift
   - SnapKit
 
@@ -820,6 +824,7 @@ SPEC REPOS:
     - ReachabilitySwift
     - RecaptchaInterop
     - RxCocoa
+    - RxGesture
     - RxRelay
     - RxSwift
     - SnapKit
@@ -852,10 +857,11 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 78ef6f32a751b58d38594d485f7c0abc9233ef73
+PODFILE CHECKSUM: cd844bbea4154f26f360b7902379f993f802144c
 
 COCOAPODS: 1.14.3

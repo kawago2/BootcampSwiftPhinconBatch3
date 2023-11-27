@@ -6,7 +6,6 @@ struct InfoItem {
     let imageName: String?
 }
 
-
 struct HistoryItem {
     let checkTime: Date?
     let descLocation: String?
@@ -23,7 +22,6 @@ struct TimesheetItem {
     let task: String?
     let status: TaskStatus?
 }
-
 
 enum DateSortOption: String, CaseIterable {
     case newest = "Newest"

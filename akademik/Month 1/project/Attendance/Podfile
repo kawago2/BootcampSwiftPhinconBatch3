@@ -6,18 +6,29 @@ target 'Attendance' do
   use_frameworks!
 
   # Pods for Attendance
+  
+  # package for firebase
   pod 'FirebaseCore'
   pod 'FirebaseFirestore'
   pod 'FirebaseAuth'
   pod 'FirebaseStorage'
-  pod 'lottie-ios'
+  
+  # package for util
   pod 'SnapKit'
-  pod 'DropDown'
-  pod 'RxSwift'
-  pod 'RxCocoa'
   pod 'Kingfisher'
+  
+  # package calling function
+  pod 'DropDown'
+  pod 'lottie-ios'
   pod 'ReachabilitySwift'
   pod 'FloatingPanel'
+  
+  # package RX
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxGesture'
+  
+  # package debugging
   pod 'netfox', :configurations => 'Debug'
 
   target 'AttendanceTests' do

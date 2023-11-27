@@ -66,6 +66,7 @@
 		367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */; };
 		36ADC91D2B0F490300E135DC /* ApproveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC91B2B0F490300E135DC /* ApproveCell.swift */; };
 		36ADC91E2B0F490300E135DC /* ApproveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC91C2B0F490300E135DC /* ApproveCell.xib */; };
+		36ADC9212B14960700E135DC /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9202B14960700E135DC /* WelcomeViewModel.swift */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C2872F2B04693700F17ADA /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C2872E2B04693700F17ADA /* ExtUIViewController.swift */; };
 		36C287322B04766100F17ADA /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* InfoItem.swift */; };
@@ -165,6 +166,7 @@
 		36ADC91B2B0F490300E135DC /* ApproveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveCell.swift; sourceTree = "<group>"; };
 		36ADC91C2B0F490300E135DC /* ApproveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApproveCell.xib; sourceTree = "<group>"; };
 		36ADC91F2B146E9100E135DC /* Attendance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Attendance.entitlements; sourceTree = "<group>"; };
+		36ADC9202B14960700E135DC /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C2872E2B04693700F17ADA /* ExtUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtUIViewController.swift; path = "../../../../../Week 1/Day3/profileUI/profileUI/Common/Extension/ExtUIViewController.swift"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				36210D6E2B02237F0009EBC0 /* CollectionCell */,
 				36210D5F2B020B320009EBC0 /* WelcomeViewController.swift */,
 				36210D602B020B320009EBC0 /* WelcomeViewController.xib */,
+				36ADC9202B14960700E135DC /* WelcomeViewModel.swift */,
 			);
 			path = WelcomeView;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */,
 				3670C6852B05D7FC0011985F /* TimesheetCell.swift in Sources */,
 				36ADC91D2B0F490300E135DC /* ApproveCell.swift in Sources */,
+				36ADC9212B14960700E135DC /* WelcomeViewModel.swift in Sources */,
 				3670C67F2B05D3C60011985F /* TimesheetViewController.swift in Sources */,
 				36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */,
 				363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */,

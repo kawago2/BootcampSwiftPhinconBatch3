@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 class WelcomeViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
@@ -11,11 +13,13 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var bottonView: UIView!
     
     var contentSlider: [InfoItem] = []
-    let numberOfPages = 3
+    var numberOfPages: Int  {
+        return self.contentSlider.count
+    }
     var timer: Timer?
     var currentPages = 0
     
-    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +39,29 @@ class WelcomeViewController: UIViewController {
     }
     
     func buttonEvent() {
-        skipButton.addTarget(self, action: #selector(navigateLogin), for: .touchUpInside)
-        loginButton.addTarget(self, action: #selector(navigateLogin), for: .touchUpInside)
-        registerButton.addTarget(self, action: #selector(navigateRegister), for: .touchUpInside)
-        pageControl.addTarget(self, action: #selector(pageControlClicked), for: .valueChanged)
+        
+        skipButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.navigateLogin()
+        }).disposed(by: disposeBag)
+        
+        loginButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.navigateLogin()
+        }).disposed(by: disposeBag)
+        
+        registerButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.navigateRegister()
+        }).disposed(by: disposeBag)
+        
+        pageControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.pageControlClicked()
+            })
+            .disposed(by: disposeBag)
+
     }
     
     func loadData() {
@@ -50,7 +73,7 @@ class WelcomeViewController: UIViewController {
         
     }
     
-    @objc func navigateLogin() {
+    func navigateLogin() {
         let vc = LoginViewController()
         navigationController?.setViewControllers([vc], animated: true)
     }

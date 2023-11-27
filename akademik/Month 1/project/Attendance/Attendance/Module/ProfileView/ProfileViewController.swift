@@ -2,6 +2,7 @@ import UIKit
 import Kingfisher
 import RxSwift
 import RxCocoa
+import RxGesture
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
@@ -34,11 +35,21 @@ class ProfileViewController: UIViewController {
     }
     
     func buttonEvent() {
-        let signout = UITapGestureRecognizer(target: self, action: #selector(signoutTapped))
-        signoutButton.addGestureRecognizer(signout)
+        signoutButton.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.signoutTapped()
+            })
+            .disposed(by: disposeBag)
         
-        let editprofile = UITapGestureRecognizer(target: self, action: #selector(navigateFP))
-        pencilButton.addGestureRecognizer(editprofile)
+        pencilButton.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                self.navigateFP()
+            })
+            .disposed(by: disposeBag)
     }
 
     @objc func signoutTapped() {
@@ -46,11 +57,7 @@ class ProfileViewController: UIViewController {
             switch result {
             case .success:
                 print("Logout successful")
-                self.showAlert(title: "Success", message: "Logout successful") {
-                    self.navigateToLogin()
-                }
-                
-                
+                self.navigateToLogin()
             case .failure(let error):
                 print("Logout failed with error: \(error.localizedDescription)")
                 self.showAlert(title: "Error", message: "Logout failed. \(error.localizedDescription)")
