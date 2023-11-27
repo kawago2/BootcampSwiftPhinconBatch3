@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxGesture
 import FirebaseFirestore
 
 class HistoryViewController: UIViewController {
@@ -18,6 +20,7 @@ class HistoryViewController: UIViewController {
     var allData: [InfoItem] = []
     var allDataHistory: [HistoryItem] = []
     var filteredData: [HistoryItem] = []
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +34,25 @@ class HistoryViewController: UIViewController {
     }
     
     func buttonEvent() {
-        dayButton.addTarget(self, action: #selector(dayButtonTapped), for: .touchUpInside)
-        weekButton.addTarget(self, action: #selector(weekButtonTapped), for: .touchUpInside)
-        monthButton.addTarget(self, action: #selector(monthButtonTapped), for: .touchUpInside)
-        yearButton.addTarget(self, action: #selector(yearButtonTapped), for: .touchUpInside)
+        dayButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.dayButtonTapped()
+        }).disposed(by: disposeBag)
+        
+        weekButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.weekButtonTapped()
+        }).disposed(by: disposeBag)
+        
+        monthButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.monthButtonTapped()
+        }).disposed(by: disposeBag)
+        
+        yearButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.yearButtonTapped()
+        }).disposed(by: disposeBag)
     }
     
     @objc func dayButtonTapped() {
@@ -89,7 +107,11 @@ class HistoryViewController: UIViewController {
     
     func setupScrollToTopButton() {
         scrollToTopButton.setImage(UIImage(systemName: "arrow.up.circle"), for: .normal)
-        scrollToTopButton.addTarget(self, action: #selector(goToTopButtonTapped), for: .touchUpInside)
+        scrollToTopButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.goToTopButtonTapped()
+        }).disposed(by: disposeBag)
+        
         scrollToTopButton.translatesAutoresizingMaskIntoConstraints = false
         scrollToTopButton.isHidden = true
         view.addSubview(scrollToTopButton)

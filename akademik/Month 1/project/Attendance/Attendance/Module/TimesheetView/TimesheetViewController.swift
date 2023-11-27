@@ -1,4 +1,5 @@
 import UIKit
+import RxSwift
 import FirebaseFirestore
 
 class TimesheetViewController: UIViewController {
@@ -18,7 +19,7 @@ class TimesheetViewController: UIViewController {
         }
     }
     var cellContexts: [String] = ["date", "option"]
-    
+    let disposeBag = DisposeBag()
     var currentSortBy = ""
     
     override func viewDidLoad() {
@@ -34,7 +35,10 @@ class TimesheetViewController: UIViewController {
         
     }
     func buttonEvent() {
-        addButton.addTarget(self, action: #selector(navigateFP), for: .touchUpInside)
+        addButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.navigateFP()
+        })
     }
     
     func setupUI() {

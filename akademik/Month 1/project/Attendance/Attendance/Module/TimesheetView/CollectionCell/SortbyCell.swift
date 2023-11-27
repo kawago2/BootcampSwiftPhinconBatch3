@@ -1,5 +1,7 @@
 import UIKit
 import DropDown
+import RxSwift
+import RxGesture
 
 protocol SortbyCellDelegate {
     func didLabelTapped(sortby: String)
@@ -17,6 +19,7 @@ class SortbyCell: UICollectionViewCell {
             setupDropDown()
         }
     }
+    let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,9 +29,10 @@ class SortbyCell: UICollectionViewCell {
     }
     
     func buttonEvent() {
-        let sortGes = UITapGestureRecognizer(target: self, action: #selector(didLabelTapped))
-        sortNameLabel.addGestureRecognizer(sortGes)
-        sortNameLabel.isUserInteractionEnabled = true
+        sortNameLabel.rx.tapGesture().when(.recognized).subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.didLabelTapped()
+        }).disposed(by: disposeBag)
     }
     
     func setupUI() {

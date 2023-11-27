@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var circleView: UIImageView!
@@ -26,6 +27,7 @@ class HomeViewController: UIViewController {
     var selectedCell = 0
     var currentDate = Date()
     var isValidator = false
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +39,20 @@ class HomeViewController: UIViewController {
     }
     
     func buttonEvent() {
-        let tapCheck = UITapGestureRecognizer(target: self, action: #selector(checkToggle))
-        isCheckInLabel.addGestureRecognizer(tapCheck)
-        let tapForm = UITapGestureRecognizer(target: self, action: #selector(navigateToForm))
-        formView.addGestureRecognizer(tapForm)
-        let tapValidator = UITapGestureRecognizer(target: self, action: #selector(navigateToValidator))
-        validatorView.addGestureRecognizer(tapValidator)
+        isCheckInLabel.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self]_ in
+            guard let self = self else { return }
+            self.checkToggle()
+        }).disposed(by: disposeBag)
         
+        formView.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self]_ in
+            guard let self = self else { return }
+            self.navigateToForm()
+        }).disposed(by: disposeBag)
+        
+        validatorView.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self]_ in
+            guard let self = self else { return }
+            self.navigateToValidator()
+        }).disposed(by: disposeBag)
     }
 
     @objc func checkToggle() {

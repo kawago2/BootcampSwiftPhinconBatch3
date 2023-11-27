@@ -35,11 +35,12 @@ class AddPermissionViewController: UIViewController {
             self.addTapped()
             
         }).disposed(by: disposeBag)
-        
-        let typeGesture = UITapGestureRecognizer(target: self, action: #selector(showDropdown))
-        typeLabel.isUserInteractionEnabled = true
-        typeLabel.addGestureRecognizer(typeGesture)
-        
+
+        typeLabel.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
+            guard let self = self else { return }
+            self.showDropdown()
+            
+        }).disposed(by: disposeBag)
 
     }
     
@@ -58,6 +59,7 @@ class AddPermissionViewController: UIViewController {
     func setupDropdown() {
         typeDropDown.anchorView = typeLabel
         typeDropDown.dataSource = PermissionType.allCases.map { $0.rawValue }
+        typeDropDown.setupUI()
         typeDropDown.selectRow(0)
         typeLabel.text = typeDropDown.selectedItem
         typeDropDown.selectionAction = { [weak self] index, item in

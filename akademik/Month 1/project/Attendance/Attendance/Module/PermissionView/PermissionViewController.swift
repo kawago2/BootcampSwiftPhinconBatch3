@@ -38,9 +38,7 @@ class PermissionViewController: UIViewController {
         addButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
             self.navigateFP()
-            
         }).disposed(by: disposeBag)
-        
     }
     
     func backTo(){

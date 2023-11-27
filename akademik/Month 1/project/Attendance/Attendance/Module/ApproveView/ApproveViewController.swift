@@ -18,7 +18,6 @@ class ApproveViewController: UIViewController {
         }
     }
     
-    
     var currentSortBy = ""
     
     override func viewDidLoad() {

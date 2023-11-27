@@ -68,10 +68,25 @@ class AddFormViewController: UIViewController {
     }
     
     func eventButton() {
-        addButton.addTarget(self, action: #selector(didAddTapped), for: .touchUpInside)
-        cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
-        backgroundButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
-        statusButton.addTarget(self, action: #selector(showDropDown), for: .touchUpInside)
+        addButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.didAddTapped()
+        }).disposed(by: disposeBag)
+        
+        cancelButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.cancelTapped()
+        }).disposed(by: disposeBag)
+        
+        backgroundButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.cancelTapped()
+        }).disposed(by: disposeBag)
+        
+        statusButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.showDropDown()
+        }).disposed(by: disposeBag)
     }
     
     func setupDropDown() {
