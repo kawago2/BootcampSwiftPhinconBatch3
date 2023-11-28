@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/phincon/Documents/workspace/BootcampSwiftPhinconBatch3/akademik/Month 1/project/Attendance/README.md">
+   </FileRef>
+   <FileRef
       location = "group:Attendance.xcodeproj">
    </FileRef>
    <FileRef
