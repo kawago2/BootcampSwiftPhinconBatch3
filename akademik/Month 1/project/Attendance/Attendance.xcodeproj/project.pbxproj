@@ -50,7 +50,6 @@
 		36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210DA42B0348270009EBC0 /* LocationCell.xib */; };
 		363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */; };
 		363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */; };
-		363D48442B047AF300B1329F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D48432B047AF300B1329F /* TabBarViewController.swift */; };
 		3670C6772B05B6800011985F /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C6762B05B6800011985F /* CustomLoading.swift */; };
 		3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3670C6782B05B68E0011985F /* CustomLoading.xib */; };
 		3670C67B2B05C9510011985F /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67A2B05C9510011985F /* ExtDate.swift */; };
@@ -71,6 +70,7 @@
 		36ADC9292B15878E00E135DC /* ExtUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9282B15878E00E135DC /* ExtUIImageView.swift */; };
 		36ADC92B2B1587B400E135DC /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC92A2B1587B400E135DC /* ExtTableView.swift */; };
 		36ADC92D2B1587F700E135DC /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC92C2B1587F700E135DC /* ExtUIViewController.swift */; };
+		36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC92F2B158C2000E135DC /* TabBarViewController.swift */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C287322B04766100F17ADA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* ItemModel.swift */; };
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
@@ -151,7 +151,6 @@
 		36210DA42B0348270009EBC0 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCell.swift; sourceTree = "<group>"; };
 		363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionCell.xib; sourceTree = "<group>"; };
-		363D48432B047AF300B1329F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3670C6762B05B6800011985F /* CustomLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoading.swift; sourceTree = "<group>"; };
 		3670C6782B05B68E0011985F /* CustomLoading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLoading.xib; sourceTree = "<group>"; };
 		3670C67A2B05C9510011985F /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
@@ -173,6 +172,7 @@
 		36ADC9282B15878E00E135DC /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
 		36ADC92A2B1587B400E135DC /* ExtTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtTableView.swift; sourceTree = "<group>"; };
 		36ADC92C2B1587F700E135DC /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
+		36ADC92F2B158C2000E135DC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
@@ -269,7 +269,6 @@
 				36210D682B0220F40009EBC0 /* Common */,
 				36210D562B02089F0009EBC0 /* App */,
 				36210D552B0208940009EBC0 /* Module */,
-				36210D2B2B02084B0009EBC0 /* Main.storyboard */,
 				36210D2E2B02084C0009EBC0 /* Assets.xcassets */,
 				36210D302B02084C0009EBC0 /* LaunchScreen.storyboard */,
 				36210D332B02084C0009EBC0 /* Info.plist */,
@@ -298,6 +297,7 @@
 		36210D552B0208940009EBC0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36ADC92E2B158C0E00E135DC /* MainTabBar */,
 				36C287302B04764D00F17ADA /* Models */,
 				3609C76A2B0EE43D000DE5B7 /* PermissionView */,
 				36C5115F2B0F440F00B2EA7C /* ApproveView */,
@@ -306,7 +306,6 @@
 				36210D732B0302D60009EBC0 /* LoginView */,
 				36210D802B031BF10009EBC0 /* RegisterView */,
 				36210D852B0321A30009EBC0 /* ForgotView */,
-				36210D992B03245F0009EBC0 /* MainTabBar */,
 				36210D8A2B0323D70009EBC0 /* HomeView */,
 				36210D8F2B0323EE0009EBC0 /* HistoryView */,
 				36210D942B03240F0009EBC0 /* ProfileView */,
@@ -328,6 +327,7 @@
 		36210D572B0208B40009EBC0 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				36210D2B2B02084B0009EBC0 /* Main.storyboard */,
 				36210D292B02084B0009EBC0 /* ViewController.swift */,
 			);
 			path = MainView;
@@ -467,15 +467,6 @@
 			path = ProfileView;
 			sourceTree = "<group>";
 		};
-		36210D992B03245F0009EBC0 /* MainTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				363D48432B047AF300B1329F /* TabBarViewController.swift */,
-			);
-			name = MainTabBar;
-			path = "../../../../Week 1/Day3/profileUI/profileUI/Module/MainTabBar";
-			sourceTree = "<group>";
-		};
 		36210DA02B0347D60009EBC0 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +556,14 @@
 				36ADC9262B15781200E135DC /* CustomEmpty.xib */,
 			);
 			path = CustomEmpty;
+			sourceTree = "<group>";
+		};
+		36ADC92E2B158C0E00E135DC /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC92F2B158C2000E135DC /* TabBarViewController.swift */,
+			);
+			path = MainTabBar;
 			sourceTree = "<group>";
 		};
 		36C287302B04764D00F17ADA /* Models */ = {
@@ -905,11 +904,11 @@
 				36210D7C2B0304CC0009EBC0 /* InputField.swift in Sources */,
 				36ADC9292B15878E00E135DC /* ExtUIImageView.swift in Sources */,
 				367C5D1D2B0D912000C1678F /* ForgotViewModel.swift in Sources */,
+				36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */,
 				36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */,
 				3670C68A2B05F2710011985F /* AddFormViewController.swift in Sources */,
 				36210D282B02084B0009EBC0 /* SceneDelegate.swift in Sources */,
 				36210D5C2B02094C0009EBC0 /* SplashViewController.swift in Sources */,
-				363D48442B047AF300B1329F /* TabBarViewController.swift in Sources */,
 				36210D6B2B0221190009EBC0 /* ExtUIButton.swift in Sources */,
 				36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */,
 				3670C6852B05D7FC0011985F /* TimesheetCell.swift in Sources */,
