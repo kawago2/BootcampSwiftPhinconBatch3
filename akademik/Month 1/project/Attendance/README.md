@@ -1,3 +1,110 @@
+# Features
+
+## User Interface (UI) Enhancements
+- **Profile Menu Improvements**
+  - Added filter functionality.
+  - Improved overall profile menu UI.
+
+- **Home Screen**
+  - Enhanced home screen, fixing layout issues.
+  - Implemented logic for a better user experience.
+
+- **Login and Registration Views**
+  - Implemented a cleaner UI for login and registration.
+  - Added UI enhancements for the forgot password view.
+
+- **Splash Screen**
+  - Added animation on splash screen.
+  - Implemented MVVM architecture with RxSwift on splash screen.
+
+- **Tab Bar**
+  - Added a tab bar at the home section.
+  - Improved tab bar button icons.
+
+- **Floating and Cart**
+  - Improved floating panel functionality.
+  - Enhanced cart UI and logic.
+
+- **Search Bar**
+  - Implemented a search bar using RxSwift for a smoother user experience.
+
+## Backend and Logic
+- **MVVM Implementation**
+  - Refactored various sections to follow the MVVM architecture.
+  - Implemented MVVM with RxSwift for specific views.
+
+- **Firestore Integration**
+  - Connected the application to Firestore.
+  - Implemented logic for data retrieval and processing.
+
+- **RxSwift Integration**
+  - Added RxSwift and RxCocoa packages.
+  - Utilized RxSwift for handling gestures and taps.
+
+- **Feature: Timesheet**
+  - Added timesheet functionality, including logic and UI enhancements.
+
+- **Feature: Phincon Attendance**
+  - Implemented Phincon Attendance feature.
+
+- **Feature: Reachability**
+  - Added reachability feature for improved network handling.
+
+- **Feature: Approval**
+  - Introduced approval functionality.
+
+- **Feature: Validator for Permission**
+  - Created a validator for permission-related actions.
+
+## Bug Fixes and General Improvements
+- **Bug Fix: Autoplay**
+  - Fixed a bug related to autoplay.
+
+- **Bug Fix: Hidden Navigation Top Bar**
+  - Resolved the issue of the hidden navigation top bar.
+
+- **Clean Code**
+  - Conducted code cleaning and optimization.
+
+- **Unused Code Removal**
+  - Removed all unused code.
+
+- **General Code Cleanup**
+  - Performed general cleanup to enhance code readability.
+
+- **UI: Icon and Button Changes**
+  - Updated icons and buttons for better visual appeal.
+
+## Additional Packages and Libraries
+- **Lottie**
+  - Added Lottie package for animation.
+  
+- **Kingfisher**
+  - Integrated Kingfisher for image loading.
+
+- **ChartView**
+  - Set up the application for ChartView functionality.
+
+- **RxSwift and RxCocoa**
+  - Introduced RxSwift and RxCocoa for reactive programming.
+
+# Miscellaneous
+- **Package Management**
+  - Utilized Cocoapods for package management.
+
+- **State Management**
+  - Implemented state management in specific sections.
+
+- **Custom Fonts**
+  - Added custom fonts for a unique visual experience.
+
+- **Documentation and Changelog**
+  - Maintained documentation and provided a detailed changelog.
+
+This section highlights the key features and improvements implemented in the project, covering UI enhancements, backend logic, bug fixes, and additional packages integrated into the application.
+
+
+
 # Changelog
 
 ## Nov 27, 2023
