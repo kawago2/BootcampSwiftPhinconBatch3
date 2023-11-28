@@ -17,7 +17,7 @@ target 'Attendance' do
   pod 'SnapKit'
   pod 'Kingfisher'
   
-  # package calling function
+  # package for custom class
   pod 'DropDown'
   pod 'lottie-ios'
   pod 'ReachabilitySwift'
