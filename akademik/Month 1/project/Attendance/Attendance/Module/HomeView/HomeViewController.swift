@@ -231,7 +231,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         }
         cell.context = isCheckIn ? true : false
         cell.isUseSelected = true
-        cell.initData(title: location?.title ?? "" , desc: location?.description ?? "", img: location?.imageName ?? "image_not_available")
+        if let location = location {
+            cell.initData(item: location)
+        }
         
         
         return cell

@@ -217,6 +217,7 @@ class HistoryViewController: UIViewController {
             }
             return false
         }
+        filteredData = filteredData.sorted { $0.checkTime ?? Date() > $1.checkTime ?? Date() }
         if filteredData.isEmpty {
             emptyView.show()
             
@@ -261,7 +262,9 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                 let formattedTime = timeFormatter.string(from: filter.checkTime ?? Date())
                 let title = filter.titleLocation ?? ""
                 
-                cell.initData(title: "\(checkString) - \(title) - \(formattedTime)", desc: filter.descLocation ?? "", img: filter.image ?? "image_not_available")
+                let item = InfoItem(title: "\(checkString) - \(title) - \(formattedTime)", description: filter.descLocation ?? "", imageName: filter.image ?? "image_not_available")
+                
+                cell.initData(item: item)
                 return cell
             }
            

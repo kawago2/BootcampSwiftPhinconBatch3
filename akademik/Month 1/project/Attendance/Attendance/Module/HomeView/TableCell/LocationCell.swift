@@ -37,10 +37,10 @@ class LocationCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func initData(title: String, desc: String, img: String) {
-        titleLabel.text = title
-        descLabel.text = desc
-        imageeView.image = UIImage(named: img)
+    func initData(item: InfoItem) {
+        titleLabel.text = item.title
+        descLabel.text = item.description
+        imageeView.image = UIImage(named: item.imageName ?? "image_not_available")
     }
     
     
