@@ -88,7 +88,7 @@
 - **RxSwift and RxCocoa**
   - Introduced RxSwift and RxCocoa for reactive programming.
 
-# Miscellaneous
+## Miscellaneous
 - **Package Management**
   - Utilized Cocoapods for package management.
 
@@ -100,10 +100,6 @@
 
 - **Documentation and Changelog**
   - Maintained documentation and provided a detailed changelog.
-
-This section highlights the key features and improvements implemented in the project, covering UI enhancements, backend logic, bug fixes, and additional packages integrated into the application.
-
-
 
 # Changelog
 
