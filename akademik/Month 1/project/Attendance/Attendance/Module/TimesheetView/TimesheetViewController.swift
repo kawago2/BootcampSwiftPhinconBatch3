@@ -1,16 +1,17 @@
 import UIKit
 import RxSwift
+import RxGesture
 import FirebaseFirestore
 
 class TimesheetViewController: UIViewController {
 
-    
+    @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingView: CustomLoading!
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var addButton: UIImageView!
     @IBOutlet weak var emptyView: CustomEmpty!
-    
+    @IBOutlet weak var cardView: UIView!
     
     var timesheetData: [TimesheetItem] = []
     var completedTimesheets: [TimesheetItem] = [] {
@@ -35,13 +36,16 @@ class TimesheetViewController: UIViewController {
         
     }
     func buttonEvent() {
-        addButton.rx.tap.subscribe(onNext: {[weak self] in
+        addButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else { return }
             self.navigateFP()
         }).disposed(by: disposeBag)
     }
     
     func setupUI() {
+        cardView.makeCornerRadius(20)
+        circleView.tintColor = .white.withAlphaComponent(0.05)
+        
         tableView.registerCellWithNib(TimesheetCell.self)
         tableView.delegate = self
         tableView.dataSource = self

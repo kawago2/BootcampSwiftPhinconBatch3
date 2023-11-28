@@ -71,6 +71,7 @@
 		36ADC92B2B1587B400E135DC /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC92A2B1587B400E135DC /* ExtTableView.swift */; };
 		36ADC92D2B1587F700E135DC /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC92C2B1587F700E135DC /* ExtUIViewController.swift */; };
 		36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC92F2B158C2000E135DC /* TabBarViewController.swift */; };
+		36ADC9322B15952D00E135DC /* tes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9312B15952D00E135DC /* tes.xib */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C287322B04766100F17ADA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* ItemModel.swift */; };
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
@@ -173,6 +174,7 @@
 		36ADC92A2B1587B400E135DC /* ExtTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtTableView.swift; sourceTree = "<group>"; };
 		36ADC92C2B1587F700E135DC /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		36ADC92F2B158C2000E135DC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		36ADC9312B15952D00E135DC /* tes.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = tes.xib; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				3670C6812B05D7C40011985F /* TableCell */,
 				3670C67D2B05D3C60011985F /* TimesheetViewController.swift */,
 				3670C67E2B05D3C60011985F /* TimesheetViewController.xib */,
+				36ADC9312B15952D00E135DC /* tes.xib */,
 			);
 			path = TimesheetView;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */,
 				36210D322B02084C0009EBC0 /* LaunchScreen.storyboard in Resources */,
 				3609C76E2B0EE45F000DE5B7 /* PermissionViewController.xib in Resources */,
+				36ADC9322B15952D00E135DC /* tes.xib in Resources */,
 				36210D982B0324240009EBC0 /* ProfileViewController.xib in Resources */,
 				36DDA9192B076E0E00350039 /* SortbyCell.xib in Resources */,
 				36210D7B2B0304CC0009EBC0 /* InputField.xib in Resources */,
