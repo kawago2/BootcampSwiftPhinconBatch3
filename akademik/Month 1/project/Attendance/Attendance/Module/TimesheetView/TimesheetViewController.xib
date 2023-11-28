@@ -159,17 +159,17 @@
                     <rect key="frame" x="12" y="143" width="369" height="675"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="75s-1h-Ng8">
-                            <rect key="frame" x="10" y="119" width="351" height="556"/>
+                            <rect key="frame" x="10" y="98" width="351" height="577"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeR-Df-Rx7" customClass="CustomEmpty" customModule="Attendance" customModuleProvider="target">
-                            <rect key="frame" x="10" y="119" width="351" height="556"/>
+                            <rect key="frame" x="10" y="98" width="351" height="577"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="epA-Bz-JQP">
-                            <rect key="frame" x="10" y="12" width="351" height="77.666666666666671"/>
+                            <rect key="frame" x="10" y="12" width="351" height="55"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="afd-c5-8fe">
                                 <size key="itemSize" width="128" height="128"/>
@@ -185,9 +185,9 @@
                         <constraint firstAttribute="bottom" secondItem="75s-1h-Ng8" secondAttribute="bottom" id="IwT-CH-y6w"/>
                         <constraint firstItem="75s-1h-Ng8" firstAttribute="leading" secondItem="jF8-bh-oow" secondAttribute="leading" constant="10" id="Wct-mz-gjp"/>
                         <constraint firstItem="BeR-Df-Rx7" firstAttribute="leading" secondItem="75s-1h-Ng8" secondAttribute="leading" id="d2T-7Y-z7R"/>
-                        <constraint firstItem="75s-1h-Ng8" firstAttribute="top" secondItem="epA-Bz-JQP" secondAttribute="bottom" constant="29.333333333333314" id="e2X-3l-vlj"/>
+                        <constraint firstItem="75s-1h-Ng8" firstAttribute="top" secondItem="epA-Bz-JQP" secondAttribute="bottom" constant="31" id="e2X-3l-vlj"/>
                         <constraint firstItem="BeR-Df-Rx7" firstAttribute="trailing" secondItem="75s-1h-Ng8" secondAttribute="trailing" id="eFg-bx-c2e"/>
-                        <constraint firstItem="BeR-Df-Rx7" firstAttribute="top" secondItem="jF8-bh-oow" secondAttribute="top" constant="119" id="epx-bk-9N9"/>
+                        <constraint firstItem="BeR-Df-Rx7" firstAttribute="top" secondItem="jF8-bh-oow" secondAttribute="top" constant="98" id="epx-bk-9N9"/>
                         <constraint firstItem="75s-1h-Ng8" firstAttribute="trailing" secondItem="jF8-bh-oow" secondAttribute="trailingMargin" id="kuw-ys-cYe"/>
                         <constraint firstItem="75s-1h-Ng8" firstAttribute="trailing" secondItem="epA-Bz-JQP" secondAttribute="trailing" id="qMH-si-0AH"/>
                         <constraint firstItem="75s-1h-Ng8" firstAttribute="centerY" secondItem="BeR-Df-Rx7" secondAttribute="centerY" id="uxN-01-j6E"/>
@@ -208,7 +208,7 @@
                 <constraint firstItem="jF8-bh-oow" firstAttribute="top" secondItem="C2H-Jd-WJ0" secondAttribute="top" constant="84" id="wya-Lx-lB3"/>
                 <constraint firstItem="aNx-5d-Np1" firstAttribute="centerX" secondItem="jF8-bh-oow" secondAttribute="centerX" id="yfX-LK-KWJ"/>
             </constraints>
-            <point key="canvasLocation" x="-761" y="20"/>
+            <point key="canvasLocation" x="-761.06870229007632" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>

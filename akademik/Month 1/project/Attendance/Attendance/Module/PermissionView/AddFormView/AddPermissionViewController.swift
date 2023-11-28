@@ -59,7 +59,7 @@ class AddPermissionViewController: UIViewController {
     func setupDropdown() {
         typeDropDown.anchorView = typeLabel
         typeDropDown.dataSource = PermissionType.allCases.map { $0.rawValue }
-        typeDropDown.setupUI()
+        typeDropDown.setupUI(fontSize: 12)
         typeDropDown.selectRow(0)
         typeLabel.text = typeDropDown.selectedItem
         typeDropDown.selectionAction = { [weak self] index, item in

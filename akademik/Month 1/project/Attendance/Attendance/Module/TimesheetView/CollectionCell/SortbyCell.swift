@@ -58,9 +58,8 @@ class SortbyCell: UICollectionViewCell {
             optionMod.insert("Show All", at: 0)
             dropDown.dataSource = optionMod
         }
-        dropDown.setupUI()
+        dropDown.setupUI(fontSize: 12)
 
-        // Check if the array is not empty before selecting the first row
         if !dropDown.dataSource.isEmpty {
             dropDown.selectRow(0)
             sortNameLabel.text = dropDown.selectedItem

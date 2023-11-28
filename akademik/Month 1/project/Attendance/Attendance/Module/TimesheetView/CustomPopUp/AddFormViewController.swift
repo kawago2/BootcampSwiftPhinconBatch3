@@ -93,7 +93,8 @@ class AddFormViewController: UIViewController {
         dropDown.anchorView = statusButton
         dropDown.dataSource = TaskStatus.allCases.map { $0.rawValue }
         
-        dropDown.setupUI()
+        dropDown.setupUI(fontSize: 12)
+        
         if context == "edit" {
             updateStatusLabel(withStatus: .completed) // Set a default status here
         }

@@ -318,11 +318,29 @@ extension TimesheetViewController:  UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 50)
+        let index = indexPath.item
+        
+        var title = ""
+        switch index {
+        case 0:
+            title = "Date"
+        case 1:
+            title = "Status"
+        default:
+            break
+        }
+        
+        let font = UIFont.systemFont(ofSize: 12)
+        let titleWidth = NSString(string: title).size(withAttributes: [NSAttributedString.Key.font: font]).width
+        
+        let cellWidth = titleWidth + 10
+        
+        return CGSize(width: cellWidth + 100, height: 50)
     }
 
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -355,7 +373,6 @@ extension TimesheetViewController : SortbyCellDelegate {
     func sortByDate(sortby: String) {
         print(sortby)
         switch sortby {
-            
         case DateSortOption.oldest.rawValue.lowercased():
             completedTimesheets = completedTimesheets.sorted { $0.startDate ?? Date() < $1.startDate ?? Date() }
         case DateSortOption.newest.rawValue.lowercased():
