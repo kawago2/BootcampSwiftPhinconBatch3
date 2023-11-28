@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-            self.checkInternetConnection(navigationController: navigationController, tabbar: tabbar)
+            let result = self.checkInternetConnection(navigationController: navigationController, tabbar: tabbar)
         }
 
         navigationController.isNavigationBarHidden = true
