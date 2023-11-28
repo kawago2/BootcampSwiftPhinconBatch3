@@ -3,7 +3,7 @@ import RxCocoa
 import RxSwift
 class ApproveViewController: UIViewController {
     
-    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var emptyView: CustomEmpty!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -72,7 +72,11 @@ class ApproveViewController: UIViewController {
     
     func updateEmptyView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.completedPermission.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
+            if self.completedPermission.isEmpty {
+                self.emptyView.show()
+            } else {
+                self.emptyView.hide()
+            }
         }
     }
 }

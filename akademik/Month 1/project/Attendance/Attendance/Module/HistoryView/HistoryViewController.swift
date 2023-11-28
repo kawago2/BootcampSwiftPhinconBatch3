@@ -12,7 +12,7 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var monthButton: UIButton!
     @IBOutlet weak var yearButton: UIButton!
     @IBOutlet weak var loadingView: CustomLoading!
-    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var emptyView: CustomEmpty!
     
     let scrollToTopButton = UIButton(type: .system)
     
@@ -102,7 +102,6 @@ class HistoryViewController: UIViewController {
         tableView.registerCellWithNib(LocationCell.self)
         tableView.delegate = self
         tableView.dataSource = self
-        emptyView.isHidden = true
     }
     
     func setupScrollToTopButton() {
@@ -218,7 +217,12 @@ class HistoryViewController: UIViewController {
             }
             return false
         }
-        if filteredData.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
+        if filteredData.isEmpty {
+            emptyView.show()
+            
+        } else {
+            emptyView.hide()
+        }
         tableView.reloadData()
     }
 

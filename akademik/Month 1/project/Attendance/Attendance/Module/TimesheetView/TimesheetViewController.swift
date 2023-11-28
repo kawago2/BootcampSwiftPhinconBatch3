@@ -9,7 +9,7 @@ class TimesheetViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingView: CustomLoading!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var emptyView: CustomEmpty!
     
     
     var timesheetData: [TimesheetItem] = []
@@ -38,11 +38,10 @@ class TimesheetViewController: UIViewController {
         addButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
             self.navigateFP()
-        })
+        }).disposed(by: disposeBag)
     }
     
     func setupUI() {
-        emptyView.isHidden = true
         tableView.registerCellWithNib(TimesheetCell.self)
         tableView.delegate = self
         tableView.dataSource = self
@@ -110,7 +109,12 @@ class TimesheetViewController: UIViewController {
     
     func updateEmptyView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.completedTimesheets.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
+            if self.completedTimesheets.isEmpty {
+                self.emptyView.show()
+            } else {
+                self.emptyView.hide()
+                
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ import FirebaseAuth
 
 class PermissionViewController: UIViewController {
     
-    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var emptyView: CustomEmpty!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -76,7 +76,11 @@ class PermissionViewController: UIViewController {
     
     func updateEmptyView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.filterPermission.isEmpty {self.emptyView.isHidden = false} else {self.emptyView.isHidden = true}
+            if self.filterPermission.isEmpty {
+                self.emptyView.show()
+            } else {
+                self.emptyView.hide()
+            }
         }
     }
     

@@ -274,9 +274,6 @@ extension ProfileViewController: EditProfileViewDelegate {
             }
         }
 
-
-
-        
         if let imageToUpload = image {
             let storagePath = "images/profile-\(uid)"
             dispatchGroup.enter()

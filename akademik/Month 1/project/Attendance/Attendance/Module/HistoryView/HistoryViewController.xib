@@ -124,23 +124,9 @@
                                 </button>
                             </subviews>
                         </stackView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Asy-4N-lXY">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Asy-4N-lXY" customClass="CustomEmpty" customModule="Attendance" customModuleProvider="target">
                             <rect key="frame" x="10" y="119" width="351" height="556"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data is Empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV1-st-39j">
-                                    <rect key="frame" x="98" y="243" width="154" height="71"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="NV1-st-39j" firstAttribute="top" secondItem="Asy-4N-lXY" secondAttribute="top" constant="243" id="Cxt-3H-Irg"/>
-                                <constraint firstItem="NV1-st-39j" firstAttribute="leading" secondItem="Asy-4N-lXY" secondAttribute="leading" constant="98" id="FEB-RI-ktW"/>
-                                <constraint firstAttribute="trailing" secondItem="NV1-st-39j" secondAttribute="trailing" constant="99" id="PQ0-J3-npc"/>
-                                <constraint firstAttribute="bottom" secondItem="NV1-st-39j" secondAttribute="bottom" constant="242" id="ZqY-3S-bUo"/>
-                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
