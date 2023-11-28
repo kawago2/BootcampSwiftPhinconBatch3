@@ -71,6 +71,11 @@
 		36ADC92B2B1587B400E135DC /* ExtTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC92A2B1587B400E135DC /* ExtTableView.swift */; };
 		36ADC92D2B1587F700E135DC /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC92C2B1587F700E135DC /* ExtUIViewController.swift */; };
 		36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC92F2B158C2000E135DC /* TabBarViewController.swift */; };
+		36ADC97E2B15D5A100E135DC /* PayrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC97C2B15D5A100E135DC /* PayrollViewController.swift */; };
+		36ADC97F2B15D5A100E135DC /* PayrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC97D2B15D5A100E135DC /* PayrollViewController.xib */; };
+		36ADC9832B15D9C500E135DC /* PayrollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9812B15D9C500E135DC /* PayrollCell.swift */; };
+		36ADC9842B15D9C500E135DC /* PayrollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9822B15D9C500E135DC /* PayrollCell.xib */; };
+		36ADC9862B15E8EE00E135DC /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9852B15E8EE00E135DC /* FormView.swift */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C287322B04766100F17ADA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* ItemModel.swift */; };
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
@@ -173,6 +178,11 @@
 		36ADC92A2B1587B400E135DC /* ExtTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtTableView.swift; sourceTree = "<group>"; };
 		36ADC92C2B1587F700E135DC /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		36ADC92F2B158C2000E135DC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		36ADC97C2B15D5A100E135DC /* PayrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayrollViewController.swift; sourceTree = "<group>"; };
+		36ADC97D2B15D5A100E135DC /* PayrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayrollViewController.xib; sourceTree = "<group>"; };
+		36ADC9812B15D9C500E135DC /* PayrollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayrollCell.swift; sourceTree = "<group>"; };
+		36ADC9822B15D9C500E135DC /* PayrollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayrollCell.xib; sourceTree = "<group>"; };
+		36ADC9852B15E8EE00E135DC /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +318,7 @@
 				36210D852B0321A30009EBC0 /* ForgotView */,
 				36210D8A2B0323D70009EBC0 /* HomeView */,
 				36210D8F2B0323EE0009EBC0 /* HistoryView */,
+				36ADC97B2B15D42600E135DC /* PayrollView */,
 				36210D942B03240F0009EBC0 /* ProfileView */,
 				36210D582B0208C80009EBC0 /* SplashView */,
 				36210D572B0208B40009EBC0 /* MainView */,
@@ -414,6 +425,7 @@
 				36ADC9232B1577CE00E135DC /* CustomEmpty */,
 				3670C6752B05B6570011985F /* CustomLoading */,
 				36210D782B0304CC0009EBC0 /* InputField */,
+				36ADC9852B15E8EE00E135DC /* FormView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -564,6 +576,25 @@
 				36ADC92F2B158C2000E135DC /* TabBarViewController.swift */,
 			);
 			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		36ADC97B2B15D42600E135DC /* PayrollView */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC9802B15D9A300E135DC /* PayrollCell */,
+				36ADC97C2B15D5A100E135DC /* PayrollViewController.swift */,
+				36ADC97D2B15D5A100E135DC /* PayrollViewController.xib */,
+			);
+			path = PayrollView;
+			sourceTree = "<group>";
+		};
+		36ADC9802B15D9A300E135DC /* PayrollCell */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC9812B15D9C500E135DC /* PayrollCell.swift */,
+				36ADC9822B15D9C500E135DC /* PayrollCell.xib */,
+			);
+			path = PayrollCell;
 			sourceTree = "<group>";
 		};
 		36C287302B04764D00F17ADA /* Models */ = {
@@ -731,6 +762,7 @@
 				3670C68B2B05F2710011985F /* AddFormViewController.xib in Resources */,
 				36210D622B020B320009EBC0 /* WelcomeViewController.xib in Resources */,
 				36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */,
+				36ADC9842B15D9C500E135DC /* PayrollCell.xib in Resources */,
 				363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */,
 				36210D322B02084C0009EBC0 /* LaunchScreen.storyboard in Resources */,
 				3609C76E2B0EE45F000DE5B7 /* PermissionViewController.xib in Resources */,
@@ -746,6 +778,7 @@
 				3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */,
 				36210D892B0321B70009EBC0 /* ForgotViewController.xib in Resources */,
 				36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */,
+				36ADC97F2B15D5A100E135DC /* PayrollViewController.xib in Resources */,
 				36ADC91E2B0F490300E135DC /* ApproveCell.xib in Resources */,
 				3609C7752B0EFEDE000DE5B7 /* AddPermissionViewController.xib in Resources */,
 				36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */,
@@ -904,6 +937,7 @@
 				36210D7C2B0304CC0009EBC0 /* InputField.swift in Sources */,
 				36ADC9292B15878E00E135DC /* ExtUIImageView.swift in Sources */,
 				367C5D1D2B0D912000C1678F /* ForgotViewModel.swift in Sources */,
+				36ADC97E2B15D5A100E135DC /* PayrollViewController.swift in Sources */,
 				36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */,
 				36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */,
 				3670C68A2B05F2710011985F /* AddFormViewController.swift in Sources */,
@@ -919,8 +953,10 @@
 				363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */,
 				36210D712B0223A90009EBC0 /* SliderCell.swift in Sources */,
 				3609C7742B0EFEDE000DE5B7 /* AddPermissionViewController.swift in Sources */,
+				36ADC9862B15E8EE00E135DC /* FormView.swift in Sources */,
 				36210D6D2B02227E0009EBC0 /* ExtUICollectionView.swift in Sources */,
 				3670C6772B05B6800011985F /* CustomLoading.swift in Sources */,
+				36ADC9832B15D9C500E135DC /* PayrollCell.swift in Sources */,
 				36210D9D2B0327900009EBC0 /* Constants.swift in Sources */,
 				36DDAC362B0C8E06001D9ACD /* SplashViewModel.swift in Sources */,
 			);

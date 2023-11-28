@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var posisiLabel: UILabel!
-    
+    @IBOutlet weak var dollarButton: UIImageView!
     
     var profileArray: [InfoItem] = []
     var nik = "Not set"
@@ -50,6 +50,11 @@ class ProfileViewController: UIViewController {
                 self.navigateFP()
             })
             .disposed(by: disposeBag)
+        
+        dollarButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
+            guard let self = self else { return }
+            self.navigateToPayroll()
+        }).disposed(by: disposeBag)
     }
 
     @objc func signoutTapped() {
@@ -81,6 +86,13 @@ class ProfileViewController: UIViewController {
         let vc = LoginViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }
+    
+    
+     func navigateToPayroll() {
+        let vc = PayrollViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     
     

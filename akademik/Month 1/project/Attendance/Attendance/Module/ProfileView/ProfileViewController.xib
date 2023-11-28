@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Attendance" customModuleProvider="target">
             <connections>
                 <outlet property="circleView" destination="3tm-Ub-i4H" id="3zD-B6-6re"/>
+                <outlet property="dollarButton" destination="qO0-Tq-rir" id="V1W-UU-jxc"/>
                 <outlet property="nameLabel" destination="5GZ-vt-Z6j" id="bWt-Wc-98j"/>
                 <outlet property="pencilButton" destination="qiY-RT-n24" id="hDe-kr-QYf"/>
                 <outlet property="posisiLabel" destination="otF-H3-vaH" id="F5R-hx-JFL"/>
@@ -36,7 +37,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8Rw-zj-2UH">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8Rw-zj-2UH">
                             <rect key="frame" x="25" y="67" width="342" height="27.333333333333329"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvD-10-HeX">
@@ -48,8 +49,12 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="dollarsign" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qO0-Tq-rir">
+                                    <rect key="frame" x="252" y="-0.33333333333333215" width="26" height="28"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qiY-RT-n24">
-                                    <rect key="frame" x="266" y="2.9999999999999982" width="30" height="22.333333333333336"/>
+                                    <rect key="frame" x="280" y="2.9999999999999982" width="30" height="22.333333333333336"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="wkI-Kr-pxp"/>
@@ -126,6 +131,7 @@
     </objects>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
+        <image name="dollarsign" catalog="system" width="89" height="128"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <namedColor name="PrimaryTextColor">
