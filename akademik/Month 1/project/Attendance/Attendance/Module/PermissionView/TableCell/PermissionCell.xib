@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -33,38 +34,38 @@
                                 <rect key="frame" x="51" y="16" width="326" height="148"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6sG-x0-tY1">
-                                        <rect key="frame" x="0.0" y="0.0" width="326" height="23.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="326" height="20.666666666666668"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="30/05/2023" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmm-Ib-VmB">
-                                                <rect key="frame" x="0.0" y="0.0" width="158" height="23.333333333333332"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="158" height="20.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="30/05/2023" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRt-PT-Uxs">
-                                                <rect key="frame" x="168" y="0.0" width="158" height="23.333333333333332"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                <rect key="frame" x="168" y="0.0" width="158" height="20.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5hA-iu-rr1">
-                                        <rect key="frame" x="0.0" y="31.333333333333336" width="326" height="28"/>
+                                        <rect key="frame" x="0.0" y="28.666666666666664" width="326" height="28"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcU-lF-sim">
-                                                <rect key="frame" x="0.0" y="0.0" width="202" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="28"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="8tz-kt-wgz"/>
-                                                    <constraint firstAttribute="width" constant="202" id="IGf-8F-fON"/>
+                                                    <constraint firstAttribute="width" constant="150" id="IGf-8F-fON"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                                 <color key="textColor" name="PrimaryTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Status" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ba-oE-OKW">
-                                                <rect key="frame" x="210" y="0.0" width="80" height="28"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                                <rect key="frame" x="158" y="0.0" width="132" height="28"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="10"/>
                                                 <color key="textColor" name="SecondaryTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -76,22 +77,24 @@
                                                 </constraints>
                                                 <color key="tintColor" name="bg2Color"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="arrow.up" catalog="system" title=""/>
+                                                <buttonConfiguration key="configuration" style="plain" title="">
+                                                    <imageReference key="image" image="arrow.up" catalog="system" symbolScale="small"/>
+                                                </buttonConfiguration>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="natural" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdF-MK-Dcb">
-                                        <rect key="frame" x="0.0" y="67.333333333333329" width="326" height="20"/>
+                                        <rect key="frame" x="0.0" y="64.666666666666671" width="326" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="HCK-Cq-aFF"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reason" textAlignment="natural" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxf-my-R2f">
-                                        <rect key="frame" x="0.0" y="95.333333333333329" width="326" height="52.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="92.666666666666671" width="326" height="55.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -128,6 +131,7 @@
                 <outlet property="permissionDateLabel" destination="Nmm-Ib-VmB" id="Ctb-Dl-FGs"/>
                 <outlet property="reasonLabel" destination="zxf-my-R2f" id="uSt-Tm-NqK"/>
                 <outlet property="statusLabel" destination="0ba-oE-OKW" id="Md0-rz-K8H"/>
+                <outlet property="toggleButton" destination="HEB-eR-e6x" id="Ttd-V1-VDy"/>
                 <outlet property="typeLabel" destination="hcU-lF-sim" id="WDT-ug-XgY"/>
             </connections>
             <point key="canvasLocation" x="67.938931297709928" y="-26.056338028169016"/>

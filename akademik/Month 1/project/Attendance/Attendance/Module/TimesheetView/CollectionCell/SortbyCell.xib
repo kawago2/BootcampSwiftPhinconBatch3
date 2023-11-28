@@ -20,17 +20,17 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJd-kN-SYr">
                         <rect key="frame" x="5" y="5" width="158" height="41"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ajR-mt-gsA">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ajR-mt-gsA">
                                 <rect key="frame" x="10" y="5" width="138" height="31"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQi-Zh-mOg">
-                                        <rect key="frame" x="0.0" y="0.0" width="39.666666666666664" height="31"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="31"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text=":" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNl-ZF-x02">
-                                        <rect key="frame" x="41.666666666666664" y="0.0" width="20" height="31"/>
+                                        <rect key="frame" x="41.333333333333336" y="0.0" width="20" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="PtE-eU-4oa"/>
                                         </constraints>
@@ -39,16 +39,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ascendant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzU-nG-vR1">
-                                        <rect key="frame" x="63.666666666666679" y="0.0" width="74.333333333333314" height="31"/>
+                                        <rect key="frame" x="61.333333333333321" y="0.0" width="76.666666666666686" height="31"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="BNl-ZF-x02" firstAttribute="leading" secondItem="WQi-Zh-mOg" secondAttribute="trailing" constant="2" id="1pq-Jt-ahq"/>
-                                    <constraint firstItem="WzU-nG-vR1" firstAttribute="leading" secondItem="BNl-ZF-x02" secondAttribute="trailing" constant="2" id="x2h-cg-b7T"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

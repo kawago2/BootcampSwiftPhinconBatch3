@@ -1,17 +1,19 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 import FloatingPanel
 import FirebaseAuth
 
 class PermissionViewController: UIViewController {
     
+    @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var emptyView: CustomEmpty!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var backButton: UIImageView!
+    @IBOutlet weak var addButton: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var cardView: UIView!
     
     
     var fpc: FloatingPanelController!
@@ -30,12 +32,12 @@ class PermissionViewController: UIViewController {
     }
     
     func buttonEvent() {
-        backButton.rx.tap.subscribe(onNext: {[weak self] in
+        backButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else { return }
             self.backTo()
         }).disposed(by: disposeBag)
         
-        addButton.rx.tap.subscribe(onNext: {[weak self] in
+        addButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else { return }
             self.navigateFP()
         }).disposed(by: disposeBag)
@@ -64,6 +66,9 @@ class PermissionViewController: UIViewController {
     }
     
     func setupUI() {
+        cardView.makeCornerRadius(20)
+        circleView.tintColor = .white.withAlphaComponent(0.05)
+        
         tableView.registerCellWithNib(PermissionCell.self)
         tableView.delegate = self
         tableView.dataSource = self
@@ -213,15 +218,28 @@ extension PermissionViewController:  UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let data = Variables.dataArray[indexPath.item]
-        var uiLabel = UILabel()
-        uiLabel.text = data
-        uiLabel.sizeToFit()
-        return CGSize(width: uiLabel.bounds.width + 150 , height: 50)
+        let index = indexPath.item
+        
+        var title = ""
+        switch index {
+        case 0:
+            title = "Date Permission"
+        case 1:
+            title = "Status"
+        default:
+            break
+        }
+        
+        let font = UIFont.systemFont(ofSize: 12)
+        let titleWidth = NSString(string: title).size(withAttributes: [NSAttributedString.Key.font: font]).width
+        
+        let cellWidth = titleWidth + 25
+        
+        return CGSize(width: cellWidth + 100, height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
 

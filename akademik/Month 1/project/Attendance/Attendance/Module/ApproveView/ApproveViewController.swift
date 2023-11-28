@@ -3,11 +3,12 @@ import RxCocoa
 import RxSwift
 class ApproveViewController: UIViewController {
     
+    @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var emptyView: CustomEmpty!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var backButton: UIImageView!
     
     
     let disposeBag = DisposeBag()
@@ -29,13 +30,16 @@ class ApproveViewController: UIViewController {
     }
     
     func buttonEvent() {
-        backButton.rx.tap.subscribe(onNext: {[weak self] in
+        backButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else { return }
             self.backToView()
         }).disposed(by: disposeBag)
     }
     
     func setupUI() {
+        cardView.makeCornerRadius(20)
+        circleView.tintColor = .white.withAlphaComponent(0.05)
+        
         tableView.registerCellWithNib(ApproveCell.self)
         tableView.delegate = self
         tableView.dataSource = self
@@ -223,15 +227,28 @@ extension ApproveViewController:  UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let data = Variables.dataArray[indexPath.item]
-        var uiLabel = UILabel()
-        uiLabel.text = data
-        uiLabel.sizeToFit()
-        return CGSize(width: uiLabel.bounds.width + 150 , height: 50)
+        let index = indexPath.item
+        
+        var title = ""
+        switch index {
+        case 0:
+            title = "Date Permission"
+        case 1:
+            title = "Status"
+        default:
+            break
+        }
+        
+        let font = UIFont.systemFont(ofSize: 12)
+        let titleWidth = NSString(string: title).size(withAttributes: [NSAttributedString.Key.font: font]).width
+        
+        let cellWidth = titleWidth + 25
+        
+        return CGSize(width: cellWidth + 100, height: 50)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }
 

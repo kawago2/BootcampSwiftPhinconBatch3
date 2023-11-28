@@ -40,9 +40,11 @@ class ApproveCell: UITableViewCell {
     
     func updateUIButton() {
         if reasonLabel.isHidden {
-            toggleButton.setImage(UIImage(systemName: "arrow.up"), for: .normal)
+            let arrowUpImage = UIImage(systemName: "arrow.up")?.withConfiguration(UIImage.SymbolConfiguration(scale: .small))
+            toggleButton.setImage(arrowUpImage, for: .normal)
         } else {
-            toggleButton.setImage(UIImage(systemName: "arrow.down"), for: .normal)
+            let arrowDownImage = UIImage(systemName: "arrow.down")?.withConfiguration(UIImage.SymbolConfiguration(scale: .small))
+            toggleButton.setImage(arrowDownImage, for: .normal)
         }
     }
     

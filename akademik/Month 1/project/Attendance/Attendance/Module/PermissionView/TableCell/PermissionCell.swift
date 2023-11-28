@@ -1,11 +1,5 @@
-//
-//  PermissionCell.swift
-//  Attendance
-//
-//  Created by Phincon on 23/11/23.
-//
-
 import UIKit
+import RxSwift
 
 class PermissionCell: UITableViewCell {
     @IBOutlet weak var cardView: UIView!
@@ -16,11 +10,15 @@ class PermissionCell: UITableViewCell {
     @IBOutlet weak var approvalDateLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var reasonLabel: UILabel!
+    @IBOutlet weak var toggleButton: UIButton!
     
+    
+    let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        buttonEvent()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,6 +29,31 @@ class PermissionCell: UITableViewCell {
     func setupUI() {
         cardView.makeCornerRadius(20)
         selectionStyle = .none
+        
+        reasonLabel.isHidden = true
+    }
+    
+    func buttonEvent() {
+        toggleButton.rx.tap.subscribe(onNext: {[weak self] _ in
+            guard let self = self  else { return }
+            self.reasonLabel.isHidden.toggle()
+            self.updateUIButton()
+            
+            if let tableView = self.superview as? UITableView {
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
+        }).disposed(by: disposeBag)
+    }
+    
+    func updateUIButton() {
+        if reasonLabel.isHidden {
+            let arrowUpImage = UIImage(systemName: "arrow.up")?.withConfiguration(UIImage.SymbolConfiguration(scale: .small))
+            toggleButton.setImage(arrowUpImage, for: .normal)
+        } else {
+            let arrowDownImage = UIImage(systemName: "arrow.down")?.withConfiguration(UIImage.SymbolConfiguration(scale: .small))
+            toggleButton.setImage(arrowDownImage, for: .normal)
+        }
     }
     
     func initData(permission: PermissionForm) {
