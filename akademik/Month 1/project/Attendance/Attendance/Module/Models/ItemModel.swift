@@ -42,12 +42,23 @@ struct ProfileItem {
     var imageUrl: String?
 }
 
+struct Allowance {
+    var name: String
+    var amount: Float
+}
+
+struct Deduction {
+    var name: String
+    var amount: Float
+}
 
 struct Payroll {
     var payrollId: String
     var date: Date
     var basicSalary: Float
-    var allowances: [String: Float]
-    var deductions: [String: Float]
+    var allowances: [Allowance]
+    var deductions: [Deduction]
     var netSalary: Float
 }
+
+

@@ -1,12 +1,13 @@
 import UIKit
 import RxCocoa
 import RxSwift
+
 class TimesheetCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var clockLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var taskLabel: UILabel!
-    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var cardView: FormView!
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var toggleButton: UIButton!
@@ -39,7 +40,8 @@ class TimesheetCell: UITableViewCell {
     }
     func setupUI() {
         selectionStyle = .none
-        cardView.makeCornerRadius(20)
+        cardView.setShadow()
+        colorView.makeCornerRadius(20, maskedCorner: [.layerMinXMaxYCorner,.layerMinXMinYCorner])
         taskLabel.isHidden = true
     }
     

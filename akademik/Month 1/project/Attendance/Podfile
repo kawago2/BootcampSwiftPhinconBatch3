@@ -22,6 +22,7 @@ target 'Attendance' do
   pod 'lottie-ios'
   pod 'ReachabilitySwift'
   pod 'FloatingPanel'
+  pod 'DGCharts'
   
   # package RX
   pod 'RxSwift'

@@ -77,6 +77,12 @@
 		36ADC9842B15D9C500E135DC /* PayrollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9822B15D9C500E135DC /* PayrollCell.xib */; };
 		36ADC9862B15E8EE00E135DC /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9852B15E8EE00E135DC /* FormView.swift */; };
 		36ADC9882B16DA1200E135DC /* ExtFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9872B16DA1200E135DC /* ExtFloat.swift */; };
+		36ADC98C2B16E50D00E135DC /* DetailPayrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC98A2B16E50D00E135DC /* DetailPayrollViewController.swift */; };
+		36ADC98D2B16E50D00E135DC /* DetailPayrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC98B2B16E50D00E135DC /* DetailPayrollViewController.xib */; };
+		36ADC9912B17142400E135DC /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC98F2B17142400E135DC /* DetailCell.swift */; };
+		36ADC9922B17142400E135DC /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9902B17142400E135DC /* DetailCell.xib */; };
+		36ADC9962B173C9000E135DC /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9942B173C9000E135DC /* ChartCell.swift */; };
+		36ADC9972B173C9000E135DC /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9952B173C9000E135DC /* ChartCell.xib */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C287322B04766100F17ADA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* ItemModel.swift */; };
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
@@ -86,9 +92,12 @@
 		36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9222B0B015600350039 /* EditProfileViewController.xib */; };
 		36DDA9282B0B024E00350039 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9272B0B024E00350039 /* EditProfileViewController.swift */; };
 		36DDAC362B0C8E06001D9ACD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDAC352B0C8E06001D9ACD /* SplashViewModel.swift */; };
+		A2FD19F54666AAFB4245AE5A /* Pods_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD74100FA48EC1C40431AC9 /* Pods_Attendance.framework */; };
 		B1E1774B943AB8A5C01DB78F /* Pods_Attendance_AttendanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAECF607A441FA574498C652 /* Pods_Attendance_AttendanceUITests.framework */; };
 		C5627142753BCB96501D7B8B /* Pods_AttendanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECEAC74AD363A243F40027 /* Pods_AttendanceTests.framework */; };
 		ED55387EC593B8E517BC291C /* Pods_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FCFAA6DB742D8E3512902BF /* Pods_Attendance.framework */; };
+		F013E879DC59642EEAC04ADB /* Pods_AttendanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D587CE26E67BC27B797677 /* Pods_AttendanceTests.framework */; };
+		F7A78F1540BDA46E348DBD68 /* Pods_Attendance_AttendanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8F4F2DEFEA3F272FAEB498 /* Pods_Attendance_AttendanceUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +118,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30D587CE26E67BC27B797677 /* Pods_AttendanceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttendanceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35E0795EEA7A9036FDB62956 /* Pods-AttendanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceTests.debug.xcconfig"; path = "Target Support Files/Pods-AttendanceTests/Pods-AttendanceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3609C76B2B0EE45F000DE5B7 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		3609C76C2B0EE45F000DE5B7 /* PermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +195,12 @@
 		36ADC9822B15D9C500E135DC /* PayrollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayrollCell.xib; sourceTree = "<group>"; };
 		36ADC9852B15E8EE00E135DC /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		36ADC9872B16DA1200E135DC /* ExtFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtFloat.swift; sourceTree = "<group>"; };
+		36ADC98A2B16E50D00E135DC /* DetailPayrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPayrollViewController.swift; sourceTree = "<group>"; };
+		36ADC98B2B16E50D00E135DC /* DetailPayrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPayrollViewController.xib; sourceTree = "<group>"; };
+		36ADC98F2B17142400E135DC /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		36ADC9902B17142400E135DC /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
+		36ADC9942B173C9000E135DC /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
+		36ADC9952B173C9000E135DC /* ChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
@@ -200,7 +216,9 @@
 		956C9858233077D05DB83FA4 /* Pods-Attendance-AttendanceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attendance-AttendanceUITests.debug.xcconfig"; path = "Target Support Files/Pods-Attendance-AttendanceUITests/Pods-Attendance-AttendanceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C386F7A6FEB1A125648AC427 /* Pods-Attendance-AttendanceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attendance-AttendanceUITests.release.xcconfig"; path = "Target Support Files/Pods-Attendance-AttendanceUITests/Pods-Attendance-AttendanceUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C9CFC2F2720AA1C037E15840 /* Pods-Attendance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attendance.debug.xcconfig"; path = "Target Support Files/Pods-Attendance/Pods-Attendance.debug.xcconfig"; sourceTree = "<group>"; };
+		CF8F4F2DEFEA3F272FAEB498 /* Pods_Attendance_AttendanceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attendance_AttendanceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DC3B0707535D3ABED5C711 /* Pods-AttendanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceTests.release.xcconfig"; path = "Target Support Files/Pods-AttendanceTests/Pods-AttendanceTests.release.xcconfig"; sourceTree = "<group>"; };
+		EDD74100FA48EC1C40431AC9 /* Pods_Attendance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attendance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAECF607A441FA574498C652 /* Pods_Attendance_AttendanceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attendance_AttendanceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -210,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED55387EC593B8E517BC291C /* Pods_Attendance.framework in Frameworks */,
+				A2FD19F54666AAFB4245AE5A /* Pods_Attendance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5627142753BCB96501D7B8B /* Pods_AttendanceTests.framework in Frameworks */,
+				F013E879DC59642EEAC04ADB /* Pods_AttendanceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1E1774B943AB8A5C01DB78F /* Pods_Attendance_AttendanceUITests.framework in Frameworks */,
+				F7A78F1540BDA46E348DBD68 /* Pods_Attendance_AttendanceUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +281,7 @@
 				36210D452B02084C0009EBC0 /* AttendanceUITests */,
 				36210D232B02084B0009EBC0 /* Products */,
 				89A01C9EDD098004D1DAD36E /* Pods */,
+				57D59224EE3BB253DECA2ABF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -583,6 +605,7 @@
 		36ADC97B2B15D42600E135DC /* PayrollView */ = {
 			isa = PBXGroup;
 			children = (
+				36ADC9892B16E48F00E135DC /* DetailView */,
 				36ADC9802B15D9A300E135DC /* PayrollCell */,
 				36ADC97C2B15D5A100E135DC /* PayrollViewController.swift */,
 				36ADC97D2B15D5A100E135DC /* PayrollViewController.xib */,
@@ -597,6 +620,35 @@
 				36ADC9822B15D9C500E135DC /* PayrollCell.xib */,
 			);
 			path = PayrollCell;
+			sourceTree = "<group>";
+		};
+		36ADC9892B16E48F00E135DC /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC9932B173C6A00E135DC /* ChartCell */,
+				36ADC98E2B17140300E135DC /* TableCell */,
+				36ADC98A2B16E50D00E135DC /* DetailPayrollViewController.swift */,
+				36ADC98B2B16E50D00E135DC /* DetailPayrollViewController.xib */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		36ADC98E2B17140300E135DC /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC98F2B17142400E135DC /* DetailCell.swift */,
+				36ADC9902B17142400E135DC /* DetailCell.xib */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		36ADC9932B173C6A00E135DC /* ChartCell */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC9942B173C9000E135DC /* ChartCell.swift */,
+				36ADC9952B173C9000E135DC /* ChartCell.xib */,
+			);
+			path = ChartCell;
 			sourceTree = "<group>";
 		};
 		36C287302B04764D00F17ADA /* Models */ = {
@@ -625,6 +677,16 @@
 				36DDA9272B0B024E00350039 /* EditProfileViewController.swift */,
 			);
 			path = EditProfileView;
+			sourceTree = "<group>";
+		};
+		57D59224EE3BB253DECA2ABF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDD74100FA48EC1C40431AC9 /* Pods_Attendance.framework */,
+				CF8F4F2DEFEA3F272FAEB498 /* Pods_Attendance_AttendanceUITests.framework */,
+				30D587CE26E67BC27B797677 /* Pods_AttendanceTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		85DC592CD31FF06123276D3B /* Frameworks */ = {
@@ -774,8 +836,10 @@
 				36DDA9192B076E0E00350039 /* SortbyCell.xib in Resources */,
 				36210D7B2B0304CC0009EBC0 /* InputField.xib in Resources */,
 				36210D2F2B02084C0009EBC0 /* Assets.xcassets in Resources */,
+				36ADC98D2B16E50D00E135DC /* DetailPayrollViewController.xib in Resources */,
 				36210D842B031C0B0009EBC0 /* RegisterViewController.xib in Resources */,
 				36210D2D2B02084B0009EBC0 /* Main.storyboard in Resources */,
+				36ADC9972B173C9000E135DC /* ChartCell.xib in Resources */,
 				36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */,
 				3670C6862B05D7FC0011985F /* TimesheetCell.xib in Resources */,
 				3670C6802B05D3C60011985F /* TimesheetViewController.xib in Resources */,
@@ -790,6 +854,7 @@
 				36C511632B0F447100B2EA7C /* ApproveViewController.xib in Resources */,
 				36210D8E2B0323E80009EBC0 /* HomeViewController.xib in Resources */,
 				36210D932B0323FE0009EBC0 /* HistoryViewController.xib in Resources */,
+				36ADC9922B17142400E135DC /* DetailCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,6 +985,7 @@
 				36ADC92D2B1587F700E135DC /* ExtUIViewController.swift in Sources */,
 				3609C7772B0F1078000DE5B7 /* ExtDropDown.swift in Sources */,
 				36210D762B0303040009EBC0 /* LoginViewController.swift in Sources */,
+				36ADC98C2B16E50D00E135DC /* DetailPayrollViewController.swift in Sources */,
 				36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */,
 				3609C76D2B0EE45F000DE5B7 /* PermissionViewController.swift in Sources */,
 				36210D2A2B02084B0009EBC0 /* ViewController.swift in Sources */,
@@ -932,9 +998,11 @@
 				3670C67B2B05C9510011985F /* ExtDate.swift in Sources */,
 				36ADC92B2B1587B400E135DC /* ExtTableView.swift in Sources */,
 				36210D972B0324240009EBC0 /* ProfileViewController.swift in Sources */,
+				36ADC9962B173C9000E135DC /* ChartCell.swift in Sources */,
 				367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */,
 				36DDA9282B0B024E00350039 /* EditProfileViewController.swift in Sources */,
 				36210D8D2B0323E80009EBC0 /* HomeViewController.swift in Sources */,
+				36ADC9912B17142400E135DC /* DetailCell.swift in Sources */,
 				3609C7702B0EE85E000DE5B7 /* PermissionModel.swift in Sources */,
 				36C287322B04766100F17ADA /* ItemModel.swift in Sources */,
 				36210D7F2B0309240009EBC0 /* ExtUIView.swift in Sources */,

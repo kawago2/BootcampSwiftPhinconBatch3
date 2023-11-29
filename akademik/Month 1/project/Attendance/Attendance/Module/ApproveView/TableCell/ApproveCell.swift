@@ -50,7 +50,8 @@ class ApproveCell: UITableViewCell {
     
     
     func setupUI() {
-        cardView.makeCornerRadius(20)
+        cardView.setShadow()
+        colorView.makeCornerRadius(20, maskedCorner: [.layerMinXMaxYCorner,.layerMinXMinYCorner])
         selectionStyle = .none
         reasonLabel.isHidden = true
     }

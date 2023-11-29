@@ -10,6 +10,7 @@ enum Icons {
     static let profile = UIImage(systemName: "person")
     static let history = UIImage(systemName: "clock")
     static let timesheet = UIImage(systemName: "book.closed")
+    static let circle = UIImage(systemName: "circle.fill")
     
 }
 

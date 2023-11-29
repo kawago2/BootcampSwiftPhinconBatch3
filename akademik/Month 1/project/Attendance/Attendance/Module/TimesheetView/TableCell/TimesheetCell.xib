@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="315" height="194"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxG-KO-hk3">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxG-KO-hk3" customClass="FormView" customModule="Attendance" customModuleProvider="target">
                         <rect key="frame" x="10" y="10" width="295" height="174"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sB-01-cDX">

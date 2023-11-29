@@ -62,14 +62,44 @@ class PayrollViewController: UIViewController {
                 for document in documents {
                     if let data = document.data() {
                         let id = data["payrollId"] as? String
-                        let allowances = data["allowances"] as? [String: Float]
                         let basicSalary = data["basicSalary"] as? Float
                         let date = data["date"] as? Timestamp
-                        let deductions = data["deductions"] as? [String: Float]
+
+                        // Mapping allowances
+                        var allowances: [Allowance] = []
+                        if let allowancesData = data["allowances"] as? [String: Any] {
+                            allowances = allowancesData.compactMap { allowanceData in
+                                guard
+                                    let name = allowanceData.key as? String,
+                                    let amount = allowanceData.value as? Float
+                                else { return nil }
+                                return Allowance(name: name, amount: amount)
+                            }
+                        }
+
+                        // Mapping deductions
+                        var deductions: [Deduction] = []
+                        if let deductionsData = data["deductions"] as? [String: Any] {
+                            deductions = deductionsData.compactMap { deductionData in
+                                guard
+                                    let name = deductionData.key as? String,
+                                    let amount = deductionData.value as? Float
+                                else { return nil }
+                                return Deduction(name: name, amount: amount)
+                            }
+                        }
+
                         let netSalary = data["netSalary"] as? Float
-                        
-                        let itemPayroll = Payroll(payrollId: id ?? "", date: date?.dateValue() ?? Date(), basicSalary: basicSalary ?? 0.0, allowances: allowances ?? [:], deductions: deductions ?? [:], netSalary: netSalary ?? 0.0)
-      
+
+                        let itemPayroll = Payroll(
+                            payrollId: id ?? "",
+                            date: date?.dateValue() ?? Date(),
+                            basicSalary: basicSalary ?? 0.0,
+                            allowances: allowances,
+                            deductions: deductions,
+                            netSalary: netSalary ?? 0.0
+                        )
+
                         self.dataPayroll.append(itemPayroll)
                     }
                 }
@@ -104,6 +134,7 @@ extension PayrollViewController: UITableViewDelegate, UITableViewDataSource {
         let item = dataPayroll[index]
         
         cell.initData(date: item.date.formattedShortDateString(), pay: item.netSalary.formatAsRupiah(), month: item.date.getMonth())
+        
         switch index {
         case 0:
             cell.configuration(first: true, last: false)
@@ -112,6 +143,13 @@ extension PayrollViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             cell.configuration(first: false, last: false)
         }
+        
         return cell
-    }   
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let vc = DetailPayrollViewController()
+        vc.initData(item: dataPayroll[index])
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

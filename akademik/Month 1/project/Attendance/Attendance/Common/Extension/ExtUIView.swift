@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func setShadow(cornerRadius: CGFloat = 20, shadowColor: CGColor = UIColor.black.cgColor, shadowOpacity: Float = 1.0, shadowOffset: CGSize = CGSize(width: 0, height: 2), shadowRadius: CGFloat = 5.0, clipsToBounds: Bool = false) {
+    func setShadow(cornerRadius: CGFloat = 20, shadowColor: CGColor = UIColor.black.cgColor, shadowOpacity: Float = 0.5, shadowOffset: CGSize = CGSize(width: 0, height: 2), shadowRadius: CGFloat = 3, clipsToBounds: Bool = false) {
         self.layer.cornerRadius = cornerRadius
         self.layer.shadowColor = shadowColor
         self.layer.shadowOpacity = shadowOpacity

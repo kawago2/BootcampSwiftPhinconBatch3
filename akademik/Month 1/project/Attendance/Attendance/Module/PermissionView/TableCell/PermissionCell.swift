@@ -27,9 +27,9 @@ class PermissionCell: UITableViewCell {
     }
     
     func setupUI() {
-        cardView.makeCornerRadius(20)
         selectionStyle = .none
-        
+        cardView.setShadow()
+        colorView.makeCornerRadius(20, maskedCorner: [.layerMinXMaxYCorner,.layerMinXMinYCorner])
         reasonLabel.isHidden = true
     }
     
