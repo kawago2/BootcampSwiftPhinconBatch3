@@ -76,6 +76,7 @@
 		36ADC9832B15D9C500E135DC /* PayrollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9812B15D9C500E135DC /* PayrollCell.swift */; };
 		36ADC9842B15D9C500E135DC /* PayrollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9822B15D9C500E135DC /* PayrollCell.xib */; };
 		36ADC9862B15E8EE00E135DC /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9852B15E8EE00E135DC /* FormView.swift */; };
+		36ADC9882B16DA1200E135DC /* ExtFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9872B16DA1200E135DC /* ExtFloat.swift */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C287322B04766100F17ADA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* ItemModel.swift */; };
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
@@ -183,6 +184,7 @@
 		36ADC9812B15D9C500E135DC /* PayrollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayrollCell.swift; sourceTree = "<group>"; };
 		36ADC9822B15D9C500E135DC /* PayrollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayrollCell.xib; sourceTree = "<group>"; };
 		36ADC9852B15E8EE00E135DC /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		36ADC9872B16DA1200E135DC /* ExtFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtFloat.swift; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
@@ -258,7 +260,6 @@
 				36210D452B02084C0009EBC0 /* AttendanceUITests */,
 				36210D232B02084B0009EBC0 /* Products */,
 				89A01C9EDD098004D1DAD36E /* Pods */,
-				85DC592CD31FF06123276D3B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -387,6 +388,7 @@
 				36ADC9282B15878E00E135DC /* ExtUIImageView.swift */,
 				36ADC92A2B1587B400E135DC /* ExtTableView.swift */,
 				36ADC92C2B1587F700E135DC /* ExtUIViewController.swift */,
+				36ADC9872B16DA1200E135DC /* ExtFloat.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -633,11 +635,13 @@
 				49ECEAC74AD363A243F40027 /* Pods_AttendanceTests.framework */,
 			);
 			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		89A01C9EDD098004D1DAD36E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				85DC592CD31FF06123276D3B /* Frameworks */,
 				C9CFC2F2720AA1C037E15840 /* Pods-Attendance.debug.xcconfig */,
 				5B14140D0BF9E00F09FA4773 /* Pods-Attendance.release.xcconfig */,
 				956C9858233077D05DB83FA4 /* Pods-Attendance-AttendanceUITests.debug.xcconfig */,
@@ -924,6 +928,7 @@
 				36210D922B0323FE0009EBC0 /* HistoryViewController.swift in Sources */,
 				36210D882B0321B70009EBC0 /* ForgotViewController.swift in Sources */,
 				36210D832B031C0B0009EBC0 /* RegisterViewController.swift in Sources */,
+				36ADC9882B16DA1200E135DC /* ExtFloat.swift in Sources */,
 				3670C67B2B05C9510011985F /* ExtDate.swift in Sources */,
 				36ADC92B2B1587B400E135DC /* ExtTableView.swift in Sources */,
 				36210D972B0324240009EBC0 /* ProfileViewController.swift in Sources */,

@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxGesture
+import FirebaseFirestore
 
 class PayrollViewController: UIViewController {
 
@@ -10,11 +11,12 @@ class PayrollViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
+    var dataPayroll: [Payroll] = []
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchData()
         setupUI()
         buttonEvent()
     }
@@ -33,7 +35,6 @@ class PayrollViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCellWithNib(PayrollCell.self)
-        tableView.selectRow(at: IndexPath(row: 1, section: 0), animated: true, scrollPosition: .bottom)
         tableView.allowsMultipleSelection = false
     }
     
@@ -41,12 +42,55 @@ class PayrollViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    let arraykosong = [1,2,3,4]
+    
+    
+    func fetchData() {
+        dataPayroll = []
+        guard let uid = FAuth.auth.currentUser?.uid else {
+            print("User not logged in")
+            return
+        }
+        
+        let documentID = uid
+        let collection = "users"
+        let subcollectionPath = "payroll"
+        
+        FFirestore.getDataFromSubcollection(documentID: documentID, inCollection: collection, subcollectionPath: subcollectionPath) { result in
+            switch result {
+            case .success(let documents):
+                for document in documents {
+                    if let data = document.data() {
+                        let id = data["payrollId"] as? String
+                        let allowances = data["allowances"] as? [String: Float]
+                        let basicSalary = data["basicSalary"] as? Float
+                        let date = data["date"] as? Timestamp
+                        let deductions = data["deductions"] as? [String: Float]
+                        let netSalary = data["netSalary"] as? Float
+                        
+                        let itemPayroll = Payroll(payrollId: id ?? "", date: date?.dateValue() ?? Date(), basicSalary: basicSalary ?? 0.0, allowances: allowances ?? [:], deductions: deductions ?? [:], netSalary: netSalary ?? 0.0)
+      
+                        self.dataPayroll.append(itemPayroll)
+                    }
+                }
+                self.tableView.reloadData()
+            case .failure(let error):
+                print("Error getting data from subcollection: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    
     
 }
 
 extension PayrollViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return dataPayroll.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -54,18 +98,20 @@ extension PayrollViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "PayrollCell", for: indexPath) as? PayrollCell
         guard let cell = cell else { return  UITableViewCell() }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print(indexPath.row, "deselect")
- 
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row, "select")
+        let item = dataPayroll[index]
         
-    }
+        cell.initData(date: item.date.formattedShortDateString(), pay: item.netSalary.formatAsRupiah(), month: item.date.getMonth())
+        switch index {
+        case 0:
+            cell.configuration(first: true, last: false)
+        case dataPayroll.count - 1:
+            cell.configuration(first: false, last: true)
+        default:
+            cell.configuration(first: false, last: false)
+        }
+        return cell
+    }   
 }
