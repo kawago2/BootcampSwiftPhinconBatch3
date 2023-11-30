@@ -580,6 +580,15 @@
 			path = Class;
 			sourceTree = "<group>";
 		};
+		36A9EA8F2B18734700F776CE /* DetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC98F2B17142400E135DC /* DetailCell.swift */,
+				36ADC9902B17142400E135DC /* DetailCell.xib */,
+			);
+			path = DetailCell;
+			sourceTree = "<group>";
+		};
 		36ADC91A2B0F48E000E135DC /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,8 +649,7 @@
 		36ADC98E2B17140300E135DC /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
-				36ADC98F2B17142400E135DC /* DetailCell.swift */,
-				36ADC9902B17142400E135DC /* DetailCell.xib */,
+				36A9EA8F2B18734700F776CE /* DetailCell */,
 				36ADC9982B1827AA00E135DC /* TableCell.swift */,
 				36ADC9992B1827AA00E135DC /* TableCell.xib */,
 			);
