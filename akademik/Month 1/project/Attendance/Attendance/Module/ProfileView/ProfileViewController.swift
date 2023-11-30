@@ -17,11 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var dollarButton: UIImageView!
     
     var profileArray: [InfoItem] = []
-    var nik = "Not set"
-    var name = "Not set"
-    var alamat = "Not set"
-    var posisi = "Not set"
-    var imageUrl = ""
+    var profileData = ProfileItem()
     
     private let disposeBag = DisposeBag()
     
@@ -32,9 +28,7 @@ class ProfileViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadDataGeneral() {
-            self.setupData()
-        }
+        loadDataGeneral()
     }
     func buttonEvent() {
         signoutButton.rx.tapGesture()
@@ -75,8 +69,7 @@ class ProfileViewController: UIViewController {
      func navigateFP() {
         let contentVC = EditProfileViewController()
         contentVC.delegate = self
-        let item = ProfileItem(nik: self.nik, alamat: self.alamat, name: self.name, posisi: self.posisi)
-        contentVC.initData(image: imageUrl, item: item)
+        contentVC.initData(item: profileData)
         let navController = UINavigationController(rootViewController: contentVC)
         navController.modalTransitionStyle = .crossDissolve
         navController.modalPresentationStyle = .overFullScreen
@@ -108,13 +101,13 @@ class ProfileViewController: UIViewController {
     }
     
     func setupData() {
-        self.nameLabel.text = self.name
-        self.posisiLabel.text = self.posisi
+        self.nameLabel.text = profileData.name
+        self.posisiLabel.text = profileData.posisi
     }
     
 
     
-    func loadDataGeneral(completion: @escaping () -> Void) {
+    func loadDataGeneral() {
         guard let uid = FAuth.auth.currentUser?.uid else {
             return
         }
@@ -131,10 +124,8 @@ class ProfileViewController: UIViewController {
                     let name = profileData["name"] as? String ?? "Not set"
                     let posisi = profileData["posisi"] as? String ?? "Not set"
                     
-                    self.nik = nik
-                    self.alamat = alamat
-                    self.name = name
-                    self.posisi = posisi
+
+                    self.profileData = ProfileItem(nik: nik, alamat: alamat,name: name,posisi: posisi)
                     
                     self.profileArray = [
                         InfoItem(title: "No. Karyawan", description: nik, imageName: "identity"),
@@ -144,13 +135,14 @@ class ProfileViewController: UIViewController {
                     self.tableView.reloadData()
                 } else {
                     self.profileArray = [
-                        InfoItem(title: "No. Karyawan", description: self.nik, imageName: "identity"),
-                        InfoItem(title: "Alamat", description: self.alamat, imageName: "address"),
+                        InfoItem(title: "No. Karyawan", description: self.profileData.nik, imageName: "identity"),
+                        InfoItem(title: "Alamat", description: self.profileData.alamat, imageName: "address"),
                         InfoItem(title: "Change Password", description: "***************", imageName: "password")
                     ]
+                    
                     self.tableView.reloadData()
                 }
-                completion()
+                self.setupData()
 
             case .failure(let error):
                 print("Error fetching user profile from Firestore: \(error.localizedDescription)")
@@ -163,7 +155,7 @@ class ProfileViewController: UIViewController {
             case .success(let imageURL):
                 if let url = URL(string: imageURL) {
                     self.profileImage.kf.setImage(with: url)
-                    self.imageUrl = imageURL
+                    self.profileData.imageUrl = imageURL
                 } else {
                     print("Invalid URL")
                 }
@@ -258,10 +250,10 @@ extension ProfileViewController: EditProfileViewDelegate {
         let documentID = uid
         
         let oldData = [
-            "profile.nik": self.nik,
-            "profile.alamat": self.alamat,
-            "profile.name": self.name,
-            "profile.posisi": self.posisi
+            "profile.nik": profileData.nik,
+            "profile.alamat": profileData.alamat,
+            "profile.name": profileData.name,
+            "profile.posisi": profileData.posisi
         ]
         
         let updatedData = [
@@ -304,9 +296,7 @@ extension ProfileViewController: EditProfileViewDelegate {
         // Notify when both tasks are completed
         dispatchGroup.notify(queue: .main) {
             self.showAlert(title: "Success", message: "Profile and Photo updated successfully") {
-                self.loadDataGeneral() {
-                    self.setupData()
-                }
+                self.loadDataGeneral()
             }
         }
     }

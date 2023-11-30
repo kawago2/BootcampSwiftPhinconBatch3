@@ -35,10 +35,10 @@ enum TaskStatus: String, CaseIterable {
 }
 
 struct ProfileItem {
-    let nik: String?
-    let alamat: String?
-    let name: String?
-    let posisi: String?
+    var nik: String?
+    var alamat: String?
+    var name: String?
+    var posisi: String?
     var imageUrl: String?
 }
 

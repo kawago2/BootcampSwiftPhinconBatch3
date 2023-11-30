@@ -111,9 +111,9 @@ class EditProfileViewController: UIViewController {
         
     }
     
-    func initData(image: String?, item: ProfileItem?) {
-        self.image = image ?? "image_not available"
+    func initData(item: ProfileItem?) {
         guard let item = item else { return }
+        self.image = item.imageUrl ?? "image_not available"
         self.nik = item.nik ?? ""
         self.alamat = item.alamat ?? ""
         self.name = item.name ?? ""
