@@ -29,6 +29,7 @@ class TimesheetViewController: UIViewController {
         buttonEvent()
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchData(completion: {
             self.loadingView.stopAnimating()
             self.tableView.reloadData()

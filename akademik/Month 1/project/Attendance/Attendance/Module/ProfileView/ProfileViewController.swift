@@ -28,12 +28,14 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        buttonEvent()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadDataGeneral() {
             self.setupData()
         }
-        buttonEvent()
     }
-    
     func buttonEvent() {
         signoutButton.rx.tapGesture()
             .when(.recognized)
