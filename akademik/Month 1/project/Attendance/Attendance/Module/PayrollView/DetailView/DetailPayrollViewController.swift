@@ -9,8 +9,7 @@ class DetailPayrollViewController: UIViewController {
     @IBOutlet weak var circleVIew: UIImageView!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var backButton: UIImageView!
-    @IBOutlet weak var pieChartView: PieChartView!
-    @IBOutlet weak var heightofTableView: NSLayoutConstraint!
+//    @IBOutlet weak var heightofTableView: NSLayoutConstraint!
     
     private var payrollItem: Payroll?
     
@@ -23,9 +22,6 @@ class DetailPayrollViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         buttonEvent()
-        if let _ = payrollItem {
-            setupPieChart()
-        }
     }
     
     func buttonEvent() {
@@ -39,45 +35,12 @@ class DetailPayrollViewController: UIViewController {
         cardView.makeCornerRadius(20)
         circleVIew.tintColor = .white.withAlphaComponent(0.05)
         
-        tableView.registerCellWithNib(DetailCell.self)
+        tableView.registerCellWithNib(TableCell.self)
+        tableView.registerCellWithNib(ChartCell.self)
         tableView.dataSource = self
         tableView.delegate = self
     }
     
-    func setupPieChart() {
-        let totalAllowances = allowances.reduce(0) { $0 + $1.amount }
-        let totalDeductions = deductions.reduce(0) { $0 + $1.amount }
-        let entries: [ChartDataEntry] = [
-            PieChartDataEntry(value: Double(payrollItem?.basicSalary ?? 0.0), label: "Basic Salary"),
-            PieChartDataEntry(value: Double(totalAllowances), label: "Allowances"),
-            PieChartDataEntry(value: Double(totalDeductions), label: "Deductions"),
-        ]
-        
-        let totalAll = totalAllowances + totalDeductions + (payrollItem?.basicSalary ?? 0)
-        
-        let dataSet = PieChartDataSet(entries: entries, label: "Salary Breakdown")
-        dataSet.drawValuesEnabled = false
-        dataSet.colors = ChartColorTemplates.colorful()
-        dataSet.sliceSpace = 2
-        let data = PieChartData(dataSet: dataSet)
-        pieChartView.data = data
-        
-        pieChartView.drawCenterTextEnabled = true
-        pieChartView.centerText = "Gross Pay\n\(totalAll.formatAsRupiah())"
-        
-        
-        pieChartView.legend.enabled = true
-        pieChartView.legend.form = .circle
-        pieChartView.legend.horizontalAlignment = .center
-        pieChartView.legend.verticalAlignment = .bottom
-        pieChartView.legend.orientation = .horizontal
-        
-        
-        pieChartView.drawEntryLabelsEnabled = false
-        pieChartView.highlightPerTapEnabled = false
-
-        pieChartView.animate(xAxisDuration: 1.0, easingOption: .easeOutBack)
-    }
 
     func backTapped() {
         navigationController?.popViewController(animated: true)
@@ -87,7 +50,6 @@ class DetailPayrollViewController: UIViewController {
         self.payrollItem = item
         self.allowances = item.allowances
         self.deductions = item.deductions
-        
     }
     
 
@@ -95,13 +57,11 @@ class DetailPayrollViewController: UIViewController {
 
 extension DetailPayrollViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(allowances.count)
-        print(deductions.count)
         switch section {
         case 0:
-            return allowances.count
+            return 1
         case 1:
-            return deductions.count
+            return 1
         default:
             return 0
         }
@@ -109,28 +69,50 @@ extension DetailPayrollViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
         let section = indexPath.section
+
         switch section {
         case 0:
-            let index = indexPath.row
-            let item = allowances[index]
-            cell.initData(key: item.name, value: item.amount.formatAsRupiah())
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ChartCell", for: indexPath) as! ChartCell
+            if let payrollItem = payrollItem {
+                cell.setupPieChart(allowances: allowances, deductions: deductions, item: payrollItem)
+            }
+            return cell
         case 1:
-            let index = indexPath.row
-            let item = deductions[index]
-            cell.initData(key: item.name, value: item.amount.formatAsRupiah())
-        heightofTableView.constant = tableView.contentSize.height
-
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as! TableCell
+            cell.allowances = self.allowances
+            cell.deductions = self.deductions
+            return cell
         default:
             return UITableViewCell()
         }
-        return cell
     }
     
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return "Earning Details"
+        default:
+            return nil
+        }
+
+    }
+
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let section = indexPath.section
+        switch section {
+        case 0:
+            return 313
+        case 1:
+            return UITableView.automaticDimension
+        default:
+            return 0
+        }
+    }
 }

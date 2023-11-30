@@ -16,11 +16,13 @@ class PayrollViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
         setupUI()
         buttonEvent()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
     func buttonEvent() {
         backButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else { return }

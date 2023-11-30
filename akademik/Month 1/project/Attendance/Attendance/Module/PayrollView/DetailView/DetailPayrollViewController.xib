@@ -14,8 +14,6 @@
                 <outlet property="backButton" destination="5hI-rD-4xb" id="XhJ-Ha-pLP"/>
                 <outlet property="cardView" destination="pQt-kg-BxU" id="9FE-dD-kbQ"/>
                 <outlet property="circleVIew" destination="p9G-sY-Del" id="i44-To-zws"/>
-                <outlet property="heightofTableView" destination="Vdg-aJ-WVD" id="bpY-Gs-n4H"/>
-                <outlet property="pieChartView" destination="7f5-4i-WOR" id="OWZ-vh-gQ4"/>
                 <outlet property="tableView" destination="yyc-yW-PXQ" id="AXQ-Xp-g5G"/>
                 <outlet property="view" destination="T86-YM-V8e" id="eu2-Kj-bdr"/>
             </connections>
@@ -82,46 +80,23 @@
                     <rect key="frame" x="12" y="143" width="369" height="675"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yyc-yW-PXQ">
-                            <rect key="frame" x="30" y="362" width="302" height="283"/>
+                            <rect key="frame" x="15" y="30" width="339" height="615"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="283" id="Vdg-aJ-WVD"/>
-                            </constraints>
                             <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRd-NG-xO9" customClass="CustomEmpty" customModule="Attendance" customModuleProvider="target">
-                            <rect key="frame" x="30" y="362" width="302" height="283"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7f5-4i-WOR" customClass="PieChartView" customModule="DGCharts">
-                            <rect key="frame" x="10" y="10" width="349" height="292"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="292" id="54V-Pm-zCX"/>
-                            </constraints>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Earning Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LT-DI-84W">
-                            <rect key="frame" x="10" y="327" width="121" height="24"/>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QRd-NG-xO9" customClass="CustomEmpty" customModule="Attendance" customModuleProvider="target">
+                            <rect key="frame" x="15" y="30" width="339" height="615"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
-                            <color key="textColor" name="PrimaryTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="QRd-NG-xO9" firstAttribute="trailing" secondItem="yyc-yW-PXQ" secondAttribute="trailing" id="5wr-PS-8Sm"/>
-                        <constraint firstAttribute="trailing" secondItem="7f5-4i-WOR" secondAttribute="trailing" constant="10" id="9JD-Y0-zsF"/>
-                        <constraint firstItem="yyc-yW-PXQ" firstAttribute="top" secondItem="7f5-4i-WOR" secondAttribute="bottom" constant="60" id="A6O-Pc-AVh"/>
-                        <constraint firstItem="yyc-yW-PXQ" firstAttribute="trailing" secondItem="pQt-kg-BxU" secondAttribute="trailingMargin" constant="-29" id="Dk8-Qt-v6S"/>
-                        <constraint firstItem="7f5-4i-WOR" firstAttribute="top" secondItem="pQt-kg-BxU" secondAttribute="top" constant="10" id="IEK-ag-7xL"/>
-                        <constraint firstItem="QRd-NG-xO9" firstAttribute="top" secondItem="7f5-4i-WOR" secondAttribute="bottom" constant="60" id="RLa-zH-09X"/>
-                        <constraint firstItem="yyc-yW-PXQ" firstAttribute="leading" secondItem="pQt-kg-BxU" secondAttribute="leading" constant="30" id="Xs2-kA-Q1M"/>
-                        <constraint firstItem="7f5-4i-WOR" firstAttribute="leading" secondItem="pQt-kg-BxU" secondAttribute="leading" constant="10" id="lbF-Uj-ko9"/>
-                        <constraint firstItem="QRd-NG-xO9" firstAttribute="bottom" secondItem="yyc-yW-PXQ" secondAttribute="bottom" id="lyE-s6-7rh"/>
-                        <constraint firstAttribute="bottom" secondItem="yyc-yW-PXQ" secondAttribute="bottom" constant="30" id="pfu-m2-K68"/>
-                        <constraint firstItem="QRd-NG-xO9" firstAttribute="leading" secondItem="yyc-yW-PXQ" secondAttribute="leading" id="z9R-95-Dut"/>
+                        <constraint firstAttribute="bottom" secondItem="yyc-yW-PXQ" secondAttribute="bottom" constant="30" id="NZS-ua-vma"/>
+                        <constraint firstAttribute="trailing" secondItem="yyc-yW-PXQ" secondAttribute="trailing" constant="15" id="by9-DT-svv"/>
+                        <constraint firstItem="yyc-yW-PXQ" firstAttribute="top" secondItem="pQt-kg-BxU" secondAttribute="top" constant="30" id="c4b-3z-mwA"/>
+                        <constraint firstItem="yyc-yW-PXQ" firstAttribute="leading" secondItem="pQt-kg-BxU" secondAttribute="leading" constant="15" id="fK6-zl-us8"/>
                     </constraints>
                 </view>
             </subviews>
@@ -144,9 +119,6 @@
         <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <namedColor name="PrimaryTextColor">
-            <color red="0.015686274509803921" green="0.17254901960784313" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="bg2Color">
             <color red="0.0" green="0.3843137254901961" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -83,6 +83,8 @@
 		36ADC9922B17142400E135DC /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9902B17142400E135DC /* DetailCell.xib */; };
 		36ADC9962B173C9000E135DC /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9942B173C9000E135DC /* ChartCell.swift */; };
 		36ADC9972B173C9000E135DC /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9952B173C9000E135DC /* ChartCell.xib */; };
+		36ADC99A2B1827AA00E135DC /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9982B1827AA00E135DC /* TableCell.swift */; };
+		36ADC99B2B1827AA00E135DC /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9992B1827AA00E135DC /* TableCell.xib */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C287322B04766100F17ADA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* ItemModel.swift */; };
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
@@ -201,6 +203,8 @@
 		36ADC9902B17142400E135DC /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 		36ADC9942B173C9000E135DC /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		36ADC9952B173C9000E135DC /* ChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
+		36ADC9982B1827AA00E135DC /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		36ADC9992B1827AA00E135DC /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C287312B04766100F17ADA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
@@ -638,6 +642,8 @@
 			children = (
 				36ADC98F2B17142400E135DC /* DetailCell.swift */,
 				36ADC9902B17142400E135DC /* DetailCell.xib */,
+				36ADC9982B1827AA00E135DC /* TableCell.swift */,
+				36ADC9992B1827AA00E135DC /* TableCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -836,6 +842,7 @@
 				36DDA9192B076E0E00350039 /* SortbyCell.xib in Resources */,
 				36210D7B2B0304CC0009EBC0 /* InputField.xib in Resources */,
 				36210D2F2B02084C0009EBC0 /* Assets.xcassets in Resources */,
+				36ADC99B2B1827AA00E135DC /* TableCell.xib in Resources */,
 				36ADC98D2B16E50D00E135DC /* DetailPayrollViewController.xib in Resources */,
 				36210D842B031C0B0009EBC0 /* RegisterViewController.xib in Resources */,
 				36210D2D2B02084B0009EBC0 /* Main.storyboard in Resources */,
@@ -997,6 +1004,7 @@
 				36ADC9882B16DA1200E135DC /* ExtFloat.swift in Sources */,
 				3670C67B2B05C9510011985F /* ExtDate.swift in Sources */,
 				36ADC92B2B1587B400E135DC /* ExtTableView.swift in Sources */,
+				36ADC99A2B1827AA00E135DC /* TableCell.swift in Sources */,
 				36210D972B0324240009EBC0 /* ProfileViewController.swift in Sources */,
 				36ADC9962B173C9000E135DC /* ChartCell.swift in Sources */,
 				367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */,

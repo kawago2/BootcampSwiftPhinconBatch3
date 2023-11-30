@@ -27,8 +27,12 @@ class PermissionViewController: UIViewController {
         super.viewDidLoad()
         buttonEvent()
         setupFP()
-        getData()
+      
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
     }
     
     func buttonEvent() {

@@ -23,10 +23,14 @@ class ApproveViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+        
         setupUI()
         buttonEvent()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
     }
     
     func buttonEvent() {
