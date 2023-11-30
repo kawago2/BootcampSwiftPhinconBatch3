@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
-            let result = self.checkInternetConnection(navigationController: navigationController, tabbar: tabbar)
+            let _ = self.checkInternetConnection(navigationController: navigationController, tabbar: tabbar)
         }
 
         navigationController.isNavigationBarHidden = true
@@ -43,13 +43,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         switch status {
         case .connected:
             print("Connected to the internet.")
-            // Dismiss the loading view if it's currently presented
-            dismissLoadingView()
+            dismissLoadingView() {
+                self.window?.rootViewController?.viewWillAppear(true)
+            }
             handleNetworkAvailable(navigationController: navigationController, tabbar: tabbar)
             return true
         case .notConnected:
             print("No internet connection.")
-            // Show the loading view if it's not currently presented
             showLoadingView()
             return false
         }
@@ -123,14 +123,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         topViewController()?.view.addSubview(loadingView)
     }
 
-    private func dismissLoadingView() {
+    private func dismissLoadingView(completion: (() -> Void)? = nil) {
         guard let loadingView = loadingView else {
             return
         }
 
-        loadingView.removeFromSuperview()
-        self.loadingView = nil
+        UIView.animate(withDuration: 0.3, animations: {
+            loadingView.alpha = 0
+        }) { _ in
+            loadingView.removeFromSuperview()
+            self.loadingView = nil
+            completion?()
+        }
     }
+
 
     func topViewController() -> UIViewController? {
         if var topController = window?.rootViewController {
