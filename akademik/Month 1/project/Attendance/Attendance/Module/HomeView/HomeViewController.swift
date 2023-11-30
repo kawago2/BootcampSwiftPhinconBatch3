@@ -31,11 +31,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getCurrentData()
         setupUI()
         buttonEvent()
         setupRealTimeClock()
         setDefaultSelected()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getCurrentData()
     }
     
     func buttonEvent() {
