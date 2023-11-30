@@ -12,7 +12,9 @@ class PayrollViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var dataPayroll: [Payroll] = []
+    var filtereddataPayroll: [Payroll] = []
     let disposeBag = DisposeBag()
+    var currentSortBy = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,10 @@ class PayrollViewController: UIViewController {
         tableView.dataSource = self
         tableView.registerCellWithNib(PayrollCell.self)
         tableView.allowsMultipleSelection = false
+        
+        collectionView.registerCellWithNib(SortbyCell.self)
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     func backTapped() {
@@ -114,7 +120,7 @@ class PayrollViewController: UIViewController {
 
 extension PayrollViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataPayroll.count
+        return filtereddataPayroll.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -129,14 +135,14 @@ extension PayrollViewController: UITableViewDelegate, UITableViewDataSource {
         let index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "PayrollCell", for: indexPath) as? PayrollCell
         guard let cell = cell else { return  UITableViewCell() }
-        let item = dataPayroll[index]
+        let item = filtereddataPayroll[index]
         
         cell.initData(date: item.date.formattedShortDateString(), pay: item.netSalary.formatAsRupiah(), month: item.date.getMonth())
         
         switch index {
         case 0:
             cell.configuration(first: true, last: false)
-        case dataPayroll.count - 1:
+        case filtereddataPayroll.count - 1:
             cell.configuration(first: false, last: true)
         default:
             cell.configuration(first: false, last: false)
@@ -147,7 +153,89 @@ extension PayrollViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
         let vc = DetailPayrollViewController()
-        vc.initData(item: dataPayroll[index])
+        vc.initData(item: filtereddataPayroll[index])
         navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+extension PayrollViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let index = indexPath.item
+        switch index {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
+            cell.delegate = self
+            cell.context = "date"
+            cell.initData(title: "Date")
+            return cell
+//        case 1:
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
+//            cell.delegate = self
+//            cell.context = "option"
+//            cell.initData(title: "Status")
+//            return cell
+        default:
+            return UICollectionViewCell()
+        }
+        
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let index = indexPath.item
+        
+        var title = ""
+        switch index {
+        case 0:
+            title = "Date"
+        case 1:
+            title = "Status"
+        default:
+            break
+        }
+        
+        let font = UIFont.systemFont(ofSize: 12)
+        let titleWidth = NSString(string: title).size(withAttributes: [NSAttributedString.Key.font: font]).width
+        
+        let cellWidth = titleWidth + 10
+        
+        return CGSize(width: cellWidth + 100, height: 50)
+    }
+
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+}
+
+
+extension PayrollViewController : SortbyCellDelegate {
+    func didLabelTapped(sortby: String) {
+        self.currentSortBy = sortby
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+//            self.sortByStatus(sortby: sortby)
+            self.filtereddataPayroll = self.dataPayroll
+            self.sortByDate(sortby: sortby)
+//            self.updateEmptyView()
+            self.tableView.reloadData()
+        })
+    }
+    
+    func sortByDate(sortby: String) {
+        print(sortby)
+        switch sortby {
+        case DateSortOption.oldest.rawValue.lowercased():
+            filtereddataPayroll = filtereddataPayroll.sorted { $0.date  < $1.date  }
+        case DateSortOption.newest.rawValue.lowercased():
+            filtereddataPayroll = filtereddataPayroll.sorted { $0.date > $1.date }
+        default:
+            break
+        }
+    }
+
 }
