@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
 
-    @objc func checkToggle() {
+     func checkToggle() {
         self.isCheckIn = !isCheckIn
         updateCheck()
         tableView.reloadData()
@@ -69,12 +69,12 @@ class HomeViewController: UIViewController {
         addToFirebase()
     }
     
-    @objc func navigateToForm() {
+     func navigateToForm() {
         let vc = PermissionViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func navigateToValidator() {
+     func navigateToValidator() {
         let vc = ApproveViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -150,7 +150,7 @@ class HomeViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimeLabels), userInfo: nil, repeats: true)
     }
     
-    @objc func updateTimeLabels() {
+     @objc func updateTimeLabels() {
         self.currentDate = Date()
         
         let formattedDate = currentDate.formattedFullDateString()

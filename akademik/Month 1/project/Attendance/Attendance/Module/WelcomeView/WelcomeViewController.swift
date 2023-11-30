@@ -78,7 +78,7 @@ class WelcomeViewController: UIViewController {
         navigationController?.setViewControllers([vc], animated: true)
     }
     
-    @objc func navigateRegister() {
+     func navigateRegister() {
         let vc = RegisterViewController()
         navigationController?.setViewControllers([vc], animated: true)
     }
@@ -87,7 +87,7 @@ class WelcomeViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoplay), userInfo: nil, repeats: true)
     }
     
-    @objc func autoplay() {
+     @objc func autoplay() {
         currentPages = (currentPages + 1) % numberOfPages
         pageControl.currentPage = currentPages
         let newOffset = CGPoint(x: collectionView.frame.width * CGFloat(currentPages), y: collectionView.contentOffset.y)
@@ -96,7 +96,7 @@ class WelcomeViewController: UIViewController {
         updateUIForCurrentPage()
     }
 
-    @objc func pageControlClicked() {
+     func pageControlClicked() {
         let currentPage = pageControl.currentPage
         let indexPath = IndexPath(item: currentPage, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)

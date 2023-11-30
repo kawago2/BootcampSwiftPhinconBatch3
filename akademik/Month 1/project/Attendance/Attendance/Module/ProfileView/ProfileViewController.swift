@@ -59,7 +59,7 @@ class ProfileViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
 
-    @objc func signoutTapped() {
+     func signoutTapped() {
         FAuth.logout { result in
             switch result {
             case .success:
@@ -72,7 +72,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @objc func navigateFP() {
+     func navigateFP() {
         let contentVC = EditProfileViewController()
         contentVC.delegate = self
         let item = ProfileItem(nik: self.nik, alamat: self.alamat, name: self.name, posisi: self.posisi)

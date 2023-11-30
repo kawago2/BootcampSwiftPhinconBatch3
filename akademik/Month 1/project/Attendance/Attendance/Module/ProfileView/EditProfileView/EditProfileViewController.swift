@@ -96,11 +96,11 @@ class EditProfileViewController: UIViewController {
     }
     
     
-    @objc func popToView() {
+     func popToView() {
         self.dismiss(animated: true)
     }
     
-    @objc func saveTapped() {
+     func saveTapped() {
         loadingView.startAnimating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             let item = ProfileItem(nik: self.nikField.text, alamat: self.alamatField.text, name: self.nameField.text, posisi: self.posisiField.text)
@@ -120,11 +120,11 @@ class EditProfileViewController: UIViewController {
         self.posisi = item.posisi ?? ""
     }
     
-    @objc func openGallery() {
+     func openGallery() {
         showImagePicker(sourceType: .photoLibrary)
     }
     
-    @objc func openCamera() {
+     func openCamera() {
         showImagePicker(sourceType: .camera)
     }
     

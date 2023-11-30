@@ -69,7 +69,7 @@ class AddPermissionViewController: UIViewController {
         }
     }
 
-    @objc func showDropdown() {
+     func showDropdown() {
         typeDropDown.show()
     }
     

@@ -41,7 +41,7 @@ class SortbyCell: UICollectionViewCell {
         cardView.layer.borderColor = UIColor.black.cgColor
     }
     
-    @objc func didLabelTapped() {
+    func didLabelTapped() {
          dropDown.show()
      }
     

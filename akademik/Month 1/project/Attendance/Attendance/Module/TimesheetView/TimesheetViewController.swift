@@ -57,7 +57,7 @@ class TimesheetViewController: UIViewController {
         collectionView.dataSource = self
     }
     
-    @objc func navigateFP() {
+     func navigateFP() {
         let contentVC = AddFormViewController()
         contentVC.context = "add"
         contentVC.delegate = self

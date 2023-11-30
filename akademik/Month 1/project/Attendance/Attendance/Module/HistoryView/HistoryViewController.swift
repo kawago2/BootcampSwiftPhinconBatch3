@@ -56,7 +56,7 @@ class HistoryViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
-    @objc func dayButtonTapped() {
+     func dayButtonTapped() {
         fetchData() {
             self.filterData(by: .day)
         }
@@ -66,7 +66,7 @@ class HistoryViewController: UIViewController {
         yearButton.isSelected = false
     }
 
-    @objc func weekButtonTapped() {
+     func weekButtonTapped() {
         fetchData() {
             self.filterData(by: .weekOfYear)
         }
@@ -76,7 +76,7 @@ class HistoryViewController: UIViewController {
         yearButton.isSelected = false
     }
 
-    @objc func monthButtonTapped() {
+     func monthButtonTapped() {
         fetchData() {
             self.filterData(by: .month)
         }
@@ -87,7 +87,7 @@ class HistoryViewController: UIViewController {
         
     }
 
-    @objc func yearButtonTapped() {
+     func yearButtonTapped() {
         fetchData() {
             self.filterData(by: .year)
         }
@@ -123,7 +123,7 @@ class HistoryViewController: UIViewController {
         
     }
     
-    @objc func goToTopButtonTapped() {
+     func goToTopButtonTapped() {
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }

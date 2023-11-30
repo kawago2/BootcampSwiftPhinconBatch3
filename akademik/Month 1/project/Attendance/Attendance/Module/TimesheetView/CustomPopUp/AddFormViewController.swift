@@ -127,11 +127,11 @@ class AddFormViewController: UIViewController {
 
 
     
-    @objc func showDropDown() {
+     func showDropDown() {
         dropDown.show()
     }
     
-    @objc func didAddTapped() {
+     func didAddTapped() {
         do {
             try checkFields()
             
@@ -157,7 +157,7 @@ class AddFormViewController: UIViewController {
 
 
 
-    @objc func cancelTapped() {
+    func cancelTapped() {
         self.dismiss(animated: true)
     }
 
