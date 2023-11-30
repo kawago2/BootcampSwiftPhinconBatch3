@@ -18,38 +18,33 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hUV-uR-lMz" customClass="FormView" customModule="Attendance" customModuleProvider="target">
-                        <rect key="frame" x="10" y="10" width="300" height="309"/>
+                        <rect key="frame" x="30" y="10" width="260" height="309"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bU4-7E-sUH">
-                                <rect key="frame" x="10" y="10" width="280" height="285"/>
+                                <rect key="frame" x="10" y="10" width="240" height="285"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="285" id="udl-oM-fba"/>
-                                </constraints>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="bU4-7E-sUH" secondAttribute="trailing" constant="10" id="Iv1-4e-HRY"/>
                             <constraint firstItem="bU4-7E-sUH" firstAttribute="top" secondItem="hUV-uR-lMz" secondAttribute="top" constant="10" id="drc-dE-vrO"/>
                             <constraint firstItem="bU4-7E-sUH" firstAttribute="leading" secondItem="hUV-uR-lMz" secondAttribute="leading" constant="10" id="hDp-9D-Whz"/>
                             <constraint firstAttribute="bottom" secondItem="bU4-7E-sUH" secondAttribute="bottom" constant="14" id="rQb-hc-dTc"/>
+                            <constraint firstAttribute="trailing" secondItem="bU4-7E-sUH" secondAttribute="trailing" constant="10" id="uCf-ug-bhf"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="hUV-uR-lMz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="3rw-tY-Ic6"/>
+                    <constraint firstItem="hUV-uR-lMz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="3rw-tY-Ic6"/>
                     <constraint firstAttribute="bottom" secondItem="hUV-uR-lMz" secondAttribute="bottom" constant="10" id="9lv-mz-IeE"/>
                     <constraint firstItem="hUV-uR-lMz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="GjH-7k-9xq"/>
-                    <constraint firstAttribute="bottom" secondItem="hUV-uR-lMz" secondAttribute="bottom" constant="10" id="hHc-cj-tGU"/>
-                    <constraint firstAttribute="trailing" secondItem="hUV-uR-lMz" secondAttribute="trailing" constant="10" id="nP4-ay-vCY"/>
+                    <constraint firstAttribute="trailing" secondItem="hUV-uR-lMz" secondAttribute="trailing" constant="30" id="nP4-ay-vCY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="heightTableView" destination="udl-oM-fba" id="ocd-gK-9lH"/>
                 <outlet property="tableView" destination="bU4-7E-sUH" id="XdX-E9-SxA"/>
             </connections>
             <point key="canvasLocation" x="126.71755725190839" y="66.549295774647888"/>

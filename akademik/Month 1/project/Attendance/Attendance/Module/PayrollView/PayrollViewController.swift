@@ -71,10 +71,9 @@ class PayrollViewController: UIViewController {
                         var allowances: [Allowance] = []
                         if let allowancesData = data["allowances"] as? [String: Any] {
                             allowances = allowancesData.compactMap { allowanceData in
-                                guard
-                                    let name = allowanceData.key as? String,
-                                    let amount = allowanceData.value as? Float
+                                guard let amount = allowanceData.value as? Float
                                 else { return nil }
+                                let name = allowanceData.key as String
                                 return Allowance(name: name, amount: amount)
                             }
                         }
@@ -83,10 +82,9 @@ class PayrollViewController: UIViewController {
                         var deductions: [Deduction] = []
                         if let deductionsData = data["deductions"] as? [String: Any] {
                             deductions = deductionsData.compactMap { deductionData in
-                                guard
-                                    let name = deductionData.key as? String,
-                                    let amount = deductionData.value as? Float
+                                guard let amount = deductionData.value as? Float
                                 else { return nil }
+                                let name = deductionData.key as String
                                 return Deduction(name: name, amount: amount)
                             }
                         }
@@ -111,9 +109,6 @@ class PayrollViewController: UIViewController {
             }
         }
     }
-
-    
-    
 }
 
 extension PayrollViewController: UITableViewDelegate, UITableViewDataSource {

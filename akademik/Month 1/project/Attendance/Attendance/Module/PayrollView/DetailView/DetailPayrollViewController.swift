@@ -110,7 +110,10 @@ extension DetailPayrollViewController: UITableViewDelegate, UITableViewDataSourc
         case 0:
             return 313
         case 1:
-            return UITableView.automaticDimension
+            let numberOfRows = allowances.count + deductions.count
+            let estimatedHeightForRow = 33.0
+            let diff = 50.0
+            return (CGFloat(numberOfRows) * estimatedHeightForRow) + diff
         default:
             return 0
         }

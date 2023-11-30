@@ -10,28 +10,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DetailCell" customModule="Attendance" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="33" id="KGk-i7-Jjw" customClass="DetailCell" customModule="Attendance" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEP-7t-qOn">
-                        <rect key="frame" x="30" y="0.0" width="260" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="9JE-ID-D8u">
-                                <rect key="frame" x="0.0" y="5" width="260" height="34"/>
+                                <rect key="frame" x="0.0" y="5" width="320" height="23"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Sz-5Y-cM4">
-                                        <rect key="frame" x="0.0" y="0.0" width="102" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="23"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukZ-9V-QVo">
-                                        <rect key="frame" x="104" y="0.0" width="156" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="129.66666666666663" y="0.0" width="190.33333333333337" height="23"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -49,9 +49,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="DEP-7t-qOn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2Zi-7u-VuM"/>
-                    <constraint firstAttribute="trailing" secondItem="DEP-7t-qOn" secondAttribute="trailing" constant="30" id="Dnt-RA-Oni"/>
+                    <constraint firstItem="DEP-7t-qOn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cv0-1b-75M"/>
                     <constraint firstAttribute="bottom" secondItem="DEP-7t-qOn" secondAttribute="bottom" id="Fpm-eV-1o4"/>
-                    <constraint firstItem="DEP-7t-qOn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="int-mA-Zvg"/>
+                    <constraint firstAttribute="trailing" secondItem="DEP-7t-qOn" secondAttribute="trailing" id="H8U-BR-sAc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -60,7 +60,7 @@
                 <outlet property="keyLabel" destination="7Sz-5Y-cM4" id="nOq-aJ-JCQ"/>
                 <outlet property="valueLabel" destination="ukZ-9V-QVo" id="Jwq-tC-id1"/>
             </connections>
-            <point key="canvasLocation" x="126.71755725190839" y="19.718309859154932"/>
+            <point key="canvasLocation" x="126.71755725190839" y="15.845070422535212"/>
         </tableViewCell>
     </objects>
     <resources>
