@@ -48,8 +48,8 @@ class DetailPayrollViewController: UIViewController {
     
     func initData(item: Payroll) {
         self.payrollItem = item
-        self.allowances = item.allowances
-        self.deductions = item.deductions
+        self.allowances = item.allowances ?? []
+        self.deductions = item.deductions ?? []
     }
     
 

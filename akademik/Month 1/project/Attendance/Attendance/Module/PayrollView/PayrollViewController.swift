@@ -137,7 +137,8 @@ extension PayrollViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = cell else { return  UITableViewCell() }
         let item = filtereddataPayroll[index]
         
-        cell.initData(date: item.date.formattedShortDateString(), pay: item.netSalary.formatAsRupiah(), month: item.date.getMonth())
+        
+        cell.initData(date: item.date?.formattedShortDateString() ?? "", pay: item.netSalary?.formatAsRupiah() ?? "", month: item.date?.getMonth() ?? "")
         
         switch index {
         case 0:
@@ -230,9 +231,9 @@ extension PayrollViewController : SortbyCellDelegate {
         print(sortby)
         switch sortby {
         case DateSortOption.oldest.rawValue.lowercased():
-            filtereddataPayroll = filtereddataPayroll.sorted { $0.date  < $1.date  }
+            filtereddataPayroll = filtereddataPayroll.sorted { $0.date ?? Date()  < $1.date ?? Date() }
         case DateSortOption.newest.rawValue.lowercased():
-            filtereddataPayroll = filtereddataPayroll.sorted { $0.date > $1.date }
+            filtereddataPayroll = filtereddataPayroll.sorted { $0.date ?? Date() > $1.date ?? Date() }
         default:
             break
         }

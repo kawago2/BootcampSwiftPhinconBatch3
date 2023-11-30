@@ -19,12 +19,12 @@ class ChartCell: UITableViewCell {
         let totalAllowances = allowances.reduce(0) { $0 + $1.amount }
         let totalDeductions = deductions.reduce(0) { $0 + $1.amount }
         let entries: [ChartDataEntry] = [
-            PieChartDataEntry(value: Double(item.basicSalary), label: "Basic Salary"),
+            PieChartDataEntry(value: Double(item.basicSalary ?? 0.0), label: "Basic Salary"),
             PieChartDataEntry(value: Double(totalAllowances), label: "Allowances"),
             PieChartDataEntry(value: Double(totalDeductions), label: "Deductions"),
         ]
         
-        let totalAll = totalAllowances + totalDeductions + (item.basicSalary)
+        let totalAll = totalAllowances + totalDeductions + (item.basicSalary ?? 0.0)
 
         
         let dataSet = PieChartDataSet(entries: entries, label: "Salary Breakdown")

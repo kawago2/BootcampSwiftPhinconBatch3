@@ -53,12 +53,12 @@ struct Deduction {
 }
 
 struct Payroll {
-    var payrollId: String
-    var date: Date
-    var basicSalary: Float
-    var allowances: [Allowance]
-    var deductions: [Deduction]
-    var netSalary: Float
+    var payrollId: String?
+    var date: Date?
+    var basicSalary: Float?
+    var allowances: [Allowance]?
+    var deductions: [Deduction]?
+    var netSalary: Float?
 }
 
 
