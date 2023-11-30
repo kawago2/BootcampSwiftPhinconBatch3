@@ -38,10 +38,14 @@ class PayrollCell: UITableViewCell {
         
         if first {
             bottomLine.roundCorners(corners: [.topLeft,.topRight], radius: 20)
+        } else {
+            bottomLine.roundCorners(corners: [.topLeft,.topRight], radius: 0)
         }
         
         if last {
             topLine.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 20)
+        } else {
+            topLine.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 0)
         }
     }
 
