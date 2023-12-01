@@ -1,17 +1,13 @@
-//
-//  OnboardingViewController.swift
-//  Fintech
-//
-//  Created by Phincon on 01/12/23.
-//
-
 import UIKit
+import RxSwift
+import RxCocoa
+
 
 class OnboardingViewController: UIViewController {
-
+    
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var cardView: FormView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -24,16 +20,25 @@ class OnboardingViewController: UIViewController {
     var timer: Timer?
     var currentPages = 0
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonEvent()
         loadData()
         setupUI()
         updateUIForCurrentPage()
     }
-
+    
+    private func buttonEvent() {
+        nextButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.buttonClicked()
+        }).disposed(by: disposeBag)
+    }
+    
     
     private func setupUI() {
-        cardView.roundCorners(corners: [.allCorners], cornerRadius: 30)
         skipButton.backgroundColor = .white.withAlphaComponent(0.10)
         skipButton.roundCorners(corners: [.allCorners], cornerRadius: 30)
         descriptionLabel.textColor = UIColor(hex: "13095E")?.withAlphaComponent(0.80)
@@ -55,31 +60,35 @@ class OnboardingViewController: UIViewController {
         ]
     }
     
-    private func startAutoplay() {
-        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoplay), userInfo: nil, repeats: true)
+    private func buttonClicked() {
+        if currentPages == onboardingList.count - 1 {
+            
+        } else {
+            currentPages = (currentPages + 1) % numberOfPages
+            pageControl.currentPage = currentPages
+            let newOffset = CGPoint(x: collectionView.frame.width * CGFloat(currentPages), y: collectionView.contentOffset.y)
+            collectionView.setContentOffset(newOffset, animated: true)
+            collectionView.layoutIfNeeded()
+            updateUIForCurrentPage()
+        }
+    
     }
     
-    @objc func autoplay() {
-       currentPages = (currentPages + 1) % numberOfPages
-       pageControl.currentPage = currentPages
-       let newOffset = CGPoint(x: collectionView.frame.width * CGFloat(currentPages), y: collectionView.contentOffset.y)
-       collectionView.setContentOffset(newOffset, animated: true)
-       collectionView.layoutIfNeeded()
-       updateUIForCurrentPage()
-   }
-    
     private func pageControlClicked() {
-       let currentPage = pageControl.currentPage
-       let indexPath = IndexPath(item: currentPage, section: 0)
-       collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-       updateUIForCurrentPage()
-   }
+        let currentPage = pageControl.currentPage
+        let indexPath = IndexPath(item: currentPage, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        updateUIForCurrentPage()
+    }
     
     private func updateUIForCurrentPage() {
         guard currentPages < onboardingList.count else { return }
         titleLabel.text = onboardingList[currentPages].title ?? ""
         descriptionLabel.text = onboardingList[currentPages].description ?? ""
         nextButton.setTitle("Next", for: .normal)
+        if currentPages == onboardingList.count - 1 {
+            nextButton.setTitle("Get Started", for: .normal)
+        }
     }
 }
 

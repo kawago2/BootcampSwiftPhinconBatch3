@@ -32,6 +32,7 @@
 		368EF18F2B19C2060050F43C /* OnboardingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF18D2B19C2060050F43C /* OnboardingCell.xib */; };
 		368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1902B19D44D0050F43C /* Inter-Bold.ttf */; };
 		368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1922B19DBEE0050F43C /* ExtUIColor.swift */; };
+		368EF1962B19E1D80050F43C /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1952B19E1D80050F43C /* FormView.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		368EF18D2B19C2060050F43C /* OnboardingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCell.xib; sourceTree = "<group>"; };
 		368EF1902B19D44D0050F43C /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		368EF1922B19DBEE0050F43C /* ExtUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
+		368EF1952B19E1D80050F43C /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		368EF17C2B1997700050F43C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				368EF1942B19E1BC0050F43C /* Component */,
 				368EF1842B19BD330050F43C /* Extension */,
 				368EF17D2B1997970050F43C /* Constant.swift */,
 			);
@@ -267,6 +270,14 @@
 				368EF18D2B19C2060050F43C /* OnboardingCell.xib */,
 			);
 			path = OnboardingCell;
+			sourceTree = "<group>";
+		};
+		368EF1942B19E1BC0050F43C /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				368EF1952B19E1D80050F43C /* FormView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -538,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
 				368EF1822B19B99F0050F43C /* OnboardingViewController.swift in Sources */,
 				368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */,
