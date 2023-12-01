@@ -116,13 +116,9 @@
 		361D9C792B1991E3005D7FA1 /* Fintech */ = {
 			isa = PBXGroup;
 			children = (
-				361D9C7A2B1991E3005D7FA1 /* AppDelegate.swift */,
-				361D9C7C2B1991E3005D7FA1 /* SceneDelegate.swift */,
-				361D9C7E2B1991E3005D7FA1 /* ViewController.swift */,
-				361D9C802B1991E3005D7FA1 /* Main.storyboard */,
-				361D9C832B1991E5005D7FA1 /* Assets.xcassets */,
-				361D9C852B1991E5005D7FA1 /* LaunchScreen.storyboard */,
-				361D9C882B1991E5005D7FA1 /* Info.plist */,
+				368EF16C2B1992E30050F43C /* App */,
+				368EF16D2B1992F30050F43C /* Resource */,
+				368EF16E2B1993050050F43C /* Module */,
 			);
 			path = Fintech;
 			sourceTree = "<group>";
@@ -144,6 +140,34 @@
 			path = FintechUITests;
 			sourceTree = "<group>";
 		};
+		368EF16C2B1992E30050F43C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				361D9C7A2B1991E3005D7FA1 /* AppDelegate.swift */,
+				361D9C7C2B1991E3005D7FA1 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		368EF16D2B1992F30050F43C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				361D9C832B1991E5005D7FA1 /* Assets.xcassets */,
+				361D9C852B1991E5005D7FA1 /* LaunchScreen.storyboard */,
+				361D9C882B1991E5005D7FA1 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		368EF16E2B1993050050F43C /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				361D9C802B1991E3005D7FA1 /* Main.storyboard */,
+				361D9C7E2B1991E3005D7FA1 /* ViewController.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +178,6 @@
 				A14BA9CEF0958E6D244EBDA2 /* Pods-FintechTests.debug.xcconfig */,
 				C58E0C65D39A69C8399DD704 /* Pods-FintechTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
