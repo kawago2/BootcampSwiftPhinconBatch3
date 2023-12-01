@@ -162,10 +162,18 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				368EF16F2B1993540050F43C /* Main */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		368EF16F2B1993540050F43C /* Main */ = {
+			isa = PBXGroup;
+			children = (
 				361D9C802B1991E3005D7FA1 /* Main.storyboard */,
 				361D9C7E2B1991E3005D7FA1 /* ViewController.swift */,
 			);
-			path = Module;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
