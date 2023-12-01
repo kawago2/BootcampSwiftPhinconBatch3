@@ -30,6 +30,8 @@
 		368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1892B19C1C20050F43C /* ExtUIViewColletion.swift */; };
 		368EF18E2B19C2060050F43C /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF18C2B19C2060050F43C /* OnboardingCell.swift */; };
 		368EF18F2B19C2060050F43C /* OnboardingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF18D2B19C2060050F43C /* OnboardingCell.xib */; };
+		368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1902B19D44D0050F43C /* Inter-Bold.ttf */; };
+		368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1922B19DBEE0050F43C /* ExtUIColor.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,8 @@
 		368EF1892B19C1C20050F43C /* ExtUIViewColletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewColletion.swift; sourceTree = "<group>"; };
 		368EF18C2B19C2060050F43C /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		368EF18D2B19C2060050F43C /* OnboardingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCell.xib; sourceTree = "<group>"; };
+		368EF1902B19D44D0050F43C /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		368EF1922B19DBEE0050F43C /* ExtUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		368EF1752B1996590050F43C /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				368EF1902B19D44D0050F43C /* Inter-Bold.ttf */,
 				368EF17A2B1996E20050F43C /* Inter-SemiBold.ttf */,
 				368EF1762B1996B80050F43C /* Inter-Regular.ttf */,
 				368EF1782B1996D40050F43C /* Inter-Medium.ttf */,
@@ -250,6 +255,7 @@
 			children = (
 				368EF1852B19BD530050F43C /* ExtUIView.swift */,
 				368EF1892B19C1C20050F43C /* ExtUIViewColletion.swift */,
+				368EF1922B19DBEE0050F43C /* ExtUIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				368EF18F2B19C2060050F43C /* OnboardingCell.xib in Resources */,
 				361D9C842B1991E5005D7FA1 /* Assets.xcassets in Resources */,
 				361D9C822B1991E3005D7FA1 /* Main.storyboard in Resources */,
+				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
 				368EF17B2B1996E20050F43C /* Inter-SemiBold.ttf in Resources */,
 				368EF1832B19B99F0050F43C /* OnboardingViewController.xib in Resources */,
@@ -500,6 +507,7 @@
 				368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */,
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
+				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,
 				368EF17E2B1997970050F43C /* Constant.swift in Sources */,
 				368EF18E2B19C2060050F43C /* OnboardingCell.swift in Sources */,
 				361D9C7D2B1991E3005D7FA1 /* SceneDelegate.swift in Sources */,
