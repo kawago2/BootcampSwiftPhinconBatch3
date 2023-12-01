@@ -17,6 +17,12 @@
 		361D9C922B1991E5005D7FA1 /* FintechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C912B1991E5005D7FA1 /* FintechTests.swift */; };
 		361D9C9C2B1991E5005D7FA1 /* FintechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C9B2B1991E5005D7FA1 /* FintechUITests.swift */; };
 		361D9C9E2B1991E5005D7FA1 /* FintechUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C9D2B1991E5005D7FA1 /* FintechUITestsLaunchTests.swift */; };
+		368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1712B1995CC0050F43C /* SplashViewController.swift */; };
+		368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1722B1995CC0050F43C /* SplashViewController.xib */; };
+		368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1762B1996B80050F43C /* Inter-Regular.ttf */; };
+		368EF1792B1996D40050F43C /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1782B1996D40050F43C /* Inter-Medium.ttf */; };
+		368EF17B2B1996E20050F43C /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF17A2B1996E20050F43C /* Inter-SemiBold.ttf */; };
+		368EF17E2B1997970050F43C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF17D2B1997970050F43C /* Constant.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +58,12 @@
 		361D9C972B1991E5005D7FA1 /* FintechUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FintechUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		361D9C9B2B1991E5005D7FA1 /* FintechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechUITests.swift; sourceTree = "<group>"; };
 		361D9C9D2B1991E5005D7FA1 /* FintechUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		368EF1712B1995CC0050F43C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		368EF1722B1995CC0050F43C /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		368EF1762B1996B80050F43C /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		368EF1782B1996D40050F43C /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		368EF17A2B1996E20050F43C /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		368EF17D2B1997970050F43C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,8 +129,10 @@
 			isa = PBXGroup;
 			children = (
 				368EF16C2B1992E30050F43C /* App */,
+				368EF17C2B1997700050F43C /* Common */,
 				368EF16D2B1992F30050F43C /* Resource */,
 				368EF16E2B1993050050F43C /* Module */,
+				361D9C882B1991E5005D7FA1 /* Info.plist */,
 			);
 			path = Fintech;
 			sourceTree = "<group>";
@@ -152,9 +166,9 @@
 		368EF16D2B1992F30050F43C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				368EF1752B1996590050F43C /* Font */,
 				361D9C832B1991E5005D7FA1 /* Assets.xcassets */,
 				361D9C852B1991E5005D7FA1 /* LaunchScreen.storyboard */,
-				361D9C882B1991E5005D7FA1 /* Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -162,6 +176,7 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				368EF1702B1995B20050F43C /* SplashView */,
 				368EF16F2B1993540050F43C /* Main */,
 			);
 			path = Module;
@@ -174,6 +189,33 @@
 				361D9C7E2B1991E3005D7FA1 /* ViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		368EF1702B1995B20050F43C /* SplashView */ = {
+			isa = PBXGroup;
+			children = (
+				368EF1712B1995CC0050F43C /* SplashViewController.swift */,
+				368EF1722B1995CC0050F43C /* SplashViewController.xib */,
+			);
+			path = SplashView;
+			sourceTree = "<group>";
+		};
+		368EF1752B1996590050F43C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				368EF17A2B1996E20050F43C /* Inter-SemiBold.ttf */,
+				368EF1762B1996B80050F43C /* Inter-Regular.ttf */,
+				368EF1782B1996D40050F43C /* Inter-Medium.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		368EF17C2B1997700050F43C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				368EF17D2B1997970050F43C /* Constant.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -307,8 +349,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				361D9C872B1991E5005D7FA1 /* LaunchScreen.storyboard in Resources */,
+				368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */,
+				368EF1792B1996D40050F43C /* Inter-Medium.ttf in Resources */,
 				361D9C842B1991E5005D7FA1 /* Assets.xcassets in Resources */,
 				361D9C822B1991E3005D7FA1 /* Main.storyboard in Resources */,
+				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
+				368EF17B2B1996E20050F43C /* Inter-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +450,9 @@
 			files = (
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
+				368EF17E2B1997970050F43C /* Constant.swift in Sources */,
 				361D9C7D2B1991E3005D7FA1 /* SceneDelegate.swift in Sources */,
+				368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
