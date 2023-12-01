@@ -6,6 +6,16 @@ target 'Fintech' do
   use_frameworks!
 
   # Pods for Fintech
+  # Package for Rx
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxGesture'
+  
+  # Package for Firebase
+  pod 'FirebaseCore'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseAuth'
+  pod 'FirebaseStorage'
 
   target 'FintechTests' do
     inherit! :search_paths

@@ -28,7 +28,7 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         loadData()
         setupUI()
-        startAutoplay()
+        updateUIForCurrentPage()
     }
 
     
@@ -38,6 +38,9 @@ class OnboardingViewController: UIViewController {
         skipButton.roundCorners(corners: [.allCorners], cornerRadius: 30)
         descriptionLabel.textColor = UIColor(hex: "13095E")?.withAlphaComponent(0.80)
         titleLabel.textColor = UIColor(hex: "13095E")
+        nextButton.backgroundColor = UIColor(named: "Primary")
+        nextButton.tintColor = .white
+        nextButton.roundCorners(corners: [.allCorners], cornerRadius: 30)
         
         collectionView.registerCellWithNib(OnboardingCell.self)
         collectionView.delegate = self
@@ -76,6 +79,7 @@ class OnboardingViewController: UIViewController {
         guard currentPages < onboardingList.count else { return }
         titleLabel.text = onboardingList[currentPages].title ?? ""
         descriptionLabel.text = onboardingList[currentPages].description ?? ""
+        nextButton.setTitle("Next", for: .normal)
     }
 }
 
