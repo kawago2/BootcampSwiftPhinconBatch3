@@ -15,9 +15,21 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        timerTo()
     }
     
-    func setupUI() {
+    private func setupUI() {
         circleView.tintColor = .white.withAlphaComponent(0.20)
+    }
+    
+    private func timerTo() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.nextPage()
+        })
+    }
+    
+    private func nextPage() {
+        let vc = OnboardingViewController()
+        navigationController?.setViewControllers([vc], animated: true)
     }
 }
