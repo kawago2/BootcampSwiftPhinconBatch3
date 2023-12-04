@@ -33,6 +33,7 @@
 		368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1902B19D44D0050F43C /* Inter-Bold.ttf */; };
 		368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1922B19DBEE0050F43C /* ExtUIColor.swift */; };
 		368EF1962B19E1D80050F43C /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1952B19E1D80050F43C /* FormView.swift */; };
+		368EF1982B1D61EC0050F43C /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1972B1D61EC0050F43C /* CustomPageControl.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		368EF1902B19D44D0050F43C /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		368EF1922B19DBEE0050F43C /* ExtUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
 		368EF1952B19E1D80050F43C /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		368EF1972B1D61EC0050F43C /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				368EF1952B19E1D80050F43C /* FormView.swift */,
+				368EF1972B1D61EC0050F43C /* CustomPageControl.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
 				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,
 				368EF17E2B1997970050F43C /* Constant.swift in Sources */,
+				368EF1982B1D61EC0050F43C /* CustomPageControl.swift in Sources */,
 				368EF18E2B19C2060050F43C /* OnboardingCell.swift in Sources */,
 				361D9C7D2B1991E3005D7FA1 /* SceneDelegate.swift in Sources */,
 				368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */,

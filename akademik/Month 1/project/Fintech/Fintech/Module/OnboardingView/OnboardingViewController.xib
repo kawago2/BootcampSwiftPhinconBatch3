@@ -86,11 +86,23 @@
                                         <constraint firstAttribute="bottom" secondItem="Ftl-MD-xgd" secondAttribute="bottom" id="vKl-ez-aHw"/>
                                     </constraints>
                                 </view>
-                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UUF-O9-J6x">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="07Q-5p-eN9">
                                     <rect key="frame" x="0.0" y="148.66666666666663" width="303" height="74"/>
-                                    <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="currentPageIndicatorTintColor" name="Primary"/>
-                                </pageControl>
+                                    <subviews>
+                                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UUF-O9-J6x" customClass="CustomPageControl" customModule="Fintech" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="303" height="74"/>
+                                            <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="currentPageIndicatorTintColor" name="Primary"/>
+                                        </pageControl>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="UUF-O9-J6x" firstAttribute="leading" secondItem="07Q-5p-eN9" secondAttribute="leading" id="3hd-1e-B6w"/>
+                                        <constraint firstAttribute="bottom" secondItem="UUF-O9-J6x" secondAttribute="bottom" id="IdF-0x-loC"/>
+                                        <constraint firstAttribute="trailing" secondItem="UUF-O9-J6x" secondAttribute="trailing" id="YUW-kI-REj"/>
+                                        <constraint firstItem="UUF-O9-J6x" firstAttribute="top" secondItem="07Q-5p-eN9" secondAttribute="top" id="oTb-xN-hgY"/>
+                                    </constraints>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Wk-jI-IU1">
                                     <rect key="frame" x="0.0" y="222.66666666666666" width="303" height="74.333333333333343"/>
                                     <subviews>

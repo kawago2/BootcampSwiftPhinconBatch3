@@ -10,7 +10,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var cardView: FormView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var pageControl: CustomPageControl!
     @IBOutlet weak var nextButton: UIButton!
     
     var onboardingList: [Onboarding] = []
@@ -35,6 +35,12 @@ class OnboardingViewController: UIViewController {
             guard let self = self else { return }
             self.buttonClicked()
         }).disposed(by: disposeBag)
+        pageControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                self.pageControlClicked()
+            })
+            .disposed(by: disposeBag)
     }
     
     
@@ -46,6 +52,7 @@ class OnboardingViewController: UIViewController {
         nextButton.backgroundColor = UIColor(named: "Primary")
         nextButton.tintColor = .white
         nextButton.roundCorners(corners: [.allCorners], cornerRadius: 30)
+        collectionView.isScrollEnabled = false
         
         collectionView.registerCellWithNib(OnboardingCell.self)
         collectionView.delegate = self
@@ -68,15 +75,14 @@ class OnboardingViewController: UIViewController {
             pageControl.currentPage = currentPages
             let newOffset = CGPoint(x: collectionView.frame.width * CGFloat(currentPages), y: collectionView.contentOffset.y)
             collectionView.setContentOffset(newOffset, animated: true)
-            collectionView.layoutIfNeeded()
             updateUIForCurrentPage()
         }
     
     }
     
     private func pageControlClicked() {
-        let currentPage = pageControl.currentPage
-        let indexPath = IndexPath(item: currentPage, section: 0)
+        currentPages = pageControl.currentPage
+        let indexPath = IndexPath(item: currentPages, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         updateUIForCurrentPage()
     }
@@ -89,7 +95,9 @@ class OnboardingViewController: UIViewController {
         if currentPages == onboardingList.count - 1 {
             nextButton.setTitle("Get Started", for: .normal)
         }
+        
     }
+    
 }
 
 extension OnboardingViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
@@ -107,6 +115,7 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pageControl.scrollViewDidScroll(scrollView)
         let pageWidth = scrollView.frame.width
         let currentPage = Int(scrollView.contentOffset.x / pageWidth)
         pageControl.currentPage = currentPage
