@@ -106,11 +106,10 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let index = indexPath.item
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as! OnboardingCell
-        let onboarding = onboardingList[index]
+        let onboarding = onboardingList[indexPath.item]
         cell.configureImage(image: onboarding.image ?? "image_not_available")
-        
+
         return cell
     }
     
