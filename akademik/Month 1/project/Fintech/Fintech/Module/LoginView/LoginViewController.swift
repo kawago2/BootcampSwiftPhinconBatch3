@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     private func setupUI() {
         navigationBar.titleNavigationBar = "Login"
         emailField.setup(title: "Email", placeholder: "example@email.com", isSecure: false)
-        passwordField.setup(title: "Password", placeholder: "****", isSecure: true)
+        passwordField.setup(title: "Password", placeholder: "******", isSecure: true)
         registerButton.backgroundColor = UIColor(named: "Primary")?.withAlphaComponent(0.10)
         registerButton.roundCorners(corners: .allCorners, cornerRadius: 20)
         loginButton.roundCorners(corners: .allCorners, cornerRadius: 20)
@@ -41,7 +41,4 @@ class LoginViewController: UIViewController {
             }
         }).disposed(by: disposeBag)
     }
-
-    
-   
 }

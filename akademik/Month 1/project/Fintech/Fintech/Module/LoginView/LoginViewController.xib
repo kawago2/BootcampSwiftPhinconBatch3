@@ -15,6 +15,9 @@
         <array key="Inter-Medium.ttf">
             <string>Inter-Medium</string>
         </array>
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Fintech" customModuleProvider="target">
@@ -69,12 +72,11 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNx-lV-oUp">
-                            <rect key="frame" x="209" y="256.33333333333331" width="144" height="14.666666666666686"/>
+                            <rect key="frame" x="233" y="256.33333333333331" width="120" height="14.666666666666686"/>
+                            <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                             <color key="tintColor" name="Primary"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
-                                <fontDescription key="titleFontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
-                            </buttonConfiguration>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Forgot Password?"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,12 +106,11 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLi-gN-M8A">
                                     <rect key="frame" x="0.0" y="14" width="94" height="34"/>
-                                    <color key="backgroundColor" name="Primary"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                     <color key="tintColor" name="Primary"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Register">
-                                        <fontDescription key="titleFontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
-                                    </buttonConfiguration>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Register"/>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -126,11 +127,10 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="237" id="bIc-nh-53a"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Login">
-                                <fontDescription key="titleFontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
-                            </buttonConfiguration>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Login"/>
                         </button>
                     </subviews>
                     <constraints>

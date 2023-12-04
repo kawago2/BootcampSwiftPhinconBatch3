@@ -58,6 +58,11 @@ class FirebaseManager {
         }
     }
     
+    // Function to check if a user is logged in
+    func isUserLoggedIn() -> Bool {
+        return auth.currentUser != nil
+    }
+    
     func signIn(withEmail email: String, password: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
         auth.signIn(withEmail: email, password: password) { (authResult, error) in
             completion(Result {
@@ -67,6 +72,15 @@ class FirebaseManager {
                     return authResult
                 }()
             })
+        }
+    }
+    
+    func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
+        do {
+            try auth.signOut()
+            completion(.success(()))
+        } catch let error {
+            completion(.failure(error))
         }
     }
 

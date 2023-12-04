@@ -44,6 +44,8 @@
 		36958E512B1DBF5F0009A895 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36958E502B1DBF5F0009A895 /* GoogleService-Info.plist */; };
 		36958E532B1DC0D00009A895 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36958E522B1DC0D00009A895 /* LoginViewModel.swift */; };
 		36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36958E542B1DC3220009A895 /* ExtUIViewController.swift */; };
+		36958E592B1DCC110009A895 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36958E572B1DCC110009A895 /* RegisterViewController.swift */; };
+		36958E5A2B1DCC110009A895 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36958E582B1DCC110009A895 /* RegisterViewController.xib */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +108,8 @@
 		36958E502B1DBF5F0009A895 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36958E522B1DC0D00009A895 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		36958E542B1DC3220009A895 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
+		36958E572B1DCC110009A895 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		36958E582B1DCC110009A895 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36958E562B1DCAE50009A895 /* RegisterView */,
 				368EF1BF2B1D7D150050F43C /* LoginView */,
 				368EF17F2B19B9850050F43C /* OnboardingView */,
 				368EF1702B1995B20050F43C /* SplashView */,
@@ -343,6 +348,15 @@
 				36958E4E2B1DBDFE0009A895 /* FirebaseManager.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		36958E562B1DCAE50009A895 /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				36958E572B1DCC110009A895 /* RegisterViewController.swift */,
+				36958E582B1DCC110009A895 /* RegisterViewController.xib */,
+			);
+			path = RegisterView;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -488,6 +502,7 @@
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
 				368EF17B2B1996E20050F43C /* Inter-SemiBold.ttf in Resources */,
 				368EF1BE2B1D7B310050F43C /* InputField.xib in Resources */,
+				36958E5A2B1DCC110009A895 /* RegisterViewController.xib in Resources */,
 				368EF1832B19B99F0050F43C /* OnboardingViewController.xib in Resources */,
 				36958E4B2B1D7E210009A895 /* NavigationBar.xib in Resources */,
 				36958E512B1DBF5F0009A895 /* GoogleService-Info.plist in Resources */,
@@ -629,6 +644,7 @@
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
 				36958E532B1DC0D00009A895 /* LoginViewModel.swift in Sources */,
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
+				36958E592B1DCC110009A895 /* RegisterViewController.swift in Sources */,
 				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,
 				368EF17E2B1997970050F43C /* Constant.swift in Sources */,
 				368EF1982B1D61EC0050F43C /* CustomPageControl.swift in Sources */,
