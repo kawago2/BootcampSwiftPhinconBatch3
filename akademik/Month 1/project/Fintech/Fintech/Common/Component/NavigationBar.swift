@@ -12,6 +12,12 @@ class NavigationBar: UIView {
     @IBOutlet weak var trailingView: UIView!
     @IBOutlet weak var trailingButton: UIButton!
     
+    var titleNavigationBar = "Init" {
+        didSet {
+            centerLabel.text = titleNavigationBar
+        }
+    }
+    
     // MARK: - Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +26,7 @@ class NavigationBar: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureView()
+        
     }
     
     // MARK: - Functions
@@ -28,9 +35,28 @@ class NavigationBar: UIView {
         view.frame = self.bounds
         view.backgroundColor = .clear
         self.addSubview(view)
+        setupUI()
     }
     
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-         return false
-     }
+    private func setupUI() {
+        leadingButton.isHidden = true
+        trailingButton.isHidden = true
+        centerLabel.text = titleNavigationBar
+    }
+    
+    func setupLeadingButton(icon: String = "chevron.backward") {
+        leadingButton.backgroundColor = UIColor.white
+        leadingButton.makeCircle()
+        leadingButton.isHidden = false
+        leadingButton.setImage(UIImage(systemName: icon), for: .normal)
+
+    }
+    
+    func setupTrailingButton(icon: String = "chevron.backward") {
+        trailingButton.backgroundColor = UIColor.white
+        trailingButton.makeCircle()
+        trailingButton.isHidden = false
+        trailingButton.setImage(UIImage(systemName: icon), for: .normal)
+
+    }
 }

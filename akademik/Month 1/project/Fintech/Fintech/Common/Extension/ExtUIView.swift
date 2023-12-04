@@ -30,5 +30,10 @@ extension UIView {
         self.layer.borderColor = borderColor.cgColor
         self.layer.masksToBounds = true
     }
+    
+    func makeCircle() {
+        self.layer.cornerRadius = min(self.bounds.width, self.bounds.height) / 2.0
+        self.layer.masksToBounds = true
+    }
      
 }

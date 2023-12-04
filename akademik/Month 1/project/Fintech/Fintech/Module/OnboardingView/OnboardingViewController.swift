@@ -103,7 +103,7 @@ class OnboardingViewController: UIViewController {
     }
     
     private func getstartedTapped() {
-        let vc = LoginViewViewController()
+        let vc = LoginViewController()
         navigationController?.setViewControllers([vc], animated: true)
     }
     
