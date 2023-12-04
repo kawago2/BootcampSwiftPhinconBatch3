@@ -16,12 +16,12 @@ public class CustomPageControl: UIPageControl {
     }
     
     // MARK: - Public Properties
-    public var dotRadius: CGFloat = 4 {
+    public var dotRadius: CGFloat = 3 {
            didSet {
                reset()
            }
        }
-       public var dotSpacings: CGFloat = 4 {
+       public var dotSpacings: CGFloat = 5 {
            didSet {
                reset()
            }
@@ -31,7 +31,7 @@ public class CustomPageControl: UIPageControl {
                reset()
            }
        }
-       public var normalDotHeight: CGFloat = 10 {
+       public var normalDotHeight: CGFloat = 6 {
            didSet {
                reset()
            }
