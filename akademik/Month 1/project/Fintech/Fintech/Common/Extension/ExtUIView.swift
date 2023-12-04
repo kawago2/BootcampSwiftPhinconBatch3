@@ -16,4 +16,19 @@ extension UIView {
         self.layer.shadowRadius = shadowRadius
         self.clipsToBounds = clipsToBounds
     }
+    
+    public func loadNib() -> UIView {
+         let bundle = Bundle(for: type(of: self))
+         let nibName = type(of: self).description().components(separatedBy: ".").last!
+         let nib = UINib(nibName: nibName, bundle: bundle)
+         return nib.instantiate(withOwner: self, options: nil).first as? UIView ?? UIView()
+     }
+    
+    func setRoundedBorder(cornerRadius: CGFloat, borderWidth: CGFloat = 1.0, borderColor: UIColor = .black) {
+        self.layer.cornerRadius = cornerRadius
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.masksToBounds = true
+    }
+     
 }

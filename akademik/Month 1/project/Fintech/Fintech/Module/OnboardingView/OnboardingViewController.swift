@@ -2,9 +2,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+private enum OnboardingImages {
+    static let onboard1 = "onboard-1"
+    static let onboard2 = "onboard-2"
+    static let onboard3 = "onboard-3"
+}
 
 class OnboardingViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cardView: FormView!
@@ -13,15 +19,16 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var pageControl: CustomPageControl!
     @IBOutlet weak var nextButton: UIButton!
     
+    // MARK: - Properties
     var onboardingList: [Onboarding] = []
     var numberOfPages: Int  {
         return self.onboardingList.count
     }
     var timer: Timer?
     var currentPages = 0
-    
     let disposeBag = DisposeBag()
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonEvent()
@@ -30,20 +37,27 @@ class OnboardingViewController: UIViewController {
         updateUIForCurrentPage()
     }
     
+    // MARK: - Button Events
     private func buttonEvent() {
         nextButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
-            self.buttonClicked()
+            self.nextButtonClicked()
         }).disposed(by: disposeBag)
+        
         pageControl.rx.controlEvent(.valueChanged)
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
-                self.pageControlClicked()
+                self.pageControlValueChanged()
             })
             .disposed(by: disposeBag)
+        
+        skipButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.getstartedTapped()
+        }).disposed(by: disposeBag)
     }
     
-    
+    // MARK: - UI Setup
     private func setupUI() {
         skipButton.backgroundColor = .white.withAlphaComponent(0.10)
         skipButton.roundCorners(corners: [.allCorners], cornerRadius: 30)
@@ -59,17 +73,19 @@ class OnboardingViewController: UIViewController {
         collectionView.dataSource = self
     }
     
+    // MARK: - Data Load
     private func loadData() {
         onboardingList = [
-            Onboarding(image: "onboard-1", title: "You ought to know where your money goes", description: "Get an overview of how you are performing and motivate yourself to achieve even more."),
-            Onboarding(image: "onboard-2", title: "Gain total control of your money", description: "Track your transactions easily, with categories and financial reports."),
-            Onboarding(image: "onboard-3", title: "Plan ahead and manage your money better", description: "Set up your budget for each category so you're in control. Track categories where you spend the most money.")
+            Onboarding(image: OnboardingImages.onboard1, title: "You ought to know where your money goes", description: "Get an overview of how you are performing and motivate yourself to achieve even more."),
+            Onboarding(image: OnboardingImages.onboard2, title: "Gain total control of your money", description: "Track your transactions easily, with categories and financial reports."),
+            Onboarding(image: OnboardingImages.onboard3, title: "Plan ahead and manage your money better", description: "Set up your budget for each category so you're in control. Track categories where you spend the most money.")
         ]
     }
     
-    private func buttonClicked() {
+    // MARK: - Button Actions
+    private func nextButtonClicked() {
         if currentPages == onboardingList.count - 1 {
-            
+            getstartedTapped()
         } else {
             currentPages = (currentPages + 1) % numberOfPages
             pageControl.currentPage = currentPages
@@ -77,16 +93,21 @@ class OnboardingViewController: UIViewController {
             collectionView.setContentOffset(newOffset, animated: true)
             updateUIForCurrentPage()
         }
-    
     }
     
-    private func pageControlClicked() {
+    private func pageControlValueChanged() {
         currentPages = pageControl.currentPage
         let indexPath = IndexPath(item: currentPages, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         updateUIForCurrentPage()
     }
     
+    private func getstartedTapped() {
+        let vc = LoginViewViewController()
+        navigationController?.setViewControllers([vc], animated: true)
+    }
+    
+    // MARK: - UI Update
     private func updateUIForCurrentPage() {
         guard currentPages < onboardingList.count else { return }
         titleLabel.text = onboardingList[currentPages].title ?? ""
@@ -95,11 +116,11 @@ class OnboardingViewController: UIViewController {
         if currentPages == onboardingList.count - 1 {
             nextButton.setTitle("Get Started", for: .normal)
         }
-        
     }
     
 }
 
+// MARK: - Extension
 extension OnboardingViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return onboardingList.count

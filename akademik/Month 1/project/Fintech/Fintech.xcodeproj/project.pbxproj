@@ -34,6 +34,12 @@
 		368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1922B19DBEE0050F43C /* ExtUIColor.swift */; };
 		368EF1962B19E1D80050F43C /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1952B19E1D80050F43C /* FormView.swift */; };
 		368EF1982B1D61EC0050F43C /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1972B1D61EC0050F43C /* CustomPageControl.swift */; };
+		368EF1B72B1D79CA0050F43C /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1B62B1D79CA0050F43C /* InputField.swift */; };
+		368EF1BE2B1D7B310050F43C /* InputField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1BD2B1D7B310050F43C /* InputField.xib */; };
+		36958E452B1D7DB00009A895 /* LoginViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36958E432B1D7DB00009A895 /* LoginViewViewController.swift */; };
+		36958E462B1D7DB00009A895 /* LoginViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36958E442B1D7DB00009A895 /* LoginViewViewController.xib */; };
+		36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36958E482B1D7E140009A895 /* NavigationBar.swift */; };
+		36958E4B2B1D7E210009A895 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36958E4A2B1D7E210009A895 /* NavigationBar.xib */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +92,12 @@
 		368EF1922B19DBEE0050F43C /* ExtUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
 		368EF1952B19E1D80050F43C /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		368EF1972B1D61EC0050F43C /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
+		368EF1B62B1D79CA0050F43C /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		368EF1BD2B1D7B310050F43C /* InputField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputField.xib; sourceTree = "<group>"; };
+		36958E432B1D7DB00009A895 /* LoginViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewController.swift; sourceTree = "<group>"; };
+		36958E442B1D7DB00009A895 /* LoginViewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewViewController.xib; sourceTree = "<group>"; };
+		36958E482B1D7E140009A895 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBar.swift; path = Fintech/Common/Component/NavigationBar.swift; sourceTree = SOURCE_ROOT; };
+		36958E4A2B1D7E210009A895 /* NavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +210,7 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				368EF1BF2B1D7D150050F43C /* LoginView */,
 				368EF17F2B19B9850050F43C /* OnboardingView */,
 				368EF1702B1995B20050F43C /* SplashView */,
 				368EF16F2B1993540050F43C /* Main */,
@@ -277,10 +290,39 @@
 		368EF1942B19E1BC0050F43C /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				36958E472B1D7DFA0009A895 /* NavigationBar */,
+				368EF1B82B1D79CF0050F43C /* ImputField */,
 				368EF1952B19E1D80050F43C /* FormView.swift */,
 				368EF1972B1D61EC0050F43C /* CustomPageControl.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		368EF1B82B1D79CF0050F43C /* ImputField */ = {
+			isa = PBXGroup;
+			children = (
+				368EF1B62B1D79CA0050F43C /* InputField.swift */,
+				368EF1BD2B1D7B310050F43C /* InputField.xib */,
+			);
+			path = ImputField;
+			sourceTree = "<group>";
+		};
+		368EF1BF2B1D7D150050F43C /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				36958E432B1D7DB00009A895 /* LoginViewViewController.swift */,
+				36958E442B1D7DB00009A895 /* LoginViewViewController.xib */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		36958E472B1D7DFA0009A895 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				36958E482B1D7E140009A895 /* NavigationBar.swift */,
+				36958E4A2B1D7E210009A895 /* NavigationBar.xib */,
+			);
+			path = NavigationBar;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -422,9 +464,12 @@
 				361D9C842B1991E5005D7FA1 /* Assets.xcassets in Resources */,
 				361D9C822B1991E3005D7FA1 /* Main.storyboard in Resources */,
 				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
+				36958E462B1D7DB00009A895 /* LoginViewViewController.xib in Resources */,
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
 				368EF17B2B1996E20050F43C /* Inter-SemiBold.ttf in Resources */,
+				368EF1BE2B1D7B310050F43C /* InputField.xib in Resources */,
 				368EF1832B19B99F0050F43C /* OnboardingViewController.xib in Resources */,
+				36958E4B2B1D7E210009A895 /* NavigationBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,7 +599,10 @@
 			files = (
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
+				36958E452B1D7DB00009A895 /* LoginViewViewController.swift in Sources */,
+				36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */,
 				368EF1822B19B99F0050F43C /* OnboardingViewController.swift in Sources */,
+				368EF1B72B1D79CA0050F43C /* InputField.swift in Sources */,
 				368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */,
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
@@ -670,7 +718,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -724,7 +772,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -749,6 +797,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -777,6 +826,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
