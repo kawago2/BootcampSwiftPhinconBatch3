@@ -1,23 +1,17 @@
-//
-//  SplashViewController.swift
-//  Fintech
-//
-//  Created by Phincon on 01/12/23.
-//
-
+// MARK: - SplashViewController
 import UIKit
 
 class SplashViewController: UIViewController {
-
+    // MARK: - Outlets
     @IBOutlet weak var circleView: UIImageView!
-    
-    
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         timerTo()
     }
-    
+    // MARK: - Private methods
     private func setupUI() {
         circleView.tintColor = .white.withAlphaComponent(0.20)
     }
