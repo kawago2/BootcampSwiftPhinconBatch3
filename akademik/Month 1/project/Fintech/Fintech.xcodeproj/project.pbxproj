@@ -291,20 +291,20 @@
 			isa = PBXGroup;
 			children = (
 				36958E472B1D7DFA0009A895 /* NavigationBar */,
-				368EF1B82B1D79CF0050F43C /* ImputField */,
+				368EF1B82B1D79CF0050F43C /* InputField */,
 				368EF1952B19E1D80050F43C /* FormView.swift */,
 				368EF1972B1D61EC0050F43C /* CustomPageControl.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
 		};
-		368EF1B82B1D79CF0050F43C /* ImputField */ = {
+		368EF1B82B1D79CF0050F43C /* InputField */ = {
 			isa = PBXGroup;
 			children = (
 				368EF1B62B1D79CA0050F43C /* InputField.swift */,
 				368EF1BD2B1D7B310050F43C /* InputField.xib */,
 			);
-			path = ImputField;
+			path = InputField;
 			sourceTree = "<group>";
 		};
 		368EF1BF2B1D7D150050F43C /* LoginView */ = {

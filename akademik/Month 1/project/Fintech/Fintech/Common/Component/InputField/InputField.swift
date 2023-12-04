@@ -2,10 +2,9 @@ import UIKit
 
 @IBDesignable
 class InputField: UIView {
-
+    
     @IBOutlet weak var titleField: UILabel!
     @IBOutlet weak var formView: UIView!
-    @IBOutlet weak var errorField: UILabel!
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var obsecureButton: UIButton!
     
@@ -25,8 +24,8 @@ class InputField: UIView {
     private func configureView() {
         let view = self.loadNib()
         view.frame = self.bounds
-        view.backgroundColor = .clear
-        errorField.text = ""
+        view.backgroundColor = .white
+        view.roundCorners(corners: [.allCorners], cornerRadius: 20)
         self.addSubview(view)
     }
     
@@ -39,7 +38,6 @@ class InputField: UIView {
         inputText.placeholder = placeholder
         isObscured = isSecure
         obsecureButton.isHidden = !isSecure
-        formView.setRoundedBorder(cornerRadius: 10, borderWidth: 1, borderColor: UIColor.black)
         updateSecureTextEntry()
         setupButton()
     }

@@ -8,10 +8,20 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Bold.ttf">
+            <string>Inter-Bold</string>
+        </array>
+        <array key="Inter-Medium.ttf">
+            <string>Inter-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Fintech" customModuleProvider="target">
             <connections>
+                <outlet property="emailField" destination="MOe-2J-vAn" id="I0U-Ka-sxB"/>
                 <outlet property="navigationBar" destination="tpV-eE-ZtC" id="2NU-Jk-ekC"/>
+                <outlet property="passwordField" destination="wr8-Oj-s1U" id="rH7-cW-oTu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,22 +33,100 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpV-eE-ZtC" customClass="NavigationBar" customModule="Fintech" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="gqm-N4-gQ7"/>
+                    </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEs-Tg-v3p">
+                    <rect key="frame" x="20" y="143" width="353" height="271"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Hp-q1-fwt">
+                            <rect key="frame" x="0.0" y="0.0" width="353" height="30"/>
+                            <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="24"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey you’re back, fill in your details to get back in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sk-hh-sV7">
+                            <rect key="frame" x="0.0" y="46" width="353" height="17"/>
+                            <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOe-2J-vAn" customClass="InputField" customModule="Fintech" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="95" width="353" height="61"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="61" id="n4e-0z-Jbj"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wr8-Oj-s1U" customClass="InputField" customModule="Fintech" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="172" width="353" height="61"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="61" id="a7D-cr-fW2"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNx-lV-oUp">
+                            <rect key="frame" x="209" y="257" width="144" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="144" id="Y0v-H4-TCu"/>
+                            </constraints>
+                            <color key="tintColor" name="Primary"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
+                                <fontDescription key="titleFontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="TNx-lV-oUp" secondAttribute="trailing" id="0dF-Fb-jac"/>
+                        <constraint firstAttribute="trailing" secondItem="wr8-Oj-s1U" secondAttribute="trailing" id="5TI-Ry-2ym"/>
+                        <constraint firstItem="MOe-2J-vAn" firstAttribute="leading" secondItem="KEs-Tg-v3p" secondAttribute="leading" id="Ncu-Wd-KVi"/>
+                        <constraint firstAttribute="bottom" secondItem="TNx-lV-oUp" secondAttribute="bottom" id="V0s-2z-SIR"/>
+                        <constraint firstItem="2Hp-q1-fwt" firstAttribute="top" secondItem="KEs-Tg-v3p" secondAttribute="top" id="VsW-CM-LMf"/>
+                        <constraint firstAttribute="trailing" secondItem="MOe-2J-vAn" secondAttribute="trailing" id="Ye3-50-6aK"/>
+                        <constraint firstAttribute="trailing" secondItem="9sk-hh-sV7" secondAttribute="trailing" id="anr-gW-Raq"/>
+                        <constraint firstItem="MOe-2J-vAn" firstAttribute="top" secondItem="9sk-hh-sV7" secondAttribute="bottom" constant="32" id="g23-Tg-CzB"/>
+                        <constraint firstItem="2Hp-q1-fwt" firstAttribute="leading" secondItem="KEs-Tg-v3p" secondAttribute="leading" id="lgB-gC-oEr"/>
+                        <constraint firstItem="TNx-lV-oUp" firstAttribute="top" secondItem="wr8-Oj-s1U" secondAttribute="bottom" constant="24" id="orU-6Q-LKL"/>
+                        <constraint firstItem="wr8-Oj-s1U" firstAttribute="top" secondItem="MOe-2J-vAn" secondAttribute="bottom" constant="16" id="uRX-WP-PeM"/>
+                        <constraint firstItem="9sk-hh-sV7" firstAttribute="top" secondItem="2Hp-q1-fwt" secondAttribute="bottom" constant="16" id="v7p-Jd-jB7"/>
+                        <constraint firstItem="9sk-hh-sV7" firstAttribute="leading" secondItem="KEs-Tg-v3p" secondAttribute="leading" id="v93-vE-rYP"/>
+                        <constraint firstItem="wr8-Oj-s1U" firstAttribute="leading" secondItem="KEs-Tg-v3p" secondAttribute="leading" id="wzj-Br-oZN"/>
+                        <constraint firstAttribute="trailing" secondItem="2Hp-q1-fwt" secondAttribute="trailing" id="ydk-H4-OAt"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIa-Jf-bkz">
+                    <rect key="frame" x="0.0" y="740" width="393" height="62"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62" id="WY3-Nx-UKC"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Background2"/>
             <constraints>
-                <constraint firstItem="tpV-eE-ZtC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b7G-g5-9dD"/>
-                <constraint firstItem="tpV-eE-ZtC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="exN-c2-GMo"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tpV-eE-ZtC" secondAttribute="bottom" constant="715" id="oQn-8o-SeO"/>
-                <constraint firstAttribute="trailing" secondItem="tpV-eE-ZtC" secondAttribute="trailing" id="wRP-Ki-w17"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tIa-Jf-bkz" secondAttribute="bottom" constant="16" id="2P0-1u-pza"/>
+                <constraint firstItem="tIa-Jf-bkz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3Fa-W9-QhW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KEs-Tg-v3p" secondAttribute="trailing" constant="20" id="4Xb-by-prg"/>
+                <constraint firstItem="KEs-Tg-v3p" firstAttribute="top" secondItem="tpV-eE-ZtC" secondAttribute="bottom" constant="40" id="5Gk-fB-0BE"/>
+                <constraint firstItem="tpV-eE-ZtC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GQA-YC-S0K"/>
+                <constraint firstItem="tIa-Jf-bkz" firstAttribute="top" secondItem="KEs-Tg-v3p" secondAttribute="bottom" constant="326" id="Re6-8w-r2Y"/>
+                <constraint firstItem="tpV-eE-ZtC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="U19-qA-uK9"/>
+                <constraint firstItem="tpV-eE-ZtC" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="dAX-XS-ZyM"/>
+                <constraint firstItem="KEs-Tg-v3p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ewn-mu-EWO"/>
+                <constraint firstItem="tIa-Jf-bkz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xaH-jx-FSn"/>
             </constraints>
             <point key="canvasLocation" x="66.412213740458014" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
         <namedColor name="Background2">
-            <color red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.96078431372549022" green="0.96862745098039216" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.17254901960784313" green="0.078431372549019607" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
