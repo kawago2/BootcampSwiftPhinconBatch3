@@ -40,6 +40,10 @@
 		36958E462B1D7DB00009A895 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36958E442B1D7DB00009A895 /* LoginViewController.xib */; };
 		36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36958E482B1D7E140009A895 /* NavigationBar.swift */; };
 		36958E4B2B1D7E210009A895 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36958E4A2B1D7E210009A895 /* NavigationBar.xib */; };
+		36958E4F2B1DBDFE0009A895 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36958E4E2B1DBDFE0009A895 /* FirebaseManager.swift */; };
+		36958E512B1DBF5F0009A895 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36958E502B1DBF5F0009A895 /* GoogleService-Info.plist */; };
+		36958E532B1DC0D00009A895 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36958E522B1DC0D00009A895 /* LoginViewModel.swift */; };
+		36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36958E542B1DC3220009A895 /* ExtUIViewController.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +102,10 @@
 		36958E442B1D7DB00009A895 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		36958E482B1D7E140009A895 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationBar.swift; path = Fintech/Common/Component/NavigationBar.swift; sourceTree = SOURCE_ROOT; };
 		36958E4A2B1D7E210009A895 /* NavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
+		36958E4E2B1DBDFE0009A895 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		36958E502B1DBF5F0009A895 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		36958E522B1DC0D00009A895 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		36958E542B1DC3220009A895 /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +175,7 @@
 				368EF16D2B1992F30050F43C /* Resource */,
 				368EF16E2B1993050050F43C /* Module */,
 				361D9C882B1991E5005D7FA1 /* Info.plist */,
+				36958E502B1DBF5F0009A895 /* GoogleService-Info.plist */,
 			);
 			path = Fintech;
 			sourceTree = "<group>";
@@ -250,6 +259,7 @@
 		368EF17C2B1997700050F43C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				36958E4C2B1DBD6E0009A895 /* Class */,
 				368EF1942B19E1BC0050F43C /* Component */,
 				368EF1842B19BD330050F43C /* Extension */,
 				368EF17D2B1997970050F43C /* Constant.swift */,
@@ -274,6 +284,7 @@
 				368EF1852B19BD530050F43C /* ExtUIView.swift */,
 				368EF1892B19C1C20050F43C /* ExtUIViewColletion.swift */,
 				368EF1922B19DBEE0050F43C /* ExtUIColor.swift */,
+				36958E542B1DC3220009A895 /* ExtUIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -312,6 +323,7 @@
 			children = (
 				36958E432B1D7DB00009A895 /* LoginViewController.swift */,
 				36958E442B1D7DB00009A895 /* LoginViewController.xib */,
+				36958E522B1DC0D00009A895 /* LoginViewModel.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -323,6 +335,14 @@
 				36958E4A2B1D7E210009A895 /* NavigationBar.xib */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		36958E4C2B1DBD6E0009A895 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				36958E4E2B1DBDFE0009A895 /* FirebaseManager.swift */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -470,6 +490,7 @@
 				368EF1BE2B1D7B310050F43C /* InputField.xib in Resources */,
 				368EF1832B19B99F0050F43C /* OnboardingViewController.xib in Resources */,
 				36958E4B2B1D7E210009A895 /* NavigationBar.xib in Resources */,
+				36958E512B1DBF5F0009A895 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,10 +622,12 @@
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
 				36958E452B1D7DB00009A895 /* LoginViewController.swift in Sources */,
 				36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */,
+				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,
 				368EF1822B19B99F0050F43C /* OnboardingViewController.swift in Sources */,
 				368EF1B72B1D79CA0050F43C /* InputField.swift in Sources */,
 				368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */,
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
+				36958E532B1DC0D00009A895 /* LoginViewModel.swift in Sources */,
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
 				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,
 				368EF17E2B1997970050F43C /* Constant.swift in Sources */,
@@ -613,6 +636,7 @@
 				361D9C7D2B1991E3005D7FA1 /* SceneDelegate.swift in Sources */,
 				368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */,
 				368EF1862B19BD530050F43C /* ExtUIView.swift in Sources */,
+				36958E4F2B1DBDFE0009A895 /* FirebaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

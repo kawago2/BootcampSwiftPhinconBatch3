@@ -26,6 +26,7 @@ class InputField: UIView {
         view.frame = self.bounds
         view.backgroundColor = .white
         view.roundCorners(corners: [.allCorners], cornerRadius: 20)
+        obsecureButton.tintColor = UIColor(named: "Primary")
         self.addSubview(view)
     }
     
