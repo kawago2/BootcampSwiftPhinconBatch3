@@ -40,20 +40,7 @@ class RegisterViewController: UIViewController {
     private func setupEvent() {
         registerButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
-            if self.isCheck {
-                self.viewModel.registerTapped(name: self.nameField.inputText.text ?? "", email: self.emailField.inputText.text ?? "", password: self.passwordField.inputText.text ?? "") { result in
-                    switch result {
-                    case .success(_):
-                        self.showAlert(title: "Success", message: "Register successful. Please check your email verification.")
-                        
-                    case .failure(let error):
-                        self.showAlert(title: "Failed", message: error.localizedDescription)
-                    }
-                }
-            } else {
-                self.showAlert(title: "Invalid", message: "Please read terms of service before register")
-            }
-      
+            self.registerTapped()
         }).disposed(by: disposeBag)
         
         navigationBar.leadingButton.rx.tap.subscribe(onNext: {[weak self] in
@@ -83,9 +70,31 @@ class RegisterViewController: UIViewController {
         checkBox.imageView?.contentMode = .scaleAspectFit
     }
     
-    
+    private func registerTapped() {
+        if self.isCheck {
+            self.viewModel.registerTapped(name: self.nameField.inputText.text ?? "", email: self.emailField.inputText.text ?? "", password: self.passwordField.inputText.text ?? "") { result in
+                switch result {
+                case .success(_):
+                    self.showAlert(title: "Success", message: "Register successful"){
+                        self.goToVerif()
+                    }
+                    
+                case .failure(let error):
+                    self.showAlert(title: "Failed", message: error.localizedDescription)
+                }
+            }
+        } else {
+            self.showAlert(title: "Invalid", message: "Please read terms of service before register")
+        }
+    }
     
     private func backToLogin() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func goToVerif() {
+        let vc = VerificationViewController()
+        vc.email = self.emailField.inputText.text ?? ""
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

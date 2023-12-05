@@ -37,7 +37,9 @@ class LoginViewController: UIViewController {
                     
                 case .failure(let error):
                     if let customError = error as? CustomError, case .customError(let message) = customError {
-                        self.showAlert(title: "Error", message: message)
+                        self.showAlert(title: "Error", message: message) {
+                            self.goToVerif()
+                        }
                     } else {
                         self.showAlert(title: "Error", message: error.localizedDescription)
                     }
@@ -53,6 +55,12 @@ class LoginViewController: UIViewController {
     
     private func registerTapped() {
         let vc = RegisterViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func goToVerif() {
+        let vc = VerificationViewController()
+        vc.email = self.emailField.inputText.text ?? ""
         navigationController?.pushViewController(vc, animated: true)
     }
 }

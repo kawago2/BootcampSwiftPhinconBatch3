@@ -51,6 +51,10 @@ class FirebaseManager {
                     guard let authResult = authResult else { throw CustomError.nilResult }
 
                     if !authResult.user.isEmailVerified {
+                        self.sendEmailVerification(completion: {_ in
+                            self.signOut {_ in
+                            }
+                        })
                         throw CustomError.customError(message: "Email not verified. Please check your email and verify your account.")
                     }
 
