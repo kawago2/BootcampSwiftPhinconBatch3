@@ -12,16 +12,19 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
+    // MARK: - Properties
     let viewModel = RegisterViewModel()
     let disposeBag = DisposeBag()
     private var isCheck = false
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupEvent()
     }
     
+    // MARK: - UI Setup
     private func setupUI() {
         navigationBar.titleNavigationBar = "Sign Up"
         navigationBar.setupLeadingButton()
@@ -35,6 +38,7 @@ class RegisterViewController: UIViewController {
         checkBox.backgroundColor = UIColor.clear
     }
     
+    // MARK: - Event Handling
     private func setupEvent() {
         registerButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
@@ -58,6 +62,7 @@ class RegisterViewController: UIViewController {
       
     }
     
+    // MARK: - Business Logic
     private func checkBoxTapped() {
         isCheck.toggle()
         checkBox.setImage(UIImage(systemName: isCheck ? "checkmark.square.fill" : "square"), for: .normal)
@@ -85,6 +90,7 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    // MARK: - Navigation
     private func backToLogin() {
         navigationController?.popViewController(animated: true)
     }

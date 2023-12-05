@@ -9,8 +9,9 @@ class VerificationViewController: UIViewController {
     var email: String = ""
     var context: String = ""
     
-    let disposeBag = DisposeBag()
-
+    private var viewModel = VerificationViewModel()
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -23,7 +24,7 @@ class VerificationViewController: UIViewController {
             self.openMailAction()
         }).disposed(by: disposeBag)
     }
-    
+        
     private func setupUI() {
         openButton.roundCorners(corners: .allCorners, cornerRadius: 30)
         updateEmailLabel()
@@ -34,13 +35,13 @@ class VerificationViewController: UIViewController {
     }
     
     private func openMailAction() {
-        if let mailURL = URL(string: "https://mail.google.com/") {
-            openURL(mailURL)
-        } else {
-            showAlert(title: "Error", message: "Unable to open the mail app.")
+        guard let mailURL = viewModel.openMailAction() else {
+            return
         }
+        
+        openURL(mailURL)
     }
-
+    
     private func openURL(_ url: URL) {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: {_ in

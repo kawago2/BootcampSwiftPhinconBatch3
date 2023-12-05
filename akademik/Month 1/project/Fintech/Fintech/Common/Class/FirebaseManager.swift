@@ -43,6 +43,11 @@ class FirebaseManager {
         return auth.currentUser != nil
     }
     
+    func isUserVerified() -> Bool {
+        guard let currentUser = auth.currentUser else {return false}
+        return currentUser.isEmailVerified
+    }
+    
     func signIn(withEmail email: String, password: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
         auth.signIn(withEmail: email, password: password) { (authResult, error) in
             completion(Result {

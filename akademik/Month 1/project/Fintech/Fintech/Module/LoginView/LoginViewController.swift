@@ -10,6 +10,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
+    // MARK: - Properties
     private let viewModel = LoginViewModel()
     private let disposeBag = DisposeBag()
 

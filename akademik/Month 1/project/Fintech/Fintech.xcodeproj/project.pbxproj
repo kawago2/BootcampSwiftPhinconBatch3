@@ -49,6 +49,7 @@
 		36C3547B2B1EB4600093BE93 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C3547A2B1EB4600093BE93 /* RegisterViewModel.swift */; };
 		36C354842B1ECD3A0093BE93 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354822B1ECD3A0093BE93 /* VerificationViewController.swift */; };
 		36C354852B1ECD3A0093BE93 /* VerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C354832B1ECD3A0093BE93 /* VerificationViewController.xib */; };
+		36C354872B1EF99C0093BE93 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354862B1EF99C0093BE93 /* VerificationViewModel.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,7 @@
 		36C3547A2B1EB4600093BE93 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		36C354822B1ECD3A0093BE93 /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		36C354832B1ECD3A0093BE93 /* VerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationViewController.xib; sourceTree = "<group>"; };
+		36C354862B1EF99C0093BE93 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			children = (
 				36C354822B1ECD3A0093BE93 /* VerificationViewController.swift */,
 				36C354832B1ECD3A0093BE93 /* VerificationViewController.xib */,
+				36C354862B1EF99C0093BE93 /* VerificationViewModel.swift */,
 			);
 			path = VerificationView;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
 				36958E452B1D7DB00009A895 /* LoginViewController.swift in Sources */,
+				36C354872B1EF99C0093BE93 /* VerificationViewModel.swift in Sources */,
 				36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */,
 				36C354842B1ECD3A0093BE93 /* VerificationViewController.swift in Sources */,
 				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,
