@@ -110,7 +110,28 @@ class FirebaseManager {
             }
         }
     }
+    
+    func forgotPassword(forEmail email: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        auth.sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            completion(.success(()))
+        }
+    }
 
+    func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
+        do {
+            try auth.signOut()
+            completion(.success(()))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+
+    
+    // MARK: - Function Firestore
     func createUserDocument(uid: String, email: String, name: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let userDocumentData: [String: Any] = [
             "uid": uid,
@@ -126,20 +147,7 @@ class FirebaseManager {
             })
         }
     }
-
-
-
-    func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
-        do {
-            try auth.signOut()
-            completion(.success(()))
-        } catch let error {
-            completion(.failure(error))
-        }
-    }
-
     
-    // Example function to upload a file to Firebase Storage
     func uploadFileToStorage(data: Data, path: String, completion: @escaping (StorageMetadata?, Error?) -> Void) {
         let storageRef = storage.reference().child(path)
         let metadata = StorageMetadata()

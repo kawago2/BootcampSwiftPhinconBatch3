@@ -9,6 +9,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: InputField!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var forgotButton: UIButton!
+    
     
     // MARK: - Properties
     private let viewModel = LoginViewModel()
@@ -49,6 +51,7 @@ class LoginViewController: UIViewController {
     private func setupEvents() {
         setupLoginButton()
         setupRegisterButton()
+        setupForgotButton()
     }
     
     private func setupLoginButton() {
@@ -65,6 +68,13 @@ class LoginViewController: UIViewController {
         registerButton.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.registerTapped()
+        }).disposed(by: disposeBag)
+    }
+    
+    private func setupForgotButton() {
+        forgotButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.goToForgot()
         }).disposed(by: disposeBag)
     }
     
@@ -96,6 +106,11 @@ class LoginViewController: UIViewController {
     private func goToVerif() {
         let vc = VerificationViewController()
         vc.email = self.emailField.inputText.text ?? ""
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func goToForgot() {
+        let vc = ForgotViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

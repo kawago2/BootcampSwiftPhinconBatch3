@@ -50,6 +50,9 @@
 		36C354842B1ECD3A0093BE93 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354822B1ECD3A0093BE93 /* VerificationViewController.swift */; };
 		36C354852B1ECD3A0093BE93 /* VerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C354832B1ECD3A0093BE93 /* VerificationViewController.xib */; };
 		36C354872B1EF99C0093BE93 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354862B1EF99C0093BE93 /* VerificationViewModel.swift */; };
+		36C354902B1F03AB0093BE93 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C3548E2B1F03AB0093BE93 /* ForgotViewController.swift */; };
+		36C354912B1F03AB0093BE93 /* ForgotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C3548F2B1F03AB0093BE93 /* ForgotViewController.xib */; };
+		36C354932B1F0A9E0093BE93 /* ForgotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354922B1F0A9E0093BE93 /* ForgotViewModel.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -118,6 +121,9 @@
 		36C354822B1ECD3A0093BE93 /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		36C354832B1ECD3A0093BE93 /* VerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerificationViewController.xib; sourceTree = "<group>"; };
 		36C354862B1EF99C0093BE93 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
+		36C3548E2B1F03AB0093BE93 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
+		36C3548F2B1F03AB0093BE93 /* ForgotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotViewController.xib; sourceTree = "<group>"; };
+		36C354922B1F0A9E0093BE93 /* ForgotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewModel.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -231,6 +237,7 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36C3548D2B1F038B0093BE93 /* ForgotView */,
 				36C354812B1ECCED0093BE93 /* VerificationView */,
 				36958E562B1DCAE50009A895 /* RegisterView */,
 				368EF1BF2B1D7D150050F43C /* LoginView */,
@@ -379,6 +386,16 @@
 			path = VerificationView;
 			sourceTree = "<group>";
 		};
+		36C3548D2B1F038B0093BE93 /* ForgotView */ = {
+			isa = PBXGroup;
+			children = (
+				36C3548E2B1F03AB0093BE93 /* ForgotViewController.swift */,
+				36C3548F2B1F03AB0093BE93 /* ForgotViewController.xib */,
+				36C354922B1F0A9E0093BE93 /* ForgotViewModel.swift */,
+			);
+			path = ForgotView;
+			sourceTree = "<group>";
+		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +538,7 @@
 				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
 				36958E462B1D7DB00009A895 /* LoginViewController.xib in Resources */,
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
+				36C354912B1F03AB0093BE93 /* ForgotViewController.xib in Resources */,
 				368EF17B2B1996E20050F43C /* Inter-SemiBold.ttf in Resources */,
 				368EF1BE2B1D7B310050F43C /* InputField.xib in Resources */,
 				36958E5A2B1DCC110009A895 /* RegisterViewController.xib in Resources */,
@@ -654,11 +672,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36C354932B1F0A9E0093BE93 /* ForgotViewModel.swift in Sources */,
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
 				36958E452B1D7DB00009A895 /* LoginViewController.swift in Sources */,
 				36C354872B1EF99C0093BE93 /* VerificationViewModel.swift in Sources */,
 				36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */,
+				36C354902B1F03AB0093BE93 /* ForgotViewController.swift in Sources */,
 				36C354842B1ECD3A0093BE93 /* VerificationViewController.swift in Sources */,
 				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,
 				368EF1822B19B99F0050F43C /* OnboardingViewController.swift in Sources */,

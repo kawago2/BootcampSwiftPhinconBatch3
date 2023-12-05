@@ -32,7 +32,6 @@ class RegisterViewController: UIViewController {
         emailField.setup(title: "Email", placeholder: "example@email.com", isSecure: false)
         passwordField.setup(title: "Password", placeholder: "******", isSecure: true)
         registerButton.backgroundColor = UIColor(named: "Primary")?.withAlphaComponent(0.10)
-        nameField.roundCorners(corners: .allCorners, cornerRadius: 20)
         registerButton.roundCorners(corners: .allCorners, cornerRadius: 20)
         loginButton.roundCorners(corners: .allCorners, cornerRadius: 20)
         checkBox.backgroundColor = UIColor.clear
