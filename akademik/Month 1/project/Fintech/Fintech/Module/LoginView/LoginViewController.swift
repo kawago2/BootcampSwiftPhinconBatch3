@@ -10,8 +10,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
-    let viewModel = LoginViewModel()
-    let disposeBag = DisposeBag()
+    private let viewModel = LoginViewModel()
+    private let disposeBag = DisposeBag()
+
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -52,7 +53,8 @@ class LoginViewController: UIViewController {
     private func setupLoginButton() {
         loginButton.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
-            self.viewModel.signInTapped(email: self.emailField.inputText.text ?? "", password: self.passwordField.inputText.text ?? "") { result in
+            guard let email = self.emailField.inputText.text, let password = self.passwordField.inputText.text else { return }
+            self.viewModel.signInTapped(email: email, password: password) { result in
                 self.handleSignInResult(result)
             }
         }).disposed(by: disposeBag)

@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 
 class RegisterViewController: UIViewController {
-    
+    // MARK: - Outlets
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var nameField: InputField!
     @IBOutlet weak var emailField: InputField!
@@ -14,7 +14,6 @@ class RegisterViewController: UIViewController {
     
     let viewModel = RegisterViewModel()
     let disposeBag = DisposeBag()
-    
     private var isCheck = false
     
     override func viewDidLoad() {
@@ -26,7 +25,6 @@ class RegisterViewController: UIViewController {
     private func setupUI() {
         navigationBar.titleNavigationBar = "Sign Up"
         navigationBar.setupLeadingButton()
-        
         nameField.setup(title: "Name", placeholder: "Loren Ipsum", isSecure: false)
         emailField.setup(title: "Email", placeholder: "example@email.com", isSecure: false)
         passwordField.setup(title: "Password", placeholder: "******", isSecure: true)
@@ -62,29 +60,28 @@ class RegisterViewController: UIViewController {
     
     private func checkBoxTapped() {
         isCheck.toggle()
-        if isCheck {
-            checkBox.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
-        } else {
-            checkBox.setImage(UIImage(systemName: "square"), for: .normal)
-        }
+        checkBox.setImage(UIImage(systemName: isCheck ? "checkmark.square.fill" : "square"), for: .normal)
         checkBox.imageView?.contentMode = .scaleAspectFit
     }
     
     private func registerTapped() {
-        if self.isCheck {
-            self.viewModel.registerTapped(name: self.nameField.inputText.text ?? "", email: self.emailField.inputText.text ?? "", password: self.passwordField.inputText.text ?? "") { result in
-                switch result {
-                case .success(_):
-                    self.showAlert(title: "Success", message: "Register successful"){
-                        self.goToVerif()
-                    }
-                    
-                case .failure(let error):
-                    self.showAlert(title: "Failed", message: error.localizedDescription)
+        guard isCheck else {
+            showAlert(title: "Invalid", message: "Please read terms of service before register")
+            return
+        }
+        
+        let email = emailField.inputText.text ?? ""
+        let password = passwordField.inputText.text ?? ""
+        viewModel.registerTapped(name: nameField.inputText.text ?? "", email: email, password: password) { result in
+            switch result {
+            case .success:
+                self.showAlert(title: "Success", message: "Register successful") {
+                    self.goToVerif()
                 }
+                
+            case .failure(let error):
+                self.showAlert(title: "Failed", message: error.localizedDescription)
             }
-        } else {
-            self.showAlert(title: "Invalid", message: "Please read terms of service before register")
         }
     }
     
