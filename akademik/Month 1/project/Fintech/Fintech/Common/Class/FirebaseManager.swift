@@ -12,7 +12,6 @@ enum CustomError: Error {
 
 class FirebaseManager {
     
-    // Singleton instance
     static let shared = FirebaseManager()
     
     private init() {
@@ -23,42 +22,23 @@ class FirebaseManager {
         FirebaseApp.configure()
     }
     
-    // Firestore Database
+    // MARK: - Declare Variable
     lazy var firestoreDB: Firestore = {
         let firestoreDB = Firestore.firestore()
         return firestoreDB
     }()
     
-    // Authentication
     lazy var auth: Auth = {
         let auth = Auth.auth()
         return auth
     }()
     
-    // Storage
     lazy var storage: Storage = {
         let storage = Storage.storage()
         return storage
     }()
     
-    // Example function to fetch documents from Firestore
-    func fetchDocumentsFromFirestore(completion: @escaping ([DocumentSnapshot]?, Error?) -> Void) {
-        firestoreDB.collection("yourCollection").getDocuments { (snapshot, error) in
-            if let error = error {
-                completion(nil, error)
-                return
-            }
-            
-            guard let documents = snapshot?.documents else {
-                completion(nil, nil)
-                return
-            }
-            
-            completion(documents, nil)
-        }
-    }
-    
-    // Function to check if a user is logged in
+    // MARK: - Function Authentification
     func isUserLoggedIn() -> Bool {
         return auth.currentUser != nil
     }
@@ -69,12 +49,77 @@ class FirebaseManager {
                 try {
                     if let error = error { throw error }
                     guard let authResult = authResult else { throw CustomError.nilResult }
+
+                    if !authResult.user.isEmailVerified {
+                        throw CustomError.customError(message: "Email not verified. Please check your email and verify your account.")
+                    }
+
                     return authResult
                 }()
             })
         }
     }
     
+    func sendEmailVerification(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let user = auth.currentUser else {
+            completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No user is currently signed in."])))
+            return
+        }
+
+        user.sendEmailVerification { error in
+            completion(Result {
+                if let error = error {
+                    throw error
+                }
+            })
+        }
+    }
+
+    func register(withEmail email: String, password: String, name: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
+        auth.createUser(withEmail: email, password: password) { (authResult, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            self.sendEmailVerification { verificationResult in
+                switch verificationResult {
+                case .success:
+                    self.createUserDocument(uid: authResult!.user.uid, email: email, name: name) { userDocResult in
+                        switch userDocResult {
+                        case .success:
+                            completion(.success(authResult!))
+
+                        case .failure(let userDocError):
+                            completion(.failure(userDocError))
+                        }
+                    }
+
+                case .failure(let verificationError):
+                    completion(.failure(verificationError))
+                }
+            }
+        }
+    }
+
+    func createUserDocument(uid: String, email: String, name: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let userDocumentData: [String: Any] = [
+            "uid": uid,
+            "email": email,
+            "name": name
+        ]
+
+        firestoreDB.collection("users").document(uid).setData(userDocumentData) { error in
+            completion(Result {
+                if let error = error {
+                    throw error
+                }
+            })
+        }
+    }
+
+
+
     func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
         do {
             try auth.signOut()

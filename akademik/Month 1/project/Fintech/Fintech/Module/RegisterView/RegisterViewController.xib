@@ -15,10 +15,21 @@
         <array key="Inter-Medium.ttf">
             <string>Inter-Medium</string>
         </array>
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="Fintech" customModuleProvider="target">
             <connections>
+                <outlet property="checkBox" destination="nFz-Tz-TQu" id="u7f-oa-sMe"/>
+                <outlet property="emailField" destination="0Q4-nq-Im5" id="JYA-kn-sS0"/>
+                <outlet property="loginButton" destination="hQr-Xr-EzY" id="sZo-Oh-99h"/>
+                <outlet property="nameField" destination="q88-7C-nhm" id="TP6-hZ-ywY"/>
+                <outlet property="navigationBar" destination="6EO-SV-UnX" id="bOu-uF-teq"/>
+                <outlet property="passwordField" destination="TEp-FA-Zn6" id="QfG-Vu-2cQ"/>
+                <outlet property="registerButton" destination="M8k-VE-1JL" id="mXV-AB-511"/>
+                <outlet property="tosLabel" destination="cam-ZT-phs" id="Iv8-gU-hct"/>
                 <outlet property="view" destination="hte-Ck-RgF" id="QFN-fl-4dh"/>
             </connections>
         </placeholder>
@@ -34,10 +45,10 @@
                         <constraint firstAttribute="height" constant="44" id="gcI-rF-ogO"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryh-aG-mhi">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryh-aG-mhi">
                     <rect key="frame" x="20" y="143" width="353" height="370"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Brees" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRw-nn-iHw">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Welcome to Brees" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRw-nn-iHw">
                             <rect key="frame" x="0.0" y="0.0" width="353" height="29.333333333333332"/>
                             <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="24"/>
                             <nil key="textColor"/>
@@ -49,28 +60,57 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="j5T-he-EuX">
-                            <rect key="frame" x="0.0" y="94.333333333333314" width="353" height="213"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="j5T-he-EuX">
+                            <rect key="frame" x="0.0" y="94.333333333333343" width="353" height="275.66666666666663"/>
                             <subviews>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q88-7C-nhm" customClass="InputField" customModule="Fintech" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q88-7C-nhm" customClass="InputField" customModule="Fintech" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="61"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="61" id="7LU-VP-pfG"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Q4-nq-Im5" customClass="InputField" customModule="Fintech" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="76" width="353" height="61"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q4-nq-Im5" customClass="InputField" customModule="Fintech" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="75.999999999999972" width="353" height="61"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="61" id="cic-y0-XSJ"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TEp-FA-Zn6" customClass="InputField" customModule="Fintech" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="152" width="353" height="61"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEp-FA-Zn6" customClass="InputField" customModule="Fintech" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="151.99999999999997" width="353" height="61"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="61" id="0jh-Sf-F0z"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2v-82-mvK">
+                                    <rect key="frame" x="0.0" y="227.99999999999997" width="353" height="47.666666666666657"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="J6g-ZT-eGL">
+                                            <rect key="frame" x="10" y="0.0" width="333" height="47.666666666666664"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFz-Tz-TQu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="16.666666666666668" height="47.666666666666664"/>
+                                                    <color key="tintColor" name="Primary"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="square" catalog="system"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, you agree to the Terms of Service and Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cam-ZT-phs">
+                                                    <rect key="frame" x="24.666666666666657" y="0.0" width="308.33333333333337" height="47.666666666666664"/>
+                                                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="J6g-ZT-eGL" secondAttribute="bottom" id="TTI-mD-02O"/>
+                                        <constraint firstItem="J6g-ZT-eGL" firstAttribute="leading" secondItem="K2v-82-mvK" secondAttribute="leading" constant="10" id="ky0-mG-W1U"/>
+                                        <constraint firstItem="J6g-ZT-eGL" firstAttribute="top" secondItem="K2v-82-mvK" secondAttribute="top" id="pTJ-gZ-2TI"/>
+                                        <constraint firstAttribute="trailing" secondItem="J6g-ZT-eGL" secondAttribute="trailing" constant="10" id="wV2-Jj-FW7"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -79,8 +119,12 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Imf-lG-ovF" secondAttribute="trailing" id="6OV-sD-qAy"/>
+                        <constraint firstItem="j5T-he-EuX" firstAttribute="leading" secondItem="Ryh-aG-mhi" secondAttribute="leading" id="8W0-fb-Acf"/>
                         <constraint firstItem="Imf-lG-ovF" firstAttribute="top" secondItem="FRw-nn-iHw" secondAttribute="bottom" constant="16" id="DxK-U6-8Gg"/>
                         <constraint firstItem="FRw-nn-iHw" firstAttribute="top" secondItem="Ryh-aG-mhi" secondAttribute="top" id="QFn-OG-sX4"/>
+                        <constraint firstAttribute="trailing" secondItem="j5T-he-EuX" secondAttribute="trailing" id="Qmn-Zd-qy3"/>
+                        <constraint firstItem="j5T-he-EuX" firstAttribute="top" secondItem="Imf-lG-ovF" secondAttribute="bottom" constant="32" id="XSp-bh-14t"/>
+                        <constraint firstAttribute="bottom" secondItem="j5T-he-EuX" secondAttribute="bottom" id="XcG-Li-JLD"/>
                         <constraint firstAttribute="trailing" secondItem="FRw-nn-iHw" secondAttribute="trailing" id="a3f-OY-xfY"/>
                         <constraint firstItem="FRw-nn-iHw" firstAttribute="leading" secondItem="Ryh-aG-mhi" secondAttribute="leading" id="kr7-tK-d7j"/>
                         <constraint firstItem="Imf-lG-ovF" firstAttribute="leading" secondItem="Ryh-aG-mhi" secondAttribute="leading" id="zQW-DC-LzR"/>
@@ -95,11 +139,10 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8k-VE-1JL">
                                     <rect key="frame" x="0.0" y="14" width="94" height="34"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
                                     <color key="tintColor" name="Primary"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Register">
-                                        <fontDescription key="titleFontDescription" name="Inter-Medium" family="Inter" pointSize="12"/>
-                                    </buttonConfiguration>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Register"/>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -116,11 +159,10 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="237" id="Mig-MI-b0Y"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Login">
-                                <fontDescription key="titleFontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
-                            </buttonConfiguration>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Login"/>
                         </button>
                     </subviews>
                     <constraints>
@@ -144,12 +186,13 @@
                 <constraint firstItem="A1w-0W-ftC" firstAttribute="leading" secondItem="kzM-Uv-smy" secondAttribute="leading" constant="10" id="hyB-Vc-heV"/>
                 <constraint firstItem="kzM-Uv-smy" firstAttribute="trailing" secondItem="Ryh-aG-mhi" secondAttribute="trailing" constant="20" id="iXf-NO-9VD"/>
                 <constraint firstItem="Ryh-aG-mhi" firstAttribute="leading" secondItem="kzM-Uv-smy" secondAttribute="leading" constant="20" id="ogk-v9-MTX"/>
-                <constraint firstItem="A1w-0W-ftC" firstAttribute="top" secondItem="Ryh-aG-mhi" secondAttribute="bottom" constant="326" id="uik-Ht-Qdw"/>
+                <constraint firstItem="A1w-0W-ftC" firstAttribute="top" secondItem="Ryh-aG-mhi" secondAttribute="bottom" constant="227" id="uik-Ht-Qdw"/>
             </constraints>
             <point key="canvasLocation" x="66.412213740458014" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
+        <image name="square" catalog="system" width="128" height="114"/>
         <namedColor name="Background2">
             <color red="0.96078431372549022" green="0.96862745098039216" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

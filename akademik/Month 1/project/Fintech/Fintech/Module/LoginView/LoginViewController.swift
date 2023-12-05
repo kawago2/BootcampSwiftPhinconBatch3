@@ -36,9 +36,23 @@ class LoginViewController: UIViewController {
                     self.showAlert(title: "Success", message: "Login successful.")
                     
                 case .failure(let error):
-                    self.showAlert(title: "Error", message: error.localizedDescription)
+                    if let customError = error as? CustomError, case .customError(let message) = customError {
+                        self.showAlert(title: "Error", message: message)
+                    } else {
+                        self.showAlert(title: "Error", message: error.localizedDescription)
+                    }
                 }
             }
         }).disposed(by: disposeBag)
+        
+        registerButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.registerTapped()
+        }).disposed(by: disposeBag)
+    }
+    
+    private func registerTapped() {
+        let vc = RegisterViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
