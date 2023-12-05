@@ -1,8 +1,9 @@
 import UIKit
 import RxSwift
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
+    // MARK: - Outlets
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var emailField: InputField!
     @IBOutlet weak var passwordField: InputField!
@@ -12,45 +13,76 @@ class LoginViewController: UIViewController {
     let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupEvent()
+        setupEvents()
     }
     
+    // MARK: - UI Setup
     private func setupUI() {
+        setupNavigationBar()
+        setupInputFields()
+        setupButtons()
+    }
+    
+    private func setupNavigationBar() {
         navigationBar.titleNavigationBar = "Login"
+    }
+
+    private func setupInputFields() {
         emailField.setup(title: "Email", placeholder: "example@email.com", isSecure: false)
         passwordField.setup(title: "Password", placeholder: "******", isSecure: true)
+    }
+
+    private func setupButtons() {
         registerButton.backgroundColor = UIColor(named: "Primary")?.withAlphaComponent(0.10)
         registerButton.roundCorners(corners: .allCorners, cornerRadius: 20)
         loginButton.roundCorners(corners: .allCorners, cornerRadius: 20)
     }
+
     
-    private func setupEvent() {
-        loginButton.rx.tap.subscribe(onNext: {[weak self] in
+    // MARK: - Event Handling
+    private func setupEvents() {
+        setupLoginButton()
+        setupRegisterButton()
+    }
+    
+    private func setupLoginButton() {
+        loginButton.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.viewModel.signInTapped(email: self.emailField.inputText.text ?? "", password: self.passwordField.inputText.text ?? "") { result in
-                switch result {
-                case .success(_):
-                    self.showAlert(title: "Success", message: "Login successful.")
-                    
-                case .failure(let error):
-                    if let customError = error as? CustomError, case .customError(let message) = customError {
-                        self.showAlert(title: "Error", message: message) {
-                            self.goToVerif()
-                        }
-                    } else {
-                        self.showAlert(title: "Error", message: error.localizedDescription)
-                    }
-                }
+                self.handleSignInResult(result)
             }
         }).disposed(by: disposeBag)
-        
-        registerButton.rx.tap.subscribe(onNext: {[weak self] in
+    }
+    
+    private func setupRegisterButton() {
+        registerButton.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
             self.registerTapped()
         }).disposed(by: disposeBag)
+    }
+    
+    // MARK: - Business Logic
+    private func handleSignInResult(_ result: Result<AuthDataResult, Error>) {
+        switch result {
+        case .success(_):
+            showAlert(title: "Success", message: "Login successful.")
+        case .failure(let error):
+            handleSignInError(error)
+        }
+    }
+    
+    private func handleSignInError(_ error: Error) {
+        if let customError = error as? CustomError, case .customError(let message) = customError {
+            showAlert(title: "Error", message: message) {
+                self.goToVerif()
+            }
+        } else {
+            showAlert(title: "Error", message: error.localizedDescription)
+        }
     }
     
     private func registerTapped() {
