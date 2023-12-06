@@ -13,7 +13,7 @@ class TabBarViewController: UITabBarController {
         configureUITabBarItems()
         configureTab()
         configureAppearance()
-        setFirstFocus(index: 0)
+        setFirstFocus(index: 3)
     }
     
     override func viewDidLayoutSubviews() {

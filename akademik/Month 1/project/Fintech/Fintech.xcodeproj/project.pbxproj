@@ -56,6 +56,10 @@
 		36C354962B1F1FA00093BE93 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354952B1F1FA00093BE93 /* TabBarViewController.swift */; };
 		36C3549A2B1F1FED0093BE93 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354982B1F1FED0093BE93 /* ProfileViewController.swift */; };
 		36C3549B2B1F1FED0093BE93 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C354992B1F1FED0093BE93 /* ProfileViewController.xib */; };
+		36FAC30B2B202C6C0034CC74 /* ExtUIImageVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC30A2B202C6C0034CC74 /* ExtUIImageVIew.swift */; };
+		36FAC3162B2032770034CC74 /* CardButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3142B2032770034CC74 /* CardButtonCell.swift */; };
+		36FAC3172B2032770034CC74 /* CardButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3152B2032770034CC74 /* CardButtonCell.xib */; };
+		36FAC3192B2034FE0034CC74 /* ExtUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -130,6 +134,10 @@
 		36C354952B1F1FA00093BE93 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		36C354982B1F1FED0093BE93 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		36C354992B1F1FED0093BE93 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		36FAC30A2B202C6C0034CC74 /* ExtUIImageVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageVIew.swift; sourceTree = "<group>"; };
+		36FAC3142B2032770034CC74 /* CardButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardButtonCell.swift; sourceTree = "<group>"; };
+		36FAC3152B2032770034CC74 /* CardButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardButtonCell.xib; sourceTree = "<group>"; };
+		36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITableView.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -314,6 +322,8 @@
 				368EF1892B19C1C20050F43C /* ExtUIViewColletion.swift */,
 				368EF1922B19DBEE0050F43C /* ExtUIColor.swift */,
 				36958E542B1DC3220009A895 /* ExtUIViewController.swift */,
+				36FAC30A2B202C6C0034CC74 /* ExtUIImageVIew.swift */,
+				36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -415,10 +425,20 @@
 		36C354972B1F1FD90093BE93 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC3112B20322C0034CC74 /* TableCell */,
 				36C354982B1F1FED0093BE93 /* ProfileViewController.swift */,
 				36C354992B1F1FED0093BE93 /* ProfileViewController.xib */,
 			);
 			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		36FAC3112B20322C0034CC74 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3142B2032770034CC74 /* CardButtonCell.swift */,
+				36FAC3152B2032770034CC74 /* CardButtonCell.xib */,
+			);
+			path = TableCell;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -553,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36FAC3172B2032770034CC74 /* CardButtonCell.xib in Resources */,
 				36C3549B2B1F1FED0093BE93 /* ProfileViewController.xib in Resources */,
 				361D9C872B1991E5005D7FA1 /* LaunchScreen.storyboard in Resources */,
 				36C354852B1ECD3A0093BE93 /* VerificationViewController.xib in Resources */,
@@ -706,8 +727,11 @@
 				36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */,
 				36C3549A2B1F1FED0093BE93 /* ProfileViewController.swift in Sources */,
 				36C354902B1F03AB0093BE93 /* ForgotViewController.swift in Sources */,
+				36FAC30B2B202C6C0034CC74 /* ExtUIImageVIew.swift in Sources */,
+				36FAC3192B2034FE0034CC74 /* ExtUITableView.swift in Sources */,
 				36C354842B1ECD3A0093BE93 /* VerificationViewController.swift in Sources */,
 				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,
+				36FAC3162B2032770034CC74 /* CardButtonCell.swift in Sources */,
 				368EF1822B19B99F0050F43C /* OnboardingViewController.swift in Sources */,
 				368EF1B72B1D79CA0050F43C /* InputField.swift in Sources */,
 				368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */,
