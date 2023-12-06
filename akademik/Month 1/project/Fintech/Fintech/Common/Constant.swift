@@ -24,6 +24,7 @@ enum CustomIcon {
     static let menuSetting = "menu_setting"
     static let menuTelp = "menu_telp"
     static let menuHelp = "menu_help"
+    static let camera = "Camera"
 }
 
 enum CustomImage {

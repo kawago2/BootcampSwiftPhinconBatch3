@@ -97,5 +97,25 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return 68
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        switch index {
+        case 0:
+            let vc = EditProfileViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case 1:
+            let vc = EditProfileViewController()
+            vc.recieveData(item: userData)
+            navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            let vc = EditProfileViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case 3:
+            let vc = EditProfileViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
+    }
     
 }

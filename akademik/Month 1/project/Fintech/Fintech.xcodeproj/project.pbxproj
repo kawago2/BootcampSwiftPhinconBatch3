@@ -62,6 +62,8 @@
 		36FAC3192B2034FE0034CC74 /* ExtUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */; };
 		36FAC31B2B2035650034CC74 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC31A2B2035650034CC74 /* ProfileViewModel.swift */; };
 		36FAC31D2B2059080034CC74 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC31C2B2059080034CC74 /* Date.swift */; };
+		36FAC3222B2061210034CC74 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3202B2061210034CC74 /* EditProfileViewController.swift */; };
+		36FAC3232B2061210034CC74 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3212B2061210034CC74 /* EditProfileViewController.xib */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -142,6 +144,8 @@
 		36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITableView.swift; sourceTree = "<group>"; };
 		36FAC31A2B2035650034CC74 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		36FAC31C2B2059080034CC74 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		36FAC3202B2061210034CC74 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		36FAC3212B2061210034CC74 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -450,6 +454,8 @@
 		36FAC31E2B2060B00034CC74 /* EditProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC3202B2061210034CC74 /* EditProfileViewController.swift */,
+				36FAC3212B2061210034CC74 /* EditProfileViewController.xib */,
 			);
 			path = EditProfileView;
 			sourceTree = "<group>";
@@ -607,6 +613,7 @@
 				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
 				36958E462B1D7DB00009A895 /* LoginViewController.xib in Resources */,
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
+				36FAC3232B2061210034CC74 /* EditProfileViewController.xib in Resources */,
 				36C354912B1F03AB0093BE93 /* ForgotViewController.xib in Resources */,
 				368EF17B2B1996E20050F43C /* Inter-SemiBold.ttf in Resources */,
 				368EF1BE2B1D7B310050F43C /* InputField.xib in Resources */,
@@ -752,6 +759,7 @@
 				36C354902B1F03AB0093BE93 /* ForgotViewController.swift in Sources */,
 				36FAC30B2B202C6C0034CC74 /* ExtUIImageVIew.swift in Sources */,
 				36FAC3192B2034FE0034CC74 /* ExtUITableView.swift in Sources */,
+				36FAC3222B2061210034CC74 /* EditProfileViewController.swift in Sources */,
 				36C354842B1ECD3A0093BE93 /* VerificationViewController.swift in Sources */,
 				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,
 				36FAC31B2B2035650034CC74 /* ProfileViewModel.swift in Sources */,
