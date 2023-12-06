@@ -11,6 +11,9 @@ class TabBarViewController: UITabBarController {
         configureTab()
         configureAppearance()
         setFirstFocus(index: 0)
+        FirebaseManager.shared.signOut(completion: {_ in 
+            
+        })
     }
     
     func configureUITabBarItems() {
