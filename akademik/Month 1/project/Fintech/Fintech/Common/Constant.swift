@@ -20,8 +20,14 @@ enum CustomIcon {
     static let selectedChart = UIImage(named: "Chart-selected")
     static let selectedGraph = UIImage(named: "Graph-selected")
     static let selectedProfile = UIImage(named: "Profile-selected")
-    static let menuProfile = UIImage(named: "menu_profile")
-    static let menuSetting = UIImage(named: "menu_setting")
-    static let menuTelp = UIImage(named: "menu_telp")
-    static let menuHelp = UIImage(named: "menu_help")
+    static let menuProfile = "menu_profile"
+    static let menuSetting = "menu_setting"
+    static let menuTelp = "menu_telp"
+    static let menuHelp = "menu_help"
 }
+
+enum CustomImage {
+    static let notAvailImage = "image_not_available"
+}
+
+

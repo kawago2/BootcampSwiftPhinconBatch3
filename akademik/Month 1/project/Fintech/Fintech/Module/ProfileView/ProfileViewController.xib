@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -66,34 +65,46 @@
                                 <constraint firstAttribute="width" constant="80" id="9Dj-Y4-Jnv"/>
                             </constraints>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Gli-1G-iay">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COJ-gE-XeY">
                             <rect key="frame" x="95" y="0.0" width="256" height="80"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test@test.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzw-To-HAU">
-                                    <rect key="frame" x="0.0" y="0.0" width="256" height="45.666666666666664"/>
-                                    <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6U-Gd-xqZ">
-                                    <rect key="frame" x="0.0" y="45.666666666666657" width="256" height="34.333333333333343"/>
-                                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Gli-1G-iay">
+                                    <rect key="frame" x="0.0" y="10" width="256" height="60"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test@test.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzw-To-HAU">
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="34.333333333333336"/>
+                                            <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6U-Gd-xqZ">
+                                            <rect key="frame" x="0.0" y="34.333333333333343" width="256" height="25.666666666666671"/>
+                                            <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
                             </subviews>
-                        </stackView>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Gli-1G-iay" secondAttribute="trailing" id="Cwg-B4-4Pj"/>
+                                <constraint firstItem="Gli-1G-iay" firstAttribute="top" secondItem="COJ-gE-XeY" secondAttribute="top" constant="10" id="UQf-SR-Ad7"/>
+                                <constraint firstAttribute="bottom" secondItem="Gli-1G-iay" secondAttribute="bottom" constant="10" id="WUJ-Gw-cqu"/>
+                                <constraint firstItem="Gli-1G-iay" firstAttribute="leading" secondItem="COJ-gE-XeY" secondAttribute="leading" id="xbx-oE-H3F"/>
+                            </constraints>
+                        </view>
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSP-WT-xiG">
-                    <rect key="frame" x="0.0" y="216" width="393" height="602"/>
+                    <rect key="frame" x="0.0" y="216" width="393" height="636"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wfi-RN-mls">
-                            <rect key="frame" x="24" y="32" width="345" height="338"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <rect key="frame" x="24" y="32" width="345" height="303"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tableView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGN-Zf-NXW">
-                            <rect key="frame" x="32" y="486" width="329" height="68"/>
+                            <rect key="frame" x="32" y="418" width="329" height="68"/>
                             <string key="text">You joined Brees on September 2021. It’s been 1 month since then and our mission is still the same, help you better manage your finance like a brees.</string>
                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                             <color key="textColor" name="FourColor"/>
@@ -105,9 +116,9 @@
                         <constraint firstItem="Wfi-RN-mls" firstAttribute="top" secondItem="PSP-WT-xiG" secondAttribute="top" constant="32" id="0Jo-dY-97g"/>
                         <constraint firstAttribute="trailing" secondItem="rGN-Zf-NXW" secondAttribute="trailing" constant="32" id="GbS-3w-Mwr"/>
                         <constraint firstAttribute="trailing" secondItem="Wfi-RN-mls" secondAttribute="trailing" constant="24" id="eXz-I4-DVT"/>
-                        <constraint firstAttribute="bottom" secondItem="rGN-Zf-NXW" secondAttribute="bottom" constant="48" id="edd-s6-MYX"/>
+                        <constraint firstAttribute="bottom" secondItem="rGN-Zf-NXW" secondAttribute="bottom" constant="150" id="edd-s6-MYX"/>
                         <constraint firstItem="rGN-Zf-NXW" firstAttribute="leading" secondItem="PSP-WT-xiG" secondAttribute="leading" constant="32" id="lwg-yw-H6v"/>
-                        <constraint firstItem="rGN-Zf-NXW" firstAttribute="top" secondItem="Wfi-RN-mls" secondAttribute="bottom" constant="116" id="mU4-H6-CiZ"/>
+                        <constraint firstItem="rGN-Zf-NXW" firstAttribute="top" secondItem="Wfi-RN-mls" secondAttribute="bottom" constant="83" id="mU4-H6-CiZ"/>
                         <constraint firstItem="Wfi-RN-mls" firstAttribute="leading" secondItem="PSP-WT-xiG" secondAttribute="leading" constant="24" id="x67-Wo-CB0"/>
                     </constraints>
                 </view>
@@ -115,8 +126,8 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Primary"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PSP-WT-xiG" secondAttribute="bottom" id="1au-LW-HML"/>
                 <constraint firstAttribute="trailing" secondItem="btP-CD-qQk" secondAttribute="trailing" constant="21" id="LZi-kS-ck6"/>
+                <constraint firstAttribute="bottom" secondItem="PSP-WT-xiG" secondAttribute="bottom" id="MXn-D1-ZiS"/>
                 <constraint firstItem="btP-CD-qQk" firstAttribute="top" secondItem="nVO-pn-Wnw" secondAttribute="bottom" constant="24" id="Q1H-IQ-3h3"/>
                 <constraint firstItem="nVO-pn-Wnw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="RsW-Yr-daX"/>
                 <constraint firstItem="PSP-WT-xiG" firstAttribute="top" secondItem="btP-CD-qQk" secondAttribute="bottom" constant="24" id="ir4-f4-OCw"/>
@@ -140,8 +151,5 @@
         <namedColor name="Primary">
             <color red="0.17254901960784313" green="0.078431372549019607" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

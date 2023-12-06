@@ -17,30 +17,39 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CardButtonCell" customModule="Fintech" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Btj-g8-3rY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                        <rect key="frame" x="0.0" y="12" width="320" height="44"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WOR-do-P3j">
-                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZs-rI-yX0">
+                                <rect key="frame" x="0.0" y="0.0" width="48" height="44"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_help" translatesAutoresizingMaskIntoConstraints="NO" id="WOR-do-P3j">
+                                        <rect key="frame" x="12" y="12" width="24" height="20"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" name="Background3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="fCR-7O-cY8"/>
+                                    <constraint firstAttribute="trailing" secondItem="WOR-do-P3j" secondAttribute="trailing" constant="12" id="4dp-k1-O1i"/>
+                                    <constraint firstItem="WOR-do-P3j" firstAttribute="leading" secondItem="bZs-rI-yX0" secondAttribute="leading" constant="12" id="NeH-h0-7M6"/>
+                                    <constraint firstItem="WOR-do-P3j" firstAttribute="top" secondItem="bZs-rI-yX0" secondAttribute="top" constant="12" id="nx0-sO-x10"/>
+                                    <constraint firstAttribute="width" constant="48" id="uxR-e3-LUS"/>
+                                    <constraint firstAttribute="bottom" secondItem="WOR-do-P3j" secondAttribute="bottom" constant="12" id="zfX-aV-R42"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-Yq-xa1">
-                                <rect key="frame" x="58" y="0.0" width="204" height="48"/>
+                                <rect key="frame" x="58" y="0.0" width="204" height="44"/>
                                 <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUt-iy-eJ3">
-                                <rect key="frame" x="272" y="0.0" width="48" height="48"/>
+                                <rect key="frame" x="272" y="0.0" width="48" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="Xoi-at-17Y"/>
                                 </constraints>
@@ -52,10 +61,10 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Btj-g8-3rY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Al4-oS-Nf7"/>
+                    <constraint firstItem="Btj-g8-3rY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Al4-oS-Nf7"/>
                     <constraint firstAttribute="trailing" secondItem="Btj-g8-3rY" secondAttribute="trailing" id="U03-hG-Q4A"/>
                     <constraint firstItem="Btj-g8-3rY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Zt5-t1-kbW"/>
-                    <constraint firstAttribute="bottom" secondItem="Btj-g8-3rY" secondAttribute="bottom" id="r3X-2D-2HX"/>
+                    <constraint firstAttribute="bottom" secondItem="Btj-g8-3rY" secondAttribute="bottom" constant="12" id="r3X-2D-2HX"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -63,15 +72,17 @@
             <connections>
                 <outlet property="goButton" destination="yUt-iy-eJ3" id="1iv-q8-ChV"/>
                 <outlet property="imageCardView" destination="WOR-do-P3j" id="5xp-8l-aHX"/>
+                <outlet property="imageWarpView" destination="bZs-rI-yX0" id="a0S-86-Ghj"/>
                 <outlet property="titlelabel" destination="O6r-Yq-xa1" id="dvx-cZ-YP0"/>
             </connections>
-            <point key="canvasLocation" x="0.0" y="20"/>
+            <point key="canvasLocation" x="0.0" y="19.718309859154932"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="menu_help" width="24" height="24"/>
         <namedColor name="Background3">
-            <color red="0.5725490196078431" green="0.5607843137254902" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.9137254901960784" green="0.9137254901960784" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="FiveColor">
             <color red="0.4823529411764706" green="0.50588235294117645" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

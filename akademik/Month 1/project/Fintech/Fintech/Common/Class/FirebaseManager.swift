@@ -6,6 +6,7 @@ import FirebaseStorage
 
 enum CustomError: Error {
     case nilResult
+    case nilDocumentData
     case customError(message: String)
 }
 
@@ -46,6 +47,11 @@ class FirebaseManager {
     func isUserVerified() -> Bool {
         guard let currentUser = auth.currentUser else {return false}
         return currentUser.isEmailVerified
+    }
+    
+    func getCurrentUserUid() -> String {
+        guard let uid = auth.currentUser?.uid else {return ""}
+        return uid
     }
     
     func signIn(withEmail email: String, password: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
@@ -148,6 +154,44 @@ class FirebaseManager {
             })
         }
     }
+    
+    // MARK: - Function Firestore
+
+    func getUserDocument(uid: String, completion: @escaping (Result<UserData?, Error>) -> Void) {
+        firestoreDB.collection("users").document(uid).getDocument { documentSnapshot, error in
+            completion(Result {
+                if let error = error {
+                    throw error
+                }
+
+                guard let document = documentSnapshot, document.exists else {
+                    // If the document doesn't exist, return nil
+                    return nil
+                }
+
+                guard let userData = document.data() else {
+                    // Handle the case where the document data is nil
+                    throw CustomError.nilDocumentData
+                }
+
+                // Map the data to your UserData model
+                let user = UserData(
+                    uid: uid,
+                    email: userData["email"] as? String ?? "",
+                    name: userData["name"] as? String ?? "",
+                    createAt: userData["createAt"] as? Date ?? Date()
+                )
+
+                return user
+            })
+        }
+    }
+
+    
+    
+    
+    
+    
     
     func uploadFileToStorage(data: Data, path: String, completion: @escaping (StorageMetadata?, Error?) -> Void) {
         let storageRef = storage.reference().child(path)

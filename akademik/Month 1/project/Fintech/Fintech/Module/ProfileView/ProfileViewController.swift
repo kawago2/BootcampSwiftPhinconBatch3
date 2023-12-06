@@ -1,11 +1,6 @@
-//
-//  ProfileViewController.swift
-//  Fintech
-//
-//  Created by Phincon on 05/12/23.
-//
-
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ProfileViewController: UIViewController {
     
@@ -16,9 +11,21 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    var userData = UserData()
+    var menuItem: [CardButton] = []
+    var viewModel = ProfileViewModel()
+    let disposeBag = DisposeBag()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getUserData()
     }
 
     private func setupUI() {
@@ -28,17 +35,58 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerCellWithNib(CardButtonCell.self)
+        tableView.separatorStyle = .none
+    }
+    
+    private func loadData() {
+        menuItem = [
+            CardButton(image: CustomIcon.menuProfile, title: "My Account"),
+            CardButton(image: CustomIcon.menuSetting, title: "Settings"),
+            CardButton(image: CustomIcon.menuHelp, title: "Help Center"),
+            CardButton(image: CustomIcon.menuTelp, title: "Contact")
+        ]
+    }
+    
+    private func getUserData() {
+        let uid = FirebaseManager.shared.getCurrentUserUid()
+        viewModel.getUserData(uid: uid, completion: {result in
+            switch result {
+            case .success(let user):
+                self.userData = user ?? UserData()
+                DispatchQueue.main.async {
+                    self.updateUIData()
+                }
+                
+            case .failure(let err):
+                self.showAlert(title: "Failed", message: err.localizedDescription)
+            }
+            
+            
+        })
+    }
+    
+    private func updateUIData() {
+        nameLabel.text = userData.name
+        emailLabel.text = userData.email
+//        imageView.image
     }
 
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return menuItem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let item = menuItem[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CardButtonCell", for: indexPath) as! CardButtonCell
+        cell.configureCell(item: item)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 68
     }
     
     
