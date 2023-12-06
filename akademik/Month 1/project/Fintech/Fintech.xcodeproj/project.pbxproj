@@ -255,7 +255,7 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				36C354972B1F1FD90093BE93 /* ProfileView */,
+				36FAC31F2B2060C60034CC74 /* ProfileMenu */,
 				36C354942B1F1E9E0093BE93 /* MainTabBar */,
 				36C3548D2B1F038B0093BE93 /* ForgotView */,
 				36C354812B1ECCED0093BE93 /* VerificationView */,
@@ -445,6 +445,22 @@
 				36FAC3152B2032770034CC74 /* CardButtonCell.xib */,
 			);
 			path = TableCell;
+			sourceTree = "<group>";
+		};
+		36FAC31E2B2060B00034CC74 /* EditProfileView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EditProfileView;
+			sourceTree = "<group>";
+		};
+		36FAC31F2B2060C60034CC74 /* ProfileMenu */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC31E2B2060B00034CC74 /* EditProfileView */,
+				36C354972B1F1FD90093BE93 /* ProfileView */,
+			);
+			path = ProfileMenu;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
