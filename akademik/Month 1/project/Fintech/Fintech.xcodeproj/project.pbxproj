@@ -53,6 +53,9 @@
 		36C354902B1F03AB0093BE93 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C3548E2B1F03AB0093BE93 /* ForgotViewController.swift */; };
 		36C354912B1F03AB0093BE93 /* ForgotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C3548F2B1F03AB0093BE93 /* ForgotViewController.xib */; };
 		36C354932B1F0A9E0093BE93 /* ForgotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354922B1F0A9E0093BE93 /* ForgotViewModel.swift */; };
+		36C354962B1F1FA00093BE93 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354952B1F1FA00093BE93 /* TabBarViewController.swift */; };
+		36C3549A2B1F1FED0093BE93 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C354982B1F1FED0093BE93 /* ProfileViewController.swift */; };
+		36C3549B2B1F1FED0093BE93 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C354992B1F1FED0093BE93 /* ProfileViewController.xib */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -124,6 +127,9 @@
 		36C3548E2B1F03AB0093BE93 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
 		36C3548F2B1F03AB0093BE93 /* ForgotViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotViewController.xib; sourceTree = "<group>"; };
 		36C354922B1F0A9E0093BE93 /* ForgotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewModel.swift; sourceTree = "<group>"; };
+		36C354952B1F1FA00093BE93 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		36C354982B1F1FED0093BE93 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		36C354992B1F1FED0093BE93 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +243,8 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36C354972B1F1FD90093BE93 /* ProfileView */,
+				36C354942B1F1E9E0093BE93 /* MainTabBar */,
 				36C3548D2B1F038B0093BE93 /* ForgotView */,
 				36C354812B1ECCED0093BE93 /* VerificationView */,
 				36958E562B1DCAE50009A895 /* RegisterView */,
@@ -396,6 +404,23 @@
 			path = ForgotView;
 			sourceTree = "<group>";
 		};
+		36C354942B1F1E9E0093BE93 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				36C354952B1F1FA00093BE93 /* TabBarViewController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		36C354972B1F1FD90093BE93 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				36C354982B1F1FED0093BE93 /* ProfileViewController.swift */,
+				36C354992B1F1FED0093BE93 /* ProfileViewController.xib */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +553,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36C3549B2B1F1FED0093BE93 /* ProfileViewController.xib in Resources */,
 				361D9C872B1991E5005D7FA1 /* LaunchScreen.storyboard in Resources */,
 				36C354852B1ECD3A0093BE93 /* VerificationViewController.xib in Resources */,
 				368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */,
@@ -678,6 +704,7 @@
 				36958E452B1D7DB00009A895 /* LoginViewController.swift in Sources */,
 				36C354872B1EF99C0093BE93 /* VerificationViewModel.swift in Sources */,
 				36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */,
+				36C3549A2B1F1FED0093BE93 /* ProfileViewController.swift in Sources */,
 				36C354902B1F03AB0093BE93 /* ForgotViewController.swift in Sources */,
 				36C354842B1ECD3A0093BE93 /* VerificationViewController.swift in Sources */,
 				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,
@@ -690,6 +717,7 @@
 				36958E592B1DCC110009A895 /* RegisterViewController.swift in Sources */,
 				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,
 				368EF17E2B1997970050F43C /* Constant.swift in Sources */,
+				36C354962B1F1FA00093BE93 /* TabBarViewController.swift in Sources */,
 				368EF1982B1D61EC0050F43C /* CustomPageControl.swift in Sources */,
 				368EF18E2B19C2060050F43C /* OnboardingCell.swift in Sources */,
 				36C3547B2B1EB4600093BE93 /* RegisterViewModel.swift in Sources */,

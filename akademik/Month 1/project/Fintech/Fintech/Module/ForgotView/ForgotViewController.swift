@@ -44,7 +44,7 @@ class ForgotViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - Business Logic   
+    // MARK: - Business Logic
     private func continueTapped() {
         viewModel.forgotPassword(email: emailField.inputText.text ?? "", completion: {result in
             switch result {

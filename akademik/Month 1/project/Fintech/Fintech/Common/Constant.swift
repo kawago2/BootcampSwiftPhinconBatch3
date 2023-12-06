@@ -9,3 +9,8 @@ enum CustomFont {
     static let bodySemiBold = UIFont(name: "Inter-Semibold", size: 14)
     static let bodyExtra = UIFont(name: "Inter-Regular", size: 12)
 }
+
+
+enum CustomIcon {
+    static let profile = UIImage(named: "Home")
+}
