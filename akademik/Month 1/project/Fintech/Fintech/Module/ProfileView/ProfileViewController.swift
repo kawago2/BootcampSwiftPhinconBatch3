@@ -4,6 +4,7 @@ import RxCocoa
 
 class ProfileViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
@@ -12,13 +13,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createWhenLabel: UILabel!
     
-    
+    // MARK: - Properties
     var userData = UserData()
     var menuItem: [CardButton] = []
     var viewModel = ProfileViewModel()
     let disposeBag = DisposeBag()
     
-    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -30,6 +31,7 @@ class ProfileViewController: UIViewController {
         getUserData()
     }
 
+    // MARK: - Setup UI
     private func setupUI() {
         imageView.setCircleNoBorder()
         cardView.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 30)
@@ -40,6 +42,7 @@ class ProfileViewController: UIViewController {
         tableView.separatorStyle = .none
     }
     
+    // MARK: - Logic Bussiness 
     private func loadData() {
         menuItem = [
             CardButton(image: CustomIcon.menuProfile, title: "My Account"),
@@ -58,8 +61,8 @@ class ProfileViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.updateUIData()
                 }
-            case .failure(let err):
-                self.showAlert(title: "Failed", message: err.localizedDescription)
+            case .failure(_):
+                self.showAlert(title: "Failed", message: "Failed to retrieve user data. Please try again.")
             }
         })
     }
@@ -77,6 +80,7 @@ class ProfileViewController: UIViewController {
 
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItem.count
