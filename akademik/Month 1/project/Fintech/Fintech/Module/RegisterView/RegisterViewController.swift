@@ -80,13 +80,21 @@ class RegisterViewController: UIViewController {
             switch result {
             case .success:
                 self.showAlert(title: "Success", message: "Register successful") {
-                    self.goToVerif()
+                    self.viewModel.signInTapped(email: email, password: password, completion: {result in
+                        switch result {
+                        case .success(_):
+                            self.goToVerif()
+                        case .failure(_):
+                            self.showAlert(title: "Invalid", message: "Please restart the application")
+                        }
+                    })
                 }
                 
             case .failure(let error):
                 self.showAlert(title: "Failed", message: error.localizedDescription)
             }
         }
+
     }
     
     // MARK: - Navigation
