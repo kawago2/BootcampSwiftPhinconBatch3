@@ -165,23 +165,19 @@ class FirebaseManager {
                 }
 
                 guard let document = documentSnapshot, document.exists else {
-                    // If the document doesn't exist, return nil
                     return nil
                 }
 
                 guard let userData = document.data() else {
-                    // Handle the case where the document data is nil
                     throw CustomError.nilDocumentData
                 }
 
-                // Map the data to your UserData model
                 let user = UserData(
                     uid: uid,
                     email: userData["email"] as? String ?? "",
                     name: userData["name"] as? String ?? "",
                     createAt: userData["createAt"] as? Date ?? Date()
                 )
-
                 return user
             })
         }
