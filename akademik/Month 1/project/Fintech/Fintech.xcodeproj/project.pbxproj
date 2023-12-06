@@ -61,6 +61,7 @@
 		36FAC3172B2032770034CC74 /* CardButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3152B2032770034CC74 /* CardButtonCell.xib */; };
 		36FAC3192B2034FE0034CC74 /* ExtUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */; };
 		36FAC31B2B2035650034CC74 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC31A2B2035650034CC74 /* ProfileViewModel.swift */; };
+		36FAC31D2B2059080034CC74 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC31C2B2059080034CC74 /* Date.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -140,6 +141,7 @@
 		36FAC3152B2032770034CC74 /* CardButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardButtonCell.xib; sourceTree = "<group>"; };
 		36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITableView.swift; sourceTree = "<group>"; };
 		36FAC31A2B2035650034CC74 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		36FAC31C2B2059080034CC74 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				36958E542B1DC3220009A895 /* ExtUIViewController.swift */,
 				36FAC30A2B202C6C0034CC74 /* ExtUIImageVIew.swift */,
 				36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */,
+				36FAC31C2B2059080034CC74 /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				36C354932B1F0A9E0093BE93 /* ForgotViewModel.swift in Sources */,
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
+				36FAC31D2B2059080034CC74 /* Date.swift in Sources */,
 				36958E452B1D7DB00009A895 /* LoginViewController.swift in Sources */,
 				36C354872B1EF99C0093BE93 /* VerificationViewModel.swift in Sources */,
 				36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */,

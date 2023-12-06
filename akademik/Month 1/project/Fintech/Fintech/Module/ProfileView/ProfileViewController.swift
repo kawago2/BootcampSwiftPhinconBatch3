@@ -10,6 +10,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var createWhenLabel: UILabel!
+    
     
     var userData = UserData()
     var menuItem: [CardButton] = []
@@ -56,19 +58,21 @@ class ProfileViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.updateUIData()
                 }
-                
             case .failure(let err):
                 self.showAlert(title: "Failed", message: err.localizedDescription)
             }
-            
-            
         })
     }
     
     private func updateUIData() {
         nameLabel.text = userData.name
         emailLabel.text = userData.email
-//        imageView.image
+        if let createAt = userData.createAt {
+            let formatDate = createAt.formattedDateString()
+            let diffMonth = createAt.monthsDifference(from: Date())
+            createWhenLabel.text = "You joined Brees on \(formatDate). It’s been \(diffMonth) month since then and our mission is still the same, help you better manage your finance like a brees."
+        }
+
     }
 
 }

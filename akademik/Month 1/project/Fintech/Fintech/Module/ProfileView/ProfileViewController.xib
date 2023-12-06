@@ -23,6 +23,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Fintech" customModuleProvider="target">
             <connections>
                 <outlet property="cardView" destination="PSP-WT-xiG" id="M7c-vo-Bmu"/>
+                <outlet property="createWhenLabel" destination="rGN-Zf-NXW" id="IBN-zD-x7X"/>
                 <outlet property="editProfileButton" destination="CQP-MG-ltW" id="xcf-WO-xnZ"/>
                 <outlet property="emailLabel" destination="Wzw-To-HAU" id="zyW-hb-hPb"/>
                 <outlet property="imageView" destination="8wC-7h-n2I" id="M3F-hM-zig"/>
