@@ -1,5 +1,6 @@
 import UIKit
-
+import RxSwift
+import RxCocoa
 
 struct CardButton {
     var image: String?
@@ -15,7 +16,7 @@ struct UserData {
 
 
 class ProfileViewModel {
-    
+
     func getUserData(uid: String, completion: @escaping (Result<UserData?, Error>) -> Void) {
         FirebaseManager.shared.getUserDocument(uid: uid) { result in
             switch result {

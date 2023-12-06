@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController {
         tableView.separatorStyle = .none
     }
     
-    // MARK: - Logic Bussiness 
+    // MARK: - Logic Bussiness
     private func loadData() {
         menuItem = [
             CardButton(image: CustomIcon.menuProfile, title: "My Account"),
