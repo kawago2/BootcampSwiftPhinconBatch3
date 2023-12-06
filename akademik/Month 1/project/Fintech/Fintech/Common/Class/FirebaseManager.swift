@@ -136,7 +136,8 @@ class FirebaseManager {
         let userDocumentData: [String: Any] = [
             "uid": uid,
             "email": email,
-            "name": name
+            "name": name,
+            "createAt": Date(),
         ]
 
         firestoreDB.collection("users").document(uid).setData(userDocumentData) { error in
