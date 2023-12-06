@@ -20,9 +20,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let splash = SplashViewController()
         let login = LoginViewController()
+        let tabbar = TabBarViewController()
         let navigationController = UINavigationController(rootViewController: splash)
         if FirebaseManager.shared.isUserLoggedIn() {
-            navigationController.setViewControllers([login], animated: true)
+            if FirebaseManager.shared.isUserVerified() {
+                navigationController.setViewControllers([tabbar], animated: true)
+            } else {
+                FirebaseManager.shared.signOut(completion: {_ in
+                    navigationController.setViewControllers([login], animated: true)
+                })
+            }
         }
         navigationController.isNavigationBarHidden = true
         window.rootViewController = navigationController

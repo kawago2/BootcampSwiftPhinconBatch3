@@ -82,7 +82,9 @@ class LoginViewController: UIViewController {
     private func handleSignInResult(_ result: Result<AuthDataResult, Error>) {
         switch result {
         case .success(_):
-            showAlert(title: "Success", message: "Login successful.")
+            showAlert(title: "Success", message: "Login successful.") {
+                self.goToMain()
+            }
         case .failure(let error):
             handleSignInError(error)
         }
@@ -98,6 +100,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - Navigation
     private func registerTapped() {
         let vc = RegisterViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -112,5 +115,9 @@ class LoginViewController: UIViewController {
     private func goToForgot() {
         let vc = ForgotViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    private func goToMain() {
+        let vc = TabBarViewController()
+        navigationController?.setViewControllers([vc], animated: true)
     }
 }

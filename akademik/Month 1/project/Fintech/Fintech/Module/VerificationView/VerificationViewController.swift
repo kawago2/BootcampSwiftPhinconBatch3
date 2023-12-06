@@ -45,8 +45,16 @@ class VerificationViewController: UIViewController {
     private func openURL(_ url: URL) {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: {_ in
-                self.backToLogin()
-                
+                if FirebaseManager.shared.isUserVerified() {
+                    self.goToMain()
+                } else
+                {
+                    self.showAlert(title: "Invalid", message: "Please verify your email first.") {
+                        self.backToLogin()
+                    }
+                    
+                }
+               
             })
         }
     }
@@ -54,4 +62,8 @@ class VerificationViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    private func goToMain() {
+        let maintab = TabBarViewController()
+        navigationController?.setViewControllers([maintab], animated: true)
+    }
 }

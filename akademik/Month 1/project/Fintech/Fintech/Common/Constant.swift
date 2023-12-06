@@ -12,5 +12,13 @@ enum CustomFont {
 
 
 enum CustomIcon {
-    static let profile = UIImage(named: "Home")
+    static let home = UIImage(named: "Home")
+    static let chart = UIImage(named: "Chart")
+    static let graph = UIImage(named: "Graph")
+    static let profile = UIImage(named: "Profile")
+    static let selectedHome = UIImage(named: "Home-selected")
+    static let selectedChart = UIImage(named: "Chart-selected")
+    static let selectedGraph = UIImage(named: "Graph-selected")
+    static let selectedProfile = UIImage(named: "Profile-selected")
+    
 }
