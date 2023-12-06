@@ -1,26 +1,40 @@
 import UIKit
 
+// MARK: - Enum
+enum TabIndex: Int {
+    case home = 0
+    case graph = 1
+    case chart = 2
+    case profile = 3
+}
+
 class TabBarViewController: UITabBarController {
     
+    // MARK: - Properties
     let homeViewController = ProfileViewController()
     let graphViewController = ProfileViewController()
     let chartViewController = ProfileViewController()
     let profileViewController = ProfileViewController()
     
+    private let tabBarHeight: CGFloat = 100
+    private let tabBarCornerRadius: CGFloat = 30
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUITabBarItems()
         configureTab()
         configureAppearance()
-        setFirstFocus(index: 3)
+        setFirstFocus(index: TabIndex.profile.rawValue)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setHeightBar(height: 100)
+        setHeightBar(height: tabBarHeight)
     }
     
+    
+    // MARK: - Configuration
     func configureUITabBarItems() {
         self.delegate = self
         let homeTabBarItem = UITabBarItem(title: "", image: CustomIcon.home, selectedImage: CustomIcon.selectedHome)
@@ -63,7 +77,7 @@ class TabBarViewController: UITabBarController {
     private func setupRoundedCorner() {
         tabBar.layer.masksToBounds = true
         tabBar.isTranslucent = true
-        tabBar.layer.cornerRadius = 30
+        tabBar.layer.cornerRadius = tabBarCornerRadius
         tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
@@ -77,18 +91,13 @@ class TabBarViewController: UITabBarController {
     }
 }
 
+// MARK: - UITabBarControllerDelegate
 extension TabBarViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let selectedIndex = tabBarController.viewControllers?.firstIndex(of: viewController) {
-            if selectedIndex == 0 {
-                tabBar.tintColor = UIColor.white
-                tabBar.unselectedItemTintColor = UIColor.white
-                tabBar.backgroundColor =  UIColor(named: "Primary")
-            } else {
-                tabBar.tintColor = UIColor(named: "Primary")
-                tabBar.backgroundColor  = UIColor.white
-                tabBar.unselectedItemTintColor = UIColor(named: "Primary")
-            }
-        }
+        guard let selectedIndex = tabBarController.viewControllers?.firstIndex(of: viewController) else { return }
+
+        tabBar.tintColor = (selectedIndex == 0) ? UIColor.white : UIColor(named: "Primary")
+        tabBar.backgroundColor = (selectedIndex == 0) ? UIColor(named: "Primary") : UIColor.white
+        tabBar.unselectedItemTintColor = (selectedIndex == 0) ? UIColor.white : UIColor(named: "Primary")
     }
 }
