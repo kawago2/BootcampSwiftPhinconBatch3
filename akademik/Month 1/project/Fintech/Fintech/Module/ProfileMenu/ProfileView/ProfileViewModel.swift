@@ -12,6 +12,7 @@ struct UserData {
     var email: String?
     var name: String?
     var createAt: Date?
+    var phone: String?
 }
 
 

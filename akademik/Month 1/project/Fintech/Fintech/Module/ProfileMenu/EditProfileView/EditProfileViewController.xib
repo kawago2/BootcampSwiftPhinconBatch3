@@ -14,7 +14,10 @@
             <connections>
                 <outlet property="cameraButton" destination="yWl-4c-FZo" id="eVK-9m-iRR"/>
                 <outlet property="cameraView" destination="r4j-YE-J8h" id="UtZ-f5-uHY"/>
+                <outlet property="emailField" destination="NRz-LG-cQd" id="o0c-jg-lrS"/>
+                <outlet property="nameField" destination="cOo-kG-qzQ" id="L4K-Z4-ve6"/>
                 <outlet property="navigationBar" destination="QVO-Me-jaQ" id="A68-7s-BW1"/>
+                <outlet property="phoneField" destination="BeD-1A-WKh" id="S35-s9-cZz"/>
                 <outlet property="saveButton" destination="bTg-S5-ZX7" id="BTl-JL-dEH"/>
                 <outlet property="userImage" destination="DuJ-kb-aCj" id="EXz-pv-crt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -83,19 +86,40 @@
                         <color key="titleColor" name="Background1"/>
                     </state>
                 </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-RH-jDF">
+                    <rect key="frame" x="20" y="359" width="353" height="305"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-kG-qzQ" customClass="InputField" customModule="Fintech" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="353" height="87.666666666666671"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-LG-cQd" customClass="InputField" customModule="Fintech" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="108.66666666666669" width="353" height="87.666666666666686"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeD-1A-WKh" customClass="InputField" customModule="Fintech" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="217.33333333333334" width="353" height="87.666666666666657"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Background2"/>
             <constraints>
                 <constraint firstItem="QVO-Me-jaQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0iM-iR-s9c"/>
                 <constraint firstItem="jhI-S7-6mq" firstAttribute="top" secondItem="QVO-Me-jaQ" secondAttribute="bottom" constant="56" id="7R2-ev-x7c"/>
+                <constraint firstItem="bTg-S5-ZX7" firstAttribute="top" secondItem="nhF-RH-jDF" secondAttribute="bottom" constant="92" id="BuH-7z-lLK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jhI-S7-6mq" secondAttribute="trailing" constant="137" id="H12-Zm-JS8"/>
                 <constraint firstItem="jhI-S7-6mq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="136" id="Nja-lL-nEl"/>
                 <constraint firstItem="QVO-Me-jaQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="OWk-Px-OWj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bTg-S5-ZX7" secondAttribute="bottom" constant="18" id="QhM-i2-PdD"/>
                 <constraint firstItem="bTg-S5-ZX7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="QyK-u7-2Uk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bTg-S5-ZX7" secondAttribute="trailing" constant="20" id="XQ8-3Z-GzM"/>
+                <constraint firstItem="nhF-RH-jDF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bIu-Mn-dGL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nhF-RH-jDF" secondAttribute="trailing" constant="20" id="gJk-9d-g2i"/>
                 <constraint firstItem="QVO-Me-jaQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kKN-MP-fvC"/>
+                <constraint firstItem="nhF-RH-jDF" firstAttribute="top" secondItem="jhI-S7-6mq" secondAttribute="bottom" constant="80" id="xEN-M2-JVh"/>
             </constraints>
             <point key="canvasLocation" x="0.76335877862595414" y="19.718309859154932"/>
         </view>

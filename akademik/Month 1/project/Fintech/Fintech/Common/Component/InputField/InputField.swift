@@ -7,6 +7,8 @@ class InputField: UIView {
     @IBOutlet weak var formView: UIView!
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var obsecureButton: UIButton!
+    @IBOutlet var contentView: UIView!
+    
     
     var isObscured = false
     
