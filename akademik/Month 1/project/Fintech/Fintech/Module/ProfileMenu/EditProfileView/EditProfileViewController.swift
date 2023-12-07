@@ -1,10 +1,11 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
 
 
 class EditProfileViewController: BaseViewController {
-
+    
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cameraView: UIView!
@@ -16,12 +17,14 @@ class EditProfileViewController: BaseViewController {
     
     private var userData = UserData()
     private var viewModel = EditProfileViewModel()
+    private var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupEvent()
         initialData()
+        setupPicker()
     }
     
     private func initialData() {
@@ -48,15 +51,26 @@ class EditProfileViewController: BaseViewController {
         phoneField.setupPhoneField()
     }
     
+    private func setupPicker() {
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+    }
+    
     private func setupEvent() {
         navigationBar.leadingButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else {return}
-            self.backTapped()
+            self.backToView()
         }).disposed(by: disposeBag)
         
         saveButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else {return}
             self.saveTapped()
+        }).disposed(by: disposeBag)
+        cameraButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
+            guard let self = self else {return}
+            self.cameraButtonTapped()
         }).disposed(by: disposeBag)
     }
     
@@ -64,20 +78,58 @@ class EditProfileViewController: BaseViewController {
         self.userData = item
     }
     
-    private func backTapped() {
-        navigationController?.popViewController(animated: true)
+    private func cameraButtonTapped() {
+        guard let imagePicker = imagePicker else { return }
+        present(imagePicker, animated: true, completion: nil)
     }
     
     private func saveTapped() {
         guard self.phoneField.inputText.text != "" else {
             return self.showAlert(title: "Invalid", message: "Please input your phone number.")
         }
+        
+        
         self.userData.name = self.nameField.inputText.text
         self.userData.phone = self.phoneField.valueSelected + (self.phoneField.inputText.text ?? "")
-        self.viewModel.saveToFirebase(item: self.userData)
         
+        self.viewModel.uploadImageToStorage(userImage: userImage, item: userData) { (metadata, error) in
+            if let error = error {
+                self.showAlert(title: "Error", message: error.localizedDescription)
+            } else if let metadata = metadata {
+                print("File uploaded successfully. Metadata: \(metadata)")
+                if let path = metadata.path {
+                    print("Path: \(path)")
+                    self.userData.imagePath = path
+                    
+                }
+                
+                self.viewModel.saveToFirebase(item: self.userData, completion: {result in
+                    switch result {
+                    case .success:
+                        self.showAlert(title: "Success", message: "User data save successfuly.")
+                        self.backToView()
+                    case .failure(let error):
+                        self.showAlert(title: "Failed", message: error.localizedDescription)
+                    }
+                })
+            }
+        }
     }
     
+    
+}
 
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.userImage.image = pickedImage
+            
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 

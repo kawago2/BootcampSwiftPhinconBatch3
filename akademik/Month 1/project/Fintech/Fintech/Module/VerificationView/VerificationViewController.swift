@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-class VerificationViewController: UIViewController {
+class VerificationViewController: BaseViewController {
 
     @IBOutlet weak var openButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
@@ -10,7 +10,6 @@ class VerificationViewController: UIViewController {
     var context: String = ""
     
     private var viewModel = VerificationViewModel()
-    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,16 +49,13 @@ class VerificationViewController: UIViewController {
                 } else
                 {
                     self.showAlert(title: "Invalid", message: "Please verify your email first.") {
-                        self.backToLogin()
+                        self.backToView()
                     }
                     
                 }
                
             })
         }
-    }
-    private func backToLogin() {
-        navigationController?.popViewController(animated: true)
     }
     
     private func goToMain() {

@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var nameField: InputField!
@@ -14,7 +14,6 @@ class RegisterViewController: UIViewController {
     
     // MARK: - Properties
     let viewModel = RegisterViewModel()
-    let disposeBag = DisposeBag()
     private var isCheck = false
     
     // MARK: - View Lifecycle
@@ -46,12 +45,12 @@ class RegisterViewController: UIViewController {
         
         navigationBar.leadingButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
-            self.backToLogin()
+            self.backToView()
         }).disposed(by: disposeBag)
         
         loginButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
-            self.backToLogin()
+            self.backToView()
         }).disposed(by: disposeBag)
         
         checkBox.rx.tap.subscribe(onNext: {[weak self] in
@@ -98,10 +97,6 @@ class RegisterViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    private func backToLogin() {
-        navigationController?.popViewController(animated: true)
-    }
-    
     private func goToVerif() {
         let vc = VerificationViewController()
         vc.email = self.emailField.inputText.text ?? ""

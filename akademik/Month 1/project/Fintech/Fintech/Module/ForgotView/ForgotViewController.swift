@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-class ForgotViewController: UIViewController {
+class ForgotViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var emailField: InputField!
@@ -9,7 +9,6 @@ class ForgotViewController: UIViewController {
     
     // MARK: - Properties
     private var viewModel = ForgotViewModel()
-    private let disposeBag = DisposeBag()
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -37,11 +36,6 @@ class ForgotViewController: UIViewController {
             guard let self = self else {return}
             self.continueTapped()
         }).disposed(by: disposeBag)
-    }
-    
-    // MARK: - Navigation
-    private func backToView() {
-        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Business Logic

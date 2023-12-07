@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     
@@ -59,12 +60,27 @@ class ProfileViewController: UIViewController {
             case .success(let user):
                 self.userData = user ?? UserData()
                 DispatchQueue.main.async {
+                    self.getImageUser()
                     self.updateUIData()
                 }
             case .failure(_):
                 self.showAlert(title: "Failed", message: "Failed to retrieve user data. Please try again.")
             }
         })
+    }
+    
+    private func getImageUser() {
+        if let imagePath = self.userData.imagePath {
+            self.viewModel.getImageFromURL(filePath: imagePath, completion: {(url, error) in
+                if let error = error {
+                    print("Failed to get download URL. Error: \(error.localizedDescription)")
+                } else if let url = url {
+                    print("Download URL: \(url)")
+                    self.imageView.kf.setImage(with: url)
+                }
+                
+            })
+        }
     }
     
     private func updateUIData() {
@@ -102,10 +118,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         switch index {
         case 0:
             let vc = EditProfileViewController()
+            vc.recieveData(item: userData)
             navigationController?.pushViewController(vc, animated: true)
         case 1:
             let vc = EditProfileViewController()
-            vc.recieveData(item: userData)
             navigationController?.pushViewController(vc, animated: true)
         case 2:
             let vc = EditProfileViewController()

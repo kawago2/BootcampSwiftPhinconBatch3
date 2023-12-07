@@ -9,6 +9,10 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    func backToView() {
+        navigationController?.popViewController(animated: true)
+    }
 
 
 }

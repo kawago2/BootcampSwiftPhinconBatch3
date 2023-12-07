@@ -175,7 +175,9 @@ class FirebaseManager {
                     uid: uid,
                     email: userData["email"] as? String ?? "",
                     name: userData["name"] as? String ?? "",
-                    createAt: userData["createAt"] as? Date ?? Date()
+                    createAt: userData["createAt"] as? Date ?? Date(),
+                    phone: userData["phone"] as? String ?? "",
+                    imagePath: userData["imagePath"] as? String ?? ""
                 )
                 return user
             })
@@ -193,12 +195,7 @@ class FirebaseManager {
         }
     }
 
-    
-    
-    
-    
-    
-    
+    // MARK: - Function Firebase Storage
     func uploadFileToStorage(data: Data, path: String, completion: @escaping (StorageMetadata?, Error?) -> Void) {
         let storageRef = storage.reference().child(path)
         let metadata = StorageMetadata()
@@ -210,6 +207,19 @@ class FirebaseManager {
             }
             
             completion(metadata, nil)
+        }
+    }
+    
+    func getDownloadURLFromStorage(path: String, completion: @escaping (URL?, Error?) -> Void) {
+        let storageRef = storage.reference().child(path)
+
+        storageRef.downloadURL { (url, error) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+
+            completion(url, nil)
         }
     }
 }

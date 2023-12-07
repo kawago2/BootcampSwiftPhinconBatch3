@@ -19,6 +19,7 @@ target 'Fintech' do
   
   # Package for Utils
   pod 'DropDown'
+  pod 'Kingfisher'
 
   target 'FintechTests' do
     inherit! :search_paths
