@@ -177,6 +177,7 @@ class FirebaseManager {
                     name: userData["name"] as? String ?? "",
                     createAt: userData["createAt"] as? Date ?? Date(),
                     phone: userData["phone"] as? String ?? "",
+                    areaCode: userData["areaCode"] as? String ?? "",
                     imagePath: userData["imagePath"] as? String ?? ""
                 )
                 return user

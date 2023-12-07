@@ -66,6 +66,7 @@
 		36FAC3232B2061210034CC74 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3212B2061210034CC74 /* EditProfileViewController.xib */; };
 		36FAC32A2B215DBB0034CC74 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3292B215DBB0034CC74 /* EditProfileViewModel.swift */; };
 		36FAC32C2B217DBE0034CC74 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC32B2B217DBE0034CC74 /* BaseViewController.swift */; };
+		36FAC32E2B21AF710034CC74 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC32D2B21AF710034CC74 /* LoadingViewController.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -150,6 +151,7 @@
 		36FAC3212B2061210034CC74 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		36FAC3292B215DBB0034CC74 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		36FAC32B2B217DBE0034CC74 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		36FAC32D2B21AF710034CC74 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC32F2B21AF850034CC74 /* LoadingView */,
 				36FAC31F2B2060C60034CC74 /* ProfileMenu */,
 				36C354942B1F1E9E0093BE93 /* MainTabBar */,
 				36C3548D2B1F038B0093BE93 /* ForgotView */,
@@ -473,6 +476,14 @@
 				36C354972B1F1FD90093BE93 /* ProfileView */,
 			);
 			path = ProfileMenu;
+			sourceTree = "<group>";
+		};
+		36FAC32F2B21AF850034CC74 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC32D2B21AF710034CC74 /* LoadingViewController.swift */,
+			);
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -777,6 +788,7 @@
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
 				36958E532B1DC0D00009A895 /* LoginViewModel.swift in Sources */,
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
+				36FAC32E2B21AF710034CC74 /* LoadingViewController.swift in Sources */,
 				36958E592B1DCC110009A895 /* RegisterViewController.swift in Sources */,
 				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,
 				368EF17E2B1997970050F43C /* Constant.swift in Sources */,

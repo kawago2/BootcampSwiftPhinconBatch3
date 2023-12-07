@@ -13,7 +13,9 @@ struct UserData {
     var name: String?
     var createAt: Date?
     var phone: String?
+    var areaCode: String?
     var imagePath: String?
+    var imageURL: URL?
 }
 
 

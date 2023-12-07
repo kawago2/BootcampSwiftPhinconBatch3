@@ -9,7 +9,9 @@ class EditProfileViewModel {
         let updatedData: [String: Any] = [
             "name": item.name ?? "",
             "phone": item.phone ?? "",
+            "areaCode": item.areaCode ?? "",
             "imagePath": item.imagePath ?? "",
+            
         ]
         
         FirebaseManager.shared.editUserDocument(uid: item.uid ?? "", updatedUserData: updatedData) { result in

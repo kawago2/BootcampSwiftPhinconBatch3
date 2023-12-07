@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxGesture
+import Kingfisher
 
 
 class EditProfileViewController: BaseViewController {
@@ -31,6 +32,18 @@ class EditProfileViewController: BaseViewController {
         nameField.inputText.text = userData.name
         emailField.inputText.text = userData.email
         phoneField.inputText.text = userData.phone
+        if let imageURL = userData.imageURL {
+            userImage.kf.setImage(with: imageURL) { result in
+                switch result {
+                case .success(_):
+                    print("success load")
+                case .failure(_):
+                    self.userImage.image = UIImage(named: CustomImage.notAvailImage)
+                }
+            }
+        } else {
+            userImage.image = UIImage(named: CustomImage.notAvailImage)
+        }
         
     }
     
@@ -48,7 +61,7 @@ class EditProfileViewController: BaseViewController {
         emailField.contentView.backgroundColor = .systemGray6
         phoneField.setup(title: "Phone Number", placeholder: "8123456", isSecure: false)
         phoneField.inputText.keyboardType = .numberPad
-        phoneField.setupPhoneField()
+        phoneField.setupPhoneField(initialAreaCodeIndex: userData.areaCode)
     }
     
     private func setupPicker() {
@@ -90,7 +103,8 @@ class EditProfileViewController: BaseViewController {
         
         
         self.userData.name = self.nameField.inputText.text
-        self.userData.phone = self.phoneField.valueSelected + (self.phoneField.inputText.text ?? "")
+        self.userData.phone = self.phoneField.inputText.text
+        self.userData.areaCode = self.phoneField.valueSelected
         
         self.viewModel.uploadImageToStorage(userImage: userImage, item: userData) { (metadata, error) in
             if let error = error {
@@ -106,8 +120,9 @@ class EditProfileViewController: BaseViewController {
                 self.viewModel.saveToFirebase(item: self.userData, completion: {result in
                     switch result {
                     case .success:
-                        self.showAlert(title: "Success", message: "User data save successfuly.")
-                        self.backToView()
+                        self.showAlert(title: "Success", message: "User data save successfuly.") {
+                            self.backToView()
+                        }
                     case .failure(let error):
                         self.showAlert(title: "Failed", message: error.localizedDescription)
                     }

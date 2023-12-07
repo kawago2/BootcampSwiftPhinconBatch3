@@ -50,14 +50,7 @@ class InputField: UIView {
         areaCodeLabel.isHidden = true
         dropDown.anchorView = areaCodeLabel
         dropDown.dataSource = areaCodes
-        
-        
-        // Set initial data
-        dropDown.selectRow(selectedAreaCodeIndex)
-        let initialAreaCode = areaCodes[selectedAreaCodeIndex]
-        areaCodeLabel.text = "(\(initialAreaCode))"
-        valueSelected = initialAreaCode
-        
+    
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             self.areaCodeLabel.text = "(\(item))"
             self.valueSelected = item
@@ -75,8 +68,32 @@ class InputField: UIView {
     }
     
     // MARK: - Phone Field Configuration
-    func setupPhoneField() {
+    func setupPhoneField(initialAreaCodeIndex: String?) {
+        if let intial = initialAreaCodeIndex {
+            if let index = searchIndex(for: intial) {
+                dropDown.selectRow(index)
+                let initialAreaCode = areaCodes[index]
+                areaCodeLabel.text = "(\(initialAreaCode))"
+                valueSelected = initialAreaCode
+            }
+        } else {
+            dropDown.selectRow(selectedAreaCodeIndex)
+            let initialAreaCode = areaCodes[selectedAreaCodeIndex]
+            areaCodeLabel.text = "(\(initialAreaCode))"
+            valueSelected = initialAreaCode
+        }
+
+        
+        
         areaCodeLabel.isHidden = false
+    }
+    
+    func searchIndex(for searchString: String) -> Int? {
+        if let index = areaCodes.firstIndex(where: { $0.contains(searchString) }) {
+            return index
+        } else {
+            return nil
+        }
     }
     
     // MARK: - Secure Text Entry Update

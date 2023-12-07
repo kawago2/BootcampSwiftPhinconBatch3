@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var editProfileButton: UIButton!
@@ -18,7 +18,6 @@ class ProfileViewController: UIViewController {
     var userData = UserData()
     var menuItem: [CardButton] = []
     var viewModel = ProfileViewModel()
-    let disposeBag = DisposeBag()
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -54,29 +53,33 @@ class ProfileViewController: UIViewController {
     }
     
     private func getUserData() {
+        loadingView(isHidden: false)
         let uid = FirebaseManager.shared.getCurrentUserUid()
-        viewModel.getUserData(uid: uid, completion: {result in
-            switch result {
-            case .success(let user):
-                self.userData = user ?? UserData()
-                DispatchQueue.main.async {
+        viewModel.getUserData(uid: uid) { result in
+            DispatchQueue.main.async {
+                self.loadingView(isHidden: true)
+                
+                switch result {
+                case .success(let user):
+                    self.userData = user ?? UserData()
                     self.getImageUser()
                     self.updateUIData()
+                case .failure(_):
+                    self.showAlert(title: "Failed", message: "Failed to retrieve user data. Please try again.")
                 }
-            case .failure(_):
-                self.showAlert(title: "Failed", message: "Failed to retrieve user data. Please try again.")
             }
-        })
+        }
     }
+
     
     private func getImageUser() {
         if let imagePath = self.userData.imagePath {
             self.viewModel.getImageFromURL(filePath: imagePath, completion: {(url, error) in
-                if let error = error {
-                    print("Failed to get download URL. Error: \(error.localizedDescription)")
+                if error != nil {
+                    self.showAlert(title: "Failed", message: "Failed to get user image.")
                 } else if let url = url {
-                    print("Download URL: \(url)")
                     self.imageView.kf.setImage(with: url)
+                    self.userData.imageURL = url
                 }
                 
             })
@@ -91,6 +94,7 @@ class ProfileViewController: UIViewController {
             let diffMonth = createAt.monthsDifference(from: Date())
             createWhenLabel.text = "You joined Brees on \(formatDate). It’s been \(diffMonth) month since then and our mission is still the same, help you better manage your finance like a brees."
         }
+        
 
     }
 
