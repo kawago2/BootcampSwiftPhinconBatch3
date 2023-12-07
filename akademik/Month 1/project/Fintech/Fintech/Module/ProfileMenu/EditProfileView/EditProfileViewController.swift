@@ -7,6 +7,7 @@ import Kingfisher
 
 class EditProfileViewController: BaseViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var cameraView: UIView!
@@ -16,10 +17,12 @@ class EditProfileViewController: BaseViewController {
     @IBOutlet weak var emailField: InputField!
     @IBOutlet weak var phoneField: InputField!
     
+    // MARK: - Properties
     private var userData = UserData()
     private var viewModel = EditProfileViewModel()
     private var imagePicker: UIImagePickerController!
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -28,6 +31,7 @@ class EditProfileViewController: BaseViewController {
         setupPicker()
     }
     
+    // MARK: - Initial Setup Methods
     private func initialData() {
         nameField.inputText.text = userData.name
         emailField.inputText.text = userData.email
@@ -71,6 +75,7 @@ class EditProfileViewController: BaseViewController {
         imagePicker.allowsEditing = true
     }
     
+    // MARK: - Event Handling
     private func setupEvent() {
         navigationBar.leadingButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else {return}
@@ -87,10 +92,12 @@ class EditProfileViewController: BaseViewController {
         }).disposed(by: disposeBag)
     }
     
+    // MARK: - Data Handling
     func recieveData(item: UserData) {
         self.userData = item
     }
     
+    // MARK: - Button Actions
     private func cameraButtonTapped() {
         guard let imagePicker = imagePicker else { return }
         present(imagePicker, animated: true, completion: nil)
@@ -134,6 +141,7 @@ class EditProfileViewController: BaseViewController {
     
 }
 
+// MARK: - UIImagePickerControllerDelegate
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {

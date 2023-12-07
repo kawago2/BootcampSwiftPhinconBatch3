@@ -1,6 +1,8 @@
 import UIKit
 
 class LoadingViewController: BaseViewController {
+
+    // MARK: - UI Components
     private let activityIndicatorView: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -19,11 +21,13 @@ class LoadingViewController: BaseViewController {
         return label
     }()
 
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
 
+    // MARK: - UI Setup
     private func setupUI() {
         view.backgroundColor = UIColor(named: "Primary")
 

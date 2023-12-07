@@ -1,10 +1,11 @@
 import UIKit
 import FirebaseStorage
 
-
+// MARK: - ViewModel
 class EditProfileViewModel {
     let titleNavigationBar = "My Account"
         
+    // MARK: - Public Methods
     func saveToFirebase(item: UserData, completion: @escaping (Result<Void, Error>) -> Void) {
         let updatedData: [String: Any] = [
             "name": item.name ?? "",

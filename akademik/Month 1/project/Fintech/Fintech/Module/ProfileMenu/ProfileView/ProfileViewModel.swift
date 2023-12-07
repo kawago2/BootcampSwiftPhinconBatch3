@@ -2,6 +2,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// MARK: - Model
+
 struct CardButton {
     var image: String?
     var title: String?
@@ -18,9 +20,11 @@ struct UserData {
     var imageURL: URL?
 }
 
+// MARK: - ViewModel
 
 class ProfileViewModel {
 
+    // MARK: - Public Methods
     func getUserData(uid: String, completion: @escaping (Result<UserData?, Error>) -> Void) {
         FirebaseManager.shared.getUserDocument(uid: uid) { result in
             switch result {
@@ -31,14 +35,12 @@ class ProfileViewModel {
             }
         }
     }
-    
+
     func getImageFromURL(filePath: String, completion: @escaping (URL?, Error?) -> Void) {
         FirebaseManager.shared.getDownloadURLFromStorage(path: filePath) { (url, error) in
             if let error = error {
-                print("Failed to get download URL. Error: \(error.localizedDescription)")
                 completion(nil, error)
             } else if let url = url {
-                print("Download URL: \(url)")
                 completion(url, nil)
             }
         }
