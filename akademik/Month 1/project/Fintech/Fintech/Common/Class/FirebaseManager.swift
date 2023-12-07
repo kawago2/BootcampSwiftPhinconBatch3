@@ -156,7 +156,6 @@ class FirebaseManager {
     }
     
     // MARK: - Function Firestore
-
     func getUserDocument(uid: String, completion: @escaping (Result<UserData?, Error>) -> Void) {
         firestoreDB.collection("users").document(uid).getDocument { documentSnapshot, error in
             completion(Result {
@@ -179,6 +178,17 @@ class FirebaseManager {
                     createAt: userData["createAt"] as? Date ?? Date()
                 )
                 return user
+            })
+        }
+    }
+    
+    
+    func editUserDocument(uid: String, updatedUserData: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
+        firestoreDB.collection("users").document(uid).updateData(updatedUserData) { error in
+            completion(Result {
+                if let error = error {
+                    throw error
+                }
             })
         }
     }

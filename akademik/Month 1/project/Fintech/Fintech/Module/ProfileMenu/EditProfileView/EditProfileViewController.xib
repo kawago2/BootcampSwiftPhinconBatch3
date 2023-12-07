@@ -86,19 +86,19 @@
                         <color key="titleColor" name="Background1"/>
                     </state>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-RH-jDF">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nhF-RH-jDF">
                     <rect key="frame" x="20" y="359" width="353" height="305"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-kG-qzQ" customClass="InputField" customModule="Fintech" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="353" height="87.666666666666671"/>
+                            <rect key="frame" x="0.0" y="0.0" width="353" height="81.666666666666671"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRz-LG-cQd" customClass="InputField" customModule="Fintech" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="108.66666666666669" width="353" height="87.666666666666686"/>
+                            <rect key="frame" x="0.0" y="111.66666666666669" width="353" height="81.666666666666686"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BeD-1A-WKh" customClass="InputField" customModule="Fintech" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="217.33333333333334" width="353" height="87.666666666666657"/>
+                            <rect key="frame" x="0.0" y="223.33333333333334" width="353" height="81.666666666666657"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                     </subviews>

@@ -1,7 +1,9 @@
 import UIKit
 import RxSwift
+import RxCocoa
 
-class EditProfileViewController: UIViewController {
+
+class EditProfileViewController: BaseViewController {
 
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var saveButton: UIButton!
@@ -13,8 +15,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var phoneField: InputField!
     
     private var userData = UserData()
-    private let titleNavigationBar = "My Account"
-    private let disposeBag = DisposeBag()
+    private var viewModel = EditProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +28,11 @@ class EditProfileViewController: UIViewController {
         nameField.inputText.text = userData.name
         emailField.inputText.text = userData.email
         phoneField.inputText.text = userData.phone
+        
     }
     
     private func setupUI() {
-        navigationBar.titleNavigationBar = titleNavigationBar
+        navigationBar.titleNavigationBar = viewModel.titleNavigationBar
         navigationBar.setupLeadingButton()
         saveButton.roundCorners(corners: .allCorners, cornerRadius: 20)
         cameraButton.setCircleNoBorder()
@@ -40,8 +42,10 @@ class EditProfileViewController: UIViewController {
         nameField.setup(title: "Name", placeholder: "Not set", isSecure: false)
         emailField.setup(title: "Email", placeholder: "Not set", isSecure: false)
         emailField.inputText.isUserInteractionEnabled = false
-        emailField.contentView.backgroundColor = .systemGray2
-        phoneField.setup(title: "Phone Number", placeholder: "+628777777", isSecure: false)
+        emailField.contentView.backgroundColor = .systemGray6
+        phoneField.setup(title: "Phone Number", placeholder: "8123456", isSecure: false)
+        phoneField.inputText.keyboardType = .numberPad
+        phoneField.setupPhoneField()
     }
     
     private func setupEvent() {
@@ -50,6 +54,10 @@ class EditProfileViewController: UIViewController {
             self.backTapped()
         }).disposed(by: disposeBag)
         
+        saveButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else {return}
+            self.saveTapped()
+        }).disposed(by: disposeBag)
     }
     
     func recieveData(item: UserData) {
@@ -58,6 +66,16 @@ class EditProfileViewController: UIViewController {
     
     private func backTapped() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func saveTapped() {
+        guard self.phoneField.inputText.text != "" else {
+            return self.showAlert(title: "Invalid", message: "Please input your phone number.")
+        }
+        self.userData.name = self.nameField.inputText.text
+        self.userData.phone = self.phoneField.valueSelected + (self.phoneField.inputText.text ?? "")
+        self.viewModel.saveToFirebase(item: self.userData)
+        
     }
     
 

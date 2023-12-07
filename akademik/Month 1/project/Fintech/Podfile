@@ -16,6 +16,9 @@ target 'Fintech' do
   pod 'FirebaseFirestore'
   pod 'FirebaseAuth'
   pod 'FirebaseStorage'
+  
+  # Package for Utils
+  pod 'DropDown'
 
   target 'FintechTests' do
     inherit! :search_paths
