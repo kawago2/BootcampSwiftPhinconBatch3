@@ -14,4 +14,16 @@ struct CellContent {
 class SettingViewModel {
     
     let titleNavigationBar = "Settings"
+    
+    func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
+        FirebaseManager.shared.signOut { result in
+            switch result {
+            case .success:
+                completion(.success(()))
+                
+            case .failure(let err):
+                completion(.failure(err))
+            }
+        }
+    }
 }

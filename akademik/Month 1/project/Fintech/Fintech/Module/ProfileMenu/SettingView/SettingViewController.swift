@@ -31,6 +31,29 @@ class SettingViewController: BaseViewController {
             guard let self = self else {return}
             self.backToView()
         }).disposed(by: disposeBag)
+        logoutButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else {return}
+            self.signOutTapped()
+        }).disposed(by: disposeBag)
+        
+    }
+    
+    private func signOutTapped() {
+        viewModel.signOut(completion: {result in
+            switch result {
+            case .success:
+                self.setToLogin()
+            case .failure(let err):
+                print("Error signout: \(err)")
+                self.showAlert(title: "Failed", message: "Failed to signout.")
+            }
+            
+        })
+    }
+    
+    private func setToLogin() {
+        let vc = LoginViewController()
+        navigationController?.setViewControllers([vc], animated: true)
     }
 }
 
@@ -118,8 +141,4 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup(name: "Privacy Policy", description: "Choose what data you share with us")
         }
     }
-
-
-
-    
 }

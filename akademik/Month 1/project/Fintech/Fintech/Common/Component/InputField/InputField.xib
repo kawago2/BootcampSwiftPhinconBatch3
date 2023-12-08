@@ -38,16 +38,16 @@
                     <rect key="frame" x="20" y="10" width="388" height="41"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="nib-RK-w11">
-                            <rect key="frame" x="0.0" y="0.0" width="277" height="41"/>
+                            <rect key="frame" x="0.0" y="0.0" width="337" height="41"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tittle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGS-ou-ybO">
-                                    <rect key="frame" x="0.0" y="0.0" width="277" height="16.333333333333332"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="337" height="16.333333333333332"/>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="10"/>
                                     <color key="textColor" name="FourColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aZX-i0-tF9">
-                                    <rect key="frame" x="0.0" y="16.333333333333329" width="277" height="24.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="16.333333333333329" width="337" height="24.666666666666671"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(+62)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFy-yo-4Lv">
                                             <rect key="frame" x="0.0" y="0.0" width="37.666666666666664" height="24.666666666666668"/>
@@ -56,7 +56,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="8789696" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jdr-Se-dic">
-                                            <rect key="frame" x="47.666666666666671" y="0.0" width="229.33333333333331" height="24.666666666666668"/>
+                                            <rect key="frame" x="47.666666666666657" y="0.0" width="289.33333333333337" height="24.666666666666668"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="Inter-Medium" family="Inter" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -66,7 +66,10 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGD-Eg-20t">
-                            <rect key="frame" x="287" y="0.0" width="101" height="41"/>
+                            <rect key="frame" x="347" y="0.0" width="41" height="41"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="41" id="irc-Es-u3g"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="15"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" image="eye.fill" catalog="system"/>
