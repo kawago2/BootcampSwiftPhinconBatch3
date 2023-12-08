@@ -125,7 +125,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             vc.recieveData(item: userData)
             navigationController?.pushViewController(vc, animated: true)
         case 1:
-            let vc = EditProfileViewController()
+            let vc = SettingViewController()
             navigationController?.pushViewController(vc, animated: true)
         case 2:
             let vc = EditProfileViewController()

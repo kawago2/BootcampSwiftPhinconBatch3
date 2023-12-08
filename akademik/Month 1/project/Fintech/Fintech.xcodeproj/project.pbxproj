@@ -67,6 +67,11 @@
 		36FAC32A2B215DBB0034CC74 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3292B215DBB0034CC74 /* EditProfileViewModel.swift */; };
 		36FAC32C2B217DBE0034CC74 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC32B2B217DBE0034CC74 /* BaseViewController.swift */; };
 		36FAC32E2B21AF710034CC74 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC32D2B21AF710034CC74 /* LoadingViewController.swift */; };
+		36FAC3332B22A5870034CC74 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3312B22A5870034CC74 /* SettingViewController.swift */; };
+		36FAC3342B22A5870034CC74 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3322B22A5870034CC74 /* SettingViewController.xib */; };
+		36FAC3362B22A7DA0034CC74 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3352B22A7DA0034CC74 /* SettingViewModel.swift */; };
+		36FAC33A2B22A9740034CC74 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3382B22A9740034CC74 /* SettingCell.swift */; };
+		36FAC33B2B22A9740034CC74 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3392B22A9740034CC74 /* SettingCell.xib */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -152,6 +157,11 @@
 		36FAC3292B215DBB0034CC74 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		36FAC32B2B217DBE0034CC74 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		36FAC32D2B21AF710034CC74 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		36FAC3312B22A5870034CC74 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		36FAC3322B22A5870034CC74 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		36FAC3352B22A7DA0034CC74 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		36FAC3382B22A9740034CC74 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		36FAC3392B22A9740034CC74 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -472,6 +482,7 @@
 		36FAC31F2B2060C60034CC74 /* ProfileMenu */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC3302B22A5710034CC74 /* SettingView */,
 				36FAC31E2B2060B00034CC74 /* EditProfileView */,
 				36C354972B1F1FD90093BE93 /* ProfileView */,
 			);
@@ -484,6 +495,26 @@
 				36FAC32D2B21AF710034CC74 /* LoadingViewController.swift */,
 			);
 			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		36FAC3302B22A5710034CC74 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3372B22A95C0034CC74 /* SettingCell */,
+				36FAC3312B22A5870034CC74 /* SettingViewController.swift */,
+				36FAC3322B22A5870034CC74 /* SettingViewController.xib */,
+				36FAC3352B22A7DA0034CC74 /* SettingViewModel.swift */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
+		36FAC3372B22A95C0034CC74 /* SettingCell */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3382B22A9740034CC74 /* SettingCell.swift */,
+				36FAC3392B22A9740034CC74 /* SettingCell.xib */,
+			);
+			path = SettingCell;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -620,11 +651,13 @@
 			files = (
 				36FAC3172B2032770034CC74 /* CardButtonCell.xib in Resources */,
 				36C3549B2B1F1FED0093BE93 /* ProfileViewController.xib in Resources */,
+				36FAC33B2B22A9740034CC74 /* SettingCell.xib in Resources */,
 				361D9C872B1991E5005D7FA1 /* LaunchScreen.storyboard in Resources */,
 				36C354852B1ECD3A0093BE93 /* VerificationViewController.xib in Resources */,
 				368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */,
 				368EF1792B1996D40050F43C /* Inter-Medium.ttf in Resources */,
 				368EF18F2B19C2060050F43C /* OnboardingCell.xib in Resources */,
+				36FAC3342B22A5870034CC74 /* SettingViewController.xib in Resources */,
 				361D9C842B1991E5005D7FA1 /* Assets.xcassets in Resources */,
 				361D9C822B1991E3005D7FA1 /* Main.storyboard in Resources */,
 				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
@@ -766,6 +799,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36C354932B1F0A9E0093BE93 /* ForgotViewModel.swift in Sources */,
+				36FAC3362B22A7DA0034CC74 /* SettingViewModel.swift in Sources */,
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
 				36FAC31D2B2059080034CC74 /* Date.swift in Sources */,
@@ -782,7 +816,9 @@
 				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,
 				36FAC31B2B2035650034CC74 /* ProfileViewModel.swift in Sources */,
 				36FAC3162B2032770034CC74 /* CardButtonCell.swift in Sources */,
+				36FAC3332B22A5870034CC74 /* SettingViewController.swift in Sources */,
 				368EF1822B19B99F0050F43C /* OnboardingViewController.swift in Sources */,
+				36FAC33A2B22A9740034CC74 /* SettingCell.swift in Sources */,
 				368EF1B72B1D79CA0050F43C /* InputField.swift in Sources */,
 				368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */,
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
