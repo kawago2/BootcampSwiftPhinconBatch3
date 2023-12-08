@@ -16,11 +16,16 @@ class SettingCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    private func setupUI() {
+        selectionStyle = .none
     }
     
     func setup(name: String, description: String?) {

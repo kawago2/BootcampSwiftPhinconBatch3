@@ -40,6 +40,7 @@ class ProfileViewController: BaseViewController {
         tableView.dataSource = self
         tableView.registerCellWithNib(CardButtonCell.self)
         tableView.separatorStyle = .none
+        tableView.isScrollEnabled = false
     }
     
     // MARK: - Logic Bussiness

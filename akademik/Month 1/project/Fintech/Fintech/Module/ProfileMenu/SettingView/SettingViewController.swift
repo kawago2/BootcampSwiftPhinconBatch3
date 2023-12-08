@@ -24,6 +24,7 @@ class SettingViewController: BaseViewController {
         tableView.dataSource = self
         tableView.registerCellWithNib(SettingCell.self)
         tableView.separatorStyle = .none
+        tableView.isScrollEnabled = false
     }
     
     private func setupEvent() {
