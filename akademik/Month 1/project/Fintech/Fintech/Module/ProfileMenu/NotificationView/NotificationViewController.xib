@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationViewController" customModule="Fintech" customModuleProvider="target">
             <connections>
+                <outlet property="navigationBar" destination="872-TU-dQn" id="Msf-Ze-1Yo"/>
+                <outlet property="tableView" destination="vrK-TA-3XJ" id="LoU-KF-dXW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="872-TU-dQn">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="872-TU-dQn" customClass="NavigationBar" customModule="Fintech" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
