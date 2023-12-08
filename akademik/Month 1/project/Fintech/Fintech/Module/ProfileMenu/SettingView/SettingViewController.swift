@@ -98,7 +98,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
 
         let label = UILabel()
         label.textColor = UIColor(named: "FourColor")
-        label.font = UIFont(name: "Inter-Medium", size: 14)
+        label.font = UIFont(name: FontName.medium, size: 14)
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
 
         label.translatesAutoresizingMaskIntoConstraints = false

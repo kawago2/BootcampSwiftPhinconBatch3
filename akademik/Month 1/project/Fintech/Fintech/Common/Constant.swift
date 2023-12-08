@@ -10,6 +10,12 @@ enum CustomFont {
     static let bodyExtra = UIFont(name: "Inter-Regular", size: 12)
 }
 
+enum FontName {
+    static let semiBold = "Inter-SemiBold"
+    static let regular = "Inter-Regular"
+    static let medium = "Inter-Medium"
+    static let bold = "Inter-Bold"
+}
 
 enum CustomIcon {
     static let home = UIImage(named: "Home")

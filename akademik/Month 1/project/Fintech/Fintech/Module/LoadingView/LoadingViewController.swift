@@ -12,7 +12,7 @@ class LoadingViewController: BaseViewController {
 
     private let loadingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Inter-Regular", size: 14)
+        label.font = UIFont(name: FontName.regular, size: 14)
         label.text = "Please wait, content of the page is loading..."
         label.textAlignment = .center
         label.numberOfLines = 0
