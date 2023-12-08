@@ -1,7 +1,7 @@
 import UIKit
 
 protocol NotificationCellDelegate: AnyObject {
-    func switchValueChanged(isOn: Bool)
+    func switchValueChanged(isOn: Bool, index: Int)
 }
 
 
@@ -11,6 +11,7 @@ class NotificationCell: UITableViewCell {
     @IBOutlet weak var customSwitch: CustomSwitch!
     
     weak var delegate: NotificationCellDelegate?
+    private var index: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,14 +27,15 @@ class NotificationCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func setupName(name: String) {
+    func setupName(name: String, index: Int) {
         nameLabel.text = name
+        self.index = index
     }
 }
 
 extension NotificationCell: CustomSwitchDelegate {
     func switchValueChanged(isOn: Bool) {
-        delegate?.switchValueChanged(isOn: isOn)
+        delegate?.switchValueChanged(isOn: isOn, index: self.index ?? 99)
     }
 }
 

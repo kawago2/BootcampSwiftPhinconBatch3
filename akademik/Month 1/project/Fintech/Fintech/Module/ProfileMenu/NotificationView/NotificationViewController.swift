@@ -1,13 +1,8 @@
-//
-//  NotificationViewController.swift
-//  Fintech
-//
-//  Created by Phincon on 08/12/23.
-//
-
 import UIKit
+import RxSwift
 
-class NotificationViewController: UIViewController {
+
+class NotificationViewController: BaseViewController {
 
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var tableView: UITableView!
@@ -17,6 +12,7 @@ class NotificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupEvent()
     }
     
     private func setupUI() {
@@ -26,6 +22,15 @@ class NotificationViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = false
         tableView.registerCellWithNib(NotificationCell.self)
+        
+        navigationBar.setupLeadingButton()
+    }
+    
+    private func setupEvent() {
+        navigationBar.leadingButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else {return}
+            self.backToView()
+        }).disposed(by: disposeBag)
     }
 }
 
@@ -44,23 +49,31 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationCell", for: indexPath) as! NotificationCell
         switch indexPath.row {
         case 0:
-            cell.setupName(name: "Transaction alert")
+            cell.setupName(name: "Transaction alert", index: indexPath.row )
         case 1:
-            cell.setupName(name: "Insight alert")
+            cell.setupName(name: "Insight alert", index: indexPath.row )
         case 2:
-            cell.setupName(name: "Sort Transactions alert")
+            cell.setupName(name: "Sort Transactions alert", index: indexPath.row )
         default:
             break
         }
         cell.delegate = self
         return cell
     }
-    
 }
 
 extension NotificationViewController: NotificationCellDelegate {
-    func switchValueChanged(isOn: Bool) {
-        print(isOn)
+    func switchValueChanged(isOn: Bool, index: Int) {
+        switch index {
+        case 0:
+            self.viewModel.switchTransactionTapped(isOn: isOn)
+        case 1:
+            self.viewModel.switchInsightTapped(isOn: isOn)
+        case 2:
+            self.viewModel.switchSortTransactionsTapped(isOn: isOn)
+        default:
+            break
+        }
     }
     
     

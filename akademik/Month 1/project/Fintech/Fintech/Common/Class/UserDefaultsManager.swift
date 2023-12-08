@@ -1,12 +1,12 @@
 import Foundation
 
 class UserDefaultsManager {
-    
     // MARK: - Keys
     
     private struct Keys {
-        static let username = "username"
-        // Add more keys as needed
+        static let isTransactionAlert = "isTransactionAlert"
+        static let isInsightAlert = "isInsightAlert"
+        static let isSortTransactionsAlert = "isSortTransactionsAlert"
     }
 
     // MARK: - Singleton
@@ -14,19 +14,31 @@ class UserDefaultsManager {
     static let shared = UserDefaultsManager()
     
     private init() {
-        // Private initializer to enforce singleton pattern
-    }
-    
-    // MARK: - Username
-    
-    var username: String? {
-        get {
-            return UserDefaults.standard.string(forKey: Keys.username)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: Keys.username)
-        }
     }
 
-    // MARK: - Add more methods and properties for other user defaults as needed
+    // MARK: - Setters
+    func setTransactionAlert(_ value: Bool) {
+        UserDefaults.standard.set(value, forKey: Keys.isTransactionAlert)
+    }
+    
+    func setInsightAlert(_ value: Bool) {
+        UserDefaults.standard.set(value, forKey: Keys.isInsightAlert)
+    }
+    
+    func setSortTransactionsAlert(_ value: Bool) {
+        UserDefaults.standard.set(value, forKey: Keys.isSortTransactionsAlert)
+    }
+
+    // MARK: - Getters
+    func getTransactionAlert() -> Bool {
+        return UserDefaults.standard.bool(forKey: Keys.isTransactionAlert)
+    }
+    
+    func getInsightAlert() -> Bool {
+        return UserDefaults.standard.bool(forKey: Keys.isInsightAlert)
+    }
+    
+    func getSortTransactionsAlert() -> Bool {
+        return UserDefaults.standard.bool(forKey: Keys.isSortTransactionsAlert)
+    }
 }
