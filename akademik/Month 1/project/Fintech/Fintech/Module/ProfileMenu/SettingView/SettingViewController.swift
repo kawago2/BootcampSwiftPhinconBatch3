@@ -64,7 +64,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section = indexPath.section
         if section == 1 {
-            return 48
+            return 50
         }
         return 38
     }
