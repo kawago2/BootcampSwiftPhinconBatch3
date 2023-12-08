@@ -164,7 +164,8 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
                 let vc = ResetPasswordViewController()
                 navigationController?.pushViewController(vc, animated: true)
             case 1:
-                print("Notification cliked")
+                let vc = NotificationViewController()
+                navigationController?.pushViewController(vc, animated: true)
             default:
                 break
             }

@@ -17,6 +17,10 @@ enum FontName {
     static let bold = "Inter-Bold"
 }
 
+enum ColorName {
+    static let background4 = "Background4"
+}
+
 enum CustomIcon {
     static let home = UIImage(named: "Home")
     static let chart = UIImage(named: "Chart")
