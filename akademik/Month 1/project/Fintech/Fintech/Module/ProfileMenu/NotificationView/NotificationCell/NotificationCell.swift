@@ -27,9 +27,10 @@ class NotificationCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func setupName(name: String, index: Int) {
+    func setupConfigure(name: String, index: Int, isOn: Bool) {
         nameLabel.text = name
         self.index = index
+        self.customSwitch.setOn(isOn, animated: true)
     }
 }
 

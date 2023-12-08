@@ -30,11 +30,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     navigationController.setViewControllers([login], animated: true)
                 })
             }
+        } else {
+            _ = UserDefaultsManager.shared
         }
-        navigationController.isNavigationBarHidden = true
-        window.rootViewController = navigationController
-        self.window = window
-        window.makeKeyAndVisible()
+        DispatchQueue.main.async {
+            navigationController.isNavigationBarHidden = true
+            window.rootViewController = navigationController
+            self.window = window
+            window.makeKeyAndVisible()
+        }
+
 
     }
 
