@@ -72,6 +72,9 @@
 		36FAC3362B22A7DA0034CC74 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3352B22A7DA0034CC74 /* SettingViewModel.swift */; };
 		36FAC33A2B22A9740034CC74 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3382B22A9740034CC74 /* SettingCell.swift */; };
 		36FAC33B2B22A9740034CC74 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3392B22A9740034CC74 /* SettingCell.xib */; };
+		36FAC33F2B22BACB0034CC74 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC33D2B22BACB0034CC74 /* ResetPasswordViewController.swift */; };
+		36FAC3402B22BACB0034CC74 /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC33E2B22BACB0034CC74 /* ResetPasswordViewController.xib */; };
+		36FAC3422B22C11C0034CC74 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3412B22C11C0034CC74 /* ResetPasswordViewModel.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -162,6 +165,9 @@
 		36FAC3352B22A7DA0034CC74 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		36FAC3382B22A9740034CC74 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		36FAC3392B22A9740034CC74 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		36FAC33D2B22BACB0034CC74 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		36FAC33E2B22BACB0034CC74 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
+		36FAC3412B22C11C0034CC74 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -482,6 +488,7 @@
 		36FAC31F2B2060C60034CC74 /* ProfileMenu */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC33C2B22BAA70034CC74 /* ResetPasswordView */,
 				36FAC3302B22A5710034CC74 /* SettingView */,
 				36FAC31E2B2060B00034CC74 /* EditProfileView */,
 				36C354972B1F1FD90093BE93 /* ProfileView */,
@@ -515,6 +522,16 @@
 				36FAC3392B22A9740034CC74 /* SettingCell.xib */,
 			);
 			path = SettingCell;
+			sourceTree = "<group>";
+		};
+		36FAC33C2B22BAA70034CC74 /* ResetPasswordView */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC33D2B22BACB0034CC74 /* ResetPasswordViewController.swift */,
+				36FAC33E2B22BACB0034CC74 /* ResetPasswordViewController.xib */,
+				36FAC3412B22C11C0034CC74 /* ResetPasswordViewModel.swift */,
+			);
+			path = ResetPasswordView;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -663,6 +680,7 @@
 				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
 				36958E462B1D7DB00009A895 /* LoginViewController.xib in Resources */,
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
+				36FAC3402B22BACB0034CC74 /* ResetPasswordViewController.xib in Resources */,
 				36FAC3232B2061210034CC74 /* EditProfileViewController.xib in Resources */,
 				36C354912B1F03AB0093BE93 /* ForgotViewController.xib in Resources */,
 				368EF17B2B1996E20050F43C /* Inter-SemiBold.ttf in Resources */,
@@ -803,6 +821,7 @@
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
 				36FAC31D2B2059080034CC74 /* Date.swift in Sources */,
+				36FAC3422B22C11C0034CC74 /* ResetPasswordViewModel.swift in Sources */,
 				36958E452B1D7DB00009A895 /* LoginViewController.swift in Sources */,
 				36FAC32C2B217DBE0034CC74 /* BaseViewController.swift in Sources */,
 				36C354872B1EF99C0093BE93 /* VerificationViewModel.swift in Sources */,
@@ -825,6 +844,7 @@
 				36958E532B1DC0D00009A895 /* LoginViewModel.swift in Sources */,
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
 				36FAC32E2B21AF710034CC74 /* LoadingViewController.swift in Sources */,
+				36FAC33F2B22BACB0034CC74 /* ResetPasswordViewController.swift in Sources */,
 				36958E592B1DCC110009A895 /* RegisterViewController.swift in Sources */,
 				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,
 				368EF17E2B1997970050F43C /* Constant.swift in Sources */,

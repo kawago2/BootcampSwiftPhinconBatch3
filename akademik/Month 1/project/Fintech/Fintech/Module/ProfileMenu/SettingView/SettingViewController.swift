@@ -142,4 +142,29 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup(name: "Privacy Policy", description: "Choose what data you share with us")
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = Section(rawValue: indexPath.section)
+        
+        guard let currentSection = section else {
+            return
+        }
+        
+        let row = indexPath.row
+       
+        switch currentSection {
+        case .general:
+            switch row {
+            case 0:
+                let vc = ResetPasswordViewController()
+                navigationController?.pushViewController(vc, animated: true)
+            case 1:
+                print("Notification cliked")
+            default:
+                break
+            }
+        case .security:
+            print("Privacy cliked")
+        }
+    }
 }

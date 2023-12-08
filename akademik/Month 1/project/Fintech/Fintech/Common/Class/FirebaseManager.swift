@@ -126,6 +126,33 @@ class FirebaseManager {
             completion(.success(()))
         }
     }
+    
+    func resetPasswordWithOldPassword(oldPassword: String, newPassword: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let currentUser = auth.currentUser else {
+            completion(.failure(NSError(domain: "AuthErrorDomain", code: -1, userInfo: [NSLocalizedDescriptionKey: "No authenticated user"])))
+            return
+        }
+
+      
+        let credential = EmailAuthProvider.credential(withEmail: currentUser.email!, password: oldPassword)
+
+        
+        currentUser.reauthenticate(with: credential) { authResult, error in
+            if let error = error {
+                
+                completion(.failure(error))
+                return
+            }
+
+            currentUser.updatePassword(to: newPassword) { error in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                completion(.success(()))
+            }
+        }
+    }
 
     func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
         do {
