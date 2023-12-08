@@ -3,21 +3,24 @@ import RxSwift
 
 class ResetPasswordViewController: BaseViewController {
 
-    
+    // MARK: - ResetPasswordViewController
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var oldPasswordField: InputField!
     @IBOutlet weak var newPasswordField: InputField!
     @IBOutlet weak var rePasswordField: InputField!
     @IBOutlet weak var saveButton: UIButton!
     
+    // MARK: - Properties
     let viewModel = ResetPasswordViewModel()
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupEvent()
     }
     
+    // MARK: - Setup UI
     private func setupUI() {
         navigationBar.titleNavigationBar = viewModel.titleNavigationBar
         navigationBar.setupLeadingButton()
@@ -28,6 +31,7 @@ class ResetPasswordViewController: BaseViewController {
         rePasswordField.setup(title: "Retype New Password", placeholder: "Retype new password", isSecure: false)
     }
     
+    // MARK: - Event Handling
     private func setupEvent() {
         navigationBar.leadingButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else {return}
@@ -41,6 +45,7 @@ class ResetPasswordViewController: BaseViewController {
         
     }
     
+    // MARK: - Bussiness Logic
     private func saveTapped() {
         guard let oldPassword = oldPasswordField.inputText.text, !oldPassword.isEmpty,
               let newPassword = newPasswordField.inputText.text, !newPassword.isEmpty,

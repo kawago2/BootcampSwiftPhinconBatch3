@@ -1,18 +1,15 @@
-//
-//  SettingCell.swift
-//  Fintech
-//
-//  Created by Phincon on 08/12/23.
-//
 
 import UIKit
 
 class SettingCell: UITableViewCell {
 
+    // MARK: - Outlets
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    // MARK: - Lifecycle Methods
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,12 +18,15 @@ class SettingCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
+    
+    // MARK: - Private Methods
     
     private func setupUI() {
         selectionStyle = .none
     }
+    
+    // MARK: - Public Methods
     
     func setup(name: String, description: String?) {
         nameLabel.text = name
@@ -39,5 +39,4 @@ class SettingCell: UITableViewCell {
             descriptionLabel.isHidden = true
         }
     }
-    
 }

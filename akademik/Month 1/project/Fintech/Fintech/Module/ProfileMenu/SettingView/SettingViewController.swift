@@ -2,19 +2,24 @@ import UIKit
 import RxSwift
 
 class SettingViewController: BaseViewController {
-
+    
+    // MARK: - Outlets
     @IBOutlet weak var navigatorBar: NavigationBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var versionLabel: UILabel!
     
+    // MARK: - Properties
     let viewModel = SettingViewModel()
+    
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         setupEvent()
     }
     
+    // MARK: - UI Setup
     private func setupUI() {
         navigatorBar.titleNavigationBar = viewModel.titleNavigationBar
         navigatorBar.setupLeadingButton()
@@ -27,6 +32,7 @@ class SettingViewController: BaseViewController {
         tableView.isScrollEnabled = false
     }
     
+    // MARK: - Event Handling
     private func setupEvent() {
         navigatorBar.leadingButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else {return}
@@ -39,6 +45,7 @@ class SettingViewController: BaseViewController {
         
     }
     
+    // MARK: - Actions
     private func signOutTapped() {
         viewModel.signOut(completion: {result in
             switch result {
@@ -58,6 +65,7 @@ class SettingViewController: BaseViewController {
     }
 }
 
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
@@ -87,10 +95,7 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section = indexPath.section
-        if section == 1 {
-            return 50
-        }
-        return 38
+        return (section == 1) ? 50 : 38
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
