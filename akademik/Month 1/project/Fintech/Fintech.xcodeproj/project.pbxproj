@@ -75,6 +75,10 @@
 		36FAC33F2B22BACB0034CC74 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC33D2B22BACB0034CC74 /* ResetPasswordViewController.swift */; };
 		36FAC3402B22BACB0034CC74 /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC33E2B22BACB0034CC74 /* ResetPasswordViewController.xib */; };
 		36FAC3422B22C11C0034CC74 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3412B22C11C0034CC74 /* ResetPasswordViewModel.swift */; };
+		36FAC3462B22F16B0034CC74 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3442B22F16B0034CC74 /* NotificationViewController.swift */; };
+		36FAC3472B22F16B0034CC74 /* NotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3452B22F16B0034CC74 /* NotificationViewController.xib */; };
+		36FAC34B2B22F25D0034CC74 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3492B22F25D0034CC74 /* NotificationCell.swift */; };
+		36FAC34C2B22F25D0034CC74 /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC34A2B22F25D0034CC74 /* NotificationCell.xib */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -168,6 +172,10 @@
 		36FAC33D2B22BACB0034CC74 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		36FAC33E2B22BACB0034CC74 /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		36FAC3412B22C11C0034CC74 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		36FAC3442B22F16B0034CC74 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		36FAC3452B22F16B0034CC74 /* NotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationViewController.xib; sourceTree = "<group>"; };
+		36FAC3492B22F25D0034CC74 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		36FAC34A2B22F25D0034CC74 /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -488,6 +496,7 @@
 		36FAC31F2B2060C60034CC74 /* ProfileMenu */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC3432B22F0F90034CC74 /* NotificationView */,
 				36FAC33C2B22BAA70034CC74 /* ResetPasswordView */,
 				36FAC3302B22A5710034CC74 /* SettingView */,
 				36FAC31E2B2060B00034CC74 /* EditProfileView */,
@@ -532,6 +541,25 @@
 				36FAC3412B22C11C0034CC74 /* ResetPasswordViewModel.swift */,
 			);
 			path = ResetPasswordView;
+			sourceTree = "<group>";
+		};
+		36FAC3432B22F0F90034CC74 /* NotificationView */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3482B22F2410034CC74 /* NotificationCell */,
+				36FAC3442B22F16B0034CC74 /* NotificationViewController.swift */,
+				36FAC3452B22F16B0034CC74 /* NotificationViewController.xib */,
+			);
+			path = NotificationView;
+			sourceTree = "<group>";
+		};
+		36FAC3482B22F2410034CC74 /* NotificationCell */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3492B22F25D0034CC74 /* NotificationCell.swift */,
+				36FAC34A2B22F25D0034CC74 /* NotificationCell.xib */,
+			);
+			path = NotificationCell;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -669,6 +697,7 @@
 				36FAC3172B2032770034CC74 /* CardButtonCell.xib in Resources */,
 				36C3549B2B1F1FED0093BE93 /* ProfileViewController.xib in Resources */,
 				36FAC33B2B22A9740034CC74 /* SettingCell.xib in Resources */,
+				36FAC34C2B22F25D0034CC74 /* NotificationCell.xib in Resources */,
 				361D9C872B1991E5005D7FA1 /* LaunchScreen.storyboard in Resources */,
 				36C354852B1ECD3A0093BE93 /* VerificationViewController.xib in Resources */,
 				368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */,
@@ -687,6 +716,7 @@
 				368EF1BE2B1D7B310050F43C /* InputField.xib in Resources */,
 				36958E5A2B1DCC110009A895 /* RegisterViewController.xib in Resources */,
 				368EF1832B19B99F0050F43C /* OnboardingViewController.xib in Resources */,
+				36FAC3472B22F16B0034CC74 /* NotificationViewController.xib in Resources */,
 				36958E4B2B1D7E210009A895 /* NavigationBar.xib in Resources */,
 				36958E512B1DBF5F0009A895 /* GoogleService-Info.plist in Resources */,
 			);
@@ -835,6 +865,7 @@
 				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,
 				36FAC31B2B2035650034CC74 /* ProfileViewModel.swift in Sources */,
 				36FAC3162B2032770034CC74 /* CardButtonCell.swift in Sources */,
+				36FAC34B2B22F25D0034CC74 /* NotificationCell.swift in Sources */,
 				36FAC3332B22A5870034CC74 /* SettingViewController.swift in Sources */,
 				368EF1822B19B99F0050F43C /* OnboardingViewController.swift in Sources */,
 				36FAC33A2B22A9740034CC74 /* SettingCell.swift in Sources */,
@@ -854,6 +885,7 @@
 				368EF18E2B19C2060050F43C /* OnboardingCell.swift in Sources */,
 				36C3547B2B1EB4600093BE93 /* RegisterViewModel.swift in Sources */,
 				361D9C7D2B1991E3005D7FA1 /* SceneDelegate.swift in Sources */,
+				36FAC3462B22F16B0034CC74 /* NotificationViewController.swift in Sources */,
 				368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */,
 				368EF1862B19BD530050F43C /* ExtUIView.swift in Sources */,
 				36958E4F2B1DBDFE0009A895 /* FirebaseManager.swift in Sources */,
