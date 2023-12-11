@@ -13,7 +13,7 @@ class TabBarViewController: UITabBarController {
     // MARK: - Properties
     let homeViewController = ProfileViewController()
     let graphViewController = ProfileViewController()
-    let chartViewController = ProfileViewController()
+    let chartViewController = InsightViewController()
     let profileViewController = ProfileViewController()
     
     private let tabBarHeight: CGFloat = 100
@@ -25,7 +25,7 @@ class TabBarViewController: UITabBarController {
         configureUITabBarItems()
         configureTab()
         configureAppearance()
-        setFirstFocus(index: TabIndex.profile.rawValue)
+        setFirstFocus(index: TabIndex.chart.rawValue)
     }
     
     override func viewDidLayoutSubviews() {

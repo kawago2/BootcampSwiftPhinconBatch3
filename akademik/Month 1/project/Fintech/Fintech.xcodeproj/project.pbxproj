@@ -84,6 +84,7 @@
 		36FAC3532B2309A70034CC74 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3522B2309A70034CC74 /* UserDefaultsManager.swift */; };
 		36FAC3592B26A81A0034CC74 /* InsightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3572B26A81A0034CC74 /* InsightViewController.swift */; };
 		36FAC35A2B26A81A0034CC74 /* InsightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3582B26A81A0034CC74 /* InsightViewController.xib */; };
+		36FAC35C2B26E5BB0034CC74 /* InsightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC35B2B26E5BB0034CC74 /* InsightViewModel.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -186,6 +187,7 @@
 		36FAC3522B2309A70034CC74 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		36FAC3572B26A81A0034CC74 /* InsightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightViewController.swift; sourceTree = "<group>"; };
 		36FAC3582B26A81A0034CC74 /* InsightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InsightViewController.xib; sourceTree = "<group>"; };
+		36FAC35B2B26E5BB0034CC74 /* InsightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightViewModel.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 			children = (
 				36FAC3572B26A81A0034CC74 /* InsightViewController.swift */,
 				36FAC3582B26A81A0034CC74 /* InsightViewController.xib */,
+				36FAC35B2B26E5BB0034CC74 /* InsightViewModel.swift */,
 			);
 			path = InsightView;
 			sourceTree = "<group>";
@@ -929,6 +932,7 @@
 				36FAC33F2B22BACB0034CC74 /* ResetPasswordViewController.swift in Sources */,
 				36958E592B1DCC110009A895 /* RegisterViewController.swift in Sources */,
 				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,
+				36FAC35C2B26E5BB0034CC74 /* InsightViewModel.swift in Sources */,
 				368EF17E2B1997970050F43C /* Constant.swift in Sources */,
 				36C354962B1F1FA00093BE93 /* TabBarViewController.swift in Sources */,
 				36FAC32A2B215DBB0034CC74 /* EditProfileViewModel.swift in Sources */,
