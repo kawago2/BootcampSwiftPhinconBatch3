@@ -23,6 +23,7 @@
                 <outlet property="cardView" destination="gsO-U2-n7I" id="La5-1y-O93"/>
                 <outlet property="differentLabel" destination="wNZ-Q3-gwg" id="OJc-D0-a2S"/>
                 <outlet property="navigationBar" destination="92a-dz-Sv7" id="NhY-yA-a3w"/>
+                <outlet property="tableView" destination="gL3-GV-n1I" id="02v-Xh-nBD"/>
                 <outlet property="threadLabel" destination="lMq-He-TAi" id="YGk-LN-FP0"/>
                 <outlet property="topView" destination="gYf-rt-zKA" id="W5B-Kg-51a"/>
                 <outlet property="view" destination="rk3-9T-hxS" id="dch-K8-d4F"/>
