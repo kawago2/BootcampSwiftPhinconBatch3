@@ -295,13 +295,10 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC3542B26A73A0034CC74 /* AuthMenu */,
 				36FAC32F2B21AF850034CC74 /* LoadingView */,
 				36FAC31F2B2060C60034CC74 /* ProfileMenu */,
 				36C354942B1F1E9E0093BE93 /* MainTabBar */,
-				36C3548D2B1F038B0093BE93 /* ForgotView */,
-				36C354812B1ECCED0093BE93 /* VerificationView */,
-				36958E562B1DCAE50009A895 /* RegisterView */,
-				368EF1BF2B1D7D150050F43C /* LoginView */,
 				368EF17F2B19B9850050F43C /* OnboardingView */,
 				368EF1702B1995B20050F43C /* SplashView */,
 				368EF16F2B1993540050F43C /* Main */,
@@ -577,6 +574,17 @@
 				36FAC34E2B22F5720034CC74 /* CustomSwitch.swift */,
 			);
 			path = CustomSwitch;
+			sourceTree = "<group>";
+		};
+		36FAC3542B26A73A0034CC74 /* AuthMenu */ = {
+			isa = PBXGroup;
+			children = (
+				36C354812B1ECCED0093BE93 /* VerificationView */,
+				36958E562B1DCAE50009A895 /* RegisterView */,
+				368EF1BF2B1D7D150050F43C /* LoginView */,
+				36C3548D2B1F038B0093BE93 /* ForgotView */,
+			);
+			path = AuthMenu;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
