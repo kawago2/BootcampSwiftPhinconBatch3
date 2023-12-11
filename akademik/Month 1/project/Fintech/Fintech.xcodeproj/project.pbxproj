@@ -82,6 +82,8 @@
 		36FAC34F2B22F5720034CC74 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC34E2B22F5720034CC74 /* CustomSwitch.swift */; };
 		36FAC3512B22F5FC0034CC74 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3502B22F5FC0034CC74 /* NotificationViewModel.swift */; };
 		36FAC3532B2309A70034CC74 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3522B2309A70034CC74 /* UserDefaultsManager.swift */; };
+		36FAC3592B26A81A0034CC74 /* InsightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3572B26A81A0034CC74 /* InsightViewController.swift */; };
+		36FAC35A2B26A81A0034CC74 /* InsightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3582B26A81A0034CC74 /* InsightViewController.xib */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -182,6 +184,8 @@
 		36FAC34E2B22F5720034CC74 /* CustomSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		36FAC3502B22F5FC0034CC74 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		36FAC3522B2309A70034CC74 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		36FAC3572B26A81A0034CC74 /* InsightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightViewController.swift; sourceTree = "<group>"; };
+		36FAC3582B26A81A0034CC74 /* InsightViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InsightViewController.xib; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC3552B26A7E60034CC74 /* ChartMenu */,
 				36FAC3542B26A73A0034CC74 /* AuthMenu */,
 				36FAC32F2B21AF850034CC74 /* LoadingView */,
 				36FAC31F2B2060C60034CC74 /* ProfileMenu */,
@@ -587,6 +592,23 @@
 			path = AuthMenu;
 			sourceTree = "<group>";
 		};
+		36FAC3552B26A7E60034CC74 /* ChartMenu */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3562B26A7F20034CC74 /* InsightView */,
+			);
+			path = ChartMenu;
+			sourceTree = "<group>";
+		};
+		36FAC3562B26A7F20034CC74 /* InsightView */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3572B26A81A0034CC74 /* InsightViewController.swift */,
+				36FAC3582B26A81A0034CC74 /* InsightViewController.xib */,
+			);
+			path = InsightView;
+			sourceTree = "<group>";
+		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,6 +742,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36FAC3172B2032770034CC74 /* CardButtonCell.xib in Resources */,
+				36FAC35A2B26A81A0034CC74 /* InsightViewController.xib in Resources */,
 				36C3549B2B1F1FED0093BE93 /* ProfileViewController.xib in Resources */,
 				36FAC33B2B22A9740034CC74 /* SettingCell.xib in Resources */,
 				36FAC34C2B22F25D0034CC74 /* NotificationCell.xib in Resources */,
@@ -876,6 +899,7 @@
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
 				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
 				36FAC31D2B2059080034CC74 /* Date.swift in Sources */,
+				36FAC3592B26A81A0034CC74 /* InsightViewController.swift in Sources */,
 				36FAC3422B22C11C0034CC74 /* ResetPasswordViewModel.swift in Sources */,
 				36958E452B1D7DB00009A895 /* LoginViewController.swift in Sources */,
 				36FAC32C2B217DBE0034CC74 /* BaseViewController.swift in Sources */,
