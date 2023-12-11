@@ -20,9 +20,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InsightViewController" customModule="Fintech" customModuleProvider="target">
             <connections>
                 <outlet property="balanceLabel" destination="wNZ-Q3-gwg" id="5Bv-B1-Pu5"/>
-                <outlet property="cardView" destination="gYf-rt-zKA" id="W5B-Kg-51a"/>
+                <outlet property="cardView" destination="gsO-U2-n7I" id="La5-1y-O93"/>
                 <outlet property="differentLabel" destination="wNZ-Q3-gwg" id="OJc-D0-a2S"/>
                 <outlet property="navigationBar" destination="92a-dz-Sv7" id="NhY-yA-a3w"/>
+                <outlet property="threadLabel" destination="lMq-He-TAi" id="YGk-LN-FP0"/>
+                <outlet property="topView" destination="gYf-rt-zKA" id="W5B-Kg-51a"/>
                 <outlet property="view" destination="rk3-9T-hxS" id="dch-K8-d4F"/>
             </connections>
         </placeholder>
