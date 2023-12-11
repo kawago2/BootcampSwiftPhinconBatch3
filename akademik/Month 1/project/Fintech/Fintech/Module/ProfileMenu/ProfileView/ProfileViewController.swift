@@ -58,8 +58,6 @@ class ProfileViewController: BaseViewController {
         let uid = FirebaseManager.shared.getCurrentUserUid()
         viewModel.getUserData(uid: uid) { result in
             DispatchQueue.main.async {
-                self.loadingView(isHidden: true)
-                
                 switch result {
                 case .success(let user):
                     self.userData = user ?? UserData()
@@ -79,10 +77,15 @@ class ProfileViewController: BaseViewController {
                 if error != nil {
                     self.showAlert(title: "Failed", message: "Failed to get user image.")
                 } else if let url = url {
-                    self.imageView.kf.setImage(with: url)
+                    self.imageView.kf.setImage(with: url, completionHandler: {_ in
+                      
+                    })
                     self.userData.imageURL = url
                 }
-                
+                DispatchQueue.main.async {
+                    self.loadingView(isHidden: true)
+                }
+               
             })
         }
     }
