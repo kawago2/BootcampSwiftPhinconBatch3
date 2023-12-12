@@ -9,6 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Inter-Bold.ttf">
+            <string>Inter-Bold</string>
+        </array>
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
         <array key="Inter-SemiBold.ttf">
             <string>Inter-SemiBold</string>
         </array>
@@ -52,11 +58,66 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6I-uT-k6f">
-                            <rect key="frame" x="0.0" y="187" width="345" height="214"/>
+                            <rect key="frame" x="0.0" y="187" width="345" height="187"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="D5i-QG-dnv">
+                                    <rect key="frame" x="0.0" y="0.0" width="345" height="187"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfb-QN-hyn">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="146"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Cj4-Jj-o6y">
+                                                    <rect key="frame" x="36" y="0.0" width="273" height="146"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MV-hP-O6u">
+                                                            <rect key="frame" x="0.0" y="0.0" width="273" height="17"/>
+                                                            <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get your insights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NO-6Z-ZDk">
+                                                            <rect key="frame" x="0.0" y="33" width="273" height="29.333333333333329"/>
+                                                            <fontDescription key="fontDescription" name="Inter-Bold" family="Inter" pointSize="24"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-Dp-izx">
+                                                            <rect key="frame" x="0.0" y="78" width="273" height="68"/>
+                                                            <string key="text">If you are interested in investing, but has no idea where to start, If you are interested in investing, but has no idea where to start!</string>
+                                                            <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Cj4-Jj-o6y" secondAttribute="bottom" id="IBD-bJ-SwG"/>
+                                                <constraint firstItem="Cj4-Jj-o6y" firstAttribute="leading" secondItem="zfb-QN-hyn" secondAttribute="leading" constant="36" id="Mbb-Wx-TzO"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cj4-Jj-o6y" secondAttribute="trailing" constant="36" id="gz2-91-hl1"/>
+                                                <constraint firstItem="Cj4-Jj-o6y" firstAttribute="top" secondItem="zfb-QN-hyn" secondAttribute="top" id="wxl-Xf-xE1"/>
+                                            </constraints>
+                                        </view>
+                                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bxE-si-0kc">
+                                            <rect key="frame" x="0.0" y="161" width="345" height="26"/>
+                                        </pageControl>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="D5i-QG-dnv" secondAttribute="trailing" id="BTl-pN-Arl"/>
+                                <constraint firstItem="D5i-QG-dnv" firstAttribute="leading" secondItem="L6I-uT-k6f" secondAttribute="leading" id="Ft5-Vb-DhX"/>
+                                <constraint firstAttribute="bottom" secondItem="D5i-QG-dnv" secondAttribute="bottom" id="kSp-xx-rLx"/>
+                                <constraint firstItem="D5i-QG-dnv" firstAttribute="top" secondItem="L6I-uT-k6f" secondAttribute="top" id="wep-QE-iDq"/>
+                            </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sB8-9m-nZv">
-                            <rect key="frame" x="33" y="420" width="279" height="29"/>
+                            <rect key="frame" x="33" y="393" width="279" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="NAw-fb-CNC"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="View Insights">

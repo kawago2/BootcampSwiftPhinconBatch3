@@ -5,7 +5,7 @@ import RxGesture
 // MARK: - CustomPopUpViewDelegate
 
 protocol CustomPopUpViewDelegate: AnyObject {
-    func configurePopUp()
+    func buttonLogic()
 }
 
 // MARK: - CustomPopUpViewController
@@ -54,6 +54,11 @@ class CustomPopUpViewController: BaseViewController {
             guard let self = self else{return}
             self.dismisToParent()
         }).disposed(by: disposeBag)
+        
+        goButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else {return}
+            self.buttonLogic()
+        }).disposed(by: disposeBag)
     }
 }
 
@@ -61,6 +66,11 @@ class CustomPopUpViewController: BaseViewController {
 extension CustomPopUpViewController {
     func configurePopUp(item: CustomPopUp) {
         customData = item
+    }
+    
+    func buttonLogic() {
+        delegate?.buttonLogic()
+        dismisToParent()
     }
 }
 

@@ -54,6 +54,9 @@ class InsightViewController: BaseViewController {
     }
     
     private func showPopUp() {
+        if UserDefaultsManager.shared.getFirstInsight() == false {
+            return
+        }
         let vc = CustomPopUpViewController()
         vc.configurePopUp(
             item: CustomPopUp(
@@ -62,9 +65,10 @@ class InsightViewController: BaseViewController {
             ))
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true)
+        present(vc, animated: true, completion: {
+            UserDefaultsManager.shared.setFirstInsight(false)
+        })
     }
-
 }
 
 extension InsightViewController: UITableViewDelegate, UITableViewDataSource {
