@@ -147,6 +147,7 @@ extension InsightViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - Cell Delegate
 extension InsightViewController: InsightCellDelegate {
     func didImageTapped(index: Int?) {
         showFullStory(at: index ?? 0)

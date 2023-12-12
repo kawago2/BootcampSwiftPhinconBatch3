@@ -5,8 +5,3 @@ struct CustomPopUp {
     var titleButton: String?
     var description: [String]?
 }
-
-class CustomPopUpViewModel {
-    
-    
-}
