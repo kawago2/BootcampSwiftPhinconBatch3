@@ -1,10 +1,3 @@
-//
-//  InsightViewController.swift
-//  Fintech
-//
-//  Created by Phincon on 11/12/23.
-//
-
 import UIKit
 
 class InsightViewController: BaseViewController {
@@ -117,6 +110,15 @@ extension InsightViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return nil
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showFullStory(at: indexPath.row)
+    }
+    
+    private func showFullStory(at index: Int) {
+        let vc = StoryViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

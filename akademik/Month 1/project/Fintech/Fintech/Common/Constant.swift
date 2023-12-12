@@ -21,6 +21,9 @@ enum ColorName {
     static let primary = "Primary"
     static let background4 = "Background4"
     static let sixColor = "SixColor"
+    static let accent1 = "Accent1"
+    static let accent2 = "Accent2"
+    static let accent3 = "Accent3"
 }
 
 enum CustomIcon {

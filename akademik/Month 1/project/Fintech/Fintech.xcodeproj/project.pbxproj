@@ -87,6 +87,10 @@
 		36FAC35C2B26E5BB0034CC74 /* InsightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC35B2B26E5BB0034CC74 /* InsightViewModel.swift */; };
 		36FAC3602B26FA880034CC74 /* InsightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC35E2B26FA880034CC74 /* InsightCell.swift */; };
 		36FAC3612B26FA880034CC74 /* InsightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC35F2B26FA880034CC74 /* InsightCell.xib */; };
+		36FAC3652B27F6EB0034CC74 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3632B27F6EB0034CC74 /* StoryViewController.swift */; };
+		36FAC3662B27F6EB0034CC74 /* StoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3642B27F6EB0034CC74 /* StoryViewController.xib */; };
+		36FAC3692B27FBA10034CC74 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3682B27FBA10034CC74 /* CustomStackView.swift */; };
+		36FAC36B2B280E620034CC74 /* StoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC36A2B280E620034CC74 /* StoryViewModel.swift */; };
 		DFA65CA09450B32041A5D649 /* Pods_FintechTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB07485E1EF2C2E9971DDE9 /* Pods_FintechTests.framework */; };
 		E2A4595A5626460BB0474F99 /* Pods_Fintech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B48BD585E4622F7B9FACBC0B /* Pods_Fintech.framework */; };
 /* End PBXBuildFile section */
@@ -192,6 +196,10 @@
 		36FAC35B2B26E5BB0034CC74 /* InsightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightViewModel.swift; sourceTree = "<group>"; };
 		36FAC35E2B26FA880034CC74 /* InsightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightCell.swift; sourceTree = "<group>"; };
 		36FAC35F2B26FA880034CC74 /* InsightCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InsightCell.xib; sourceTree = "<group>"; };
+		36FAC3632B27F6EB0034CC74 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		36FAC3642B27F6EB0034CC74 /* StoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryViewController.xib; sourceTree = "<group>"; };
+		36FAC3682B27FBA10034CC74 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
+		36FAC36A2B280E620034CC74 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
 		481E840B9F43D500376351FB /* Pods-Fintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.release.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.release.xcconfig"; sourceTree = "<group>"; };
 		5EF88415D0AF5B2BB49E6B54 /* Pods-Fintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech.debug.xcconfig"; path = "Target Support Files/Pods-Fintech/Pods-Fintech.debug.xcconfig"; sourceTree = "<group>"; };
 		7648E7A2FC5DD51AC667BDAA /* Pods-Fintech-FintechUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fintech-FintechUITests.release.xcconfig"; path = "Target Support Files/Pods-Fintech-FintechUITests/Pods-Fintech-FintechUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -394,6 +402,7 @@
 		368EF1942B19E1BC0050F43C /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC3672B27FB3A0034CC74 /* CustomStack */,
 				36FAC34D2B22F5610034CC74 /* CustomSwitch */,
 				36958E472B1D7DFA0009A895 /* NavigationBar */,
 				368EF1B82B1D79CF0050F43C /* InputField */,
@@ -601,6 +610,7 @@
 		36FAC3552B26A7E60034CC74 /* ChartMenu */ = {
 			isa = PBXGroup;
 			children = (
+				36FAC3622B27F6CE0034CC74 /* StoryView */,
 				36FAC3562B26A7F20034CC74 /* InsightView */,
 			);
 			path = ChartMenu;
@@ -624,6 +634,24 @@
 				36FAC35F2B26FA880034CC74 /* InsightCell.xib */,
 			);
 			path = TableCell;
+			sourceTree = "<group>";
+		};
+		36FAC3622B27F6CE0034CC74 /* StoryView */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3632B27F6EB0034CC74 /* StoryViewController.swift */,
+				36FAC3642B27F6EB0034CC74 /* StoryViewController.xib */,
+				36FAC36A2B280E620034CC74 /* StoryViewModel.swift */,
+			);
+			path = StoryView;
+			sourceTree = "<group>";
+		};
+		36FAC3672B27FB3A0034CC74 /* CustomStack */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3682B27FBA10034CC74 /* CustomStackView.swift */,
+			);
+			path = CustomStack;
 			sourceTree = "<group>";
 		};
 		70CFF7D46DB4DF0B7A199317 /* Pods */ = {
@@ -758,6 +786,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36FAC3662B27F6EB0034CC74 /* StoryViewController.xib in Resources */,
 				36FAC3172B2032770034CC74 /* CardButtonCell.xib in Resources */,
 				36FAC35A2B26A81A0034CC74 /* InsightViewController.xib in Resources */,
 				36C3549B2B1F1FED0093BE93 /* ProfileViewController.xib in Resources */,
@@ -942,17 +971,20 @@
 				368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */,
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
 				36958E532B1DC0D00009A895 /* LoginViewModel.swift in Sources */,
+				36FAC3652B27F6EB0034CC74 /* StoryViewController.swift in Sources */,
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
 				36FAC32E2B21AF710034CC74 /* LoadingViewController.swift in Sources */,
 				36FAC3532B2309A70034CC74 /* UserDefaultsManager.swift in Sources */,
 				36FAC33F2B22BACB0034CC74 /* ResetPasswordViewController.swift in Sources */,
 				36958E592B1DCC110009A895 /* RegisterViewController.swift in Sources */,
+				36FAC36B2B280E620034CC74 /* StoryViewModel.swift in Sources */,
 				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,
 				36FAC35C2B26E5BB0034CC74 /* InsightViewModel.swift in Sources */,
 				368EF17E2B1997970050F43C /* Constant.swift in Sources */,
 				36C354962B1F1FA00093BE93 /* TabBarViewController.swift in Sources */,
 				36FAC32A2B215DBB0034CC74 /* EditProfileViewModel.swift in Sources */,
 				36FAC3512B22F5FC0034CC74 /* NotificationViewModel.swift in Sources */,
+				36FAC3692B27FBA10034CC74 /* CustomStackView.swift in Sources */,
 				368EF1982B1D61EC0050F43C /* CustomPageControl.swift in Sources */,
 				368EF18E2B19C2060050F43C /* OnboardingCell.swift in Sources */,
 				36C3547B2B1EB4600093BE93 /* RegisterViewModel.swift in Sources */,

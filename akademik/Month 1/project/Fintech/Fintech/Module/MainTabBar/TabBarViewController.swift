@@ -11,8 +11,8 @@ enum TabIndex: Int {
 class TabBarViewController: UITabBarController {
     
     // MARK: - Properties
-    let homeViewController = ProfileViewController()
-    let graphViewController = ProfileViewController()
+    let homeViewController = UIViewController()
+    let graphViewController = UIViewController()
     let chartViewController = InsightViewController()
     let profileViewController = ProfileViewController()
     
