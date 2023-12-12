@@ -44,6 +44,7 @@ enum CustomIcon {
 
 enum CustomImage {
     static let notAvailImage = "image_not_available"
+    static let imageInsightPop = "PopupInsight"
 }
 
 

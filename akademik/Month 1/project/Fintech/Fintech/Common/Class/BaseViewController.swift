@@ -14,6 +14,10 @@ class BaseViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func dismisToParent() {
+        self.dismiss(animated: true)
+    }
+    
     func loadingView(isHidden: Bool) {
         if isHidden {
             dismiss(animated: false)

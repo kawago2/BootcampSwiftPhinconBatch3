@@ -21,6 +21,11 @@ class InsightViewController: BaseViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showPopUp()
+    }
+    
     private func setupUI() {
         topView.roundCorners(corners: [.allCorners], cornerRadius: 30)
         cardView.roundCorners(corners: [.topLeft, .topRight], cornerRadius: 20)
@@ -46,6 +51,18 @@ class InsightViewController: BaseViewController {
         combinedAttributedString.append(vsLastWeekAttributedString)
 
         differentLabel.attributedText = combinedAttributedString
+    }
+    
+    private func showPopUp() {
+        let vc = CustomPopUpViewController()
+        vc.configurePopUp(
+            item: CustomPopUp(
+                image: CustomImage.imageInsightPop,
+                titleButton: "View Insights"
+            ))
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true)
     }
 
 }
