@@ -93,7 +93,8 @@ extension InsightViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             break
         }
-        
+        cell.delegate = self
+        cell.passData(index: indexPath.row)
         return cell
     }
 
@@ -137,12 +138,19 @@ extension InsightViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showFullStory(at: indexPath.row)
+       
     }
     
     private func showFullStory(at index: Int) {
         let vc = StoryViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+}
+
+extension InsightViewController: InsightCellDelegate {
+    func didImageTapped(index: Int?) {
+        showFullStory(at: index ?? 0)
+    }
+    
 }
 
