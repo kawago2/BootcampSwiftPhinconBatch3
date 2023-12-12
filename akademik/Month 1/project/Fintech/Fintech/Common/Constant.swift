@@ -20,6 +20,7 @@ enum FontName {
 enum ColorName {
     static let primary = "Primary"
     static let background4 = "Background4"
+    static let sixColor = "SixColor"
 }
 
 enum CustomIcon {

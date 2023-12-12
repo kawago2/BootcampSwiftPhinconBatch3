@@ -21,7 +21,8 @@ class InsightViewController: BaseViewController {
     private let vsLastWeekString = " vs last week"
     private let percentageValue = 4.3
     private let viewModel = InsightViewModel()
-    
+    private let recentUpdate = ["Brees", "Paystack", "Piggyvest"]
+    private let viewedUpdate = ["Carbon", "Abeg", "Patricia"]
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -57,20 +58,65 @@ class InsightViewController: BaseViewController {
 }
 
 extension InsightViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
-    
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InsightCell", for: indexPath) as! InsightCell
+        switch indexPath.section {
+        case 0:
+            cell.setTitle(title: recentUpdate[indexPath.row])
+        case 1:
+            cell.setTitle(title: viewedUpdate[indexPath.row])
+        default:
+            break
+        }
+        
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 48
-    }
-    
 
-    
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+
+        let label = UILabel()
+        label.textColor = UIColor(named: ColorName.sixColor)
+        label.font = UIFont(name: FontName.medium, size: 14)
+        label.text = self.tableView(tableView, titleForHeaderInSection: section)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(label)
+
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 0),
+            label.centerYAnchor.constraint(equalTo: headerView.topAnchor, constant: 0)
+        ])
+
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Recent updates"
+        case 1:
+            return "Viewed updates"
+        default:
+            return nil
+        }
+    }
 }
+
