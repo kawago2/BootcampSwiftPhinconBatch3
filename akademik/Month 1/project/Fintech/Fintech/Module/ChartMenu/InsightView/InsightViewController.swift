@@ -2,6 +2,7 @@ import UIKit
 
 class InsightViewController: BaseViewController {
 
+    // MARK: - Outlets
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var balanceLabel: UILabel!
@@ -10,12 +11,14 @@ class InsightViewController: BaseViewController {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    
+    // MARK: - Constants
     private let vsLastWeekString = " vs last week"
     private let percentageValue = 4.3
     private let viewModel = InsightViewModel()
     private let recentUpdate = ["Brees", "Paystack", "Piggyvest"]
     private let viewedUpdate = ["Carbon", "Abeg", "Patricia"]
+    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -26,6 +29,7 @@ class InsightViewController: BaseViewController {
         showPopUp()
     }
     
+    // MARK: - UI Setup
     private func setupUI() {
         topView.roundCorners(corners: [.allCorners], cornerRadius: 30)
         cardView.roundCorners(corners: [.topLeft, .topRight], cornerRadius: 20)
@@ -53,16 +57,14 @@ class InsightViewController: BaseViewController {
         differentLabel.attributedText = combinedAttributedString
     }
     
+    // MARK: - PopUp
     private func showPopUp() {
         if UserDefaultsManager.shared.getFirstInsight() == false {
             return
         }
+
         let vc = CustomPopUpViewController()
-        vc.configurePopUp(
-            item: CustomPopUp(
-                image: CustomImage.imageInsightPop,
-                titleButton: "View Insights"
-            ))
+        vc.configurePopUp(item: CustomPopUp(image: CustomImage.imageInsightPop, titleButton: "View Insights"))
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true, completion: {
@@ -71,6 +73,7 @@ class InsightViewController: BaseViewController {
     }
 }
 
+// MARK: - TableView Delegate and DataSource
 extension InsightViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
