@@ -1,6 +1,6 @@
 import UIKit
 
-class CardButtonCell: UITableViewCell {
+class CardButtonCell: BaseTableViewCell {
     
     // MARK: - Outlets
     @IBOutlet weak var imageCardView: UIImageView!

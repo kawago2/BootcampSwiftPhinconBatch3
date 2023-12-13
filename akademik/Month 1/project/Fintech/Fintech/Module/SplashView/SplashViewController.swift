@@ -1,7 +1,7 @@
 // MARK: - SplashViewController
 import UIKit
 
-class SplashViewController: UIViewController {
+class SplashViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var circleView: UIImageView!
 
@@ -22,6 +22,7 @@ class SplashViewController: UIViewController {
         })
     }
     
+    // MARK: - Navigate
     private func nextPage() {
         let vc = OnboardingViewController()
         navigationController?.setViewControllers([vc], animated: true)

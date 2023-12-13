@@ -1,18 +1,22 @@
 import UIKit
 
+// MARK: - NotificationCellDelegate Protocol
 protocol NotificationCellDelegate: AnyObject {
     func switchValueChanged(isOn: Bool, index: Int)
 }
 
+// MARK: - NotificationCell
+class NotificationCell: BaseTableViewCell {
 
-class NotificationCell: UITableViewCell {
-
+    // MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var customSwitch: CustomSwitch!
     
+    // MARK: - Properties
     weak var delegate: NotificationCellDelegate?
     private var index: Int?
     
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -22,11 +26,13 @@ class NotificationCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: - UI Setup
     private func setupUI() {
         customSwitch.delegate = self
         selectionStyle = .none
     }
     
+    // MARK: - Configuration
     func setupConfigure(name: String, index: Int, isOn: Bool) {
         nameLabel.text = name
         self.index = index
@@ -34,6 +40,7 @@ class NotificationCell: UITableViewCell {
     }
 }
 
+// MARK: - CustomSwitchDelegate
 extension NotificationCell: CustomSwitchDelegate {
     func switchValueChanged(isOn: Bool) {
         delegate?.switchValueChanged(isOn: isOn, index: self.index ?? 99)
