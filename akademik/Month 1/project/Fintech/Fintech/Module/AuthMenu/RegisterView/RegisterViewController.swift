@@ -13,12 +13,13 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     // MARK: - Properties
-    let viewModel = RegisterViewModel()
+    private var viewModel: RegisterViewModel!
     private var isCheck = false
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = RegisterViewModel()
         setupUI()
         setupEvent()
     }

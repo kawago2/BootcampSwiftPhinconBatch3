@@ -11,16 +11,17 @@ class InsightViewController: BaseViewController {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - Constants
+    // MARK: - Properties
+    private var viewModel: InsightViewModel!
     private let vsLastWeekString = " vs last week"
     private let percentageValue = 4.3
-    private let viewModel = InsightViewModel()
     private let recentUpdate = ["Brees", "Paystack", "Piggyvest"]
     private let viewedUpdate = ["Carbon", "Abeg", "Patricia"]
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = InsightViewModel()
         setupUI()
     }
     

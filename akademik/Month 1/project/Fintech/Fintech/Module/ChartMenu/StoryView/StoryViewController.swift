@@ -8,13 +8,14 @@ class StoryViewController: BaseViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     // MARK: - Properties
-    private let viewModel = StoryViewModel()
+    private var viewModel: StoryViewModel!
     private var currentStoryIndex = 0
     private var timer: Timer?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = StoryViewModel()
         setupUI()
         setupEvent()
         startTimer()

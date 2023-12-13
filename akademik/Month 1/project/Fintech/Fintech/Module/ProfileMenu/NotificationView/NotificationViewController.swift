@@ -7,16 +7,16 @@ class NotificationViewController: BaseViewController {
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var tableView: UITableView!
     
-    private let viewModel = NotificationViewModel()
+    private var viewModel: NotificationViewModel!
     private var isTransactionAlert = false
     private var isInsightAlert = false
     private var isSortTransactionsAlert = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = NotificationViewModel()
         setupUI()
         setupEvent()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

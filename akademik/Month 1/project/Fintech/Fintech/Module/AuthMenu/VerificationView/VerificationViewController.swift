@@ -9,10 +9,11 @@ class VerificationViewController: BaseViewController {
     var email: String = ""
     var context: String = ""
     
-    private var viewModel = VerificationViewModel()
+    private var viewModel: VerificationViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = VerificationViewModel()
         setupUI()
         setupEvent()
     }

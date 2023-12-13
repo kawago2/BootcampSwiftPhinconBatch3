@@ -17,11 +17,12 @@ class ProfileViewController: BaseViewController {
     // MARK: - Properties
     var userData = UserData()
     var menuItem: [CardButton] = []
-    var viewModel = ProfileViewModel()
+    private var viewModel: ProfileViewModel!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = ProfileViewModel()
         loadData()
         setupUI()
     }

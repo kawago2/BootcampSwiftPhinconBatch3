@@ -8,11 +8,12 @@ class ForgotViewController: BaseViewController {
     @IBOutlet weak var continueButton: UIButton!
     
     // MARK: - Properties
-    private var viewModel = ForgotViewModel()
+    private var viewModel: ForgotViewModel!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = ForgotViewModel()
         setupUI()
         setupEvent()
     }

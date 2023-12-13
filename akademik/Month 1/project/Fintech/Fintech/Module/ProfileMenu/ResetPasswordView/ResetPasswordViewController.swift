@@ -11,11 +11,12 @@ class ResetPasswordViewController: BaseViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - Properties
-    let viewModel = ResetPasswordViewModel()
+    private var viewModel: ResetPasswordViewModel!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = ResetPasswordViewModel()
         setupUI()
         setupEvent()
     }
