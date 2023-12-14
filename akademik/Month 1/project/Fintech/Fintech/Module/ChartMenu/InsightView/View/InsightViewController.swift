@@ -27,8 +27,12 @@ class InsightViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showPopUp()
+        showPopUp(titleButton: "View Insights", image: CustomImage.imageInsightPop, getDefaultManager: UserDefaultsManager.shared.getFirstInsight(), setDefaultManager: {
+            UserDefaultsManager.shared.setFirstInsight(false)
+        })
     }
+    
+
     
     // MARK: - UI Setup
     private func setupUI() {
@@ -58,20 +62,6 @@ class InsightViewController: BaseViewController {
         differentLabel.attributedText = combinedAttributedString
     }
     
-    // MARK: - PopUp
-    private func showPopUp() {
-        if UserDefaultsManager.shared.getFirstInsight() == false {
-            return
-        }
-
-        let vc = CustomPopUpViewController()
-        vc.configurePopUp(item: CustomPopUp(image: CustomImage.imageInsightPop, titleButton: "View Insights"))
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true, completion: {
-            UserDefaultsManager.shared.setFirstInsight(false)
-        })
-    }
 }
 
 // MARK: - TableView Delegate and DataSource
@@ -156,3 +146,29 @@ extension InsightViewController: InsightCellDelegate {
     
 }
 
+// MARK: - Setup PopUp
+extension InsightViewController: CustomPopUpViewDelegate {
+    func showPopUp(titleButton: String, image: String, getDefaultManager: Bool, setDefaultManager: @escaping () -> Void) {
+        guard getDefaultManager else {
+            return
+        }
+
+        let vc = CustomPopUpViewController()
+        vc.configurePopUp(item: CustomPopUp(image: image, titleButton: titleButton))
+        vc.delegate = self
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true) {
+            setDefaultManager()
+        }
+    }
+    func buttonLogic() {
+        
+    }
+    
+    func setCustomData(data: CustomPopUp) {
+        
+    }
+    
+    
+}

@@ -10,13 +10,8 @@ class BaseViewController: UIViewController {
 
     }
     
-    func backToView() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    func dismisToParent() {
-        self.dismiss(animated: true)
-    }
+
+
     
     func loadingView(isHidden: Bool) {
         if isHidden {
@@ -26,8 +21,18 @@ class BaseViewController: UIViewController {
             loadingVC.modalPresentationStyle = .overFullScreen
             present(loadingVC, animated: false, completion: nil)
         }
-      
     }
+    
+    // MARK: - Navigation
+    func backToView() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func dismisToParent() {
+        self.dismiss(animated: true)
+    }
+    
+
 
 
 }
