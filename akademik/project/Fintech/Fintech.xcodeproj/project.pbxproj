@@ -522,8 +522,8 @@
 		367B0EE42B2AFE9C003E0806 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				367B0EE12B2AFE8C003E0806 /* BudgetViewController.xib */,
 				367B0EE02B2AFE8C003E0806 /* BudgetViewController.swift */,
+				367B0EE12B2AFE8C003E0806 /* BudgetViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
