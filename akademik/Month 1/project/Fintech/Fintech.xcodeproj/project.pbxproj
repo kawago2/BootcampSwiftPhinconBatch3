@@ -10,8 +10,6 @@
 		2CDBBB4BE7947BC35842B907 /* Pods_Fintech_FintechUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFF3AEB55DAC8D4BA575406 /* Pods_Fintech_FintechUITests.framework */; };
 		361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C7A2B1991E3005D7FA1 /* AppDelegate.swift */; };
 		361D9C7D2B1991E3005D7FA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C7C2B1991E3005D7FA1 /* SceneDelegate.swift */; };
-		361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C7E2B1991E3005D7FA1 /* ViewController.swift */; };
-		361D9C822B1991E3005D7FA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 361D9C802B1991E3005D7FA1 /* Main.storyboard */; };
 		361D9C842B1991E5005D7FA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 361D9C832B1991E5005D7FA1 /* Assets.xcassets */; };
 		361D9C872B1991E5005D7FA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 361D9C852B1991E5005D7FA1 /* LaunchScreen.storyboard */; };
 		361D9C922B1991E5005D7FA1 /* FintechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C912B1991E5005D7FA1 /* FintechTests.swift */; };
@@ -120,8 +118,6 @@
 		361D9C772B1991E3005D7FA1 /* Fintech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fintech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		361D9C7A2B1991E3005D7FA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		361D9C7C2B1991E3005D7FA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		361D9C7E2B1991E3005D7FA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		361D9C812B1991E3005D7FA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		361D9C832B1991E5005D7FA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		361D9C862B1991E5005D7FA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		361D9C882B1991E5005D7FA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -328,18 +324,8 @@
 				36C354942B1F1E9E0093BE93 /* MainTabBar */,
 				368EF17F2B19B9850050F43C /* OnboardingView */,
 				368EF1702B1995B20050F43C /* SplashView */,
-				368EF16F2B1993540050F43C /* Main */,
 			);
 			path = Module;
-			sourceTree = "<group>";
-		};
-		368EF16F2B1993540050F43C /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				361D9C802B1991E3005D7FA1 /* Main.storyboard */,
-				361D9C7E2B1991E3005D7FA1 /* ViewController.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		368EF1702B1995B20050F43C /* SplashView */ = {
@@ -820,7 +806,6 @@
 				36FAC3342B22A5870034CC74 /* SettingViewController.xib in Resources */,
 				36FAC3712B2831C40034CC74 /* CustomPopUpViewController.xib in Resources */,
 				361D9C842B1991E5005D7FA1 /* Assets.xcassets in Resources */,
-				361D9C822B1991E3005D7FA1 /* Main.storyboard in Resources */,
 				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
 				36958E462B1D7DB00009A895 /* LoginViewController.xib in Resources */,
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
@@ -965,7 +950,6 @@
 				36C354932B1F0A9E0093BE93 /* ForgotViewModel.swift in Sources */,
 				36FAC3362B22A7DA0034CC74 /* SettingViewModel.swift in Sources */,
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
-				361D9C7F2B1991E3005D7FA1 /* ViewController.swift in Sources */,
 				36FAC31D2B2059080034CC74 /* Date.swift in Sources */,
 				36FAC3592B26A81A0034CC74 /* InsightViewController.swift in Sources */,
 				36FAC3422B22C11C0034CC74 /* ResetPasswordViewModel.swift in Sources */,
@@ -1053,14 +1037,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		361D9C802B1991E3005D7FA1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				361D9C812B1991E3005D7FA1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		361D9C852B1991E5005D7FA1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1198,7 +1174,6 @@
 				INFOPLIST_FILE = Fintech/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1227,7 +1202,6 @@
 				INFOPLIST_FILE = Fintech/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
