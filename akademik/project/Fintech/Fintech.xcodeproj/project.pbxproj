@@ -15,6 +15,8 @@
 		361D9C922B1991E5005D7FA1 /* FintechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C912B1991E5005D7FA1 /* FintechTests.swift */; };
 		361D9C9C2B1991E5005D7FA1 /* FintechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C9B2B1991E5005D7FA1 /* FintechUITests.swift */; };
 		361D9C9E2B1991E5005D7FA1 /* FintechUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C9D2B1991E5005D7FA1 /* FintechUITestsLaunchTests.swift */; };
+		367B0EE22B2AFE8C003E0806 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EE02B2AFE8C003E0806 /* BudgetViewController.swift */; };
+		367B0EE32B2AFE8C003E0806 /* BudgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0EE12B2AFE8C003E0806 /* BudgetViewController.xib */; };
 		368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1712B1995CC0050F43C /* SplashViewController.swift */; };
 		368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1722B1995CC0050F43C /* SplashViewController.xib */; };
 		368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1762B1996B80050F43C /* Inter-Regular.ttf */; };
@@ -126,6 +128,8 @@
 		361D9C972B1991E5005D7FA1 /* FintechUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FintechUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		361D9C9B2B1991E5005D7FA1 /* FintechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechUITests.swift; sourceTree = "<group>"; };
 		361D9C9D2B1991E5005D7FA1 /* FintechUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		367B0EE02B2AFE8C003E0806 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		367B0EE12B2AFE8C003E0806 /* BudgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetViewController.xib; sourceTree = "<group>"; };
 		368EF1712B1995CC0050F43C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		368EF1722B1995CC0050F43C /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		368EF1762B1996B80050F43C /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -499,6 +503,31 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		367B0EDE2B2AFE73003E0806 /* BudgetMenu */ = {
+			isa = PBXGroup;
+			children = (
+				367B0EDF2B2AFE7D003E0806 /* BudgetView */,
+			);
+			path = BudgetMenu;
+			sourceTree = "<group>";
+		};
+		367B0EDF2B2AFE7D003E0806 /* BudgetView */ = {
+			isa = PBXGroup;
+			children = (
+				367B0EE42B2AFE9C003E0806 /* View */,
+			);
+			path = BudgetView;
+			sourceTree = "<group>";
+		};
+		367B0EE42B2AFE9C003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				367B0EE12B2AFE8C003E0806 /* BudgetViewController.xib */,
+				367B0EE02B2AFE8C003E0806 /* BudgetViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		368EF16C2B1992E30050F43C /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +550,7 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				367B0EDE2B2AFE73003E0806 /* BudgetMenu */,
 				36FAC3552B26A7E60034CC74 /* ChartMenu */,
 				36FAC3542B26A73A0034CC74 /* AuthMenu */,
 				36FAC32F2B21AF850034CC74 /* LoadingView */,
@@ -996,6 +1026,7 @@
 				368EF1792B1996D40050F43C /* Inter-Medium.ttf in Resources */,
 				368EF18F2B19C2060050F43C /* OnboardingCell.xib in Resources */,
 				36FAC3342B22A5870034CC74 /* SettingViewController.xib in Resources */,
+				367B0EE32B2AFE8C003E0806 /* BudgetViewController.xib in Resources */,
 				36FAC3712B2831C40034CC74 /* CustomPopUpViewController.xib in Resources */,
 				361D9C842B1991E5005D7FA1 /* Assets.xcassets in Resources */,
 				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
@@ -1166,6 +1197,7 @@
 				36FAC34F2B22F5720034CC74 /* CustomSwitch.swift in Sources */,
 				36FAC3752B293FDB0034CC74 /* BaseTableViewCell.swift in Sources */,
 				36FAC33A2B22A9740034CC74 /* SettingCell.swift in Sources */,
+				367B0EE22B2AFE8C003E0806 /* BudgetViewController.swift in Sources */,
 				368EF1B72B1D79CA0050F43C /* InputField.swift in Sources */,
 				368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */,
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
