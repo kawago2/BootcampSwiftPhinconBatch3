@@ -3,36 +3,39 @@ import RxSwift
 
 class BaseViewController: UIViewController {
 
-    let disposeBag = DisposeBag()
-    
+    // MARK: - Properties
+    public let disposeBag = DisposeBag()
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    
 
-
-    
-    func loadingView(isHidden: Bool) {
+    // MARK: - Loading View
+    public func loadingView(isHidden: Bool) {
         if isHidden {
-            dismiss(animated: false)
+            dismissLoadingView()
         } else {
-            let loadingVC = LoadingViewController()
-            loadingVC.modalPresentationStyle = .overFullScreen
-            present(loadingVC, animated: false, completion: nil)
+            presentLoadingView()
         }
     }
-    
+
+    private func presentLoadingView() {
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overFullScreen
+        present(loadingVC, animated: false, completion: nil)
+    }
+
+    private func dismissLoadingView() {
+        dismiss(animated: false)
+    }
+
     // MARK: - Navigation
-    func backToView() {
+    public func backToView() {
         navigationController?.popViewController(animated: true)
     }
-    
-    func dismisToParent() {
-        self.dismiss(animated: true)
+
+    public func dismisToParent() {
+        dismiss(animated: true)
     }
-    
-
-
-
 }
