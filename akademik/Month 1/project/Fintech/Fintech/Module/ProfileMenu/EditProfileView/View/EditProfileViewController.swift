@@ -19,12 +19,13 @@ class EditProfileViewController: BaseViewController {
     
     // MARK: - Properties
     private var userData = UserData()
-    private var viewModel = EditProfileViewModel()
+    private var viewModel: EditProfileViewModel!
     private var imagePicker: UIImagePickerController!
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = EditProfileViewModel()
         setupUI()
         setupEvent()
         initialData()

@@ -18,7 +18,12 @@ enum FontName {
 }
 
 enum ColorName {
+    static let primary = "Primary"
     static let background4 = "Background4"
+    static let sixColor = "SixColor"
+    static let accent1 = "Accent1"
+    static let accent2 = "Accent2"
+    static let accent3 = "Accent3"
 }
 
 enum CustomIcon {
@@ -39,6 +44,7 @@ enum CustomIcon {
 
 enum CustomImage {
     static let notAvailImage = "image_not_available"
+    static let imageInsightPop = "PopupInsight"
 }
 
 

@@ -10,11 +10,12 @@ class SettingViewController: BaseViewController {
     @IBOutlet weak var versionLabel: UILabel!
     
     // MARK: - Properties
-    let viewModel = SettingViewModel()
+    private var viewModel: SettingViewModel!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = SettingViewModel()
         setupUI()
         setupEvent()
     }

@@ -1,22 +1,26 @@
 import UIKit
 import RxSwift
 
-
+// MARK: - NotificationViewController
 class NotificationViewController: BaseViewController {
     
+    // MARK: - Outlets
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var tableView: UITableView!
     
-    private let viewModel = NotificationViewModel()
+    // MARK: - Properties
+    private var viewModel: NotificationViewModel!
     private var isTransactionAlert = false
     private var isInsightAlert = false
     private var isSortTransactionsAlert = false
     
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = NotificationViewModel()
         setupUI()
         setupEvent()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +28,7 @@ class NotificationViewController: BaseViewController {
         initialData()
     }
     
+    // MARK: - UI Setup
     private func setupUI() {
         navigationBar.titleNavigationBar = viewModel.titleNavigationBar
         navigationBar.setupLeadingButton()
@@ -35,6 +40,7 @@ class NotificationViewController: BaseViewController {
         
     }
     
+    // MARK: - Event Setup
     private func setupEvent() {
         navigationBar.leadingButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else {return}
@@ -42,18 +48,15 @@ class NotificationViewController: BaseViewController {
         }).disposed(by: disposeBag)
     }
     
+    // MARK: - Data Initialization
     private func initialData() {
         isTransactionAlert = UserDefaultsManager.shared.getTransactionAlert()
         isInsightAlert = UserDefaultsManager.shared.getInsightAlert()
         isSortTransactionsAlert = UserDefaultsManager.shared.getSortTransactionsAlert()
-        print(isTransactionAlert)
-        print(isInsightAlert)
-        print(isSortTransactionsAlert)
-
     }
 }
 
-
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension NotificationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -81,6 +84,7 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
+// MARK: - NotificationCellDelegate
 extension NotificationViewController: NotificationCellDelegate {
     func switchValueChanged(isOn: Bool, index: Int) {
         switch index {

@@ -197,12 +197,11 @@ class FirebaseManager {
                 guard let userData = document.data() else {
                     throw CustomError.nilDocumentData
                 }
-
                 let user = UserData(
                     uid: uid,
                     email: userData["email"] as? String ?? "",
                     name: userData["name"] as? String ?? "",
-                    createAt: userData["createAt"] as? Date ?? Date(),
+                    createAt: (userData["createAt"] as? Timestamp ?? Timestamp()).dateValue(),
                     phone: userData["phone"] as? String ?? "",
                     areaCode: userData["areaCode"] as? String ?? "",
                     imagePath: userData["imagePath"] as? String ?? ""

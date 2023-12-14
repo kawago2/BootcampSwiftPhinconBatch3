@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
     // MARK: - Outlets
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var emailField: InputField!
@@ -13,13 +13,13 @@ class LoginViewController: UIViewController {
     
     
     // MARK: - Properties
-    private let viewModel = LoginViewModel()
-    private let disposeBag = DisposeBag()
+    private var viewModel: LoginViewModel!
 
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = LoginViewModel()
         setupUI()
         setupEvents()
     }

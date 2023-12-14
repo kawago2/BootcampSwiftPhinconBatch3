@@ -1,7 +1,7 @@
 
 import UIKit
 
-class SettingCell: UITableViewCell {
+class SettingCell: BaseTableViewCell {
 
     // MARK: - Outlets
     

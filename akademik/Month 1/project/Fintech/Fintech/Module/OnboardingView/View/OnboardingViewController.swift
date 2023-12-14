@@ -8,7 +8,7 @@ private enum OnboardingImages {
     static let onboard3 = "onboard-3"
 }
 
-class OnboardingViewController: UIViewController {
+class OnboardingViewController: BaseViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var skipButton: UIButton!
@@ -26,7 +26,6 @@ class OnboardingViewController: UIViewController {
     }
     var timer: Timer?
     var currentPages = 0
-    let disposeBag = DisposeBag()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
