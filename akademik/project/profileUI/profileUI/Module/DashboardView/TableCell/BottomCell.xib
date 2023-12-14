@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="KGk-i7-Jjw" customClass="BottomCell" customModule="profileUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UI0-J6-dfM">
+                        <rect key="frame" x="26" y="0.0" width="268" height="44"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_view" translatesAutoresizingMaskIntoConstraints="NO" id="vb8-2L-E1x">
+                                <rect key="frame" x="0.0" y="0.0" width="268" height="44"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 35.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0g-lW-c3y">
+                                <rect key="frame" x="173.33333333333334" y="8" width="66.666666666666657" height="27"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82B-b4-wD4">
+                                <rect key="frame" x="30.000000000000004" y="13" width="44.333333333333343" height="18"/>
+                                <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vb8-2L-E1x" secondAttribute="bottom" id="02A-Zh-5x8"/>
+                            <constraint firstItem="82B-b4-wD4" firstAttribute="leading" secondItem="UI0-J6-dfM" secondAttribute="leading" constant="30" id="2ad-Ag-5UF"/>
+                            <constraint firstAttribute="bottom" secondItem="82B-b4-wD4" secondAttribute="bottom" constant="13" id="3G3-vp-ct6"/>
+                            <constraint firstAttribute="trailing" secondItem="vb8-2L-E1x" secondAttribute="trailing" id="Qxv-HE-Uvr"/>
+                            <constraint firstItem="82B-b4-wD4" firstAttribute="top" secondItem="UI0-J6-dfM" secondAttribute="top" constant="13" id="VjG-iP-Cd8"/>
+                            <constraint firstItem="vb8-2L-E1x" firstAttribute="leading" secondItem="UI0-J6-dfM" secondAttribute="leading" id="bge-ef-6ng"/>
+                            <constraint firstItem="w0g-lW-c3y" firstAttribute="top" secondItem="UI0-J6-dfM" secondAttribute="top" constant="8" id="ski-Ss-Ivq"/>
+                            <constraint firstAttribute="bottom" secondItem="w0g-lW-c3y" secondAttribute="bottom" constant="9" id="uPt-Jz-7aW"/>
+                            <constraint firstAttribute="trailing" secondItem="w0g-lW-c3y" secondAttribute="trailing" constant="28" id="usT-AT-41K"/>
+                            <constraint firstItem="vb8-2L-E1x" firstAttribute="top" secondItem="UI0-J6-dfM" secondAttribute="top" id="wVd-4s-6rx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="ThirdColor"/>
+                <constraints>
+                    <constraint firstItem="UI0-J6-dfM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="0Db-In-ESU"/>
+                    <constraint firstAttribute="bottom" secondItem="UI0-J6-dfM" secondAttribute="bottom" constant="20" id="PVa-57-7U7"/>
+                    <constraint firstAttribute="trailing" secondItem="UI0-J6-dfM" secondAttribute="trailing" constant="26" id="Vvv-Pa-579"/>
+                    <constraint firstItem="UI0-J6-dfM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bIO-Mo-yb2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="ThirdColor"/>
+            <connections>
+                <outlet property="buttonView" destination="UI0-J6-dfM" id="OvH-mr-eXv"/>
+                <outlet property="manyItemLabel" destination="82B-b4-wD4" id="KJF-71-L1c"/>
+                <outlet property="totalPriceLabel" destination="w0g-lW-c3y" id="4Sj-3A-KwQ"/>
+            </connections>
+            <point key="canvasLocation" x="36.641221374045799" y="31.690140845070424"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bar_view" width="320" height="44"/>
+        <namedColor name="ThirdColor">
+            <color red="0.90588235294117647" green="0.92156862745098034" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

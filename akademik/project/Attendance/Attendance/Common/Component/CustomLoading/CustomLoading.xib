@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomLoading" customModule="Attendance" customModuleProvider="target">
+            <connections>
+                <outlet property="lottieView" destination="flQ-oC-MAg" id="kvN-Ly-bgD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9zr-ZC-OzB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flQ-oC-MAg" customClass="LottieAnimationView" customModule="Lottie">
+                    <rect key="frame" x="10" y="10" width="280" height="280"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loading"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="tEe-zt-Pa7"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="tEe-zt-Pa7" firstAttribute="bottom" secondItem="flQ-oC-MAg" secondAttribute="bottom" constant="10" id="07M-Mc-QUe"/>
+                <constraint firstItem="flQ-oC-MAg" firstAttribute="leading" secondItem="tEe-zt-Pa7" secondAttribute="leading" constant="10" id="4LE-Gk-JCk"/>
+                <constraint firstItem="flQ-oC-MAg" firstAttribute="top" secondItem="9zr-ZC-OzB" secondAttribute="top" constant="10" id="U09-hq-PBO"/>
+                <constraint firstItem="tEe-zt-Pa7" firstAttribute="trailing" secondItem="flQ-oC-MAg" secondAttribute="trailing" constant="10" id="umn-Wj-nB7"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-91.603053435114504" y="211.97183098591552"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="flQ-oC-MAg"/>
+    </designables>
+</document>

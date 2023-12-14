@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scroll View Controller-->
+        <scene sceneID="tOP-67-xRL">
+            <objects>
+                <viewController storyboardIdentifier="ScrollViewController" id="rvn-O2-mt1" customClass="ScrollViewController" customModule="profileUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OUX-Q9-t0h">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpg-1R-4qa">
+                                <rect key="frame" x="0.0" y="48" width="393" height="1118"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvF-Bh-fCo">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feX-X5-H2J">
+                                                <rect key="frame" x="10" y="10" width="373" height="1180"/>
+                                                <string key="text">Tentu! Berikut beberapa thread mengenai makanan yang bisa Anda gunakan di berbagai platform sosial media:
+
+**Thread 1: Memahami Makanan Sehat**
+
+1/5: Makanan sehat adalah kunci untuk menjaga kesehatan tubuh. Cobalah untuk mengonsumsi makanan dengan berbagai nutrisi, seperti sayuran, buah-buahan, protein, dan biji-bijian.
+
+2/5: Pastikan Anda menghindari makanan olahan berlebihan yang mengandung gula tambahan, garam, dan lemak trans. Makanan segar lebih baik untuk tubuh.
+
+3/5: Jangan lupa minum air putih. Air sangat penting untuk menjaga hidrasi tubuh dan membantu pencernaan.
+
+4/5: Cobalah untuk memasak di rumah sebanyak mungkin. Anda dapat mengontrol bahan-bahan yang digunakan dan menghindari makanan cepat saji yang kurang sehat.
+
+5/5: Ingatlah bahwa makanan sehat tidak hanya tentang tubuh yang sehat, tetapi juga tentang kesejahteraan secara keseluruhan. Selamat mencoba!
+
+**Thread 2: Makanan Khas Dunia**
+
+1/5: Makanan adalah salah satu cara terbaik untuk memahami budaya dunia. Di seluruh dunia, ada makanan khas yang lezat dan unik.
+
+2/5: Jepang dikenal dengan sushi dan ramen yang lezat. Italia memiliki pasta dan pizza yang tak tertandingi. Apa makanan favorit Anda dari berbagai negara?
+
+3/5: Thailand menawarkan hidangan pedas seperti Tom Yum dan Pad Thai. India memiliki hidangan kari yang beragam. Prancis dikenal dengan hidangan lezat seperti croissant dan escargot.
+
+4/5: Jangan lupa mencoba makanan khas ketika Anda bepergian. Ini adalah cara terbaik untuk merasakan budaya lokal.
+
+5/5: Apakah Anda sudah mencoba makanan khas dari berbagai negara? Bagikan pengalaman Anda!
+
+**Thread 3: Resep Dapur Sendiri**
+
+1/5: Memasak di rumah bisa menjadi pengalaman yang sangat memuaskan. Cobalah salah satu resep favorit saya: Spaghetti Carbonara.
+
+2/5: Bahan-bahan: spaghetti, telur, keju parmesan, daging pancetta atau bacon, lada, dan sedikit minyak zaitun.
+
+3/5: Rebus spaghetti sesuai petunjuk kemasan. Sementara itu, tumis pancetta/bacon hingga renyah.
+
+4/5: Campurkan telur dan keju parmesan parut dalam mangkuk besar. Tambahkan spaghetti dan pancetta yang sudah matang. Aduk rata.
+
+5/5: Taburi dengan lada dan hidangkan. Selamat makan!
+
+Silakan gunakan thread-thread ini untuk berbagi informasi atau memulai percakapan tentang makanan di berbagai platform sosial media.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="feX-X5-H2J" secondAttribute="bottom" constant="10" id="Mxb-L0-Va7"/>
+                                            <constraint firstItem="feX-X5-H2J" firstAttribute="top" secondItem="xvF-Bh-fCo" secondAttribute="top" constant="10" id="Uv8-Qr-OeU"/>
+                                            <constraint firstAttribute="trailing" secondItem="feX-X5-H2J" secondAttribute="trailing" constant="10" id="pKW-EU-wkA"/>
+                                            <constraint firstAttribute="height" constant="1200" id="ueY-F8-nq9"/>
+                                            <constraint firstItem="feX-X5-H2J" firstAttribute="leading" secondItem="xvF-Bh-fCo" secondAttribute="leading" constant="10" id="xzc-Ac-G9K"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xvF-Bh-fCo" secondAttribute="trailing" id="3h2-0g-Lew"/>
+                                    <constraint firstAttribute="bottom" secondItem="xvF-Bh-fCo" secondAttribute="bottom" id="gRO-LK-hYF"/>
+                                    <constraint firstItem="xvF-Bh-fCo" firstAttribute="top" secondItem="Zpg-1R-4qa" secondAttribute="top" id="hGU-Hz-68m"/>
+                                    <constraint firstItem="xvF-Bh-fCo" firstAttribute="leading" secondItem="Zpg-1R-4qa" secondAttribute="leading" id="jQ6-W3-iIt"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tTv-uC-f6E"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zpg-1R-4qa" firstAttribute="leading" secondItem="tTv-uC-f6E" secondAttribute="leading" id="XbQ-A8-ELn"/>
+                            <constraint firstItem="Zpg-1R-4qa" firstAttribute="top" secondItem="tTv-uC-f6E" secondAttribute="top" id="ZV9-BZ-CpR"/>
+                            <constraint firstItem="Zpg-1R-4qa" firstAttribute="trailing" secondItem="tTv-uC-f6E" secondAttribute="trailing" id="rjo-ch-mR0"/>
+                            <constraint firstItem="Zpg-1R-4qa" firstAttribute="bottom" secondItem="tTv-uC-f6E" secondAttribute="bottom" id="x5d-Yz-PgA"/>
+                            <constraint firstItem="xvF-Bh-fCo" firstAttribute="width" secondItem="OUX-Q9-t0h" secondAttribute="width" id="ycL-85-K8X"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="393" height="1200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8UI-yu-S6r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="907" y="21"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
