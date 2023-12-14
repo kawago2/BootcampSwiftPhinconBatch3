@@ -295,6 +295,210 @@
 			path = FintechUITests;
 			sourceTree = "<group>";
 		};
+		361DD4F62B2AB0B30069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3632B27F6EB0034CC74 /* StoryViewController.swift */,
+				36FAC3642B27F6EB0034CC74 /* StoryViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD4F72B2AB0C30069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC36A2B280E620034CC74 /* StoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD4F82B2AB0D20069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3572B26A81A0034CC74 /* InsightViewController.swift */,
+				36FAC3582B26A81A0034CC74 /* InsightViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD4F92B2AB0D80069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC35B2B26E5BB0034CC74 /* InsightViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD4FA2B2AB0F00069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36C354822B1ECD3A0093BE93 /* VerificationViewController.swift */,
+				36C354832B1ECD3A0093BE93 /* VerificationViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD4FB2B2AB0F60069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36C354862B1EF99C0093BE93 /* VerificationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD4FC2B2AB10E0069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36958E572B1DCC110009A895 /* RegisterViewController.swift */,
+				36958E582B1DCC110009A895 /* RegisterViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD4FD2B2AB1140069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36C3547A2B1EB4600093BE93 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD4FE2B2AB19C0069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36958E432B1D7DB00009A895 /* LoginViewController.swift */,
+				36958E442B1D7DB00009A895 /* LoginViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD4FF2B2AB1A40069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36958E522B1DC0D00009A895 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD5002B2AB1B20069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36C3548E2B1F03AB0093BE93 /* ForgotViewController.swift */,
+				36C3548F2B1F03AB0093BE93 /* ForgotViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD5012B2AB1BE0069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36C354922B1F0A9E0093BE93 /* ForgotViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD5022B2AB1D60069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3442B22F16B0034CC74 /* NotificationViewController.swift */,
+				36FAC3452B22F16B0034CC74 /* NotificationViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD5032B2AB1E00069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3502B22F5FC0034CC74 /* NotificationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD5042B2AB1F10069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC33D2B22BACB0034CC74 /* ResetPasswordViewController.swift */,
+				36FAC33E2B22BACB0034CC74 /* ResetPasswordViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD5052B2AB1F60069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3412B22C11C0034CC74 /* ResetPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD5062B2AB20A0069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3312B22A5870034CC74 /* SettingViewController.swift */,
+				36FAC3322B22A5870034CC74 /* SettingViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD5072B2AB20E0069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3352B22A7DA0034CC74 /* SettingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD5082B2AB22B0069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3202B2061210034CC74 /* EditProfileViewController.swift */,
+				36FAC3212B2061210034CC74 /* EditProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD5092B2AB2310069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC3292B215DBB0034CC74 /* EditProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD50A2B2AB2A10069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36C354982B1F1FED0093BE93 /* ProfileViewController.swift */,
+				36C354992B1F1FED0093BE93 /* ProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD50B2B2AB2AB0069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36FAC31A2B2035650034CC74 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		361DD50C2B2AB2C40069D327 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				368EF1802B19B99F0050F43C /* OnboardingViewController.swift */,
+				368EF1812B19B99F0050F43C /* OnboardingViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		361DD50D2B2AB2D30069D327 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				368EF1872B19BF1A0050F43C /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		368EF16C2B1992E30050F43C /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,10 +566,9 @@
 		368EF17F2B19B9850050F43C /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
+				361DD50D2B2AB2D30069D327 /* ViewModel */,
+				361DD50C2B2AB2C40069D327 /* View */,
 				368EF18B2B19C1E00050F43C /* OnboardingCell */,
-				368EF1802B19B99F0050F43C /* OnboardingViewController.swift */,
-				368EF1812B19B99F0050F43C /* OnboardingViewController.xib */,
-				368EF1872B19BF1A0050F43C /* OnboardingViewModel.swift */,
 			);
 			path = OnboardingView;
 			sourceTree = "<group>";
@@ -419,9 +622,8 @@
 		368EF1BF2B1D7D150050F43C /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
-				36958E432B1D7DB00009A895 /* LoginViewController.swift */,
-				36958E442B1D7DB00009A895 /* LoginViewController.xib */,
-				36958E522B1DC0D00009A895 /* LoginViewModel.swift */,
+				361DD4FF2B2AB1A40069D327 /* ViewModel */,
+				361DD4FE2B2AB19C0069D327 /* View */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -449,9 +651,8 @@
 		36958E562B1DCAE50009A895 /* RegisterView */ = {
 			isa = PBXGroup;
 			children = (
-				36958E572B1DCC110009A895 /* RegisterViewController.swift */,
-				36958E582B1DCC110009A895 /* RegisterViewController.xib */,
-				36C3547A2B1EB4600093BE93 /* RegisterViewModel.swift */,
+				361DD4FD2B2AB1140069D327 /* ViewModel */,
+				361DD4FC2B2AB10E0069D327 /* View */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";
@@ -459,9 +660,8 @@
 		36C354812B1ECCED0093BE93 /* VerificationView */ = {
 			isa = PBXGroup;
 			children = (
-				36C354822B1ECD3A0093BE93 /* VerificationViewController.swift */,
-				36C354832B1ECD3A0093BE93 /* VerificationViewController.xib */,
-				36C354862B1EF99C0093BE93 /* VerificationViewModel.swift */,
+				361DD4FB2B2AB0F60069D327 /* ViewModel */,
+				361DD4FA2B2AB0F00069D327 /* View */,
 			);
 			path = VerificationView;
 			sourceTree = "<group>";
@@ -469,9 +669,8 @@
 		36C3548D2B1F038B0093BE93 /* ForgotView */ = {
 			isa = PBXGroup;
 			children = (
-				36C3548E2B1F03AB0093BE93 /* ForgotViewController.swift */,
-				36C3548F2B1F03AB0093BE93 /* ForgotViewController.xib */,
-				36C354922B1F0A9E0093BE93 /* ForgotViewModel.swift */,
+				361DD5012B2AB1BE0069D327 /* ViewModel */,
+				361DD5002B2AB1B20069D327 /* View */,
 			);
 			path = ForgotView;
 			sourceTree = "<group>";
@@ -487,10 +686,9 @@
 		36C354972B1F1FD90093BE93 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				361DD50B2B2AB2AB0069D327 /* ViewModel */,
+				361DD50A2B2AB2A10069D327 /* View */,
 				36FAC3112B20322C0034CC74 /* TableCell */,
-				36C354982B1F1FED0093BE93 /* ProfileViewController.swift */,
-				36C354992B1F1FED0093BE93 /* ProfileViewController.xib */,
-				36FAC31A2B2035650034CC74 /* ProfileViewModel.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -507,9 +705,8 @@
 		36FAC31E2B2060B00034CC74 /* EditProfileView */ = {
 			isa = PBXGroup;
 			children = (
-				36FAC3202B2061210034CC74 /* EditProfileViewController.swift */,
-				36FAC3212B2061210034CC74 /* EditProfileViewController.xib */,
-				36FAC3292B215DBB0034CC74 /* EditProfileViewModel.swift */,
+				361DD5092B2AB2310069D327 /* ViewModel */,
+				361DD5082B2AB22B0069D327 /* View */,
 			);
 			path = EditProfileView;
 			sourceTree = "<group>";
@@ -537,10 +734,9 @@
 		36FAC3302B22A5710034CC74 /* SettingView */ = {
 			isa = PBXGroup;
 			children = (
+				361DD5072B2AB20E0069D327 /* ViewModel */,
+				361DD5062B2AB20A0069D327 /* View */,
 				36FAC3372B22A95C0034CC74 /* SettingCell */,
-				36FAC3312B22A5870034CC74 /* SettingViewController.swift */,
-				36FAC3322B22A5870034CC74 /* SettingViewController.xib */,
-				36FAC3352B22A7DA0034CC74 /* SettingViewModel.swift */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -557,9 +753,8 @@
 		36FAC33C2B22BAA70034CC74 /* ResetPasswordView */ = {
 			isa = PBXGroup;
 			children = (
-				36FAC33D2B22BACB0034CC74 /* ResetPasswordViewController.swift */,
-				36FAC33E2B22BACB0034CC74 /* ResetPasswordViewController.xib */,
-				36FAC3412B22C11C0034CC74 /* ResetPasswordViewModel.swift */,
+				361DD5052B2AB1F60069D327 /* ViewModel */,
+				361DD5042B2AB1F10069D327 /* View */,
 			);
 			path = ResetPasswordView;
 			sourceTree = "<group>";
@@ -567,10 +762,9 @@
 		36FAC3432B22F0F90034CC74 /* NotificationView */ = {
 			isa = PBXGroup;
 			children = (
+				361DD5032B2AB1E00069D327 /* ViewModel */,
+				361DD5022B2AB1D60069D327 /* View */,
 				36FAC3482B22F2410034CC74 /* NotificationCell */,
-				36FAC3442B22F16B0034CC74 /* NotificationViewController.swift */,
-				36FAC3452B22F16B0034CC74 /* NotificationViewController.xib */,
-				36FAC3502B22F5FC0034CC74 /* NotificationViewModel.swift */,
 			);
 			path = NotificationView;
 			sourceTree = "<group>";
@@ -615,10 +809,9 @@
 		36FAC3562B26A7F20034CC74 /* InsightView */ = {
 			isa = PBXGroup;
 			children = (
+				361DD4F92B2AB0D80069D327 /* ViewModel */,
+				361DD4F82B2AB0D20069D327 /* View */,
 				36FAC35D2B26FA540034CC74 /* TableCell */,
-				36FAC3572B26A81A0034CC74 /* InsightViewController.swift */,
-				36FAC3582B26A81A0034CC74 /* InsightViewController.xib */,
-				36FAC35B2B26E5BB0034CC74 /* InsightViewModel.swift */,
 			);
 			path = InsightView;
 			sourceTree = "<group>";
@@ -635,9 +828,8 @@
 		36FAC3622B27F6CE0034CC74 /* StoryView */ = {
 			isa = PBXGroup;
 			children = (
-				36FAC3632B27F6EB0034CC74 /* StoryViewController.swift */,
-				36FAC3642B27F6EB0034CC74 /* StoryViewController.xib */,
-				36FAC36A2B280E620034CC74 /* StoryViewModel.swift */,
+				361DD4F72B2AB0C30069D327 /* ViewModel */,
+				361DD4F62B2AB0B30069D327 /* View */,
 			);
 			path = StoryView;
 			sourceTree = "<group>";
