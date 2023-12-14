@@ -1,6 +1,0 @@
-framework module Pods_Fintech_FintechUITests {
-  umbrella header "Pods-Fintech-FintechUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
