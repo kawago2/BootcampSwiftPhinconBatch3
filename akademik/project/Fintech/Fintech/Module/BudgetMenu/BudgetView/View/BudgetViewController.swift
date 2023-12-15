@@ -32,7 +32,8 @@ extension BudgetViewController: CustomPopUpViewDelegate {
     }
 
     func buttonLogic() {
-        
+        let vc = CreateBudgetViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -17,6 +17,9 @@
 		361D9C9E2B1991E5005D7FA1 /* FintechUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361D9C9D2B1991E5005D7FA1 /* FintechUITestsLaunchTests.swift */; };
 		367B0EE22B2AFE8C003E0806 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EE02B2AFE8C003E0806 /* BudgetViewController.swift */; };
 		367B0EE32B2AFE8C003E0806 /* BudgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0EE12B2AFE8C003E0806 /* BudgetViewController.xib */; };
+		367B0EE92B2BE3E9003E0806 /* CreateBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EE72B2BE3E9003E0806 /* CreateBudgetViewController.swift */; };
+		367B0EEA2B2BE3E9003E0806 /* CreateBudgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0EE82B2BE3E9003E0806 /* CreateBudgetViewController.xib */; };
+		367B0EEC2B2C0B6C003E0806 /* ExtDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EEB2B2C0B6C003E0806 /* ExtDropDown.swift */; };
 		368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1712B1995CC0050F43C /* SplashViewController.swift */; };
 		368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1722B1995CC0050F43C /* SplashViewController.xib */; };
 		368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1762B1996B80050F43C /* Inter-Regular.ttf */; };
@@ -61,7 +64,7 @@
 		36FAC3172B2032770034CC74 /* CardButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3152B2032770034CC74 /* CardButtonCell.xib */; };
 		36FAC3192B2034FE0034CC74 /* ExtUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */; };
 		36FAC31B2B2035650034CC74 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC31A2B2035650034CC74 /* ProfileViewModel.swift */; };
-		36FAC31D2B2059080034CC74 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC31C2B2059080034CC74 /* Date.swift */; };
+		36FAC31D2B2059080034CC74 /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC31C2B2059080034CC74 /* ExtDate.swift */; };
 		36FAC3222B2061210034CC74 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3202B2061210034CC74 /* EditProfileViewController.swift */; };
 		36FAC3232B2061210034CC74 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FAC3212B2061210034CC74 /* EditProfileViewController.xib */; };
 		36FAC32A2B215DBB0034CC74 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FAC3292B215DBB0034CC74 /* EditProfileViewModel.swift */; };
@@ -130,6 +133,9 @@
 		361D9C9D2B1991E5005D7FA1 /* FintechUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		367B0EE02B2AFE8C003E0806 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		367B0EE12B2AFE8C003E0806 /* BudgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetViewController.xib; sourceTree = "<group>"; };
+		367B0EE72B2BE3E9003E0806 /* CreateBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBudgetViewController.swift; sourceTree = "<group>"; };
+		367B0EE82B2BE3E9003E0806 /* CreateBudgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateBudgetViewController.xib; sourceTree = "<group>"; };
+		367B0EEB2B2C0B6C003E0806 /* ExtDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDropDown.swift; sourceTree = "<group>"; };
 		368EF1712B1995CC0050F43C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		368EF1722B1995CC0050F43C /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		368EF1762B1996B80050F43C /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -174,7 +180,7 @@
 		36FAC3152B2032770034CC74 /* CardButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardButtonCell.xib; sourceTree = "<group>"; };
 		36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITableView.swift; sourceTree = "<group>"; };
 		36FAC31A2B2035650034CC74 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		36FAC31C2B2059080034CC74 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		36FAC31C2B2059080034CC74 /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
 		36FAC3202B2061210034CC74 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		36FAC3212B2061210034CC74 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		36FAC3292B215DBB0034CC74 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
@@ -506,6 +512,7 @@
 		367B0EDE2B2AFE73003E0806 /* BudgetMenu */ = {
 			isa = PBXGroup;
 			children = (
+				367B0EE52B2BE3BE003E0806 /* CreateView */,
 				367B0EDF2B2AFE7D003E0806 /* BudgetView */,
 			);
 			path = BudgetMenu;
@@ -524,6 +531,23 @@
 			children = (
 				367B0EE02B2AFE8C003E0806 /* BudgetViewController.swift */,
 				367B0EE12B2AFE8C003E0806 /* BudgetViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0EE52B2BE3BE003E0806 /* CreateView */ = {
+			isa = PBXGroup;
+			children = (
+				367B0EE62B2BE3CF003E0806 /* View */,
+			);
+			path = CreateView;
+			sourceTree = "<group>";
+		};
+		367B0EE62B2BE3CF003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				367B0EE72B2BE3E9003E0806 /* CreateBudgetViewController.swift */,
+				367B0EE82B2BE3E9003E0806 /* CreateBudgetViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -612,7 +636,8 @@
 				36958E542B1DC3220009A895 /* ExtUIViewController.swift */,
 				36FAC30A2B202C6C0034CC74 /* ExtUIImageVIew.swift */,
 				36FAC3182B2034FE0034CC74 /* ExtUITableView.swift */,
-				36FAC31C2B2059080034CC74 /* Date.swift */,
+				36FAC31C2B2059080034CC74 /* ExtDate.swift */,
+				367B0EEB2B2C0B6C003E0806 /* ExtDropDown.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1033,6 +1058,7 @@
 				36958E462B1D7DB00009A895 /* LoginViewController.xib in Resources */,
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
 				36FAC3402B22BACB0034CC74 /* ResetPasswordViewController.xib in Resources */,
+				367B0EEA2B2BE3E9003E0806 /* CreateBudgetViewController.xib in Resources */,
 				36FAC3232B2061210034CC74 /* EditProfileViewController.xib in Resources */,
 				36C354912B1F03AB0093BE93 /* ForgotViewController.xib in Resources */,
 				368EF17B2B1996E20050F43C /* Inter-SemiBold.ttf in Resources */,
@@ -1173,7 +1199,7 @@
 				36C354932B1F0A9E0093BE93 /* ForgotViewModel.swift in Sources */,
 				36FAC3362B22A7DA0034CC74 /* SettingViewModel.swift in Sources */,
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
-				36FAC31D2B2059080034CC74 /* Date.swift in Sources */,
+				36FAC31D2B2059080034CC74 /* ExtDate.swift in Sources */,
 				36FAC3592B26A81A0034CC74 /* InsightViewController.swift in Sources */,
 				36FAC3422B22C11C0034CC74 /* ResetPasswordViewModel.swift in Sources */,
 				36958E452B1D7DB00009A895 /* LoginViewController.swift in Sources */,
@@ -1182,6 +1208,7 @@
 				36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */,
 				36FAC3602B26FA880034CC74 /* InsightCell.swift in Sources */,
 				36C3549A2B1F1FED0093BE93 /* ProfileViewController.swift in Sources */,
+				367B0EEC2B2C0B6C003E0806 /* ExtDropDown.swift in Sources */,
 				36C354902B1F03AB0093BE93 /* ForgotViewController.swift in Sources */,
 				36FAC30B2B202C6C0034CC74 /* ExtUIImageVIew.swift in Sources */,
 				36FAC3192B2034FE0034CC74 /* ExtUITableView.swift in Sources */,
@@ -1204,6 +1231,7 @@
 				36958E532B1DC0D00009A895 /* LoginViewModel.swift in Sources */,
 				36FAC3652B27F6EB0034CC74 /* StoryViewController.swift in Sources */,
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
+				367B0EE92B2BE3E9003E0806 /* CreateBudgetViewController.swift in Sources */,
 				36FAC32E2B21AF710034CC74 /* LoadingViewController.swift in Sources */,
 				36FAC3532B2309A70034CC74 /* UserDefaultsManager.swift in Sources */,
 				36FAC33F2B22BACB0034CC74 /* ResetPasswordViewController.swift in Sources */,

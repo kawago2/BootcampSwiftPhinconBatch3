@@ -8,15 +8,14 @@ class InputField: UIView {
     @IBOutlet weak var titleField: UILabel!
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var obsecureButton: UIButton!
-    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var areaCodeLabel: UILabel!
     
     // MARK: - Properties
     let areaCodes = ["+1", "+44", "+61", "+81", "+86", "+62"]
     var valueSelected = ""
-    var dropDown = DropDown()
+    var dropDown: DropDown!
     var isObscured = false
-    
     private var selectedAreaCodeIndex = 0
     
     // MARK: - Initializer
@@ -36,29 +35,21 @@ class InputField: UIView {
         view.backgroundColor = .white
         view.roundCorners(corners: [.allCorners], cornerRadius: 20)
         obsecureButton.tintColor = UIColor(named: "Primary")
-        setupDropdown()
-        dropDown.setupUI(fontSize: 12)
+        areaCodeLabel.isHidden = true
         self.addSubview(view)
     }
     
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
          return false
      }
+}
 
-    // MARK: - Dropdown Setup
-    func setupDropdown() {
-        areaCodeLabel.isHidden = true
-        dropDown.anchorView = areaCodeLabel
-        dropDown.dataSource = areaCodes
-    
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            self.areaCodeLabel.text = "(\(item))"
-            self.valueSelected = item
-        }
-    }
+
+// MARK: - Templete Password Field OR Normal Field
+extension InputField {
     
     // MARK: - Field Configuration
-    func setup(title: String, placeholder: String, isSecure: Bool) {
+    func setup(title: String, placeholder: String, isSecure: Bool = false) {
         titleField.text = title
         inputText.placeholder = placeholder
         isObscured = isSecure
@@ -66,34 +57,17 @@ class InputField: UIView {
         updateSecureTextEntry()
         setupButton()
     }
-    
-    // MARK: - Phone Field Configuration
-    func setupPhoneField(initialAreaCodeIndex: String?) {
-        if let intial = initialAreaCodeIndex {
-            if let index = searchIndex(for: intial) {
-                dropDown.selectRow(index)
-                let initialAreaCode = areaCodes[index]
-                areaCodeLabel.text = "(\(initialAreaCode))"
-                valueSelected = initialAreaCode
-            }
-        } else {
-            dropDown.selectRow(selectedAreaCodeIndex)
-            let initialAreaCode = areaCodes[selectedAreaCodeIndex]
-            areaCodeLabel.text = "(\(initialAreaCode))"
-            valueSelected = initialAreaCode
-        }
 
-        
-        
-        areaCodeLabel.isHidden = false
+    // MARK: - Button Setup
+    func setupButton() {
+        obsecureButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
+ 
     }
     
-    func searchIndex(for searchString: String) -> Int? {
-        if let index = areaCodes.firstIndex(where: { $0.contains(searchString) }) {
-            return index
-        } else {
-            return nil
-        }
+    // MARK: - Button Tap
+    @objc func tapButton() {
+        isObscured.toggle()
+        updateSecureTextEntry()
     }
     
     // MARK: - Secure Text Entry Update
@@ -103,31 +77,58 @@ class InputField: UIView {
         obsecureButton.setImage(UIImage(systemName: iconName), for: .normal)
     }
     
-    // MARK: - Button Setup
-    func setupButton() {
-        obsecureButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
-        areaCodeLabel.isUserInteractionEnabled = true
-        let gestureField = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
-        areaCodeLabel.addGestureRecognizer(gestureField)
-    }
-    
-    // MARK: - Button Tap
-    @objc func tapButton() {
-        isObscured.toggle()
-        updateSecureTextEntry()
-    }
-    
-    // MARK: - Label Tap
-    @objc func labelTapped() {
-        dropDown.show()
+}
+
+
+// MARK: - Template Field with button
+extension InputField {
+    func setupWithLogo(title: String, placeholder: String, iconButton: String) {
+        titleField.text = title
+        inputText.placeholder = placeholder
+        obsecureButton.setImage(UIImage(named: iconButton) ?? UIImage(systemName: iconButton), for: .normal)
     }
 }
 
-extension DropDown {
-    func setupUI(fontSize : CGFloat) {
-        self.textFont = UIFont(name: FontName.medium, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
-        self.backgroundColor = UIColor.white
-        self.cornerRadius = 20
-        self.selectionBackgroundColor = UIColor.lightGray
+
+// MARK: - Templete Phone Field
+extension InputField {
+//    func searchIndex(for searchString: String) -> Int? {
+//        if let index = areaCodes.firstIndex(where: { $0.contains(searchString) }) {
+//            return index
+//        } else {
+//            return nil
+//        }
+//    }
+
+    func setupPhoneField(initialAreaCodeIndex: String = "") {
+        areaCodeLabel.isHidden = false
+        areaCodeLabel.text = initialAreaCodeIndex
     }
+    
+    
+//
+//    func setupButtonDD() {
+//        areaCodeLabel.isUserInteractionEnabled = true
+//        let gestureField = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
+//        areaCodeLabel.addGestureRecognizer(gestureField)
+//    }
+//
+//    // MARK: - Dropdown Setup
+//    func setupDropdownPhone() {
+//        dropDown = DropDown()
+//        areaCodeLabel.isHidden = true
+//        dropDown.anchorView = areaCodeLabel
+//        dropDown.dataSource = areaCodes
+//
+//        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+//            self.areaCodeLabel.text = "(\(item))"
+//            self.valueSelected = item
+//        }
+//    }
+
+//    // MARK: - Label Tap
+//    @objc func labelTapped() {
+//        dropDown.show()
+//    }
 }
+
