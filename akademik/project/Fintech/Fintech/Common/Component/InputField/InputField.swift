@@ -7,15 +7,14 @@ class InputField: UIView {
     // MARK: - Outlets
     @IBOutlet weak var titleField: UILabel!
     @IBOutlet weak var inputText: UITextField!
-    @IBOutlet weak var obsecureButton: UIButton!
+    @IBOutlet weak var iconButton: UIButton!
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var areaCodeLabel: UILabel!
+    @IBOutlet weak var leadingLabel: UILabel!
     
     // MARK: - Properties
-    let areaCodes = ["+1", "+44", "+61", "+81", "+86", "+62"]
     var valueSelected = ""
-    var dropDown: DropDown!
-    var isObscured = false
+    private var dropDown: DropDown!
+    private var isObscured = false
     private var selectedAreaCodeIndex = 0
     
     // MARK: - Initializer
@@ -34,8 +33,8 @@ class InputField: UIView {
         view.frame = self.bounds
         view.backgroundColor = .white
         view.roundCorners(corners: [.allCorners], cornerRadius: 20)
-        obsecureButton.tintColor = UIColor(named: "Primary")
-        areaCodeLabel.isHidden = true
+        iconButton.tintColor = UIColor(named: "Primary")
+        leadingLabel.isHidden = true
         self.addSubview(view)
     }
     
@@ -53,14 +52,14 @@ extension InputField {
         titleField.text = title
         inputText.placeholder = placeholder
         isObscured = isSecure
-        obsecureButton.isHidden = !isSecure
+        iconButton.isHidden = !isSecure
         updateSecureTextEntry()
         setupButton()
     }
 
     // MARK: - Button Setup
     func setupButton() {
-        obsecureButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
+        iconButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
  
     }
     
@@ -74,7 +73,7 @@ extension InputField {
     func updateSecureTextEntry() {
         inputText.isSecureTextEntry = isObscured
         let iconName = isObscured ? "eye.slash.fill" : "eye.fill"
-        obsecureButton.setImage(UIImage(systemName: iconName), for: .normal)
+        iconButton.setImage(UIImage(systemName: iconName), for: .normal)
     }
     
 }
@@ -82,53 +81,24 @@ extension InputField {
 
 // MARK: - Template Field with button
 extension InputField {
-    func setupWithLogo(title: String, placeholder: String, iconButton: String) {
+    func setupWithLogo(title: String, placeholder: String, icon: String) {
         titleField.text = title
         inputText.placeholder = placeholder
-        obsecureButton.setImage(UIImage(named: iconButton) ?? UIImage(systemName: iconButton), for: .normal)
+        iconButton.setImage(UIImage(named: icon) ?? UIImage(systemName: icon), for: .normal)
     }
 }
 
 
 // MARK: - Templete Phone Field
 extension InputField {
-//    func searchIndex(for searchString: String) -> Int? {
-//        if let index = areaCodes.firstIndex(where: { $0.contains(searchString) }) {
-//            return index
-//        } else {
-//            return nil
-//        }
-//    }
-
-    func setupPhoneField(initialAreaCodeIndex: String = "") {
-        areaCodeLabel.isHidden = false
-        areaCodeLabel.text = initialAreaCodeIndex
+    func setupPhoneField(initialAreaCodeIndex: String?) {
+        leadingLabel.isHidden = false
+        leadingLabel.isUserInteractionEnabled = true
+        leadingLabel.text = "(" + (initialAreaCodeIndex ?? "+62") + ")"
     }
     
-    
-//
-//    func setupButtonDD() {
-//        areaCodeLabel.isUserInteractionEnabled = true
-//        let gestureField = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
-//        areaCodeLabel.addGestureRecognizer(gestureField)
-//    }
-//
-//    // MARK: - Dropdown Setup
-//    func setupDropdownPhone() {
-//        dropDown = DropDown()
-//        areaCodeLabel.isHidden = true
-//        dropDown.anchorView = areaCodeLabel
-//        dropDown.dataSource = areaCodes
-//
-//        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-//            self.areaCodeLabel.text = "(\(item))"
-//            self.valueSelected = item
-//        }
-//    }
-
-//    // MARK: - Label Tap
-//    @objc func labelTapped() {
-//        dropDown.show()
-//    }
+    func setLeadingText(set value: String) {
+        leadingLabel.text = "(" + value + ")"
+        self.valueSelected = value
+    }
 }
-

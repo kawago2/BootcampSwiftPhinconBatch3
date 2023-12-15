@@ -1,14 +1,7 @@
-//
-//  CreateBudgetViewController.swift
-//  Fintech
-//
-//  Created by Phincon on 15/12/23.
-//
-
 import UIKit
 
 class CreateBudgetViewController: UIViewController {
-
+    
     @IBOutlet weak var nameBudgetField: InputField!
     @IBOutlet weak var cycleBudgetField: InputField!
     @IBOutlet weak var accountField: InputField!
@@ -22,8 +15,8 @@ class CreateBudgetViewController: UIViewController {
     
     private func setupUI() {
         nameBudgetField.setup(title: "Name of budget", placeholder: "Monthly Budget", isSecure: false)
-        cycleBudgetField.setupWithLogo(title: "Cycle of budget", placeholder: "Pick a start date", iconButton: CustomIcon.calender)
-        accountField.setupWithLogo(title: "Select an account", placeholder: "Select an account", iconButton: "chevron.down")
+        cycleBudgetField.setupWithLogo(title: "Cycle of budget", placeholder: "Pick a start date", icon: CustomIcon.calender)
+        accountField.setupWithLogo(title: "Select an account", placeholder: "Select an account", icon: "chevron.down")
         continueButton.roundCorners(corners: .allCorners, cornerRadius: 20)
     }
 

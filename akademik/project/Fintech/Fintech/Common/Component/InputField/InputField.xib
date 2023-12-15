@@ -22,10 +22,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InputField" customModule="Fintech" customModuleProvider="target">
             <connections>
-                <outlet property="areaCodeLabel" destination="wFy-yo-4Lv" id="bkO-c5-6ju"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="UgH-iH-wkv"/>
+                <outlet property="iconButton" destination="AGD-Eg-20t" id="I6g-og-QCh"/>
                 <outlet property="inputText" destination="Jdr-Se-dic" id="JVb-xT-z14"/>
-                <outlet property="obsecureButton" destination="AGD-Eg-20t" id="TbS-tk-5Aw"/>
+                <outlet property="leadingLabel" destination="wFy-yo-4Lv" id="9t7-c5-UGQ"/>
                 <outlet property="titleField" destination="ZGS-ou-ybO" id="fib-NS-az1"/>
             </connections>
         </placeholder>
