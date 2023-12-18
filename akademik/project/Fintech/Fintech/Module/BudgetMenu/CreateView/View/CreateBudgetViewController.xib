@@ -26,6 +26,7 @@
                 <outlet property="continueButton" destination="Y4h-yi-W5a" id="NHp-56-OAX"/>
                 <outlet property="cycleBudgetField" destination="W2T-hU-sQm" id="TbA-bI-tHO"/>
                 <outlet property="nameBudgetField" destination="E7z-g1-GCg" id="wQH-Zi-tbD"/>
+                <outlet property="navigatorBar" destination="528-Jv-IN3" id="8JZ-tE-L51"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,7 +35,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="528-Jv-IN3">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="528-Jv-IN3" customClass="NavigationBar" customModule="Fintech" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>

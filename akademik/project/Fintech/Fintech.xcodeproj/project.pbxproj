@@ -20,6 +20,7 @@
 		367B0EE92B2BE3E9003E0806 /* CreateBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EE72B2BE3E9003E0806 /* CreateBudgetViewController.swift */; };
 		367B0EEA2B2BE3E9003E0806 /* CreateBudgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0EE82B2BE3E9003E0806 /* CreateBudgetViewController.xib */; };
 		367B0EEC2B2C0B6C003E0806 /* ExtDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EEB2B2C0B6C003E0806 /* ExtDropDown.swift */; };
+		367B0EEE2B2C29EA003E0806 /* DropDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EED2B2C29EA003E0806 /* DropDownManager.swift */; };
 		368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1712B1995CC0050F43C /* SplashViewController.swift */; };
 		368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1722B1995CC0050F43C /* SplashViewController.xib */; };
 		368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1762B1996B80050F43C /* Inter-Regular.ttf */; };
@@ -136,6 +137,7 @@
 		367B0EE72B2BE3E9003E0806 /* CreateBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBudgetViewController.swift; sourceTree = "<group>"; };
 		367B0EE82B2BE3E9003E0806 /* CreateBudgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateBudgetViewController.xib; sourceTree = "<group>"; };
 		367B0EEB2B2C0B6C003E0806 /* ExtDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDropDown.swift; sourceTree = "<group>"; };
+		367B0EED2B2C29EA003E0806 /* DropDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownManager.swift; sourceTree = "<group>"; };
 		368EF1712B1995CC0050F43C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		368EF1722B1995CC0050F43C /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		368EF1762B1996B80050F43C /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				36FAC32B2B217DBE0034CC74 /* BaseViewController.swift */,
 				36FAC3522B2309A70034CC74 /* UserDefaultsManager.swift */,
 				36FAC3742B293FDB0034CC74 /* BaseTableViewCell.swift */,
+				367B0EED2B2C29EA003E0806 /* DropDownManager.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -1236,6 +1239,7 @@
 				36FAC3532B2309A70034CC74 /* UserDefaultsManager.swift in Sources */,
 				36FAC33F2B22BACB0034CC74 /* ResetPasswordViewController.swift in Sources */,
 				36958E592B1DCC110009A895 /* RegisterViewController.swift in Sources */,
+				367B0EEE2B2C29EA003E0806 /* DropDownManager.swift in Sources */,
 				36FAC36B2B280E620034CC74 /* StoryViewModel.swift in Sources */,
 				36FAC3732B2846490034CC74 /* CustomPopUpViewModel.swift in Sources */,
 				368EF1932B19DBEE0050F43C /* ExtUIColor.swift in Sources */,

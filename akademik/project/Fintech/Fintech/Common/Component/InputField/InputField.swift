@@ -32,7 +32,7 @@ class InputField: UIView {
         let view = self.loadNib()
         view.frame = self.bounds
         view.backgroundColor = .white
-        view.roundCorners(corners: [.allCorners], cornerRadius: 20)
+        contentView.roundCorners(corners: [.allCorners], cornerRadius: 20)
         iconButton.tintColor = UIColor(named: "Primary")
         leadingLabel.isHidden = true
         self.addSubview(view)
@@ -83,6 +83,7 @@ extension InputField {
 extension InputField {
     func setupWithLogo(title: String, placeholder: String, icon: String) {
         titleField.text = title
+        inputText.isUserInteractionEnabled = false
         inputText.placeholder = placeholder
         iconButton.setImage(UIImage(named: icon) ?? UIImage(systemName: icon), for: .normal)
     }
@@ -94,6 +95,7 @@ extension InputField {
     func setupPhoneField(initialAreaCodeIndex: String?) {
         leadingLabel.isHidden = false
         leadingLabel.isUserInteractionEnabled = true
+        
         leadingLabel.text = "(" + (initialAreaCodeIndex ?? "+62") + ")"
     }
     
