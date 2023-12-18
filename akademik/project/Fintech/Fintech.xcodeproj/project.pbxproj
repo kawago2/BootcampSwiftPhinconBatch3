@@ -21,6 +21,8 @@
 		367B0EEA2B2BE3E9003E0806 /* CreateBudgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0EE82B2BE3E9003E0806 /* CreateBudgetViewController.xib */; };
 		367B0EEC2B2C0B6C003E0806 /* ExtDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EEB2B2C0B6C003E0806 /* ExtDropDown.swift */; };
 		367B0EEE2B2C29EA003E0806 /* DropDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EED2B2C29EA003E0806 /* DropDownManager.swift */; };
+		367B0EF52B2FD569003E0806 /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EF32B2FD569003E0806 /* PickDateViewController.swift */; };
+		367B0EF62B2FD569003E0806 /* PickDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0EF42B2FD569003E0806 /* PickDateViewController.xib */; };
 		368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1712B1995CC0050F43C /* SplashViewController.swift */; };
 		368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1722B1995CC0050F43C /* SplashViewController.xib */; };
 		368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1762B1996B80050F43C /* Inter-Regular.ttf */; };
@@ -138,6 +140,8 @@
 		367B0EE82B2BE3E9003E0806 /* CreateBudgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateBudgetViewController.xib; sourceTree = "<group>"; };
 		367B0EEB2B2C0B6C003E0806 /* ExtDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDropDown.swift; sourceTree = "<group>"; };
 		367B0EED2B2C29EA003E0806 /* DropDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownManager.swift; sourceTree = "<group>"; };
+		367B0EF32B2FD569003E0806 /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
+		367B0EF42B2FD569003E0806 /* PickDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickDateViewController.xib; sourceTree = "<group>"; };
 		368EF1712B1995CC0050F43C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		368EF1722B1995CC0050F43C /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		368EF1762B1996B80050F43C /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -514,6 +518,7 @@
 		367B0EDE2B2AFE73003E0806 /* BudgetMenu */ = {
 			isa = PBXGroup;
 			children = (
+				367B0EEF2B2FD358003E0806 /* CalenderView */,
 				367B0EE52B2BE3BE003E0806 /* CreateView */,
 				367B0EDF2B2AFE7D003E0806 /* BudgetView */,
 			);
@@ -550,6 +555,23 @@
 			children = (
 				367B0EE72B2BE3E9003E0806 /* CreateBudgetViewController.swift */,
 				367B0EE82B2BE3E9003E0806 /* CreateBudgetViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0EEF2B2FD358003E0806 /* CalenderView */ = {
+			isa = PBXGroup;
+			children = (
+				367B0EF02B2FD3D4003E0806 /* View */,
+			);
+			path = CalenderView;
+			sourceTree = "<group>";
+		};
+		367B0EF02B2FD3D4003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				367B0EF32B2FD569003E0806 /* PickDateViewController.swift */,
+				367B0EF42B2FD569003E0806 /* PickDateViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1070,6 +1092,7 @@
 				36FAC3612B26FA880034CC74 /* InsightCell.xib in Resources */,
 				368EF1832B19B99F0050F43C /* OnboardingViewController.xib in Resources */,
 				36FAC3472B22F16B0034CC74 /* NotificationViewController.xib in Resources */,
+				367B0EF62B2FD569003E0806 /* PickDateViewController.xib in Resources */,
 				36958E4B2B1D7E210009A895 /* NavigationBar.xib in Resources */,
 				36958E512B1DBF5F0009A895 /* GoogleService-Info.plist in Resources */,
 			);
@@ -1209,6 +1232,7 @@
 				36FAC32C2B217DBE0034CC74 /* BaseViewController.swift in Sources */,
 				36C354872B1EF99C0093BE93 /* VerificationViewModel.swift in Sources */,
 				36958E492B1D7E140009A895 /* NavigationBar.swift in Sources */,
+				367B0EF52B2FD569003E0806 /* PickDateViewController.swift in Sources */,
 				36FAC3602B26FA880034CC74 /* InsightCell.swift in Sources */,
 				36C3549A2B1F1FED0093BE93 /* ProfileViewController.swift in Sources */,
 				367B0EEC2B2C0B6C003E0806 /* ExtDropDown.swift in Sources */,

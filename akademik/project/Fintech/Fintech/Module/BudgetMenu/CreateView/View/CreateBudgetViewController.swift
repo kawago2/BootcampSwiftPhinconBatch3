@@ -1,4 +1,5 @@
 import UIKit
+import FloatingPanel
 
 class CreateBudgetViewController: BaseViewController {
     
@@ -11,6 +12,7 @@ class CreateBudgetViewController: BaseViewController {
     
     // MARK: - Properties
     private var dropDownManager: DropDownManager!
+    private var fpc: FloatingPanelController!
     private let account = ["Bank BCA","Bank BNI"]
     
     // MARK: - Lifecycle
@@ -42,8 +44,26 @@ class CreateBudgetViewController: BaseViewController {
             self.backToView()
         }).disposed(by: disposeBag)
         
+        cycleBudgetField.iconButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else {return}
+            self.setupFP()
+        }).disposed(by: disposeBag)
     }
     
+    private func setupFP() {
+        fpc = FloatingPanelController(delegate: self)
+        fpc.layout = self
+        fpc.surfaceView.grabberHandle.isHidden = true
+        fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
+        fpc.isRemovalInteractionEnabled = true
+        fpc.surfaceView.appearance.cornerRadius = 20
+        let contentVC = PickDateViewController()
+        fpc.set(contentViewController: contentVC)
+        present(fpc, animated: true, completion: nil)
+    }
+}
+
+extension CreateBudgetViewController {
     private func dropDownLogic() {
         self.updateCornerRadius()
         if dropDownManager.isShow {
@@ -56,8 +76,6 @@ class CreateBudgetViewController: BaseViewController {
         }
     }
 
-    
-    
     private func updateCornerRadius() {
         if dropDownManager.isShow {
             accountField.contentView.roundCorners(corners: [.allCorners], cornerRadius: 20)
@@ -66,5 +84,39 @@ class CreateBudgetViewController: BaseViewController {
             accountField.contentView.roundCorners(corners: [.topRight, .topLeft], cornerRadius: 20)
         }
     }
-    
+}
+extension CreateBudgetViewController: FloatingPanelControllerDelegate, FloatingPanelLayout {
+
+    // Existing methods...
+
+    func floatingPanel(_ fpc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
+        return self
+    }
+
+    // MARK: - FloatingPanelLayout
+
+    var position: FloatingPanel.FloatingPanelPosition {
+        return .bottom
+    }
+
+    var initialState: FloatingPanel.FloatingPanelState {
+        return .full
+    }
+
+    var anchors: [FloatingPanel.FloatingPanelState: FloatingPanel.FloatingPanelLayoutAnchoring] {
+        return [
+            .half: FloatingPanelLayoutAnchor(fractionalInset: 0.5, edge: .bottom, referenceGuide: .safeArea),
+            .full: FloatingPanelLayoutAnchor(fractionalInset: 0.8, edge: .bottom, referenceGuide: .safeArea),
+            .tip: FloatingPanelLayoutAnchor(fractionalInset: 0.0, edge: .bottom, referenceGuide: .safeArea)
+        ]
+    }
+
+    func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
+        switch state {
+        case .full:
+            return 0.3
+        default:
+            return 0.1
+        }
+    }
 }
