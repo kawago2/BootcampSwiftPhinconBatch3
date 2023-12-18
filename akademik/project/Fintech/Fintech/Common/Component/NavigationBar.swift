@@ -12,7 +12,7 @@ class NavigationBar: UIView {
     @IBOutlet weak var trailingView: UIView!
     @IBOutlet weak var trailingButton: UIButton!
     
-    var titleNavigationBar = "Init" {
+    var titleNavigationBar = "" {
         didSet {
             centerLabel.text = titleNavigationBar
         }
