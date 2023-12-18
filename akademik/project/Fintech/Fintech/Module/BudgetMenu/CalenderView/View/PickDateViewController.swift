@@ -9,6 +9,8 @@ import UIKit
 import FSCalendar
 import RxSwift
 
+// MARK: - Frequency Enum
+
 enum Frequency: String, CaseIterable {
     case weekly = "Weekly"
     case monthly = "Monthly"
@@ -16,14 +18,20 @@ enum Frequency: String, CaseIterable {
 
 class PickDateViewController: BaseViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var frequencyField: InputField!
     @IBOutlet weak var calenderView: FSCalendar!
     @IBOutlet weak var setButton: UIButton!
     
+    // MARK: - Properties
+    
     private var dropDownManager: DropDownManager!
     private let frequency = ["Weekly", "Monthly"]
     private let initialSelectedIndex = 0
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +42,7 @@ class PickDateViewController: BaseViewController {
         initialSelect()
     }
     
+    // MARK: - UI Setup
     private func setupUI() {
         navigationBar.setupLeadingButton(icon: "chevron.down")
         frequencyField.setupWithLogo(title: "Frequency", placeholder: "", icon: "chevron.down")
@@ -44,12 +53,20 @@ class PickDateViewController: BaseViewController {
         calenderView.roundCorners(corners: .allCorners, cornerRadius: 30)
     }
     
+    // MARK: - Event Setup
+    
     private func setupEvent() {
-        frequencyField.iconButton.rx.tap.subscribe(onNext: {[weak self] in
-            guard let self = self else {return}
+        frequencyField.iconButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
             self.dropDownLogic()
         }).disposed(by: disposeBag)
     }
+    
+   
+}
+// MARK: - Setup FSCalendar Delegate and DataSource
+
+extension PickDateViewController: FSCalendarDelegate, FSCalendarDataSource {
     
     private func setupCalendar() {
         calenderView.delegate = self
@@ -61,6 +78,7 @@ class PickDateViewController: BaseViewController {
         calenderView.firstWeekday = 2
         calenderView.appearance.weekdayTextColor = .black
         calenderView.scrollEnabled = false
+        
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: calenderView.frame.width, height: 50))
         headerView.backgroundColor = .white
         
@@ -83,9 +101,6 @@ class PickDateViewController: BaseViewController {
         calenderView.calendarHeaderView.addSubview(headerView)
     }
     
-}
-
-extension PickDateViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         cleanSelectedDates()
         
@@ -109,6 +124,7 @@ extension PickDateViewController: FSCalendarDelegate, FSCalendarDataSource {
             calenderView.deselect($0)
         }
     }
+    
     func selectDates(from startDate: Date, to endDate: Date) {
         if startDate <= endDate {
             calenderView.select(startDate, scrollToDate: false)
@@ -123,6 +139,7 @@ extension PickDateViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
 }
 
+// MARK: - Setup DropDown
 
 extension PickDateViewController {
     private func initialSelect() {

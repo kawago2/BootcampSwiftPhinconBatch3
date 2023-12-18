@@ -33,23 +33,27 @@ class CreateBudgetViewController: BaseViewController {
         continueButton.roundCorners(corners: .allCorners, cornerRadius: 20)
     }
     
+    // MARK: - Event Setup
+    
     private func setupEvent() {
-        accountField.iconButton.rx.tap.subscribe(onNext: {[weak self] in
-            guard let self = self else {return}
+        accountField.iconButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
             self.dropDownLogic()
         }).disposed(by: disposeBag)
         
-        navigatorBar.leadingButton.rx.tap.subscribe(onNext: {[weak self] in
-            guard let self = self else {return}
+        navigatorBar.leadingButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
             self.backToView()
         }).disposed(by: disposeBag)
         
-        cycleBudgetField.iconButton.rx.tap.subscribe(onNext: {[weak self] in
-            guard let self = self else {return}
+        cycleBudgetField.iconButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
             self.setupFP()
         }).disposed(by: disposeBag)
     }
     
+    // MARK: - FloatingPanel Setup
+
     private func setupFP() {
         fpc = FloatingPanelController(delegate: self)
         fpc.layout = self
@@ -62,6 +66,8 @@ class CreateBudgetViewController: BaseViewController {
         present(fpc, animated: true, completion: nil)
     }
 }
+
+// MARK: - DropDown Setup
 
 extension CreateBudgetViewController {
     private func dropDownLogic() {
@@ -85,13 +91,9 @@ extension CreateBudgetViewController {
         }
     }
 }
+// MARK: - FloatingPanel Delegate and Layout
+
 extension CreateBudgetViewController: FloatingPanelControllerDelegate, FloatingPanelLayout {
-
-    func floatingPanel(_ fpc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
-        return self
-    }
-
-    // MARK: - FloatingPanelLayout
 
     var position: FloatingPanel.FloatingPanelPosition {
         return .bottom
