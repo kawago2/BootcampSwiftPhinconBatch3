@@ -29,6 +29,7 @@ class PickDateViewController: BaseViewController {
     
     private var dropDownManager: DropDownManager!
     private let frequency = ["Weekly", "Monthly"]
+    private var selectedDates: [Date] = []
     private let initialSelectedIndex = 0
     
     // MARK: - Lifecycle
@@ -51,6 +52,7 @@ class PickDateViewController: BaseViewController {
         dropDownManager.dropDown.selectedTextColor = UIColor(named: ColorName.primary) ?? .black
         setButton.roundCorners(corners: .allCorners, cornerRadius: 20)
         calenderView.roundCorners(corners: .allCorners, cornerRadius: 30)
+        calenderView.selectedDates
     }
     
     // MARK: - Event Setup
@@ -60,9 +62,15 @@ class PickDateViewController: BaseViewController {
             guard let self = self else { return }
             self.dropDownLogic()
         }).disposed(by: disposeBag)
+        
+        setButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            //            calenderView.selectedDates
+            self.dismiss(animated: true)
+        }).disposed(by: disposeBag)
     }
     
-   
+    
 }
 // MARK: - Setup FSCalendar Delegate and DataSource
 
@@ -109,9 +117,18 @@ extension PickDateViewController: FSCalendarDelegate, FSCalendarDataSource {
         case .weekly:
             if let endDate = Calendar.current.date(byAdding: .day, value: 6, to: selectedDate) {
                 selectDates(from: selectedDate, to: endDate)
+                let weekNumber = getWeekNumber(for: selectedDate)
+                print("Selected week number: \(weekNumber)")
+                
             }
+           
+            self.selectedDates = self.calenderView.selectedDates
+        
         case .monthly:
             calenderView.select(selectedDate)
+            if let selectedDate = self.calenderView.selectedDate {
+                self.selectedDates = [selectedDate]
+            }
         }
     }
     
@@ -136,6 +153,12 @@ extension PickDateViewController: FSCalendarDelegate, FSCalendarDataSource {
     private func getSelectedFrequency() -> Frequency {
         let selectedFrequencyText = frequencyField.inputText.text ?? ""
         return Frequency(rawValue: selectedFrequencyText) ?? .monthly
+    }
+    
+    private func getWeekNumber(for date: Date) -> Int {
+        let calendar = Calendar(identifier: .iso8601)
+        let weekOfYear = calendar.component(.weekOfMonth, from: date)
+        return weekOfYear
     }
 }
 
