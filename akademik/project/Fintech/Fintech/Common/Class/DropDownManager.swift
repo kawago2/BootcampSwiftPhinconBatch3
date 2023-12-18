@@ -6,10 +6,12 @@ class DropDownManager {
     // MARK: - Properties
     public var dropDown: DropDown
     public var isShow = false
+    private var selectedIndex: Int?
 
     // MARK: - Initialization
-    init() {
+    init(initialSelectedIndex: Int? = nil) {
         self.dropDown = DropDown()
+        self.selectedIndex = initialSelectedIndex
         setupDropDown()
     }
 
@@ -35,6 +37,10 @@ class DropDownManager {
         }
 
         if !isShow {
+            if let selectedIndex = selectedIndex {
+                dropDown.selectRow(selectedIndex)
+            }
+
             dropDown.show()
             isShow = true
         }
@@ -52,12 +58,16 @@ class DropDownManager {
     private func setupDropDown() {
         dropDown.dismissMode = .manual
         let fontSize = CGFloat(14)
-        // Replace FontName.medium with a valid font name or use a system font
-        dropDown.textFont = UIFont(name: "YourValidFontName", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
+        dropDown.textFont = UIFont(name: FontName.medium, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
         dropDown.backgroundColor = UIColor.white
         dropDown.cornerRadius = 20
+        
         dropDown.setupMaskedCorners([.layerMaxXMaxYCorner, .layerMinXMaxYCorner])
         dropDown.shadowColor = .clear
-        dropDown.selectionBackgroundColor = UIColor.lightGray
+        dropDown.selectionBackgroundColor = UIColor.clear
+        
+        dropDown.cellConfiguration = { (index, item) in
+            return "   \(item)"
+        }
     }
 }

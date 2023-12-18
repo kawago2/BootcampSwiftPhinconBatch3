@@ -12,6 +12,9 @@
         <array key="Inter-Bold.ttf">
             <string>Inter-Bold</string>
         </array>
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickDateViewController" customModule="Fintech" customModuleProvider="target">
@@ -19,6 +22,7 @@
                 <outlet property="calenderView" destination="YrO-PN-gcQ" id="VqS-Jv-VZ4"/>
                 <outlet property="frequencyField" destination="0mk-ig-Ssm" id="sxt-zR-PWO"/>
                 <outlet property="navigationBar" destination="Od2-y3-iR2" id="hgC-Rx-siF"/>
+                <outlet property="setButton" destination="IWI-dd-cyc" id="wRA-3Q-14t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -35,7 +39,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="wxm-ar-7Of">
-                    <rect key="frame" x="20" y="119" width="353" height="538.33333333333337"/>
+                    <rect key="frame" x="20" y="118.99999999999997" width="353" height="488.33333333333326"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit budget cycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D8-5w-d4A">
                             <rect key="frame" x="0.0" y="0.0" width="353" height="29.333333333333332"/>
@@ -51,14 +55,26 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YrO-PN-gcQ" customClass="FSCalendar">
-                            <rect key="frame" x="0.0" y="138.33333333333331" width="353" height="399.99999999999994"/>
+                            <rect key="frame" x="0.0" y="138.33333333333331" width="353" height="350"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="400" id="7hQ-71-cx6"/>
+                                <constraint firstAttribute="height" constant="350" id="7hQ-71-cx6"/>
                             </constraints>
                         </view>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWI-dd-cyc">
+                    <rect key="frame" x="20" y="663.33333333333337" width="353" height="56"/>
+                    <color key="backgroundColor" name="Primary"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="Jc5-X3-bKm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Set cycle">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Background2"/>
@@ -66,9 +82,12 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Od2-y3-iR2" secondAttribute="trailing" id="FQZ-qa-X96"/>
                 <constraint firstItem="wxm-ar-7Of" firstAttribute="top" secondItem="Od2-y3-iR2" secondAttribute="bottom" constant="16" id="Ka5-Hc-q6Z"/>
                 <constraint firstItem="Od2-y3-iR2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="NyR-9X-beS"/>
+                <constraint firstItem="IWI-dd-cyc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="OvE-KC-02R"/>
+                <constraint firstItem="IWI-dd-cyc" firstAttribute="top" secondItem="wxm-ar-7Of" secondAttribute="bottom" constant="56" id="QKM-ai-CIj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wxm-ar-7Of" secondAttribute="trailing" constant="20" id="Su1-BC-XhI"/>
                 <constraint firstItem="wxm-ar-7Of" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="aC7-ek-kep"/>
                 <constraint firstItem="Od2-y3-iR2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gZm-Ca-KoN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IWI-dd-cyc" secondAttribute="trailing" constant="20" id="hWd-j9-QOc"/>
             </constraints>
             <point key="canvasLocation" x="78.625954198473281" y="19.718309859154932"/>
         </view>
@@ -76,6 +95,9 @@
     <resources>
         <namedColor name="Background2">
             <color red="0.96078431372549022" green="0.96862745098039216" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary">
+            <color red="0.17254901960784313" green="0.078431372549019607" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -87,8 +87,6 @@ extension CreateBudgetViewController {
 }
 extension CreateBudgetViewController: FloatingPanelControllerDelegate, FloatingPanelLayout {
 
-    // Existing methods...
-
     func floatingPanel(_ fpc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
         return self
     }
