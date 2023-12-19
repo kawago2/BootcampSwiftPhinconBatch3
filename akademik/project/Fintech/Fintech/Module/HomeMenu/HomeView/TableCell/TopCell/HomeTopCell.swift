@@ -28,4 +28,14 @@ class HomeTopCell: UITableViewCell {
         searchButton.backgroundColor = UIColor(named: ColorName.background5)
     }
     
+    public func configureData(userData: UserData?) {
+        guard let userData = userData else { return }
+        
+        if let fullname = userData.name,
+           let firstName = fullname.split(separator: " ").first {
+            nameLabel.text = "Hello \(firstName)"
+        } else {
+            nameLabel.text = "Hello"
+        }
+    }
 }
