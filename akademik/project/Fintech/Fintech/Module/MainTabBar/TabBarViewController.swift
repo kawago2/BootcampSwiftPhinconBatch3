@@ -11,7 +11,7 @@ enum TabIndex: Int {
 class TabBarViewController: UITabBarController {
     
     // MARK: - Properties
-    let homeViewController = UIViewController()
+    let homeViewController = HomeViewController()
     let graphViewController = BudgetViewController()
     let chartViewController = InsightViewController()
     let profileViewController = ProfileViewController()
@@ -25,7 +25,7 @@ class TabBarViewController: UITabBarController {
         configureUITabBarItems()
         configureTab()
         configureAppearance()
-        setFirstFocus(index: TabIndex.graph.rawValue)
+        setFirstFocus(index: TabIndex.home.rawValue)
     }
     
     override func viewDidLayoutSubviews() {

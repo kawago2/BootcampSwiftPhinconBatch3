@@ -19,12 +19,15 @@ enum FontName {
 
 enum ColorName {
     static let primary = "Primary"
+    static let background1 = "Background1"
     static let background3 = "Background3"
     static let background4 = "Background4"
+    static let background5 = "Background5"
     static let sixColor = "SixColor"
     static let accent1 = "Accent1"
     static let accent2 = "Accent2"
     static let accent3 = "Accent3"
+    static let tint1 = "Tint1"
 }
 
 enum CustomIcon {

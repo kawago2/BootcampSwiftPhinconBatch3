@@ -24,6 +24,10 @@
 		367B0EF52B2FD569003E0806 /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EF32B2FD569003E0806 /* PickDateViewController.swift */; };
 		367B0EF62B2FD569003E0806 /* PickDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0EF42B2FD569003E0806 /* PickDateViewController.xib */; };
 		367B0EF82B312364003E0806 /* PickDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EF72B312364003E0806 /* PickDateViewModel.swift */; };
+		367B0EFE2B3128FB003E0806 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EFC2B3128FB003E0806 /* HomeViewController.swift */; };
+		367B0EFF2B3128FB003E0806 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0EFD2B3128FB003E0806 /* HomeViewController.xib */; };
+		367B0F042B312A02003E0806 /* HomeTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F022B312A02003E0806 /* HomeTopCell.swift */; };
+		367B0F052B312A02003E0806 /* HomeTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0F032B312A02003E0806 /* HomeTopCell.xib */; };
 		368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1712B1995CC0050F43C /* SplashViewController.swift */; };
 		368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1722B1995CC0050F43C /* SplashViewController.xib */; };
 		368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1762B1996B80050F43C /* Inter-Regular.ttf */; };
@@ -144,6 +148,10 @@
 		367B0EF32B2FD569003E0806 /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
 		367B0EF42B2FD569003E0806 /* PickDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickDateViewController.xib; sourceTree = "<group>"; };
 		367B0EF72B312364003E0806 /* PickDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewModel.swift; sourceTree = "<group>"; };
+		367B0EFC2B3128FB003E0806 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		367B0EFD2B3128FB003E0806 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		367B0F022B312A02003E0806 /* HomeTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopCell.swift; sourceTree = "<group>"; };
+		367B0F032B312A02003E0806 /* HomeTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTopCell.xib; sourceTree = "<group>"; };
 		368EF1712B1995CC0050F43C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		368EF1722B1995CC0050F43C /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		368EF1762B1996B80050F43C /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -579,6 +587,49 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		367B0EF92B3128C8003E0806 /* HomeMenu */ = {
+			isa = PBXGroup;
+			children = (
+				367B0EFA2B3128D7003E0806 /* HomeView */,
+			);
+			path = HomeMenu;
+			sourceTree = "<group>";
+		};
+		367B0EFA2B3128D7003E0806 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				367B0F002B3129DB003E0806 /* TableCell */,
+				367B0EFB2B3128E3003E0806 /* View */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		367B0EFB2B3128E3003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				367B0EFC2B3128FB003E0806 /* HomeViewController.swift */,
+				367B0EFD2B3128FB003E0806 /* HomeViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0F002B3129DB003E0806 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				367B0F012B3129E3003E0806 /* TopCell */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		367B0F012B3129E3003E0806 /* TopCell */ = {
+			isa = PBXGroup;
+			children = (
+				367B0F022B312A02003E0806 /* HomeTopCell.swift */,
+				367B0F032B312A02003E0806 /* HomeTopCell.xib */,
+			);
+			path = TopCell;
+			sourceTree = "<group>";
+		};
 		368EF16C2B1992E30050F43C /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -601,6 +652,7 @@
 		368EF16E2B1993050050F43C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				367B0EF92B3128C8003E0806 /* HomeMenu */,
 				367B0EDE2B2AFE73003E0806 /* BudgetMenu */,
 				36FAC3552B26A7E60034CC74 /* ChartMenu */,
 				36FAC3542B26A73A0034CC74 /* AuthMenu */,
@@ -1082,9 +1134,11 @@
 				367B0EE32B2AFE8C003E0806 /* BudgetViewController.xib in Resources */,
 				36FAC3712B2831C40034CC74 /* CustomPopUpViewController.xib in Resources */,
 				361D9C842B1991E5005D7FA1 /* Assets.xcassets in Resources */,
+				367B0EFF2B3128FB003E0806 /* HomeViewController.xib in Resources */,
 				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
 				36958E462B1D7DB00009A895 /* LoginViewController.xib in Resources */,
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
+				367B0F052B312A02003E0806 /* HomeTopCell.xib in Resources */,
 				36FAC3402B22BACB0034CC74 /* ResetPasswordViewController.xib in Resources */,
 				367B0EEA2B2BE3E9003E0806 /* CreateBudgetViewController.xib in Resources */,
 				36FAC3232B2061210034CC74 /* EditProfileViewController.xib in Resources */,
@@ -1247,6 +1301,7 @@
 				36C354842B1ECD3A0093BE93 /* VerificationViewController.swift in Sources */,
 				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,
 				36FAC31B2B2035650034CC74 /* ProfileViewModel.swift in Sources */,
+				367B0EFE2B3128FB003E0806 /* HomeViewController.swift in Sources */,
 				36FAC3162B2032770034CC74 /* CardButtonCell.swift in Sources */,
 				36FAC34B2B22F25D0034CC74 /* NotificationCell.swift in Sources */,
 				36FAC3332B22A5870034CC74 /* SettingViewController.swift in Sources */,
@@ -1260,6 +1315,7 @@
 				368EF18A2B19C1C20050F43C /* ExtUIViewColletion.swift in Sources */,
 				361D9C7B2B1991E3005D7FA1 /* AppDelegate.swift in Sources */,
 				36958E532B1DC0D00009A895 /* LoginViewModel.swift in Sources */,
+				367B0F042B312A02003E0806 /* HomeTopCell.swift in Sources */,
 				36FAC3652B27F6EB0034CC74 /* StoryViewController.swift in Sources */,
 				368EF1882B19BF1A0050F43C /* OnboardingViewModel.swift in Sources */,
 				367B0EE92B2BE3E9003E0806 /* CreateBudgetViewController.swift in Sources */,
