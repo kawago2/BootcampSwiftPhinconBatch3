@@ -69,8 +69,8 @@ extension CustomPopUpViewController {
     }
     
     func buttonLogic() {
-        delegate?.buttonLogic()
         dismisToParent()
+        delegate?.buttonLogic()
     }
 }
 

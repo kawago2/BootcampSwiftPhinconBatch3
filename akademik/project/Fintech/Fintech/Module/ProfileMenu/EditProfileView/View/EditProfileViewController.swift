@@ -3,7 +3,7 @@ import RxSwift
 import RxCocoa
 import RxGesture
 import Kingfisher
-
+import DropDown
 
 class EditProfileViewController: BaseViewController {
     
@@ -18,6 +18,8 @@ class EditProfileViewController: BaseViewController {
     @IBOutlet weak var phoneField: InputField!
     
     // MARK: - Properties
+    private let areaCodes = ["+1", "+44", "+61", "+81", "+86", "+62"]
+    private var dropDown: DropDown!
     private var userData = UserData()
     private var viewModel: EditProfileViewModel!
     private var imagePicker: UIImagePickerController!
@@ -26,10 +28,12 @@ class EditProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = EditProfileViewModel()
+        dropDown = DropDown()
         setupUI()
         setupEvent()
         initialData()
         setupPicker()
+        setupDropDown()
     }
     
     // MARK: - Initial Setup Methods
@@ -67,6 +71,8 @@ class EditProfileViewController: BaseViewController {
         phoneField.setup(title: "Phone Number", placeholder: "8123456", isSecure: false)
         phoneField.inputText.keyboardType = .numberPad
         phoneField.setupPhoneField(initialAreaCodeIndex: userData.areaCode)
+        
+        dropDown.setupUI(fontSize: 12)
     }
     
     private func setupPicker() {
@@ -74,6 +80,14 @@ class EditProfileViewController: BaseViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
+    }
+    
+    private func setupDropDown() {
+        dropDown.anchorView = phoneField.leadingLabel
+        dropDown.dataSource = areaCodes
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            self.phoneField.setLeadingText(set: item)
+        }
     }
     
     // MARK: - Event Handling
@@ -87,9 +101,15 @@ class EditProfileViewController: BaseViewController {
             guard let self = self else {return}
             self.saveTapped()
         }).disposed(by: disposeBag)
+        
         cameraButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else {return}
             self.cameraButtonTapped()
+        }).disposed(by: disposeBag)
+        
+        phoneField.leadingLabel.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
+            guard let self = self else {return}
+            self.dropDown.show()
         }).disposed(by: disposeBag)
     }
     
@@ -108,7 +128,6 @@ class EditProfileViewController: BaseViewController {
         guard self.phoneField.inputText.text != "" else {
             return self.showAlert(title: "Invalid", message: "Please input your phone number.")
         }
-        
         
         self.userData.name = self.nameField.inputText.text
         self.userData.phone = self.phoneField.inputText.text

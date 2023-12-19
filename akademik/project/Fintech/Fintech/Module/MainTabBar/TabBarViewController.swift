@@ -12,7 +12,7 @@ class TabBarViewController: UITabBarController {
     
     // MARK: - Properties
     let homeViewController = UIViewController()
-    let graphViewController = UIViewController()
+    let graphViewController = BudgetViewController()
     let chartViewController = InsightViewController()
     let profileViewController = ProfileViewController()
     
@@ -25,7 +25,7 @@ class TabBarViewController: UITabBarController {
         configureUITabBarItems()
         configureTab()
         configureAppearance()
-        setFirstFocus(index: TabIndex.chart.rawValue)
+        setFirstFocus(index: TabIndex.graph.rawValue)
     }
     
     override func viewDidLayoutSubviews() {

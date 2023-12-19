@@ -20,6 +20,8 @@ target 'Fintech' do
   # Package for Utils
   pod 'DropDown'
   pod 'Kingfisher'
+  pod 'FSCalendar'
+  pod 'FloatingPanel'
 
   target 'FintechTests' do
     inherit! :search_paths
