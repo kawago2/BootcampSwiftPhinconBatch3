@@ -56,6 +56,7 @@
 		367B0BB12AEB943F009E72D4 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BAF2AEB943F009E72D4 /* CollectionViewController.xib */; };
 		367B0BB52AEB9511009E72D4 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0BB32AEB9511009E72D4 /* DrinkCell.swift */; };
 		367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BB42AEB9511009E72D4 /* DrinkCell.xib */; };
+		367B0F162B317628003E0806 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 367B0F152B317628003E0806 /* GoogleService-Info.plist */; };
 		367BDE202B01C51C000D2965 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367BDE1F2B01C51C000D2965 /* DashboardViewModel.swift */; };
 		368D997A2AFB6F320072A977 /* FloatingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368D99782AFB6F320072A977 /* FloatingPanelView.swift */; };
 		368D997B2AFB6F320072A977 /* FloatingPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368D99792AFB6F320072A977 /* FloatingPanelView.xib */; };
@@ -191,6 +192,7 @@
 		367B0BAF2AEB943F009E72D4 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
 		367B0BB32AEB9511009E72D4 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
 		367B0BB42AEB9511009E72D4 /* DrinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkCell.xib; sourceTree = "<group>"; };
+		367B0F152B317628003E0806 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		367BDE1F2B01C51C000D2965 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		368D99782AFB6F320072A977 /* FloatingPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelView.swift; sourceTree = "<group>"; };
 		368D99792AFB6F320072A977 /* FloatingPanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingPanelView.xib; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				36FD06752AEA451C0088F415 /* Resource */,
 				36FD06762AEA45260088F415 /* Module */,
 				36019C002AE8EF1500C07588 /* Info.plist */,
+				367B0F152B317628003E0806 /* GoogleService-Info.plist */,
 			);
 			path = profileUI;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				36A4325A2AF336750070E770 /* TopCell.xib in Resources */,
 				36F741F02AF095A400CAB136 /* DashboardViewController.xib in Resources */,
 				369921BD2AF0E2EE00DC4601 /* InputField.xib in Resources */,
+				367B0F162B317628003E0806 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
