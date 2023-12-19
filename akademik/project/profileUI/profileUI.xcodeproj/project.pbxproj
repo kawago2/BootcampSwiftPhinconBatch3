@@ -531,6 +531,66 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		367B0F192B317A42003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36A4325E2AF3426E0070E770 /* SplashViewController.swift */,
+				36A4325F2AF3426E0070E770 /* SplashViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0F1A2B317A48003E0806 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				368FD7FA2B01D143006AEABE /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		367B0F1B2B317A85003E0806 /* AuthView */ = {
+			isa = PBXGroup;
+			children = (
+				36FE9FB92AF2177100EBF492 /* RegisterView */,
+				369921B32AF0CBBC00DC4601 /* LoginView */,
+			);
+			path = AuthView;
+			sourceTree = "<group>";
+		};
+		367B0F1C2B317AAE003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36FE9FBA2AF217AA00EBF492 /* RegisterViewController.swift */,
+				36FE9FBB2AF217AA00EBF492 /* RegisterViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0F1D2B317AB4003E0806 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				368FD7FE2B01E1EE006AEABE /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		367B0F1E2B317AC2003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				369921B52AF0CBE200DC4601 /* LoginViewController.swift */,
+				369921B62AF0CBE200DC4601 /* LoginViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0F1F2B317ACC003E0806 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				368FD7FC2B01DCF0006AEABE /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		368D99772AFB6F120072A977 /* FloatingPanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,9 +612,8 @@
 		369921B32AF0CBBC00DC4601 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
-				369921B52AF0CBE200DC4601 /* LoginViewController.swift */,
-				369921B62AF0CBE200DC4601 /* LoginViewController.xib */,
-				368FD7FC2B01DCF0006AEABE /* LoginViewModel.swift */,
+				367B0F1F2B317ACC003E0806 /* ViewModel */,
+				367B0F1E2B317AC2003E0806 /* View */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -617,9 +676,8 @@
 		36A4325B2AF340AF0070E770 /* SplashView */ = {
 			isa = PBXGroup;
 			children = (
-				36A4325E2AF3426E0070E770 /* SplashViewController.swift */,
-				36A4325F2AF3426E0070E770 /* SplashViewController.xib */,
-				368FD7FA2B01D143006AEABE /* SplashViewModel.swift */,
+				367B0F1A2B317A48003E0806 /* ViewModel */,
+				367B0F192B317A42003E0806 /* View */,
 			);
 			path = SplashView;
 			sourceTree = "<group>";
@@ -687,10 +745,9 @@
 			isa = PBXGroup;
 			children = (
 				36A4325B2AF340AF0070E770 /* SplashView */,
+				367B0F1B2B317A85003E0806 /* AuthView */,
 				366FF0912AEFB09900F74907 /* MainTabBar */,
 				365BA6DD2AEBB52C00CF478C /* Models */,
-				369921B32AF0CBBC00DC4601 /* LoginView */,
-				36FE9FB92AF2177100EBF492 /* RegisterView */,
 				360B3A382AEFB17000FD98BB /* DashboardView */,
 				367B0BA22AEB61B7009E72D4 /* DetailsView */,
 				360B3A402AEFB57400FD98BB /* ProfileView */,
@@ -784,9 +841,8 @@
 		36FE9FB92AF2177100EBF492 /* RegisterView */ = {
 			isa = PBXGroup;
 			children = (
-				36FE9FBA2AF217AA00EBF492 /* RegisterViewController.swift */,
-				36FE9FBB2AF217AA00EBF492 /* RegisterViewController.xib */,
-				368FD7FE2B01E1EE006AEABE /* RegisterViewModel.swift */,
+				367B0F1D2B317AB4003E0806 /* ViewModel */,
+				367B0F1C2B317AAE003E0806 /* View */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";

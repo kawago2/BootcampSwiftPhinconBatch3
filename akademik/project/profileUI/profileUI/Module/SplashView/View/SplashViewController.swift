@@ -54,6 +54,7 @@ class SplashViewController: BaseViewController {
             self.navigateToNextPage()
         }).disposed(by: disposeBag)
     }
+    
     // MARK: - Navigation
     
      private func navigateToNextPage() {

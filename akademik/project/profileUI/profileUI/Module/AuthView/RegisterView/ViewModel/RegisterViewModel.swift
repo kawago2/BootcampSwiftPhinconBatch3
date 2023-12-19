@@ -2,9 +2,14 @@ import UIKit
 import FirebaseAuth
 
 class RegisterViewModel {
+    
+    // MARK: - Closures
+    
     var onRegistrationSuccess: (() -> Void)?
     var onRegistrationFailure: ((String) -> Void)?
 
+    // MARK: - User Registration
+    
     func registerUser(email: String?, password: String?) {
         guard let email = email, let password = password else {
             onRegistrationFailure?("Invalid email or password.")
