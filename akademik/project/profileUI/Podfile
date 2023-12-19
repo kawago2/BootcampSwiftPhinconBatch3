@@ -4,12 +4,20 @@
 target 'profileUI' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  
+  # For Utils
   pod 'Alamofire'
   pod 'Kingfisher'
-  pod 'RxSwift'
-  pod 'RxCocoa'
   pod 'FloatingPanel'
   pod 'lottie-ios'
+  pod 'StepSlider'
+  
+  # For Rx
+  pod 'RxSwift'
+  pod 'RxCocoa'
+
+  # For Firebase
+  pod 'FirebaseAuth'
   
   # Pods for profileUI
 

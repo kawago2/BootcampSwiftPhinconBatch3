@@ -71,12 +71,10 @@
 		368FD8052B01F761006AEABE /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FD8042B01F761006AEABE /* ProfileViewModel.swift */; };
 		368FD8072B01FC51006AEABE /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FD8062B01FC51006AEABE /* EditProfileViewModel.swift */; };
 		368FD8092B02002F006AEABE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368FD8082B02002F006AEABE /* AuthService.swift */; };
-		369921B22AF0B24400DC4601 /* StepSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 369921B12AF0B24400DC4601 /* StepSlider */; };
 		369921B72AF0CBE200DC4601 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921B52AF0CBE200DC4601 /* LoginViewController.swift */; };
 		369921B82AF0CBE200DC4601 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921B62AF0CBE200DC4601 /* LoginViewController.xib */; };
 		369921BB2AF0E2E200DC4601 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369921BA2AF0E2E200DC4601 /* InputField.swift */; };
 		369921BD2AF0E2EE00DC4601 /* InputField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369921BC2AF0E2EE00DC4601 /* InputField.xib */; };
-		36A432352AF21DA70070E770 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36A432342AF21DA70070E770 /* GoogleService-Info.plist */; };
 		36A4324A2AF230530070E770 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432482AF2302B0070E770 /* Poppins-Black.ttf */; };
 		36A4324B2AF230590070E770 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432442AF2302B0070E770 /* Poppins-BlackItalic.ttf */; };
 		36A4324C2AF2305C0070E770 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432412AF2302B0070E770 /* Poppins-Bold.ttf */; };
@@ -113,7 +111,6 @@
 		36F741FE2AF0A3A500CAB136 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F741FC2AF0A3A500CAB136 /* SettingViewController.xib */; };
 		36FD06712AEA445A0088F415 /* TabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD066F2AEA445A0088F415 /* TabelViewController.swift */; };
 		36FD06722AEA445A0088F415 /* TabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FD06702AEA445A0088F415 /* TabelViewController.xib */; };
-		36FE9FB82AF214EA00EBF492 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 36FE9FB72AF214EA00EBF492 /* FirebaseAuth */; };
 		36FE9FBC2AF217AA00EBF492 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FE9FBA2AF217AA00EBF492 /* RegisterViewController.swift */; };
 		36FE9FBD2AF217AA00EBF492 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FE9FBB2AF217AA00EBF492 /* RegisterViewController.xib */; };
 		888FDA586574E30D86664339 /* Pods_profileUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFF387538C630CFB282761 /* Pods_profileUITests.framework */; };
@@ -215,7 +212,6 @@
 		369921B62AF0CBE200DC4601 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		369921BA2AF0E2E200DC4601 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		369921BC2AF0E2EE00DC4601 /* InputField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputField.xib; sourceTree = "<group>"; };
-		36A432342AF21DA70070E770 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36A432382AF2302A0070E770 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
 		36A432392AF2302B0070E770 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		36A4323A2AF2302B0070E770 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
@@ -276,8 +272,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				369921B22AF0B24400DC4601 /* StepSlider in Frameworks */,
-				36FE9FB82AF214EA00EBF492 /* FirebaseAuth in Frameworks */,
 				D0F53AA830DE866FF5C4E6E2 /* Pods_profileUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,7 +337,6 @@
 				36FD06752AEA451C0088F415 /* Resource */,
 				36FD06762AEA45260088F415 /* Module */,
 				36019C002AE8EF1500C07588 /* Info.plist */,
-				36A432342AF21DA70070E770 /* GoogleService-Info.plist */,
 			);
 			path = profileUI;
 			sourceTree = "<group>";
@@ -838,8 +831,6 @@
 			);
 			name = profileUI;
 			packageProductDependencies = (
-				369921B12AF0B24400DC4601 /* StepSlider */,
-				36FE9FB72AF214EA00EBF492 /* FirebaseAuth */,
 			);
 			productName = profileUI;
 			productReference = 36019BEF2AE8EF1400C07588 /* profileUI.app */;
@@ -919,8 +910,6 @@
 			);
 			mainGroup = 36019BE62AE8EF1400C07588;
 			packageReferences = (
-				369921B02AF0B24400DC4601 /* XCRemoteSwiftPackageReference "StepSlider" */,
-				36FE9FB62AF214EA00EBF492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 36019BF02AE8EF1400C07588 /* Products */;
 			projectDirPath = "";
@@ -976,7 +965,6 @@
 				36A432702AF3A31A0070E770 /* BottomCell.xib in Resources */,
 				36A432502AF23D860070E770 /* Poppins-Thin.ttf in Resources */,
 				367B0BA12AEB61B1009E72D4 /* DetailsViewController.xib in Resources */,
-				36A432352AF21DA70070E770 /* GoogleService-Info.plist in Resources */,
 				36A432512AF23D880070E770 /* Poppins-ThinItalic.ttf in Resources */,
 				36A4325A2AF336750070E770 /* TopCell.xib in Resources */,
 				36F741F02AF095A400CAB136 /* DashboardViewController.xib in Resources */,
@@ -1514,38 +1502,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		369921B02AF0B24400DC4601 /* XCRemoteSwiftPackageReference "StepSlider" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/spromicky/StepSlider";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		36FE9FB62AF214EA00EBF492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		369921B12AF0B24400DC4601 /* StepSlider */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 369921B02AF0B24400DC4601 /* XCRemoteSwiftPackageReference "StepSlider" */;
-			productName = StepSlider;
-		};
-		36FE9FB72AF214EA00EBF492 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 36FE9FB62AF214EA00EBF492 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		36354F812AF9CCEF00EBDD90 /* DataModel.xcdatamodeld */ = {
