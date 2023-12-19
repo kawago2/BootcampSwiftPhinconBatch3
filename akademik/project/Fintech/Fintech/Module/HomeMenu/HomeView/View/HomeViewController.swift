@@ -25,25 +25,41 @@ class HomeViewController: BaseViewController {
     private func setupCell() {
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         tableView.registerCellWithNib(HomeTopCell.self)
-        
+        tableView.registerCellWithNib(BalanceCell.self)
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRows(section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        return viewModel.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HomeTopCell
-        cell.configureData(userData: userData)
-        return cell
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as HomeTopCell
+                cell.configureData(userData: userData)
+                return cell
+            case 1:
+                let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as BalanceCell
+                return cell
+            default:
+                break
+            }
+        default:
+            break
+        }
+        return UITableViewCell()
+      
     }
     
     

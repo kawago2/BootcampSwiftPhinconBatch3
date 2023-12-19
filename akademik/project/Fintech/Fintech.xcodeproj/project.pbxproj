@@ -29,6 +29,8 @@
 		367B0F042B312A02003E0806 /* HomeTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F022B312A02003E0806 /* HomeTopCell.swift */; };
 		367B0F052B312A02003E0806 /* HomeTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0F032B312A02003E0806 /* HomeTopCell.xib */; };
 		367B0F072B3133BF003E0806 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F062B3133BF003E0806 /* HomeViewModel.swift */; };
+		367B0F0C2B313DF2003E0806 /* BalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F0A2B313DF2003E0806 /* BalanceCell.swift */; };
+		367B0F0D2B313DF2003E0806 /* BalanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0F0B2B313DF2003E0806 /* BalanceCell.xib */; };
 		368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1712B1995CC0050F43C /* SplashViewController.swift */; };
 		368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1722B1995CC0050F43C /* SplashViewController.xib */; };
 		368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1762B1996B80050F43C /* Inter-Regular.ttf */; };
@@ -154,6 +156,8 @@
 		367B0F022B312A02003E0806 /* HomeTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopCell.swift; sourceTree = "<group>"; };
 		367B0F032B312A02003E0806 /* HomeTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTopCell.xib; sourceTree = "<group>"; };
 		367B0F062B3133BF003E0806 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		367B0F0A2B313DF2003E0806 /* BalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceCell.swift; sourceTree = "<group>"; };
+		367B0F0B2B313DF2003E0806 /* BalanceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalanceCell.xib; sourceTree = "<group>"; };
 		368EF1712B1995CC0050F43C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		368EF1722B1995CC0050F43C /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		368EF1762B1996B80050F43C /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -619,6 +623,7 @@
 		367B0F002B3129DB003E0806 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				367B0F092B313DD3003E0806 /* BalanceCell */,
 				367B0F012B3129E3003E0806 /* TopCell */,
 			);
 			path = TableCell;
@@ -639,6 +644,15 @@
 				367B0F062B3133BF003E0806 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		367B0F092B313DD3003E0806 /* BalanceCell */ = {
+			isa = PBXGroup;
+			children = (
+				367B0F0A2B313DF2003E0806 /* BalanceCell.swift */,
+				367B0F0B2B313DF2003E0806 /* BalanceCell.xib */,
+			);
+			path = BalanceCell;
 			sourceTree = "<group>";
 		};
 		368EF16C2B1992E30050F43C /* App */ = {
@@ -1148,6 +1162,7 @@
 				367B0EFF2B3128FB003E0806 /* HomeViewController.xib in Resources */,
 				368EF1912B19D44D0050F43C /* Inter-Bold.ttf in Resources */,
 				36958E462B1D7DB00009A895 /* LoginViewController.xib in Resources */,
+				367B0F0D2B313DF2003E0806 /* BalanceCell.xib in Resources */,
 				368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */,
 				367B0F052B312A02003E0806 /* HomeTopCell.xib in Resources */,
 				36FAC3402B22BACB0034CC74 /* ResetPasswordViewController.xib in Resources */,
@@ -1308,6 +1323,7 @@
 				36C354902B1F03AB0093BE93 /* ForgotViewController.swift in Sources */,
 				36FAC30B2B202C6C0034CC74 /* ExtUIImageVIew.swift in Sources */,
 				36FAC3192B2034FE0034CC74 /* ExtUITableView.swift in Sources */,
+				367B0F0C2B313DF2003E0806 /* BalanceCell.swift in Sources */,
 				36FAC3222B2061210034CC74 /* EditProfileViewController.swift in Sources */,
 				36C354842B1ECD3A0093BE93 /* VerificationViewController.swift in Sources */,
 				36958E552B1DC3220009A895 /* ExtUIViewController.swift in Sources */,

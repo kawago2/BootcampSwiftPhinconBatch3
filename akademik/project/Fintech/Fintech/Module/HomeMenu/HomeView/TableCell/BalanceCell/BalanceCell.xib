@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BalanceCell" customModule="Fintech" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="351"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="351"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LPk-Me-Vb7">
+                        <rect key="frame" x="20" y="0.0" width="280" height="335"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_home" translatesAutoresizingMaskIntoConstraints="NO" id="Zph-KT-4gn">
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="335"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="Background5"/>
+                        <constraints>
+                            <constraint firstItem="Zph-KT-4gn" firstAttribute="leading" secondItem="LPk-Me-Vb7" secondAttribute="leading" id="HYf-ii-VpM"/>
+                            <constraint firstAttribute="bottom" secondItem="Zph-KT-4gn" secondAttribute="bottom" id="kMh-4V-nL8"/>
+                            <constraint firstItem="Zph-KT-4gn" firstAttribute="top" secondItem="LPk-Me-Vb7" secondAttribute="top" id="qjR-5s-nIY"/>
+                            <constraint firstAttribute="trailing" secondItem="Zph-KT-4gn" secondAttribute="trailing" id="tKj-Wv-Ed8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LPk-Me-Vb7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="3nn-E3-WtR"/>
+                    <constraint firstAttribute="trailing" secondItem="LPk-Me-Vb7" secondAttribute="trailing" constant="20" id="5LZ-n4-NoP"/>
+                    <constraint firstAttribute="bottom" secondItem="LPk-Me-Vb7" secondAttribute="bottom" constant="16" id="cOv-qr-QIB"/>
+                    <constraint firstItem="LPk-Me-Vb7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xke-Et-qmA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="cardBackground" destination="Zph-KT-4gn" id="YSE-c7-rKW"/>
+                <outlet property="cardView" destination="LPk-Me-Vb7" id="waD-Mf-wCm"/>
+            </connections>
+            <point key="canvasLocation" x="65.648854961832058" y="19.366197183098592"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="background_home" width="335" height="335"/>
+        <namedColor name="Background5">
+            <color red="0.14509803921568629" green="0.066666666666666666" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
