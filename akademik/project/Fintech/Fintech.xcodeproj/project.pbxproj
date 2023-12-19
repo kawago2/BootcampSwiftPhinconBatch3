@@ -23,6 +23,7 @@
 		367B0EEE2B2C29EA003E0806 /* DropDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EED2B2C29EA003E0806 /* DropDownManager.swift */; };
 		367B0EF52B2FD569003E0806 /* PickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EF32B2FD569003E0806 /* PickDateViewController.swift */; };
 		367B0EF62B2FD569003E0806 /* PickDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0EF42B2FD569003E0806 /* PickDateViewController.xib */; };
+		367B0EF82B312364003E0806 /* PickDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0EF72B312364003E0806 /* PickDateViewModel.swift */; };
 		368EF1732B1995CC0050F43C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368EF1712B1995CC0050F43C /* SplashViewController.swift */; };
 		368EF1742B1995CC0050F43C /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1722B1995CC0050F43C /* SplashViewController.xib */; };
 		368EF1772B1996B80050F43C /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 368EF1762B1996B80050F43C /* Inter-Regular.ttf */; };
@@ -142,6 +143,7 @@
 		367B0EED2B2C29EA003E0806 /* DropDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownManager.swift; sourceTree = "<group>"; };
 		367B0EF32B2FD569003E0806 /* PickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewController.swift; sourceTree = "<group>"; };
 		367B0EF42B2FD569003E0806 /* PickDateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickDateViewController.xib; sourceTree = "<group>"; };
+		367B0EF72B312364003E0806 /* PickDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDateViewModel.swift; sourceTree = "<group>"; };
 		368EF1712B1995CC0050F43C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		368EF1722B1995CC0050F43C /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		368EF1762B1996B80050F43C /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 			children = (
 				367B0EF32B2FD569003E0806 /* PickDateViewController.swift */,
 				367B0EF42B2FD569003E0806 /* PickDateViewController.xib */,
+				367B0EF72B312364003E0806 /* PickDateViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1225,6 +1228,7 @@
 				36C354932B1F0A9E0093BE93 /* ForgotViewModel.swift in Sources */,
 				36FAC3362B22A7DA0034CC74 /* SettingViewModel.swift in Sources */,
 				368EF1962B19E1D80050F43C /* FormView.swift in Sources */,
+				367B0EF82B312364003E0806 /* PickDateViewModel.swift in Sources */,
 				36FAC31D2B2059080034CC74 /* ExtDate.swift in Sources */,
 				36FAC3592B26A81A0034CC74 /* InsightViewController.swift in Sources */,
 				36FAC3422B22C11C0034CC74 /* ResetPasswordViewModel.swift in Sources */,

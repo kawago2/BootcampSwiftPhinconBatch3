@@ -31,6 +31,7 @@ class CreateBudgetViewController: BaseViewController {
         cycleBudgetField.setupWithLogo(title: "Cycle of budget", placeholder: "Pick a start date", icon: CustomIcon.calender)
         accountField.setupWithLogo(title: "Select an account", placeholder: "Select an account", icon: "chevron.down")
         continueButton.roundCorners(corners: .allCorners, cornerRadius: 20)
+        cycleBudgetField.inputText.textColor = UIColor(named: ColorName.primary)
     }
     
     // MARK: - Event Setup
@@ -62,6 +63,7 @@ class CreateBudgetViewController: BaseViewController {
         fpc.isRemovalInteractionEnabled = true
         fpc.surfaceView.appearance.cornerRadius = 20
         let contentVC = PickDateViewController()
+        contentVC.delegate = self
         fpc.set(contentViewController: contentVC)
         present(fpc, animated: true, completion: nil)
     }
@@ -118,5 +120,41 @@ extension CreateBudgetViewController: FloatingPanelControllerDelegate, FloatingP
         default:
             return 0.1
         }
+    }
+}
+
+extension CreateBudgetViewController: PickDateViewDelegate {
+    func passData(selectedDates: [Date]) {
+        if selectedDates.count == 1 {
+            cycleBudgetField.inputText.text = "Monthly"
+            return
+        }
+        guard let firstSelectedDate = selectedDates.first else {
+            cycleBudgetField.inputText.text = "No date selected"
+            return
+        }
+
+        let weekNumber = getWeekNumber(for: firstSelectedDate)
+        var setString = ""
+
+        switch weekNumber {
+        case 0:
+            setString = "Weekly on 1st"
+        case 1:
+            setString = "Weekly on 2nd"
+        case 2:
+            setString = "Weekly on 3rd"
+        default:
+            setString = "Weekly on \(weekNumber+1)th"
+        }
+
+        cycleBudgetField.inputText.text = setString
+    }
+
+    
+    private func getWeekNumber(for date: Date) -> Int {
+        let calendar = Calendar(identifier: .iso8601)
+        let weekOfYear = calendar.component(.weekOfMonth, from: date)
+        return weekOfYear
     }
 }
