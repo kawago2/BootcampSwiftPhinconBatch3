@@ -85,7 +85,6 @@
 		36A432512AF23D880070E770 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432382AF2302A0070E770 /* Poppins-ThinItalic.ttf */; };
 		36A432522AF23DA50070E770 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A4323A2AF2302B0070E770 /* Poppins-Italic.ttf */; };
 		36A432532AF23DA80070E770 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 36A432462AF2302B0070E770 /* Poppins-Medium.ttf */; };
-		36A432552AF32B070070E770 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A432542AF32B070070E770 /* UserModel.swift */; };
 		36A432592AF336750070E770 /* TopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A432572AF336750070E770 /* TopCell.swift */; };
 		36A4325A2AF336750070E770 /* TopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A432582AF336750070E770 /* TopCell.xib */; };
 		36A432602AF3426E0070E770 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A4325E2AF3426E0070E770 /* SplashViewController.swift */; };
@@ -230,7 +229,6 @@
 		36A432472AF2302B0070E770 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
 		36A432482AF2302B0070E770 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		36A432492AF2302B0070E770 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		36A432542AF32B070070E770 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		36A432572AF336750070E770 /* TopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCell.swift; sourceTree = "<group>"; };
 		36A432582AF336750070E770 /* TopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopCell.xib; sourceTree = "<group>"; };
 		36A4325E2AF3426E0070E770 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -382,9 +380,8 @@
 		360B3A402AEFB57400FD98BB /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
-				360B3A412AEFB5B000FD98BB /* ProfileViewController.swift */,
-				360B3A422AEFB5B000FD98BB /* ProfileViewController.xib */,
-				368FD8042B01F761006AEABE /* ProfileViewModel.swift */,
+				367B0F222B3187EA003E0806 /* ViewModel */,
+				367B0F212B3187E5003E0806 /* View */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -439,7 +436,6 @@
 		365BA6DD2AEBB52C00CF478C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				36A432542AF32B070070E770 /* UserModel.swift */,
 				36A4326B2AF38B6B0070E770 /* ItemModel.swift */,
 				36354F862AF9D12B00EBDD90 /* ToDo.swift */,
 				36354F942AF9E1B000EBDD90 /* Food.swift */,
@@ -548,13 +544,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		367B0F1B2B317A85003E0806 /* AuthView */ = {
+		367B0F1B2B317A85003E0806 /* AuthMenu */ = {
 			isa = PBXGroup;
 			children = (
 				36FE9FB92AF2177100EBF492 /* RegisterView */,
 				369921B32AF0CBBC00DC4601 /* LoginView */,
 			);
-			path = AuthView;
+			path = AuthMenu;
 			sourceTree = "<group>";
 		};
 		367B0F1C2B317AAE003E0806 /* View */ = {
@@ -587,6 +583,49 @@
 			isa = PBXGroup;
 			children = (
 				368FD7FC2B01DCF0006AEABE /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		367B0F202B3186B8003E0806 /* ProfileMenu */ = {
+			isa = PBXGroup;
+			children = (
+				360B3A402AEFB57400FD98BB /* ProfileView */,
+				36FD067B2AEA45BF0088F415 /* EditProfileView */,
+			);
+			path = ProfileMenu;
+			sourceTree = "<group>";
+		};
+		367B0F212B3187E5003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				360B3A412AEFB5B000FD98BB /* ProfileViewController.swift */,
+				360B3A422AEFB5B000FD98BB /* ProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0F222B3187EA003E0806 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				368FD8042B01F761006AEABE /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		367B0F232B318B83003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36F2C2B82AE9FC590044729F /* EditProfileViewController.swift */,
+				36F2C2B92AE9FC590044729F /* EditProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0F242B318B88003E0806 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				368FD8062B01FC51006AEABE /* EditProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -745,13 +784,12 @@
 			isa = PBXGroup;
 			children = (
 				36A4325B2AF340AF0070E770 /* SplashView */,
-				367B0F1B2B317A85003E0806 /* AuthView */,
+				367B0F1B2B317A85003E0806 /* AuthMenu */,
 				366FF0912AEFB09900F74907 /* MainTabBar */,
+				367B0F202B3186B8003E0806 /* ProfileMenu */,
 				365BA6DD2AEBB52C00CF478C /* Models */,
 				360B3A382AEFB17000FD98BB /* DashboardView */,
 				367B0BA22AEB61B7009E72D4 /* DetailsView */,
-				360B3A402AEFB57400FD98BB /* ProfileView */,
-				36FD067B2AEA45BF0088F415 /* EditProfileView */,
 				36354F732AF4CE8B00EBDD90 /* CartView */,
 				36354F8F2AF9DC4F00EBDD90 /* PostView */,
 				36354F8A2AF9D20100EBDD90 /* FetchView */,
@@ -805,9 +843,8 @@
 		36FD067B2AEA45BF0088F415 /* EditProfileView */ = {
 			isa = PBXGroup;
 			children = (
-				36F2C2B82AE9FC590044729F /* EditProfileViewController.swift */,
-				36F2C2B92AE9FC590044729F /* EditProfileViewController.xib */,
-				368FD8062B01FC51006AEABE /* EditProfileViewModel.swift */,
+				367B0F242B318B88003E0806 /* ViewModel */,
+				367B0F232B318B83003E0806 /* View */,
 			);
 			path = EditProfileView;
 			sourceTree = "<group>";
@@ -1161,7 +1198,6 @@
 				360F6AFC2AEA4C3F004BE3CE /* ExtTableView.swift in Sources */,
 				36354F7F2AF9C68D00EBDD90 /* CartCell.swift in Sources */,
 				368FD8052B01F761006AEABE /* ProfileViewModel.swift in Sources */,
-				36A432552AF32B070070E770 /* UserModel.swift in Sources */,
 				36354F852AF9CE9300EBDD90 /* ExtFloat.swift in Sources */,
 				368FD7FB2B01D143006AEABE /* SplashViewModel.swift in Sources */,
 				36354F872AF9D12B00EBDD90 /* ToDo.swift in Sources */,

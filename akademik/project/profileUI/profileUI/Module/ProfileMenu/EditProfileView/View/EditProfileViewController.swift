@@ -1,17 +1,23 @@
 import UIKit
 import FirebaseAuth
 
+// MARK: - EditProfileViewControllerDelegate
+
 protocol EditProfileViewControllerDelegate: AnyObject {
     func passData(image: [UIImagePickerController.InfoKey: Any]?, name: String?, phone: String?, email: String?)
 }
 
+// MARK: - AuthError
 
 enum AuthError: Error {
     case userNotLoggedIn
     case noUpdatesRequested
 }
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: BaseViewController {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var openCameraButton: UIButton!
     @IBOutlet weak var fromGaleryButton: UIButton!
     @IBOutlet weak var showImageProfile: UIImageView!
@@ -21,25 +27,31 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
-    let pickerImage = UIImagePickerController()
-    var imageChosen = [UIImagePickerController.InfoKey: Any]()
+    // MARK: - Properties
+    
+    private let pickerImage = UIImagePickerController()
+    private var imageChosen = [UIImagePickerController.InfoKey: Any]()
+    private var viewModel: EditProfileViewModel!
     
     weak var delegate: EditProfileViewControllerDelegate?
-    var viewModel: EditProfileViewModel!
-    
-    //    var initData = UserModel()
+
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupUI()
         buttonEvent()
         setInit()
     }
     
-    func setup() {
+    // MARK: - Setup UI
+    
+    func setupUI() {
         phoneTF.keyboardType = .numberPad
         saveButton.setRoundedBorder(cornerRadius: 20)
     }
+    
+    // MARK: - Setup Init Data
     
     func setInit() {
         nameTF.text = viewModel.userData.nama
@@ -48,33 +60,52 @@ class EditProfileViewController: UIViewController {
         showImageProfile.image = UIImage(named: viewModel.userData.image ?? "image_not_available")
     }
     
+    // MARK: - Setup Event
+    
     func buttonEvent() {
-        openCameraButton.addTarget(self, action: #selector(openCamera), for: .touchUpInside)
-        fromGaleryButton.addTarget(self, action: #selector(fromGallery), for: .touchUpInside)
-        saveButton.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
-        backButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        openCameraButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.openCamera()
+        }).disposed(by: disposeBag)
+        
+        fromGaleryButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.fromGallery()
+        }).disposed(by: disposeBag)
+        
+        saveButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.saveTapped()
+        }).disposed(by: disposeBag)
+        
+        backButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.backTapped()
+        }).disposed(by: disposeBag)
     }
     
-    @objc func openCamera() {
+    // MARK: - Button Actions
+    
+    private func openCamera() {
         setupImagePicker(sourceType: .camera)
     }
     
-    @objc func fromGallery() {
+    private func fromGallery() {
         setupImagePicker(sourceType: .photoLibrary)
     }
     
-    func setupImagePicker(sourceType: UIImagePickerController.SourceType) {
+    private func setupImagePicker(sourceType: UIImagePickerController.SourceType) {
         pickerImage.allowsEditing = true
         pickerImage.delegate = self
         pickerImage.sourceType = sourceType
         present(pickerImage, animated: true, completion: nil)
     }
     
-    @objc func backTapped() {
+    private func backTapped() {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func saveTapped() {
+    private func saveTapped() {
         let newName = nameTF.text ?? ""
         let newEmail = emailTF.text ?? ""
         
@@ -96,6 +127,7 @@ class EditProfileViewController: UIViewController {
     
 }
 
+// MARK: - Setup UIImagePicker
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

@@ -1,7 +1,11 @@
 import UIKit
+import RxSwift
 import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var nameTF: UILabel!
     @IBOutlet weak var phoneTF: UILabel!
     @IBOutlet weak var emailTF: UILabel!
@@ -10,22 +14,23 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var penButton: UIButton!
     
-    var titlePage = "profile_string".localized
-    var viewModel = ProfileViewModel()
+    // MARK: - Properties
+    
+    private var viewModel: ProfileViewModel!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = ProfileViewModel()
         setupUI()
         getUserData()
         buttonEvent()
     }
     
-    func buttonEvent() {
-        backButton.addTarget(self, action: #selector(signOutTapped), for: .touchUpInside)
-        penButton.addTarget(self, action: #selector(penButtonTapped), for: .touchUpInside)
-    }
+    // MARK: - Setup UI
     
-    func setupUI() {
+    private func setupUI() {
         profileImg.image = viewModel.profileImage
         profileImg.setCircleBorder()
         
@@ -33,13 +38,31 @@ class ProfileViewController: UIViewController {
         backButton.isHidden = FAuth.auth.currentUser == nil
     }
     
-    func getUserData() {
+    // MARK: - Setup Event
+    
+    private func buttonEvent() {
+        backButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.signOutTapped()
+        }).disposed(by: disposeBag)
+        
+        penButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.penButtonTapped()
+        }).disposed(by: disposeBag)
+    }
+    
+    // MARK: - Get data
+    
+    private func getUserData() {
         nameTF.text = viewModel.name
         emailTF.text = viewModel.email
         phoneTF.text = viewModel.phone
     }
     
-    @objc func signOutTapped() {
+    // MARK: - Navigation
+    
+    private func signOutTapped() {
         viewModel.signOut { error in
             if let error = error {
                 self.showAlert(title: "Error Sign Out", message: error.localizedDescription)
@@ -50,13 +73,15 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @objc func penButtonTapped() {
+    private func penButtonTapped() {
         let vc = EditProfileViewController()
         vc.delegate = self
         vc.viewModel = EditProfileViewModel(authService: AuthService(), userData: UserModel(nama: viewModel.name, phone: viewModel.phone, email: viewModel.email, image: viewModel.image))
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+// MARK: - Edit Profile Delegate
 
 extension ProfileViewController: EditProfileViewControllerDelegate {
     func passData(image: [UIImagePickerController.InfoKey: Any]?, name: String?, phone: String?, email: String?) {
