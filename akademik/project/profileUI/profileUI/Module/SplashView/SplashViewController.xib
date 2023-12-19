@@ -11,12 +11,15 @@
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
         </array>
+        <array key="Poppins-SemiBold.ttf">
+            <string>Poppins-SemiBold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashViewController" customModule="profileUI" customModuleProvider="target">
             <connections>
                 <outlet property="animateView" destination="UOF-9K-JLj" id="wuR-fC-Zaw"/>
-                <outlet property="buttonNavigate" destination="flD-vs-Pk4" id="mTR-Fc-USZ"/>
+                <outlet property="buttonNavigate" destination="flD-vs-Pk4" id="uuB-v1-nif"/>
                 <outlet property="titleLabel" destination="AUn-Br-hku" id="snf-DR-zYG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -49,11 +52,15 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flD-vs-Pk4">
                     <rect key="frame" x="72" y="561" width="248" height="49"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="Get a meal">
+                    <color key="backgroundColor" name="SecColor"/>
+                    <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Get a meal">
+                        <color key="titleColor" name="TextColor"/>
+                    </state>
+                    <buttonConfiguration key="configuration" style="plain" title="Get a meal">
                         <fontDescription key="titleFontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="20"/>
                         <color key="baseForegroundColor" name="TextColor"/>
-                        <color key="baseBackgroundColor" name="SecColor"/>
                     </buttonConfiguration>
                 </button>
             </subviews>

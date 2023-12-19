@@ -1,10 +1,14 @@
 import UIKit
 
 class SplashViewModel {
+    
+    // MARK: - Properties
+    
     var animateView: UIView!
     var titleLabel: UILabel!
     var buttonNavigate: UIButton!
     
+    // MARK: - Public Methods
     
     func performInitialAnimation(completion: @escaping () -> Void) {
         let finalY = -UIScreen.main.bounds.height
@@ -12,7 +16,6 @@ class SplashViewModel {
         let initX = -UIScreen.main.bounds.width
         
         // Set initial positions and opacity
-        // Assuming you have properties for animateView, titleLabel, and buttonNavigate in the ViewModel
         animateView.transform = CGAffineTransform(translationX: 0, y: finalY)
         titleLabel.transform = CGAffineTransform(translationX: initX, y: 0)
         buttonNavigate.transform = CGAffineTransform(translationX: 0, y: initY)
@@ -40,7 +43,6 @@ class SplashViewModel {
                     self.buttonNavigate.transform = .identity
                     self.buttonNavigate.alpha = 1
                 } completion: { _ in
-                    // Call completion block when all animations are complete
                     completion()
                 }
             }
@@ -48,13 +50,10 @@ class SplashViewModel {
     }
     
     func rotateAnimateView() {
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear) {
-            // Rotate the animateView
-            self.animateView.transform = self.animateView.transform.rotated(by: .pi)
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear) {            self.animateView.transform = self.animateView.transform.rotated(by: .pi)
         } completion: { finished in
             if finished {
                 UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear) {
-                    // Rotate the animateView again if needed
                     self.animateView.transform = self.animateView.transform.rotated(by: .pi)
                 }
             }

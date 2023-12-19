@@ -57,6 +57,7 @@
 		367B0BB52AEB9511009E72D4 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0BB32AEB9511009E72D4 /* DrinkCell.swift */; };
 		367B0BB62AEB9511009E72D4 /* DrinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367B0BB42AEB9511009E72D4 /* DrinkCell.xib */; };
 		367B0F162B317628003E0806 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 367B0F152B317628003E0806 /* GoogleService-Info.plist */; };
+		367B0F182B3177A3003E0806 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F172B3177A3003E0806 /* BaseViewController.swift */; };
 		367BDE202B01C51C000D2965 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367BDE1F2B01C51C000D2965 /* DashboardViewModel.swift */; };
 		368D997A2AFB6F320072A977 /* FloatingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368D99782AFB6F320072A977 /* FloatingPanelView.swift */; };
 		368D997B2AFB6F320072A977 /* FloatingPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 368D99792AFB6F320072A977 /* FloatingPanelView.xib */; };
@@ -193,6 +194,7 @@
 		367B0BB32AEB9511009E72D4 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
 		367B0BB42AEB9511009E72D4 /* DrinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkCell.xib; sourceTree = "<group>"; };
 		367B0F152B317628003E0806 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		367B0F172B3177A3003E0806 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		367BDE1F2B01C51C000D2965 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		368D99782AFB6F320072A977 /* FloatingPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanelView.swift; sourceTree = "<group>"; };
 		368D99792AFB6F320072A977 /* FloatingPanelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingPanelView.xib; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 			children = (
 				368FD7F82B01C851006AEABE /* CoreDataManager.swift */,
 				368FD8082B02002F006AEABE /* AuthService.swift */,
+				367B0F172B3177A3003E0806 /* BaseViewController.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -683,11 +686,11 @@
 		36FD06762AEA45260088F415 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				365BA6DD2AEBB52C00CF478C /* Models */,
 				36A4325B2AF340AF0070E770 /* SplashView */,
+				366FF0912AEFB09900F74907 /* MainTabBar */,
+				365BA6DD2AEBB52C00CF478C /* Models */,
 				369921B32AF0CBBC00DC4601 /* LoginView */,
 				36FE9FB92AF2177100EBF492 /* RegisterView */,
-				366FF0912AEFB09900F74907 /* MainTabBar */,
 				360B3A382AEFB17000FD98BB /* DashboardView */,
 				367B0BA22AEB61B7009E72D4 /* DetailsView */,
 				360B3A402AEFB57400FD98BB /* ProfileView */,
@@ -1124,6 +1127,7 @@
 				365BA6E12AEBBABE00CF478C /* ScrollViewController.swift in Sources */,
 				36354F8D2AF9D22A00EBDD90 /* FetchViewController.swift in Sources */,
 				365BA6DF2AEBB9D500CF478C /* ExtUIViewController.swift in Sources */,
+				367B0F182B3177A3003E0806 /* BaseViewController.swift in Sources */,
 				365BA6F92AEF4E5F00CF478C /* SectionViewController.swift in Sources */,
 				36301F942AF490D200E8BFF5 /* Endpoint.swift in Sources */,
 				36C287382B0478E500F17ADA /* Constants.swift in Sources */,
