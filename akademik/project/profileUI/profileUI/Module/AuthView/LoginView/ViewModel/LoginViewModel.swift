@@ -2,8 +2,13 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewModel {
+    
+    // MARK: - Closures
+    
     var onLoginSuccess: (() -> Void)?
     var onLoginFailure: ((String) -> Void)?
+    
+    // MARK: - User Authentication
     
     func signInWithFirebase(email: String?, password: String?) {
         guard let email = email, let password = password else {
