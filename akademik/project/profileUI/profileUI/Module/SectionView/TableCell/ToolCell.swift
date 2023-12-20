@@ -65,7 +65,7 @@ extension ToolCell: UICollectionViewDataSource, UICollectionViewDelegate, UIColl
 extension ToolCell: BannerCellDelegate {
     // Implement the delegate method
     func didTapDetailsButton(in cell: BannerCell) {
-        if let indexPath = collView.indexPath(for: cell) {
+        if let _ = collView.indexPath(for: cell) {
             if let navigationController = window?.rootViewController as? UINavigationController {
                 let vc = DetailsViewController()
                 navigationController.pushViewController(vc, animated: true)
