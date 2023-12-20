@@ -2,22 +2,30 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SplashViewController: UIViewController {
+class SplashViewController: BaseViewController {
     
-    var viewModel: SplashViewModel!
-    private let disposeBag = DisposeBag()
+    // MARK: - Properties
+    
+    private var viewModel: SplashViewModel!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel = SplashViewModel()
-        
+        setupViewModel()
         bindViewModel()
-        
         viewModel.navigateToNextAfterDelay()
     }
     
-    func bindViewModel() {
+    // MARK: - Setup
+    
+    private func setupViewModel() {
+        viewModel = SplashViewModel()
+    }
+    
+    // MARK: - Binding
+    
+    private func bindViewModel() {
         viewModel.navigateToNext
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
@@ -27,7 +35,9 @@ class SplashViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func navigateToNext() {
+    // MARK: - Navigation
+    
+    private func navigateToNext() {
         let vc = WelcomeViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }
