@@ -31,7 +31,7 @@ class CoreDataManager {
             do {
                 try context.save()
             } catch {
-                print("Failed saving: \(error)")
+               
             }
         }
     }
@@ -56,7 +56,7 @@ class CoreDataManager {
                 }
             }
         } catch {
-            print("Failed to fetch data: \(error)")
+            
         }
 
         return fetchData
@@ -76,7 +76,7 @@ class CoreDataManager {
                 try context.save()
             }
         } catch {
-            print("Failed to clean data: \(error)")
+            
         }
     }
 }

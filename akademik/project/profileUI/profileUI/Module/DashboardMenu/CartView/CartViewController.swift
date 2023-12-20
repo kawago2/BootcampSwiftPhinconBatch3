@@ -122,7 +122,6 @@ class CartViewController: BaseViewController {
                 listSeparated.append(updated)
             }
         }
-        print(listSeparated)
     }
     
     // MARK: - Setup Data
