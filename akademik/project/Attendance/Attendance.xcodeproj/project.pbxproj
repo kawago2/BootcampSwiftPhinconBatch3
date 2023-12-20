@@ -59,6 +59,7 @@
 		3670C68B2B05F2710011985F /* AddFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3670C6892B05F2710011985F /* AddFormViewController.xib */; };
 		367B0F102B315196003E0806 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F0F2B315196003E0806 /* FirebaseManager.swift */; };
 		367B0F2D2B32D1E0003E0806 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F2C2B32D1E0003E0806 /* BaseViewController.swift */; };
+		367B0F2F2B32D3F1003E0806 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F2E2B32D3F1003E0806 /* NetworkManager.swift */; };
 		367C5D1D2B0D912000C1678F /* ForgotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D1C2B0D912000C1678F /* ForgotViewModel.swift */; };
 		367C5D1F2B0DA03B00C1678F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */; };
 		367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */; };
@@ -178,6 +179,7 @@
 		3670C6892B05F2710011985F /* AddFormViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFormViewController.xib; sourceTree = "<group>"; };
 		367B0F0F2B315196003E0806 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		367B0F2C2B32D1E0003E0806 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		367B0F2E2B32D3F1003E0806 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		367C5D1C2B0D912000C1678F /* ForgotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewModel.swift; sourceTree = "<group>"; };
 		367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -567,6 +569,7 @@
 			children = (
 				367B0F2C2B32D1E0003E0806 /* BaseViewController.swift */,
 				367B0F0F2B315196003E0806 /* FirebaseManager.swift */,
+				367B0F2E2B32D3F1003E0806 /* NetworkManager.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -1038,6 +1041,7 @@
 				36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */,
 				36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */,
 				3670C68A2B05F2710011985F /* AddFormViewController.swift in Sources */,
+				367B0F2F2B32D3F1003E0806 /* NetworkManager.swift in Sources */,
 				36210D282B02084B0009EBC0 /* SceneDelegate.swift in Sources */,
 				36210D5C2B02094C0009EBC0 /* SplashViewController.swift in Sources */,
 				36210D6B2B0221190009EBC0 /* ExtUIButton.swift in Sources */,

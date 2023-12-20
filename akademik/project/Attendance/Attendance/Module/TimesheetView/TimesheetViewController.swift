@@ -69,7 +69,7 @@ class TimesheetViewController: UIViewController {
     }
     
     func fetchData(completion: @escaping () -> Void?) {
-        let status = NetworkStatus.getStatus()
+        let status = NetworkManager.shared.getStatus()
         switch status {
         case .connected:
             loadingView.startAnimating()

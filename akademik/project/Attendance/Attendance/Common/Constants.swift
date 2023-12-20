@@ -339,16 +339,16 @@ enum FStorage {
         }
     }
 }
-
-enum NetworkStatus {
-    case connected, notConnected
-    
-    static func getStatus() -> NetworkStatus {
-        guard let reachability = try? Reachability() else {
-            return .notConnected
-        }
-        
-        return reachability.connection != .unavailable ? .connected : .notConnected
-    }
-    
-}
+//
+//enum NetworkStatus {
+//    case connected, notConnected
+//    
+//    static func getStatus() -> NetworkStatus {
+//        guard let reachability = try? Reachability() else {
+//            return .notConnected
+//        }
+//        
+//        return reachability.connection != .unavailable ? .connected : .notConnected
+//    }
+//    
+//}
