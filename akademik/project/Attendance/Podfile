@@ -28,9 +28,6 @@ target 'Attendance' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxGesture'
-  
-  # package debugging
-  pod 'netfox', :configurations => 'Debug'
 
   target 'AttendanceTests' do
     inherit! :search_paths
