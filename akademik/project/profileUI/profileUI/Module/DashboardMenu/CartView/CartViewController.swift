@@ -8,22 +8,29 @@
 import UIKit
 import CoreData
 import FloatingPanel
+import RxSwift
 
+// MARK: - Protocol
 
-protocol CartViewDelegate {
+protocol CartViewDelegate: AnyObject {
     func passDataCart(listChart: [ItemModel])
 }
 
-class CartViewController: UIViewController {
+class CartViewController: BaseViewController {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var payButton: UIButton!
     
-    var listChart: [ItemModel] = []
-    var uniqueCart: [ItemModel] = []
-    var listSeparated: [ItemModel] = []
-    var total: Float = 0 {
+    // MARK: - Properties
+    
+    weak var delegate: CartViewDelegate?
+    private var listChart: [ItemModel] = []
+    private var listSeparated: [ItemModel] = []
+    private var total: Float = 0 {
         didSet {
             if Int(self.total) == 0 {
                 self.payButton.isEnabled = false
@@ -31,15 +38,17 @@ class CartViewController: UIViewController {
             }
         }
     }
-    var context = ""
-    var fpc: FloatingPanelController!
-    var combinedCart: [UUID: ItemModel] = [:]
-    var delegate: CartViewDelegate?
+    internal var context = ""
+    private var fpc: FloatingPanelController!
+    internal var combinedCart: [UUID: ItemModel] = [:]
+    
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setup()
+        setupEvent()
         configureTable()
         setupData()
     }
@@ -52,13 +61,30 @@ class CartViewController: UIViewController {
         }
      
     }
-    @objc func backButtonTapped(_ sender: Any) {
-        separateLogic()
-        delegate?.passDataCart(listChart: listSeparated)
-        navigationController?.popViewController(animated: true)
+
+    // MARK: - Setup UI
+    
+    private func setupUI() {
+        payButton.setRoundedBorder(cornerRadius: 20)
     }
     
-    @objc func payButtonTapped() {
+    // MARK: - Setup Event
+    
+   private func setupEvent() {
+        backButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.backButtonTapped()
+        }).disposed(by: disposeBag)
+        
+        payButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.payButtonTapped()
+        }).disposed(by: disposeBag)
+    }
+    
+    // MARK: - Pay Button Configure
+    
+    private func payButtonTapped() {
         showFloatingPanel()
     }
     
@@ -79,32 +105,15 @@ class CartViewController: UIViewController {
         present(fpc, animated: true, completion: nil)
     }
     
-    func setup() {
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        payButton.addTarget(self, action: #selector(payButtonTapped), for: .touchUpInside)
+    // MARK: - Back Button Configure
+    
+    private func backButtonTapped() {
+        separateLogic()
+        delegate?.passDataCart(listChart: listSeparated)
+        self.backToView()
     }
     
-    func setupUI() {
-        payButton.setRoundedBorder(cornerRadius: 20)
-    }
-    
-    func setupData() {
-        totalPrice()
-    }
-    
-    func totalPrice() {
-        total = combinedCart.values.reduce(0.0) { $0 + ($1.price ?? 0) * Float($1.quantity) }
-        totalLabel.text = "Total: \(total.toDollarFormat())"
-    }
-
-    
-    func configureTable() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.registerCellWithNib(CartCell.self)
-    }
-    
-    func separateLogic() {
+    private func separateLogic() {
         listSeparated = []
         for (_, item) in combinedCart {
             for _ in 1...item.quantity {
@@ -115,10 +124,29 @@ class CartViewController: UIViewController {
         }
         print(listSeparated)
     }
+    
+    // MARK: - Setup Data
+    
+    private func setupData() {
+        totalPrice()
+    }
+    
+    private func totalPrice() {
+        total = combinedCart.values.reduce(0.0) { $0 + ($1.price ?? 0) * Float($1.quantity) }
+        totalLabel.text = "Total: \(total.toDollarFormat())"
+    }
 
 }
 
+// MARK: - Table View Configure
+
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
+    func configureTable() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.registerCellWithNib(CartCell.self)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return combinedCart.count
     }
@@ -137,11 +165,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 134
     }
-    
-    
 }
 
-extension CartViewController: CartCellDelegate, FloatingPanelViewDelegate, ResultViewControllerDelegate{
+// MARK: - Delegate Configure
+
+extension CartViewController: CartCellDelegate, ResultViewControllerDelegate{
     func didFinishTapped() {
         let vc = TabBarViewController()
         navigationController?.setViewControllers([vc], animated: false)
@@ -157,11 +185,10 @@ extension CartViewController: CartCellDelegate, FloatingPanelViewDelegate, Resul
     }
     
     func didTashTapped(_ item: ItemModel) {
-        let itemUUID = item.id // Assuming item.id is not optional
+        let itemUUID = item.id
         
         if combinedCart[itemUUID] != nil {
             combinedCart[itemUUID] = nil
-            // Reload the table view with the updated data
             if let index = listChart.firstIndex(where: { $0.id == itemUUID }) {
                 listChart.remove(at: index)
             }
@@ -172,7 +199,7 @@ extension CartViewController: CartCellDelegate, FloatingPanelViewDelegate, Resul
 
 
     func didMinusTapped(_ item: ItemModel) {
-        let itemUUID = item.id // Assuming item.id is not optional
+        let itemUUID = item.id
         
         if let existingItem = combinedCart[itemUUID] {
             if existingItem.quantity > 1 {
@@ -185,9 +212,9 @@ extension CartViewController: CartCellDelegate, FloatingPanelViewDelegate, Resul
 
 
     func didPlusTapped(_ item: ItemModel) {
-        let itemUUID = item.id // Assuming item.id is not optional
+        let itemUUID = item.id
         
-        if let existingItem = combinedCart[itemUUID] {
+        if let _ = combinedCart[itemUUID] {
             combinedCart[itemUUID]?.quantity += 1
             totalPrice()
         }
@@ -196,7 +223,9 @@ extension CartViewController: CartCellDelegate, FloatingPanelViewDelegate, Resul
     
 }
 
-extension CartViewController: FloatingPanelControllerDelegate {
+// MARK: - Floating Configure Layout
+
+extension CartViewController: FloatingPanelControllerDelegate, FloatingPanelViewDelegate {
     func floatingPanelWillEndDragging(_ fpc: FloatingPanelController, withVelocity velocity: CGPoint, targetState: UnsafeMutablePointer<FloatingPanelState>) {
         if targetState.pointee != .full {
             fpc.dismiss(animated: true)

@@ -15,4 +15,8 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    public func backToView() {
+        navigationController?.popViewController(animated: true)
+    }
 }

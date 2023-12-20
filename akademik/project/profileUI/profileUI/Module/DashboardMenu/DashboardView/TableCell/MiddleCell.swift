@@ -7,44 +7,59 @@
 
 import UIKit
 
-protocol MiddleCellDelegate {
+// MARK: - Protocol
+
+protocol MiddleCellDelegate: AnyObject {
     func didSelectItem(_ item: ItemModel)
     func didTapAddButton(_ item: ItemModel)
 }
 
-class MiddleCell: UITableViewCell, FoodCellDelegate {
-    func didTapAddButton(_ item: ItemModel) {
-        self.delegate?.didTapAddButton(item)
-    }
+class MiddleCell: UITableViewCell {
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var listFood: [ItemModel] = [] {
+    // MARK: - Properties
+    
+    weak var delegate: MiddleCellDelegate?
+    internal var listFood: [ItemModel] = [] {
         didSet {
             collectionView.reloadData()
         }
     }
     
-    var delegate: MiddleCellDelegate?
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        selectionStyle = .none
-        setup()
-        
+        setupUI()
+        configureCell()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
-    func setup() {
-        configureCell()
-    }
+    // MARK: - Setup UI
     
+   private func setupUI() {
+        selectionStyle = .none
+    }
+}
 
-    func configureCell() {
+// MARK: - Delegate Handling
+
+extension MiddleCell: FoodCellDelegate {
+    func didTapAddButton(_ item: ItemModel) {
+        self.delegate?.didTapAddButton(item)
+    }
+}
+
+// MARK: - Configure Collection
+
+extension MiddleCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+   private func configureCell() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCellWithNib(FoodCell.self)
@@ -56,11 +71,6 @@ class MiddleCell: UITableViewCell, FoodCellDelegate {
         collectionView.isScrollEnabled = false
     }
     
-}
-
-
-
-extension MiddleCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listFood.count
     }
@@ -86,5 +96,9 @@ extension MiddleCell: UICollectionViewDataSource, UICollectionViewDelegate, UICo
         return CGSize(width: itemWidth, height: 220)
     }
 }
+
+
+
+
 
 

@@ -2,6 +2,15 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+struct ItemModel : Codable, Hashable, Identifiable {
+    var id = UUID()
+    var image: String?
+    var name: String?
+    var price: Float?
+    var isFavorite: Bool?
+    var quantity:Int = 1
+}
+
 class DashboardViewModel {
     
     let disposeBag = DisposeBag()

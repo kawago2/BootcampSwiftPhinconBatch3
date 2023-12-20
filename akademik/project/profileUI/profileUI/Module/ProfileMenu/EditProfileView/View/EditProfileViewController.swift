@@ -31,7 +31,7 @@ class EditProfileViewController: BaseViewController {
     
     private let pickerImage = UIImagePickerController()
     private var imageChosen = [UIImagePickerController.InfoKey: Any]()
-    private var viewModel: EditProfileViewModel!
+    internal var viewModel: EditProfileViewModel!
     
     weak var delegate: EditProfileViewControllerDelegate?
 

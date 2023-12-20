@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
+// MARK: - Protocol
 
 protocol FoodCellDelegate: AnyObject {
     func didTapAddButton(_ item: ItemModel)
 }
 
-
 class FoodCell: UICollectionViewCell {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var outerView: UIView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -20,50 +26,35 @@ class FoodCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var addChartButton: UIButton!
     
+    // MARK: - Properties
     weak var delegate: FoodCellDelegate?
-    
-    
-    var isFavorited = false
-    
-    var item: ItemModel? {
+    private var isFavorited = false
+    internal var item: ItemModel? {
         didSet {
             configureCell()
         }
     }
+    private let disposeBag = DisposeBag()
     
-    @objc func favoriteTapped() {
-        isFavorited = !isFavorited
-        if isFavorited {
-            favoriteButton.tintColor = UIColor.red
-        } else {
-            favoriteButton.tintColor = UIColor(named: "ProColor")
-        }
-    }
-    
-    @objc func addTapped() {
-        delegate?.didTapAddButton(item ?? ItemModel())
-    }
-    
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         setupUI()
         configureCell()
-        favoriteButton.addTarget(self, action: #selector(favoriteTapped), for: .touchUpInside)
-        addChartButton.addTarget(self, action: #selector(addTapped), for: .touchUpInside)
+        buttonEvent()
     }
     
-    func setupUI() {
+    // MARK: - Setup UI
+    
+    private func setupUI() {
         outerView.layer.borderWidth = 1
         outerView.layer.cornerRadius = 20
         outerView.layer.borderColor = UIColor(named: "ProColor")?.cgColor
-        
         imageView.setCircleNoBorder()
-        
     }
     
-    func configureCell() {
+   private func configureCell() {
         if let item = item {
             let image = item.image ?? "image_not_available"
             let name = item.name ?? "---"
@@ -75,9 +66,36 @@ class FoodCell: UICollectionViewCell {
             priceLabel.text = price.toDollarFormat()
             isFavorited = isFavorite
             favoriteButton.tintColor = isFavorite ? UIColor.red : UIColor(named: "ProColor")
-        } else {
         }
     }
     
+    // MARK: - Setup Event
     
+   private func buttonEvent() {
+       
+       favoriteButton.rx.tap.subscribe(onNext: {[weak self] in
+           guard let self =  self else {return}
+           self.favoriteTapped()
+       }).disposed(by: disposeBag)
+       
+       addChartButton.rx.tap.subscribe(onNext: {[weak self] in
+           guard let self =  self else {return}
+           self.addTapped()
+       }).disposed(by: disposeBag)
+    }
+    
+    // MARK: - Action Handling
+    
+    private func favoriteTapped() {
+        isFavorited = !isFavorited
+        if isFavorited {
+            favoriteButton.tintColor = UIColor.red
+        } else {
+            favoriteButton.tintColor = UIColor(named: "ProColor")
+        }
+    }
+    
+    private func addTapped() {
+        delegate?.didTapAddButton(item ?? ItemModel())
+    }
 }

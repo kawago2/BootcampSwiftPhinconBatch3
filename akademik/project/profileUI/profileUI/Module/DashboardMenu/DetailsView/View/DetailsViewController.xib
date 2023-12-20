@@ -22,6 +22,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="profileUI" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="Xea-WR-lob" id="FDq-p3-mIn"/>
                 <outlet property="buttonView" destination="UuO-kx-Jsd" id="Wwx-h2-ubD"/>
                 <outlet property="favoriteButton" destination="jxR-RG-poj" id="RW4-OR-ajd"/>
                 <outlet property="imgView" destination="OzK-KB-E3f" id="KYO-RK-deq"/>
@@ -58,9 +59,6 @@
                                         <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
                                         <color key="baseForegroundColor" name="MainColor"/>
                                     </buttonConfiguration>
-                                    <connections>
-                                        <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="AWn-hD-D92"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxR-RG-poj">
                                     <rect key="frame" x="342.33333333333326" y="0.0" width="50.666666666666686" height="40"/>

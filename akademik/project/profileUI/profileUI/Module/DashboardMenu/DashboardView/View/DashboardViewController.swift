@@ -3,26 +3,22 @@ import CoreData
 import RxSwift
 import RxCocoa
 
-class DashboardViewController: UIViewController  {
+class DashboardViewController: BaseViewController  {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
     
-    var listFood: [ItemModel] = []
-    var fetchData: [ItemModel] = []
-    var listseparated: [ItemModel] = []
-    var listChart: [ItemModel] = []
-    var filteredData: [ItemModel] = []
-    var combinedCart: [UUID: ItemModel] = [:]
+    // MARK: - Properties
     
-    var searchText = "" {
-        didSet {
-            let sectionToReload = 1
-            let indexSet = IndexSet(integer: sectionToReload)
-            self.tableView.reloadSections(indexSet, with: .automatic)
-        }
-    }
-    let disposeBag = DisposeBag()
-    let textSubject = PublishSubject<String>()
-    let searchSubject = BehaviorRelay<String>(value: "")
+    private var listFood: [ItemModel] = []
+    private var fetchData: [ItemModel] = []
+    private var listChart: [ItemModel] = []
+    private var filteredData: [ItemModel] = []
+    private var combinedCart: [UUID: ItemModel] = [:]
+    private var searchText = ""
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,37 +26,35 @@ class DashboardViewController: UIViewController  {
         loadData()
         fetchCoreData()
     }
-    
-    func initCoreData() {
+}
+
+// MARK: - Core Data Operations
+
+extension DashboardViewController {
+    private func initCoreData() {
         CoreDataManager.shared.saveToCoreData(listFood)
     }
     
-    func fetchCoreData() {
+    private func fetchCoreData() {
         fetchData = CoreDataManager.shared.fetchFromCoreData()
     }
     
-    func cleanCoreData() {
+    private func cleanCoreData() {
         CoreDataManager.shared.cleanCoreData()
     }
-    
-    func loadData() {
+}
+
+// MARK: - Handling Data
+
+extension DashboardViewController {
+    private func loadData() {
         listFood.append(ItemModel(image: "fish_curry", name: "Fish Curry", price: 10, isFavorite: true))
         listFood.append(ItemModel(image: "beef_pizza", name: "Beef Pizza", price: 15, isFavorite: false))
         listFood.append(ItemModel(image: "vagatale_salad", name: "Vagatale Salad", price: 5, isFavorite: false))
         listFood.append(ItemModel(image: "chicken_ball", name: "Chicken Ball", price: 25, isFavorite: true))
     }
     
-    func configureTable() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .singleLine
-        tableView.separatorColor = UIColor.clear
-        tableView.registerCellWithNib(TopCell.self)
-        tableView.registerCellWithNib(MiddleCell.self)
-        tableView.registerCellWithNib(BottomCell.self)
-    }
-    
-    func combineItemsInCart() {
+   private func combineItemsInCart() {
         combinedCart = [:]
         for item in listChart {
             if var existingItem = combinedCart[item.id] {
@@ -72,35 +66,21 @@ class DashboardViewController: UIViewController  {
         }
         listChart = Array(combinedCart.values)
     }
-    
-    
-    func setupRxSearch() {
-        searchSubject
-            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
-            .flatMapLatest { [weak self] query -> Observable<[ItemModel]> in
-                guard let self = self else { return Observable.empty() }
-                
-                let filteredData = self.fetchData.filter { item in
-                    guard let name = item.name else {
-                        return false
-                    }
-                    let lowercaseName = name.lowercased()
-                    let lowercaseQuery = query.lowercased()
-                    return lowercaseName.contains(lowercaseQuery)
-                }
-                return Observable.just(filteredData)
-            }
-            .subscribe(onNext: { [weak self] results in
-                guard let self = self else { return }
-                self.filteredData = results
-            })
-            .disposed(by: disposeBag)
-    }
-    
 }
 
+// MARK: - Table View Configure
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
+    func configureTable() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = UIColor.clear
+        tableView.registerCellWithNib(TopCell.self)
+        tableView.registerCellWithNib(MiddleCell.self)
+        tableView.registerCellWithNib(BottomCell.self)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -158,29 +138,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource  {
     }
 }
 
-extension DashboardViewController : MiddleCellDelegate , TopCellDelegate , CartViewDelegate, BottomCellDelegate {
-    
-    func didButtonTapped() {
-        combineItemsInCart()
-        if combinedCart.isEmpty { return }
-        let vc = CartViewController()
-        vc.delegate = self
-        vc.combinedCart = combinedCart
-        vc.context = "BottomCell"
-        vc.tableView?.reloadData()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func didTapFilterButton() {
-        print("filter clicked")
-    }
-    
-    func textFieldDidChange(_ newText: String) {
-        searchText = newText
-        searchSubject.accept(newText)
-        setupRxSearch()
-    }
-    
+// MARK: - Cart Button Config
+
+extension DashboardViewController: CartViewDelegate, TopCellDelegate {
     func passDataCart(listChart: [ItemModel]) {
         self.listChart = listChart
         tableView.reloadData()
@@ -196,21 +156,65 @@ extension DashboardViewController : MiddleCellDelegate , TopCellDelegate , CartV
     }
     
     
+}
+
+
+// MARK: - Search Bar Config
+
+extension DashboardViewController : MiddleCellDelegate, BottomCellDelegate {
+    func textFieldDidChange(_ newText: String) {
+        setupRxSearch(newText: newText)
+    }
     
+    private func setupRxSearch(newText: String) {
+        let query = newText
+        searchText = query
+
+        let filteredData = self.fetchData.filter { item in
+            guard let name = item.name else {
+                return false
+            }
+            let lowercaseName = name.lowercased()
+            let lowercaseQuery = query.lowercased()
+            return lowercaseName.contains(lowercaseQuery)
+        }
+
+        self.filteredData = filteredData
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let sectionToReload = 1
+            let indexSet = IndexSet(integer: sectionToReload)
+            self.tableView.reloadSections(indexSet, with: .automatic)
+        }
+    }
+}
+
+// MARK: - Card Item Handle
+
+extension DashboardViewController {
     func didTapAddButton(_ item: ItemModel) {
         listChart.append(item)
         tableView.reloadData()
         
     }
     
-    // Implement the MiddleCellDelegate method to handle navigation
     func didSelectItem(_ item: ItemModel) {
         let vc = DetailsViewController()
         vc.viewModel = DetailsViewModel(data: item)
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func didButtonTapped() {
+        combineItemsInCart()
+        if combinedCart.isEmpty { return }
+        let vc = CartViewController()
+        vc.delegate = self
+        vc.combinedCart = combinedCart
+        vc.context = "BottomCell"
+        vc.tableView?.reloadData()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
-
 
 
 

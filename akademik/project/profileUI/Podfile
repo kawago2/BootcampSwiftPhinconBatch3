@@ -15,6 +15,7 @@ target 'profileUI' do
   # For Rx
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxGesture'
 
   # For Firebase
   pod 'FirebaseAuth'
