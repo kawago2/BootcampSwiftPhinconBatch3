@@ -1,6 +1,4 @@
 import UIKit
-import FirebaseCore
-import Reachability
 
 
 @main
