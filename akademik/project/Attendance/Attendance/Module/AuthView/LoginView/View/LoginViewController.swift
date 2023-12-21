@@ -1,7 +1,9 @@
 import UIKit
 import RxSwift
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var bottonView: UIView!
     @IBOutlet weak var circleView: UIImageView!
@@ -11,8 +13,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
-    var viewModel: LoginViewModel!
-    let disposeBag = DisposeBag()
+    // MARK: - Properties
+    
+    private var viewModel: LoginViewModel!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +26,37 @@ class LoginViewController: UIViewController {
         buttonEvent()
     }
     
+    // MARK: - Setup View Model
+    
     func setupViewModel() {
         viewModel = LoginViewModel()
     }
+    
+    // MARK: - Setup UI
+    
+    func setupUI() {
+        setUsernameField()
+        setPasswordField()
+        circleView.tintColor = .white.withAlphaComponent(0.05)
+        loginButton.setRoundedBorder(cornerRadius: 10)
+        bottonView.roundCorners(corners: [.topLeft,.topRight], radius: 20)
+    }
+    
+    func setUsernameField() {
+        emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
+        emailField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
+        emailField.titleField.textColor = UIColor(named: "LoginColor")
+    }
+    
+    func setPasswordField() {
+        passwordField.setup(title: "Password", placeholder: "***********", isSecure: true)
+        passwordField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
+        passwordField.titleField.textColor = UIColor(named: "LoginColor")
+        passwordField.obsecureButton.imageView?.tintColor = UIColor(named: "LoginColor")
+        passwordField.obsecureButton.tintColor = UIColor(named: "LoginColor")
+    }
+    
+    // MARK: - Button Event
     
     func buttonEvent() {
         emailField.inputText.rx.text.orEmpty
@@ -63,6 +96,7 @@ class LoginViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
 
+    // MARK: - Action Handling
     
     func navigateRegister() {
         let vc = RegisterViewController()
@@ -77,28 +111,6 @@ class LoginViewController: UIViewController {
     func navigateForgot() {
         let vc = ForgotViewController()
         navigationController?.setViewControllers([vc], animated: false)
-    }
-    
-    func setupUI() {
-        setUsernameField()
-        setPasswordField()
-        circleView.tintColor = .white.withAlphaComponent(0.05)
-        loginButton.setRoundedBorder(cornerRadius: 10)
-        bottonView.roundCorners(corners: [.topLeft,.topRight], radius: 20)
-    }
-    
-    func setUsernameField() {
-        emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
-        emailField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        emailField.titleField.textColor = UIColor(named: "LoginColor")
-    }
-    
-    func setPasswordField() {
-        passwordField.setup(title: "Password", placeholder: "***********", isSecure: true)
-        passwordField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        passwordField.titleField.textColor = UIColor(named: "LoginColor")
-        passwordField.obsecureButton.imageView?.tintColor = UIColor(named: "LoginColor")
-        passwordField.obsecureButton.tintColor = UIColor(named: "LoginColor")
     }
 }
 
