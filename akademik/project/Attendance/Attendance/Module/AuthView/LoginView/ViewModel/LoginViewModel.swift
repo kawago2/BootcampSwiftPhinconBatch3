@@ -14,8 +14,6 @@ class LoginViewModel {
     
     let showAlert = PublishSubject<(String, String)>()
     let navigateToTabBar = PublishSubject<Void>()
-    let navigateToRegister = PublishSubject<Void>()
-    let navigateToForgot = PublishSubject<Void>()
 
     // MARK: - Private properties
     
