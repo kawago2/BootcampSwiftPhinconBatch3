@@ -2,15 +2,21 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ForgotViewController: UIViewController {
+class ForgotViewController: BaseViewController {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var emailField: InputField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     
-    private let disposeBag = DisposeBag()
+    // MARK: - Properties
+    
     private var viewModel: ForgotViewModel!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +25,28 @@ class ForgotViewController: UIViewController {
         buttonEvent()
     }
     
+    // MARK: - Setup View Model
+    
     func setupViewModel() {
         viewModel = ForgotViewModel()
     }
+    
+    // MARK: - Setup UI
+    
+    func setupUI() {
+        setEmailField()
+        circleView.tintColor = .white.withAlphaComponent(0.05)
+        resetButton.setRoundedBorder(cornerRadius: 10)
+        bottomView.roundCorners(corners: [.topLeft,.topRight], radius: 20)
+    }
+    
+    func setEmailField() {
+        emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
+        emailField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
+        emailField.titleField.textColor = UIColor(named: "LoginColor")
+    }
+    
+    // MARK: - Button Event
     
     func buttonEvent() {
         emailField.inputText.rx.text.orEmpty
@@ -52,18 +77,7 @@ class ForgotViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func setupUI() {
-        setEmailField()
-        circleView.tintColor = .white.withAlphaComponent(0.05)
-        resetButton.setRoundedBorder(cornerRadius: 10)
-        bottomView.roundCorners(corners: [.topLeft,.topRight], radius: 20)
-    }
-    
-    func setEmailField() {
-        emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
-        emailField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
-        emailField.titleField.textColor = UIColor(named: "LoginColor")
-    }
+    // MARK: - Action Handling
     
     func navigateToLogin() {
         let vc = LoginViewController()

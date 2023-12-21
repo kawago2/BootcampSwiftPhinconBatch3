@@ -3,57 +3,62 @@ import RxSwift
 import RxCocoa
 
 class ForgotViewModel {
-    private let disposeBag = DisposeBag()
-
-    // Inputs
+    
+    // MARK: - Inputs
+    
     let emailInput = BehaviorRelay<String>(value: "")
     let resetButtonTap = PublishSubject<Void>()
     let loginButtonTap = PublishSubject<Void>()
 
-    // Outputs
+    // MARK: - Outputs
+    
     let showAlert = PublishSubject<(String, String)>()
     let navigateToLogin = PublishSubject<Void>()
 
+    // MARK: - Private properties
+    
+    private let disposeBag = DisposeBag()
+
+    // MARK: - Initialization
+    
     init() {
         setupBindings()
     }
 
+    // MARK: - Bindings
+    
     private func setupBindings() {
         resetButtonTap
             .withLatestFrom(emailInput)
             .subscribe(onNext: { [weak self] email in
-                guard let self = self else { return }
-                self.resetPassword(email: email)
+                self?.resetPassword(email: email)
             })
             .disposed(by: disposeBag)
 
         loginButtonTap
             .subscribe(onNext: { [weak self] in
-                guard let self = self else { return }
-                self.navigateToLogin.onNext(())
+                self?.navigateToLogin.onNext(())
             })
             .disposed(by: disposeBag)
-
     }
+
+    // MARK: - Actions
     
     func resetPassword(email: String) {
         guard !email.isEmpty else {
-            self.showAlert.onNext(("Error", "Please fill email first."))
+            showAlert.onNext(("Error", "Please fill in the email field."))
             return
         }
 
-        FAuth.resetPassword(email: email) { result in
+        FAuth.resetPassword(email: email) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success:
-                print("Password reset email sent successfully.")
-                self.showAlert.onNext(("Success", "Password reset email sent successfully\nPlease, check your email including spam."))
+                self.showAlert.onNext(("Success", "Password reset email sent successfully.\nPlease check your email, including spam."))
                 self.navigateToLogin.onNext(())
             case .failure(let error):
-                print("Failed to reset password with error: \(error.localizedDescription)")
                 self.showAlert.onNext(("Error", "Failed to reset password. \(error.localizedDescription)"))
             }
         }
     }
 }
-
-
