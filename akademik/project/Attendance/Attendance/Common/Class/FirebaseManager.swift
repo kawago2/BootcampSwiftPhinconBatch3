@@ -38,6 +38,20 @@ class FirebaseManager {
     }()
 
     // MARK: - Function Authentification
+    
+    func isUserLoggedIn() -> Bool {
+        return auth.currentUser != nil
+    }
+    
+    func getCurrentUserUid() -> String? {
+        guard let uid = auth.currentUser?.uid else {return nil}
+        return uid
+    }
+    
+    func getCurrentUserEmail() -> String? {
+        guard let email = auth.currentUser?.email else {return nil}
+        return email
+    }
 
     func loginUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         auth.signIn(withEmail: email, password: password) { (authResult, error) in
@@ -48,6 +62,16 @@ class FirebaseManager {
             }
         }
     }
+    
+    func logout(completion: @escaping (Result<Void, Error>) -> Void) {
+        do {
+            try auth.signOut()
+            completion(.success(()))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+
 
     func registerUser(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         auth.createUser(withEmail: email, password: password) { (authResult, error) in
@@ -100,8 +124,89 @@ class FirebaseManager {
             }
         }
     }
+    
+    func getDocument(collection:String, documentID: String, completion: @escaping (Result<DocumentSnapshot, Error>) -> Void) {
+        let documentRef = firestoreDB.collection(collection).document(documentID)
+        
+        documentRef.getDocument { (document, error) in
+            if let document = document {
+                completion(.success(document))
+            } else if let error = error {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func editDocument(inCollection collection: String, documentIDToEdit: String, newData: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
+        let db = Firestore.firestore()
+        let documentReference = db.collection(collection).document(documentIDToEdit)
+        
+        documentReference.updateData(newData) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
 
     // MARK: - Function Firebase Storage
 
-    // Add your Firebase Storage-related functions here
+    func getImageURL(atPath path: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let storageRef = storage.reference().child(path)
+        
+        storageRef.downloadURL { url, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let downloadURL = url?.absoluteString {
+                completion(.success(downloadURL))
+            } else {
+                let unknownError = NSError(domain: "FStorage", code: 500, userInfo: [NSLocalizedDescriptionKey: "Failed to retrieve image URL."])
+                completion(.failure(unknownError))
+            }
+        }
+    }
+    
+    func uploadImage(_ image: UIImage, toPath path: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let storageRef = storage.reference().child(path)
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+            let error = NSError(domain: "FStorage", code: 400, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to data."])
+            completion(.failure(error))
+            return
+        }
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        let uploadTask = storageRef.putData(imageData, metadata: metadata) { metadata, error in
+            guard error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            
+            storageRef.downloadURL { url, error in
+                guard let downloadURL = url?.absoluteString else {
+                    completion(.failure(error ?? NSError()))
+                    return
+                }
+                
+                completion(.success(downloadURL))
+            }
+        }
+        
+        uploadTask.observe(.progress) { snapshot in
+            let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
+            print("Upload progress: \(percentComplete)%")
+        }
+        
+        uploadTask.observe(.success) { snapshot in
+        }
+        
+        uploadTask.observe(.failure) { snapshot in
+            if let error = snapshot.error {
+                completion(.failure(error))
+            }
+        }
+    }
 }

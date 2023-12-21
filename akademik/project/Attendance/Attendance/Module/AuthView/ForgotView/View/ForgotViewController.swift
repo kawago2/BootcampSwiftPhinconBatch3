@@ -27,20 +27,20 @@ class ForgotViewController: BaseViewController {
     
     // MARK: - Setup View Model
     
-    func setupViewModel() {
+    private func setupViewModel() {
         viewModel = ForgotViewModel()
     }
     
     // MARK: - Setup UI
     
-    func setupUI() {
+    private func setupUI() {
         setEmailField()
         circleView.tintColor = .white.withAlphaComponent(0.05)
         resetButton.setRoundedBorder(cornerRadius: 10)
         bottomView.roundCorners(corners: [.topLeft,.topRight], radius: 20)
     }
     
-    func setEmailField() {
+   private func setEmailField() {
         emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
         emailField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
         emailField.titleField.textColor = UIColor(named: "LoginColor")
@@ -48,7 +48,7 @@ class ForgotViewController: BaseViewController {
     
     // MARK: - Button Event
     
-    func buttonEvent() {
+    private func buttonEvent() {
         emailField.inputText.rx.text.orEmpty
             .bind(to: viewModel.emailInput)
             .disposed(by: disposeBag)
@@ -79,7 +79,7 @@ class ForgotViewController: BaseViewController {
     
     // MARK: - Action Handling
     
-    func navigateToLogin() {
+    private func navigateToLogin() {
         let vc = LoginViewController()
         self.navigationController?.setViewControllers([vc], animated: false)
         

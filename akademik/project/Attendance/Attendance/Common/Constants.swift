@@ -18,6 +18,10 @@ enum Variables {
     static let dataArray = ["Date Permission", "Status"]
 }
 
+enum Image {
+    static let notAvail = "image_not_available"
+}
+
 
 
 enum FAuth {

@@ -1,11 +1,5 @@
 import UIKit
 
-struct InfoItem {
-    let title: String?
-    let description: String?
-    let imageName: String?
-}
-
 struct HistoryItem {
     let checkTime: Date?
     let descLocation: String?
@@ -34,13 +28,6 @@ enum TaskStatus: String, CaseIterable {
     case rejected = "Rejected"
 }
 
-struct ProfileItem {
-    var nik: String?
-    var alamat: String?
-    var name: String?
-    var posisi: String?
-    var imageUrl: String?
-}
 
 struct Allowance {
     var name: String

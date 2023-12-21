@@ -28,13 +28,13 @@ class LoginViewController: BaseViewController {
     
     // MARK: - Setup View Model
     
-    func setupViewModel() {
+    private func setupViewModel() {
         viewModel = LoginViewModel()
     }
     
     // MARK: - Setup UI
     
-    func setupUI() {
+    private func setupUI() {
         setUsernameField()
         setPasswordField()
         circleView.tintColor = .white.withAlphaComponent(0.05)
@@ -42,13 +42,13 @@ class LoginViewController: BaseViewController {
         bottonView.roundCorners(corners: [.topLeft,.topRight], radius: 20)
     }
     
-    func setUsernameField() {
+    private func setUsernameField() {
         emailField.setup(title: "Email", placeholder: "Email", isSecure: false)
         emailField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
         emailField.titleField.textColor = UIColor(named: "LoginColor")
     }
     
-    func setPasswordField() {
+    private func setPasswordField() {
         passwordField.setup(title: "Password", placeholder: "***********", isSecure: true)
         passwordField.titleField.font = UIFont(name: "Avenir-Medium", size: 14.0)
         passwordField.titleField.textColor = UIColor(named: "LoginColor")
@@ -58,7 +58,7 @@ class LoginViewController: BaseViewController {
     
     // MARK: - Button Event
     
-    func buttonEvent() {
+    private func buttonEvent() {
         emailField.inputText.rx.text.orEmpty
             .bind(to: viewModel.emailInput)
             .disposed(by: disposeBag)
@@ -70,7 +70,7 @@ class LoginViewController: BaseViewController {
         loginButton.rx.tap
             .bind(to: viewModel.loginButtonTap)
             .disposed(by: disposeBag)
-
+        
         viewModel.navigateToTabBar
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
@@ -84,7 +84,7 @@ class LoginViewController: BaseViewController {
                 self.showAlert(title: title, message: message)
             })
             .disposed(by: disposeBag)
-
+        
         registerButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
             self.navigateRegister()
@@ -95,20 +95,20 @@ class LoginViewController: BaseViewController {
             self.navigateForgot()
         }).disposed(by: disposeBag)
     }
-
+    
     // MARK: - Action Handling
     
-    func navigateRegister() {
+    private func navigateRegister() {
         let vc = RegisterViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }
     
-    func navigateTabBar() {
+    private func navigateTabBar() {
         let vc = TabBarViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }
     
-    func navigateForgot() {
+    private func navigateForgot() {
         let vc = ForgotViewController()
         navigationController?.setViewControllers([vc], animated: false)
     }

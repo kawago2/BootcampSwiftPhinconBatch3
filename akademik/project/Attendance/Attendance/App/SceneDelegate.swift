@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
+import Lottie
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -40,6 +40,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let self = self else { return }
             let status = NetworkManager.shared.isConnected
             if status {
+                let vc = LoadingViewController()
+    
                 self.dismissLoadingView() {
                     self.window?.rootViewController?.viewWillAppear(true)
                 }
@@ -86,14 +88,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let loadingView = UIView(frame: window?.bounds ?? UIScreen.main.bounds)
         loadingView.backgroundColor = UIColor(white: 0, alpha: 0.5)
         
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.center = loadingView.center
-        activityIndicator.startAnimating()
+        // Replace UIActivityIndicatorView with Lottie AnimationView
+        let animationView = LottieAnimationView()
+        animationView.animation = LottieAnimation.named("loading")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
         
-        loadingView.addSubview(activityIndicator)
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.addSubview(animationView)
         
+        NSLayoutConstraint.activate([
+            animationView.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor),
+            animationView.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
+            animationView.widthAnchor.constraint(equalToConstant: 200),
+            animationView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+
         return loadingView
     }
+
     
     private func presentLoadingView() {
         guard let loadingView = loadingView else {

@@ -60,6 +60,8 @@
 		367B0F102B315196003E0806 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F0F2B315196003E0806 /* FirebaseManager.swift */; };
 		367B0F2D2B32D1E0003E0806 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F2C2B32D1E0003E0806 /* BaseViewController.swift */; };
 		367B0F2F2B32D3F1003E0806 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F2E2B32D3F1003E0806 /* NetworkManager.swift */; };
+		367B0F3A2B33DA8B003E0806 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F392B33DA8B003E0806 /* ProfileViewModel.swift */; };
+		367B0F3F2B342C3B003E0806 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B0F3E2B342C3B003E0806 /* LoadingViewController.swift */; };
 		367C5D1D2B0D912000C1678F /* ForgotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D1C2B0D912000C1678F /* ForgotViewModel.swift */; };
 		367C5D1F2B0DA03B00C1678F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */; };
 		367C5D212B0DA3CD00C1678F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */; };
@@ -180,6 +182,8 @@
 		367B0F0F2B315196003E0806 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		367B0F2C2B32D1E0003E0806 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		367B0F2E2B32D3F1003E0806 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		367B0F392B33DA8B003E0806 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		367B0F3E2B342C3B003E0806 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		367C5D1C2B0D912000C1678F /* ForgotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewModel.swift; sourceTree = "<group>"; };
 		367C5D1E2B0DA03B00C1678F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -336,9 +340,11 @@
 		36210D552B0208940009EBC0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				367B0F3D2B342C2B003E0806 /* LoadingView */,
 				36210D582B0208C80009EBC0 /* SplashView */,
 				367B0F302B32E1D1003E0806 /* AuthView */,
 				36ADC92E2B158C0E00E135DC /* MainTabBar */,
+				367B0F372B33D51C003E0806 /* ProfileMenu */,
 				36C287302B04764D00F17ADA /* Models */,
 				3609C76A2B0EE43D000DE5B7 /* PermissionView */,
 				36C5115F2B0F440F00B2EA7C /* ApproveView */,
@@ -346,8 +352,6 @@
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
 				36210D8A2B0323D70009EBC0 /* HomeView */,
 				36210D8F2B0323EE0009EBC0 /* HistoryView */,
-				36ADC97B2B15D42600E135DC /* PayrollView */,
-				36210D942B03240F0009EBC0 /* ProfileView */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -486,9 +490,9 @@
 		36210D942B03240F0009EBC0 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				367B0F3C2B33DD04003E0806 /* ViewModel */,
+				367B0F3B2B33DCFD003E0806 /* View */,
 				36DDA9202B0B015600350039 /* EditProfileView */,
-				36210D962B0324240009EBC0 /* ProfileViewController.xib */,
-				36210D952B0324240009EBC0 /* ProfileViewController.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -645,6 +649,40 @@
 				367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		367B0F372B33D51C003E0806 /* ProfileMenu */ = {
+			isa = PBXGroup;
+			children = (
+				36210D942B03240F0009EBC0 /* ProfileView */,
+				36ADC97B2B15D42600E135DC /* PayrollView */,
+			);
+			path = ProfileMenu;
+			sourceTree = "<group>";
+		};
+		367B0F3B2B33DCFD003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36210D952B0324240009EBC0 /* ProfileViewController.swift */,
+				36210D962B0324240009EBC0 /* ProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0F3C2B33DD04003E0806 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				367B0F392B33DA8B003E0806 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		367B0F3D2B342C2B003E0806 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				367B0F3E2B342C3B003E0806 /* LoadingViewController.swift */,
+			);
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		36A9EA8F2B18734700F776CE /* DetailCell */ = {
@@ -1093,6 +1131,7 @@
 				36210D7C2B0304CC0009EBC0 /* InputField.swift in Sources */,
 				36ADC9292B15878E00E135DC /* ExtUIImageView.swift in Sources */,
 				367C5D1D2B0D912000C1678F /* ForgotViewModel.swift in Sources */,
+				367B0F3A2B33DA8B003E0806 /* ProfileViewModel.swift in Sources */,
 				36ADC97E2B15D5A100E135DC /* PayrollViewController.swift in Sources */,
 				36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */,
 				36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */,
@@ -1114,6 +1153,7 @@
 				36210D6D2B02227E0009EBC0 /* ExtUICollectionView.swift in Sources */,
 				3670C6772B05B6800011985F /* CustomLoading.swift in Sources */,
 				36ADC9832B15D9C500E135DC /* PayrollCell.swift in Sources */,
+				367B0F3F2B342C3B003E0806 /* LoadingViewController.swift in Sources */,
 				36210D9D2B0327900009EBC0 /* Constants.swift in Sources */,
 				36DDAC362B0C8E06001D9ACD /* SplashViewModel.swift in Sources */,
 			);
