@@ -41,7 +41,7 @@ class RegisterViewModel {
             return
         }
 
-        FAuth.registerUser(email: email, password: password) { result in
+        FirebaseManager.shared.registerUser(email: email, password: password) { result in
             switch result {
             case .success(let user):
                 let uid = user.uid
@@ -53,12 +53,12 @@ class RegisterViewModel {
                     ]
                 ]
 
-                FFirestore.setDocument(documentID: documentID, data: updatedData, inCollection: collection) { result in
+                FirebaseManager.shared.setDocument(documentID: documentID, data: updatedData, inCollection: collection) { result in
                     switch result {
                     case .success:
-                        print("Profile updated successfully")
+                        break
                     case .failure(let error):
-                        print("Error updating profile: \(error.localizedDescription)")
+                        self.showAlert.onNext(("Error", "Error updating profile: \(error.localizedDescription)", nil))
                     }
                 }
 

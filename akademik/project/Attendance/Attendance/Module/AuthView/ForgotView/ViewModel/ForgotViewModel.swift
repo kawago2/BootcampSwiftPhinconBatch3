@@ -50,7 +50,7 @@ class ForgotViewModel {
             return
         }
 
-        FAuth.resetPassword(email: email) { [weak self] result in
+        FirebaseManager.shared.resetPassword(email: email) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success:

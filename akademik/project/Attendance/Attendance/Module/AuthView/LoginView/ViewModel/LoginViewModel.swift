@@ -47,7 +47,7 @@ class LoginViewModel {
             return
         }
 
-        FAuth.loginUser(email: email, password: password) { [weak self] result in
+        FirebaseManager.shared.loginUser(email: email, password: password) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success:

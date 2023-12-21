@@ -449,9 +449,8 @@
 		36210D802B031BF10009EBC0 /* RegisterView */ = {
 			isa = PBXGroup;
 			children = (
-				36210D812B031C0B0009EBC0 /* RegisterViewController.swift */,
-				36210D822B031C0B0009EBC0 /* RegisterViewController.xib */,
-				367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */,
+				367B0F362B33CC15003E0806 /* ViewModel */,
+				367B0F352B33CBE7003E0806 /* View */,
 			);
 			path = RegisterView;
 			sourceTree = "<group>";
@@ -627,6 +626,23 @@
 			isa = PBXGroup;
 			children = (
 				367C5D1C2B0D912000C1678F /* ForgotViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		367B0F352B33CBE7003E0806 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36210D812B031C0B0009EBC0 /* RegisterViewController.swift */,
+				36210D822B031C0B0009EBC0 /* RegisterViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367B0F362B33CC15003E0806 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				367C5D202B0DA3CD00C1678F /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
