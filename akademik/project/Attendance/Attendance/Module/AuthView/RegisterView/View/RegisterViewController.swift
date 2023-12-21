@@ -2,8 +2,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: BaseViewController {
     
+    // MARK: - Outlets
+        
     @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var fullnameField: InputField!
@@ -13,8 +15,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
+    // MARK: - Properties
+    
     private var viewModel: RegisterViewModel!
-    let disposeBag = DisposeBag()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,50 +28,13 @@ class RegisterViewController: UIViewController {
         buttonEvent()
     }
     
+    // MARK: - Setup View Model
+    
     func setupViewModel() {
         viewModel = RegisterViewModel()
     }
     
-    func buttonEvent() {
-        
-        fullnameField.inputText.rx.text.orEmpty
-            .bind(to: viewModel.fullnameInput)
-            .disposed(by: disposeBag)
-        
-        emailField.inputText.rx.text.orEmpty
-            .bind(to: viewModel.emailInput)
-            .disposed(by: disposeBag)
-        
-        passwordField.inputText.rx.text.orEmpty
-            .bind(to: viewModel.passwordInput)
-            .disposed(by: disposeBag)
-        
-        repasswordField.inputText.rx.text.orEmpty
-            .bind(to: viewModel.repasswordInput)
-            .disposed(by: disposeBag)
-        
-        
-        loginButton.rx.tap.subscribe(onNext: {[weak self] in
-            guard let self = self else { return }
-            self.navigateToLogin()
-        }).disposed(by: disposeBag)
-        
-        registerButton.rx.tap
-            .bind(to: viewModel.registerButtonTap)
-            .disposed(by: disposeBag)
-        
-        viewModel.showAlert
-            .subscribe(onNext: { [weak self] (title, message, completion) in
-                guard let self = self else { return }
-                self.showAlert(title: title, message: message, completion: completion)
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    func navigateToLogin() {
-        let vc = LoginViewController()
-        navigationController?.setViewControllers([vc], animated: false)
-    }
+    // MARK: - Setup UI
     
     func setupUI() {
         setEmailField()
@@ -104,4 +72,57 @@ class RegisterViewController: UIViewController {
         repasswordField.obsecureButton.imageView?.tintColor = UIColor(named: "LoginColor")
         repasswordField.obsecureButton.tintColor = UIColor(named: "LoginColor")
     }
+    
+    // MARK: - Setup Event
+    
+    func buttonEvent() {
+        
+        fullnameField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.fullnameInput)
+            .disposed(by: disposeBag)
+        
+        emailField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.emailInput)
+            .disposed(by: disposeBag)
+        
+        passwordField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.passwordInput)
+            .disposed(by: disposeBag)
+        
+        repasswordField.inputText.rx.text.orEmpty
+            .bind(to: viewModel.repasswordInput)
+            .disposed(by: disposeBag)
+        
+        
+        loginButton.rx.tap.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.navigateToLogin()
+        }).disposed(by: disposeBag)
+        
+        registerButton.rx.tap
+            .bind(to: viewModel.registerButtonTap)
+            .disposed(by: disposeBag)
+        
+        viewModel.navigateToLogin
+            .subscribe(onNext: { [weak self]  in
+                guard let self = self else { return }
+                self.navigateToLogin()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.showAlert
+            .subscribe(onNext: { [weak self] (title, message, completion) in
+                guard let self = self else { return }
+                self.showAlert(title: title, message: message, completion: completion)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    // MARK: - Action Handling
+    
+    func navigateToLogin() {
+        let vc = LoginViewController()
+        navigationController?.setViewControllers([vc], animated: false)
+    }
+    
 }

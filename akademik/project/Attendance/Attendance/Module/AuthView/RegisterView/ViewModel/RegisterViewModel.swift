@@ -3,33 +3,41 @@ import RxSwift
 import RxCocoa
 
 class RegisterViewModel {
-    private let disposeBag = DisposeBag()
-
-    // Inputs
+    
+    // MARK: - Inputs
+    
     let fullnameInput = BehaviorRelay<String>(value: "")
     let emailInput = BehaviorRelay<String>(value: "")
     let passwordInput = BehaviorRelay<String>(value: "")
     let repasswordInput = BehaviorRelay<String>(value: "")
     let registerButtonTap = PublishSubject<Void>()
 
-    // Outputs
+    // MARK: - Outputs
+    
     let showAlert = PublishSubject<(String, String, (() -> Void)?)>()
     let navigateToLogin = PublishSubject<Void>()
 
+    private let disposeBag = DisposeBag()
+
+    // MARK: - Initialization
+    
     init() {
         setupBindings()
     }
 
+    // MARK: - Bindings
+    
     private func setupBindings() {
         registerButtonTap
             .withLatestFrom(Observable.combineLatest(fullnameInput, emailInput, passwordInput, repasswordInput))
             .subscribe(onNext: { [weak self] fullname, email, password, repassword in
-                guard let self = self else { return }
-                self.registerTapped(fullname: fullname, email: email, password: password, repassword: repassword)
+                self?.registerTapped(fullname: fullname, email: email, password: password, repassword: repassword)
             })
             .disposed(by: disposeBag)
     }
 
+    // MARK: - Actions
+    
     private func registerTapped(fullname: String, email: String, password: String, repassword: String) {
         guard !email.isEmpty, !password.isEmpty, !repassword.isEmpty, !fullname.isEmpty else {
             showAlert.onNext(("Error", "Please fill in all fields.", nil))
