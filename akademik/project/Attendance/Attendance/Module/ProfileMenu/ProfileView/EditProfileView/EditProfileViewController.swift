@@ -2,11 +2,16 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol EditProfileViewDelegate {
+// MARK: - Protocol
+
+protocol EditProfileViewDelegate: AnyObject {
     func didSaveTapped(item: ProfileItem, image: UIImage?)
 }
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: BaseViewController {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var saveButton: UIButton!
@@ -20,26 +25,24 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var posisiField: UITextField!
     @IBOutlet weak var loadingView: CustomLoading!
     
-    var delegate: EditProfileViewDelegate?
+    // MARK: - Properties
     
-    var image = "image_not_available"
-    var nik = ""
-    var alamat = ""
-    var name = ""
-    var posisi = ""
-    var resultImage: UIImage!
+    private var viewModel: EditProfileViewModel!
+    weak var delegate: EditProfileViewDelegate?
     
-    let disposeBag = DisposeBag()
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupData()
         setupUI()
+        setupBindings()
         buttonEvent()
         setupTextField()
     }
     
-    func setupUI() {
+    // MARK: - Setup UI
+    
+    private func setupUI() {
         cardView.makeCornerRadius(20)
         view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         saveButton.makeCornerRadius(20)
@@ -49,33 +52,55 @@ class EditProfileViewController: UIViewController {
         profileImage.makeCornerRadius(20)
     }
     
-    func setupData() {
-        if let url = URL(string: image) {
-            profileImage.kf.setImage(with: url)
-        } else {
-            profileImage.image = UIImage(named: self.image)
-        }
-        alamatField.text = self.alamat
-        nikField.text = self.nik
-        nameField.text = self.name
-        posisiField.text = self.posisi
+    // MARK: - Setup View Model
+    
+    internal func setupViewModel(item: ProfileItem) {
+        viewModel = EditProfileViewModel()
+        viewModel.image.accept(item.imageUrl != nil ? UIImage(named: item.imageUrl!) : nil)
+        viewModel.profile.accept(item)
     }
     
-    func setupTextField() {
+    // MARK: - Bindings
+    
+    private func setupBindings() {
+        viewModel.image.asObservable().subscribe(onNext: {[weak self] picker in
+            guard let self = self else { return }
+            self.profileImage.image = picker
+        }).disposed(by: disposeBag)
+        
+        viewModel.profile.asObservable().subscribe(onNext: { [weak self] data in
+            guard let self = self, let data = data else { return }
+            self.nikField.text = data.nik
+            self.alamatField.text = data.alamat
+            self.nameField.text = data.name
+            self.posisiField.text = data.posisi
+            if let url = URL(string: data.imageUrl ?? "") {
+                self.profileImage.kf.setImage(with: url)
+            } else {
+                self.profileImage.image = UIImage(named: Image.notAvail)
+            }
+            
+        }).disposed(by: disposeBag)
+    }
+    
+    // MARK: - Setup Text Field
+    
+    private func setupTextField() {
         nikField.delegate = self
         nikField.keyboardType = .numberPad
     }
     
+    // MARK: - Button Events
     
-    func buttonEvent() {
+    private func buttonEvent() {
         backgroundButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
-            self.popToView()
+            self.dismissView()
         }).disposed(by: disposeBag)
         
         cancelButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
-            self.popToView()
+            self.dismissView()
         }).disposed(by: disposeBag)
         
         saveButton.rx.tap.subscribe(onNext: {[weak self] in
@@ -95,40 +120,31 @@ class EditProfileViewController: UIViewController {
         
     }
     
-    
-     func popToView() {
-        self.dismiss(animated: true)
-    }
-    
-     func saveTapped() {
+    private func saveTapped() {
         loadingView.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            let item = ProfileItem(nik: self.nikField.text, alamat: self.alamatField.text, name: self.nameField.text, posisi: self.posisiField.text)
-            self.delegate?.didSaveTapped(item: item, image: self.resultImage)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+            guard let self = self else { return }
+            let item = ProfileItem(
+                nik: self.viewModel.profile.value?.nik,
+                alamat: self.viewModel.profile.value?.alamat,
+                name: self.viewModel.profile.value?.name,
+                posisi: self.viewModel.profile.value?.posisi
+            )
+            self.delegate?.didSaveTapped(item: item, image: self.viewModel.image.value)
             self.loadingView.stopAnimating()
             self.dismiss(animated: true)
         }
-        
     }
     
-    func initData(item: ProfileItem?) {
-        guard let item = item else { return }
-        self.image = item.imageUrl ?? "image_not available"
-        self.nik = item.nik ?? ""
-        self.alamat = item.alamat ?? ""
-        self.name = item.name ?? ""
-        self.posisi = item.posisi ?? ""
-    }
-    
-     func openGallery() {
+    private func openGallery() {
         showImagePicker(sourceType: .photoLibrary)
     }
     
-     func openCamera() {
+    private func openCamera() {
         showImagePicker(sourceType: .camera)
     }
     
-    func showImagePicker(sourceType: UIImagePickerController.SourceType) {
+    private func showImagePicker(sourceType: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = sourceType
@@ -149,16 +165,12 @@ extension EditProfileViewController: UITextFieldDelegate {
         }
         return false
     }
-    
-    
-    
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            profileImage.image = selectedImage
-            resultImage = selectedImage
+            viewModel.image.accept(selectedImage)
         }
         dismiss(animated: true, completion: nil)
     }

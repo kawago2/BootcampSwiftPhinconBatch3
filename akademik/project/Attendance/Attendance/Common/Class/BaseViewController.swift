@@ -30,4 +30,8 @@ class BaseViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
+    
+    public func dismissView() {
+        dismiss(animated: true)
+    }
 }

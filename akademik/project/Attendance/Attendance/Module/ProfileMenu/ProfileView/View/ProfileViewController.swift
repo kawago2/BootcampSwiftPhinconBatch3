@@ -120,7 +120,7 @@ class ProfileViewController: BaseViewController {
     func navigateFP() {
         let contentVC = EditProfileViewController()
         contentVC.delegate = self
-        contentVC.initData(item: viewModel.profileData)
+        contentVC.setupViewModel(item: viewModel.profileData)
         let navController = UINavigationController(rootViewController: contentVC)
         navController.modalTransitionStyle = .crossDissolve
         navController.modalPresentationStyle = .overFullScreen
