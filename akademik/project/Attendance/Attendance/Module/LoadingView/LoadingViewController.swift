@@ -3,11 +3,25 @@ import Lottie
 
 class LoadingViewController: UIViewController {
 
-    let animationView = LottieAnimationView()
+    // MARK: - Properties
+
+    private let animationView = LottieAnimationView()
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+
+    // MARK: - Private Methods
+
+    private func setupView() {
         view.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        setupAnimationView()
+    }
+
+    private func setupAnimationView() {
         // Setup animation view
         animationView.animation = LottieAnimation.named("loading")
         animationView.contentMode = .scaleAspectFit
@@ -16,6 +30,10 @@ class LoadingViewController: UIViewController {
 
         // Add animation view to the center of the screen
         view.addSubview(animationView)
+        setupConstraints()
+    }
+
+    private func setupConstraints() {
         animationView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
