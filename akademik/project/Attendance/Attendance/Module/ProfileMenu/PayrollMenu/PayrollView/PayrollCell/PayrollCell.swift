@@ -2,6 +2,9 @@ import UIKit
 
 
 class PayrollCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var dateStack: UIStackView!
     @IBOutlet weak var topLine: UIView!
     @IBOutlet weak var bottomLine: UIView!
@@ -9,28 +12,30 @@ class PayrollCell: UITableViewCell {
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var netPayLabel: UILabel!
     
+    // MARK: - Initialization
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        selectionStyle = .none
         setupUI()
     }
-    
-    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupUI() {
+    // MARK: - Setup UI
+    
+    private func setupUI() {
+        selectionStyle = .none
     }
+    
+    // MARK: - Public Methods
     
     func initData(date: String, pay: String, month: String ) {
         dateLabel.text = date
         netPayLabel.text = pay
         monthLabel.text = month
     }
-    
     
     func configuration(first: Bool, last: Bool) {
         topLine.isHidden = first
@@ -48,10 +53,4 @@ class PayrollCell: UITableViewCell {
             topLine.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 0)
         }
     }
-
-//    func onlyOne() {
-//        topLine.isHidden = true
-//        bottomLine.roundCorners(corners: [.allCorners], radius: 20)
-//    }
-    
 }

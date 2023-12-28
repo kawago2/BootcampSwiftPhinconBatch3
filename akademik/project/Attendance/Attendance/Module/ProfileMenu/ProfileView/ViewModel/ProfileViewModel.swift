@@ -91,13 +91,13 @@ class ProfileViewModel {
         guard let uid = FirebaseManager.shared.getCurrentUserUid() else {
             return
         }
-        
+
         let collection = "users"
         let documentID = uid
-        
+
         FirebaseManager.shared.getDocument(collection: collection, documentID: documentID) { [weak self] result in
             guard let self = self else { return }
-            
+
             switch result {
             case .success(let document):
                 if let profileData = document.data()?["profile"] as? [String: Any] {
@@ -105,15 +105,16 @@ class ProfileViewModel {
                     let alamat = profileData["alamat"] as? String ?? "Not set"
                     let name = profileData["name"] as? String ?? "Not set"
                     let posisi = profileData["posisi"] as? String ?? "Not set"
-                    
+
                     self.profileData = ProfileItem(nik: nik, alamat: alamat, name: name, posisi: posisi)
-                    
+
                     self.profileArray = [
                         InfoItem(title: "No. Karyawan", description: nik, imageName: "identity"),
                         InfoItem(title: "Alamat", description: alamat, imageName: "address"),
                         InfoItem(title: "Change Password", description: "***************", imageName: "password")
                     ]
                 } else {
+                    // Use the default values if profile data is not present
                     self.profileArray = [
                         InfoItem(title: "No. Karyawan", description: self.profileData.nik, imageName: "identity"),
                         InfoItem(title: "Alamat", description: self.profileData.alamat, imageName: "address"),
@@ -121,27 +122,31 @@ class ProfileViewModel {
                     ]
                 }
             case .failure(let error):
+                // Call the completion handler with the error from Firebase
                 completionHandler(.failure(error))
             }
         }
-        
+
         let imagePath = "images/profile-\(uid)"
         FirebaseManager.shared.getImageURL(atPath: imagePath) { [weak self] result in
             guard let self = self else { return }
-            
+
             switch result {
             case .success(let imageURL):
                 if let url = URL(string: imageURL) {
                     self.updateProfileImage.onNext(url)
-                    
+
+                    // Update the profile image URL
                     self.profileData.imageUrl = imageURL
                     completionHandler(.success(()))
                 }
             case .failure(let error):
+                // Call the completion handler with the error from Firebase
                 completionHandler(.failure(error))
             }
         }
     }
+
     
     func editProfile(item: ProfileItem, image: UIImage?) {
         guard
@@ -183,10 +188,9 @@ class ProfileViewModel {
             FirebaseManager.shared.editDocument(inCollection: collection, documentIDToEdit: documentID, newData: updatedData) { result in
                 switch result {
                 case .success:
-                    print("Profile updated successfully")
                     dispatchGroup.leave()
                 case .failure(let error):
-                    print("Error updating profile: \(error.localizedDescription)")
+                    self.showAlert.onNext(("Error", error.localizedDescription))
                 }
             }
         }
@@ -196,11 +200,10 @@ class ProfileViewModel {
             dispatchGroup.enter()
             FirebaseManager.shared.uploadImage(imageToUpload, toPath: storagePath) { result in
                 switch result {
-                case .success(let downloadURL):
-                    print("Image uploaded successfully. Download URL: \(downloadURL)")
+                case .success(_):
                     dispatchGroup.leave()
                 case .failure(let error):
-                    print("Error uploading image: \(error.localizedDescription)")
+                    self.showAlert.onNext(("Error", error.localizedDescription))
                 }
             }
         }

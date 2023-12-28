@@ -48,8 +48,6 @@
 		36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210DA42B0348270009EBC0 /* LocationCell.xib */; };
 		363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */; };
 		363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */; };
-		3670C6772B05B6800011985F /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C6762B05B6800011985F /* CustomLoading.swift */; };
-		3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3670C6782B05B68E0011985F /* CustomLoading.xib */; };
 		3670C67B2B05C9510011985F /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67A2B05C9510011985F /* ExtDate.swift */; };
 		3670C67F2B05D3C60011985F /* TimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67D2B05D3C60011985F /* TimesheetViewController.swift */; };
 		3670C6802B05D3C60011985F /* TimesheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3670C67E2B05D3C60011985F /* TimesheetViewController.xib */; };
@@ -94,6 +92,9 @@
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
 		36C511632B0F447100B2EA7C /* ApproveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C511612B0F447100B2EA7C /* ApproveViewController.xib */; };
 		36D713702B3D082A00C41F5F /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */; };
+		36D713752B3D1E5700C41F5F /* AddFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D713742B3D1E5700C41F5F /* AddFormViewModel.swift */; };
+		36D7137A2B3D2DFB00C41F5F /* PayrollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D713792B3D2DFB00C41F5F /* PayrollViewModel.swift */; };
+		36D7137C2B3D591D00C41F5F /* CustomLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D7137B2B3D591D00C41F5F /* CustomLoading.swift */; };
 		36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9162B076E0E00350039 /* SortbyCell.swift */; };
 		36DDA9192B076E0E00350039 /* SortbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9172B076E0E00350039 /* SortbyCell.xib */; };
 		36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9222B0B015600350039 /* EditProfileViewController.xib */; };
@@ -172,8 +173,6 @@
 		36210DA42B0348270009EBC0 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCell.swift; sourceTree = "<group>"; };
 		363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionCell.xib; sourceTree = "<group>"; };
-		3670C6762B05B6800011985F /* CustomLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoading.swift; sourceTree = "<group>"; };
-		3670C6782B05B68E0011985F /* CustomLoading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLoading.xib; sourceTree = "<group>"; };
 		3670C67A2B05C9510011985F /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
 		3670C67D2B05D3C60011985F /* TimesheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetViewController.swift; sourceTree = "<group>"; };
 		3670C67E2B05D3C60011985F /* TimesheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimesheetViewController.xib; sourceTree = "<group>"; };
@@ -219,6 +218,9 @@
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
 		36C511612B0F447100B2EA7C /* ApproveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApproveViewController.xib; sourceTree = "<group>"; };
 		36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		36D713742B3D1E5700C41F5F /* AddFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFormViewModel.swift; sourceTree = "<group>"; };
+		36D713792B3D2DFB00C41F5F /* PayrollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayrollViewModel.swift; sourceTree = "<group>"; };
+		36D7137B2B3D591D00C41F5F /* CustomLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoading.swift; sourceTree = "<group>"; };
 		36DDA9162B076E0E00350039 /* SortbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortbyCell.swift; sourceTree = "<group>"; };
 		36DDA9172B076E0E00350039 /* SortbyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortbyCell.xib; sourceTree = "<group>"; };
 		36DDA9222B0B015600350039 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
@@ -350,8 +352,8 @@
 				36ADC92E2B158C0E00E135DC /* MainTabBar */,
 				367B0F372B33D51C003E0806 /* ProfileMenu */,
 				36210D8F2B0323EE0009EBC0 /* HistoryView */,
-				36D713712B3D1B0000C41F5F /* HomeMenu */,
 				3670C67C2B05D3AB0011985F /* TimesheetView */,
+				36D713712B3D1B0000C41F5F /* HomeMenu */,
 				36C287302B04764D00F17ADA /* Models */,
 				3609C76A2B0EE43D000DE5B7 /* PermissionView */,
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
@@ -509,6 +511,15 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		362C84EF2B3D639D0075595D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC98A2B16E50D00E135DC /* DetailPayrollViewController.swift */,
+				36ADC98B2B16E50D00E135DC /* DetailPayrollViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		363884CC2B0F2CCB00B92C0D /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,8 +532,7 @@
 		3670C6752B05B6570011985F /* CustomLoading */ = {
 			isa = PBXGroup;
 			children = (
-				3670C6762B05B6800011985F /* CustomLoading.swift */,
-				3670C6782B05B68E0011985F /* CustomLoading.xib */,
+				36D7137B2B3D591D00C41F5F /* CustomLoading.swift */,
 			);
 			path = CustomLoading;
 			sourceTree = "<group>";
@@ -560,8 +570,8 @@
 		3670C6872B05F2480011985F /* CustomPopUp */ = {
 			isa = PBXGroup;
 			children = (
-				3670C6882B05F2710011985F /* AddFormViewController.swift */,
-				3670C6892B05F2710011985F /* AddFormViewController.xib */,
+				36D713732B3D1E4800C41F5F /* ViewModel */,
+				36D713722B3D1E4100C41F5F /* View */,
 			);
 			path = CustomPopUp;
 			sourceTree = "<group>";
@@ -658,7 +668,7 @@
 			isa = PBXGroup;
 			children = (
 				36210D942B03240F0009EBC0 /* ProfileView */,
-				36ADC97B2B15D42600E135DC /* PayrollView */,
+				36D713762B3D2DC400C41F5F /* PayrollMenu */,
 			);
 			path = ProfileMenu;
 			sourceTree = "<group>";
@@ -691,6 +701,8 @@
 		367B0F402B3518ED003E0806 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				36DDA9272B0B024E00350039 /* EditProfileViewController.swift */,
+				36DDA9222B0B015600350039 /* EditProfileViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -741,10 +753,9 @@
 		36ADC97B2B15D42600E135DC /* PayrollView */ = {
 			isa = PBXGroup;
 			children = (
-				36ADC9892B16E48F00E135DC /* DetailView */,
+				36D713782B3D2DE600C41F5F /* ViewModel */,
+				36D713772B3D2DE100C41F5F /* View */,
 				36ADC9802B15D9A300E135DC /* PayrollCell */,
-				36ADC97C2B15D5A100E135DC /* PayrollViewController.swift */,
-				36ADC97D2B15D5A100E135DC /* PayrollViewController.xib */,
 			);
 			path = PayrollView;
 			sourceTree = "<group>";
@@ -761,10 +772,9 @@
 		36ADC9892B16E48F00E135DC /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				362C84EF2B3D639D0075595D /* View */,
 				36ADC9932B173C6A00E135DC /* ChartCell */,
 				36ADC98E2B17140300E135DC /* TableCell */,
-				36ADC98A2B16E50D00E135DC /* DetailPayrollViewController.swift */,
-				36ADC98B2B16E50D00E135DC /* DetailPayrollViewController.xib */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -833,13 +843,54 @@
 			path = HomeMenu;
 			sourceTree = "<group>";
 		};
+		36D713722B3D1E4100C41F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3670C6882B05F2710011985F /* AddFormViewController.swift */,
+				3670C6892B05F2710011985F /* AddFormViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		36D713732B3D1E4800C41F5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36D713742B3D1E5700C41F5F /* AddFormViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		36D713762B3D2DC400C41F5F /* PayrollMenu */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC9892B16E48F00E135DC /* DetailView */,
+				36ADC97B2B15D42600E135DC /* PayrollView */,
+			);
+			path = PayrollMenu;
+			sourceTree = "<group>";
+		};
+		36D713772B3D2DE100C41F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36ADC97C2B15D5A100E135DC /* PayrollViewController.swift */,
+				36ADC97D2B15D5A100E135DC /* PayrollViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		36D713782B3D2DE600C41F5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36D713792B3D2DFB00C41F5F /* PayrollViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		36DDA9202B0B015600350039 /* EditProfileView */ = {
 			isa = PBXGroup;
 			children = (
 				367B0F412B3518F2003E0806 /* ViewModel */,
 				367B0F402B3518ED003E0806 /* View */,
-				36DDA9222B0B015600350039 /* EditProfileViewController.xib */,
-				36DDA9272B0B024E00350039 /* EditProfileViewController.swift */,
 			);
 			path = EditProfileView;
 			sourceTree = "<group>";
@@ -1008,7 +1059,6 @@
 				36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */,
 				3670C6862B05D7FC0011985F /* TimesheetCell.xib in Resources */,
 				3670C6802B05D3C60011985F /* TimesheetViewController.xib in Resources */,
-				3670C6792B05B68E0011985F /* CustomLoading.xib in Resources */,
 				36210D892B0321B70009EBC0 /* ForgotViewController.xib in Resources */,
 				36210D772B0303040009EBC0 /* LoginViewController.xib in Resources */,
 				36ADC97F2B15D5A100E135DC /* PayrollViewController.xib in Resources */,
@@ -1171,6 +1221,7 @@
 				36210D8D2B0323E80009EBC0 /* HomeViewController.swift in Sources */,
 				36ADC9912B17142400E135DC /* DetailCell.swift in Sources */,
 				3609C7702B0EE85E000DE5B7 /* PermissionModel.swift in Sources */,
+				36D713752B3D1E5700C41F5F /* AddFormViewModel.swift in Sources */,
 				36C287322B04766100F17ADA /* ItemModel.swift in Sources */,
 				36210D7F2B0309240009EBC0 /* ExtUIView.swift in Sources */,
 				36ADC9252B15780300E135DC /* CustomEmpty.swift in Sources */,
@@ -1180,6 +1231,7 @@
 				367B0F3A2B33DA8B003E0806 /* ProfileViewModel.swift in Sources */,
 				36ADC97E2B15D5A100E135DC /* PayrollViewController.swift in Sources */,
 				367B0F432B351904003E0806 /* EditProfileViewModel.swift in Sources */,
+				36D7137A2B3D2DFB00C41F5F /* PayrollViewModel.swift in Sources */,
 				36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */,
 				36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */,
 				3670C68A2B05F2710011985F /* AddFormViewController.swift in Sources */,
@@ -1190,6 +1242,7 @@
 				36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */,
 				3670C6852B05D7FC0011985F /* TimesheetCell.swift in Sources */,
 				36ADC91D2B0F490300E135DC /* ApproveCell.swift in Sources */,
+				36D7137C2B3D591D00C41F5F /* CustomLoading.swift in Sources */,
 				36D713702B3D082A00C41F5F /* HistoryViewModel.swift in Sources */,
 				36ADC9212B14960700E135DC /* WelcomeViewModel.swift in Sources */,
 				3670C67F2B05D3C60011985F /* TimesheetViewController.swift in Sources */,
@@ -1199,7 +1252,6 @@
 				3609C7742B0EFEDE000DE5B7 /* AddPermissionViewController.swift in Sources */,
 				36ADC9862B15E8EE00E135DC /* FormView.swift in Sources */,
 				36210D6D2B02227E0009EBC0 /* ExtUICollectionView.swift in Sources */,
-				3670C6772B05B6800011985F /* CustomLoading.swift in Sources */,
 				36ADC9832B15D9C500E135DC /* PayrollCell.swift in Sources */,
 				367B0F3F2B342C3B003E0806 /* LoadingViewController.swift in Sources */,
 				36210D9D2B0327900009EBC0 /* Constants.swift in Sources */,

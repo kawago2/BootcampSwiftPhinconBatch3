@@ -21,7 +21,7 @@ class ProfileViewController: BaseViewController {
     
     // MARK: - Properties
     
-    private var viewModel = ProfileViewModel()
+    private var viewModel: ProfileViewModel!
     
     // MARK: - Lifecycle
     
@@ -64,6 +64,11 @@ class ProfileViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.navigateToLogin.subscribe(onNext: {[weak self] in
+            guard let self = self else { return }
+            self.navigateToLogin()
+        }).disposed(by: disposeBag)
+        
         pencilButton.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
@@ -87,26 +92,27 @@ class ProfileViewController: BaseViewController {
     // MARK: - Load Data
     
     private func loadData() {
-        showLoading(isHidden: false)
-        viewModel.loadDataGeneral(completionHandler: {result in
+       showLoading()
+        self.viewModel.loadDataGeneral(completionHandler: { result in
+            self.hideLoading()
             switch result {
             case .success():
                 self.setupData()
-                self.showLoading(isHidden: true)
             case .failure(_):
-                DispatchQueue.main.async {
-                    self.showAlert(title: "Invalid", message: "Error Load Profile. Please try again.")
-                    self.profileImage.image = UIImage(named: Image.notAvail)
-                    self.showLoading(isHidden: true)
-                }
+                self.hideLoading()
+                self.showAlert(title: "Invalid", message: "Error Load Profile. Please try again.")
+                self.profileImage.image = UIImage(named: Image.notAvail)
             }
         })
         
-        viewModel.updateProfileImage.subscribe(onNext: {[weak self] url in
+        self.viewModel.updateProfileImage.subscribe(onNext: { [weak self] url in
             guard let self = self else { return }
-            self.profileImage.kf.setImage(with: url)
+            self.profileImage.kf.setImage(with: url) {_ in 
+                self.hideLoading()
+            }
         }).disposed(by: disposeBag)
     }
+
     
     func setupData() {
         let profileData = viewModel.profileData

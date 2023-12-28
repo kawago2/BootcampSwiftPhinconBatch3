@@ -3,6 +3,10 @@ import DropDown
 import RxSwift
 import RxGesture
 
+enum SortBy {
+    case date, status, option
+}
+
 protocol SortbyCellDelegate {
     func didLabelTapped(sortby: String)
 }
@@ -14,7 +18,7 @@ class SortbyCell: UICollectionViewCell {
     
     let dropDown = DropDown()
     var delegate: SortbyCellDelegate?
-    var context = "" {
+    var context: SortBy? {
         didSet {
             setupDropDown()
         }
@@ -47,13 +51,13 @@ class SortbyCell: UICollectionViewCell {
     
     func setupDropDown() {
         dropDown.anchorView = sortNameLabel
-        if context == "date" {
+        if context == .date {
             dropDown.dataSource = DateSortOption.allCases.map { $0.rawValue }
-        } else if context == "option" {
+        } else if context == .option {
             var optionMod = TaskStatus.allCases.map { $0.rawValue }
             optionMod.insert(contentsOf: ["Show All"], at: 0)
             dropDown.dataSource = optionMod
-        } else if context == "status" {
+        } else if context == .status {
             var optionMod = PermissionStatus.allCases.map { $0.rawValue }
             optionMod.insert("Show All", at: 0)
             dropDown.dataSource = optionMod

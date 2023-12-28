@@ -121,17 +121,17 @@ class EditProfileViewController: BaseViewController {
     }
     
     private func saveTapped() {
-        loadingView.startAnimating()
+        showLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             guard let self = self else { return }
             let item = ProfileItem(
-                nik: self.viewModel.profile.value?.nik,
-                alamat: self.viewModel.profile.value?.alamat,
-                name: self.viewModel.profile.value?.name,
-                posisi: self.viewModel.profile.value?.posisi
+                nik: self.nikField.text,
+                alamat: self.alamatField.text,
+                name: self.nameField.text,
+                posisi: self.posisiField.text
             )
             self.delegate?.didSaveTapped(item: item, image: self.viewModel.image.value)
-            self.loadingView.stopAnimating()
+            self.hideLoading()
             self.dismiss(animated: true)
         }
     }

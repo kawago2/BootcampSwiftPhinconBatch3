@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxGesture
 import FirebaseFirestore
+import SnapKit
 
 // MARK: - Enum
 
@@ -151,13 +152,13 @@ class HistoryViewController: BaseViewController {
     // MARK: - Fetch Data
     
     private func fetchData() {
-        loadingView.startAnimating()
+        showLoading()
         viewModel.getData { result in
             switch result {
             case .success:
-                self.loadingView.stopAnimating()
+                self.hideLoading()
             case .failure(let error):
-                self.loadingView.stopAnimating()
+                self.hideLoading()
                 self.showAlert(title: "Error", message: error.localizedDescription)
             }
         }

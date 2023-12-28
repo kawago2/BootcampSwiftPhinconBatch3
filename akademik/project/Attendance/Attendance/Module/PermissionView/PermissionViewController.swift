@@ -207,13 +207,13 @@ extension PermissionViewController:  UICollectionViewDelegate, UICollectionViewD
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
             cell.delegate = self
-            cell.context = "date"
+            cell.context = .date
             cell.initData(title: "Date Permission")
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
             cell.delegate = self
-            cell.context = "status"
+            cell.context = .status
             cell.initData(title: "Status")
             return cell
         default:

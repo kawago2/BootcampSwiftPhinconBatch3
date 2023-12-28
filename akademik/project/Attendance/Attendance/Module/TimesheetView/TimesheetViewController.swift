@@ -3,7 +3,11 @@ import RxSwift
 import RxGesture
 import FirebaseFirestore
 
-class TimesheetViewController: UIViewController {
+enum Context {
+    case add, edit
+}
+
+class TimesheetViewController: BaseViewController {
 
     @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -20,7 +24,6 @@ class TimesheetViewController: UIViewController {
         }
     }
     var cellContexts: [String] = ["date", "option"]
-    let disposeBag = DisposeBag()
     var currentSortBy = ""
     
     override func viewDidLoad() {
@@ -31,7 +34,7 @@ class TimesheetViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchData(completion: {
-            self.loadingView.stopAnimating()
+            self.hideLoading()
             self.tableView.reloadData()
         })
         
@@ -59,20 +62,19 @@ class TimesheetViewController: UIViewController {
     
      func navigateFP() {
         let contentVC = AddFormViewController()
-        contentVC.context = "add"
+        contentVC.context = Context.add
         contentVC.delegate = self
         let navController = UINavigationController(rootViewController: contentVC)
         navController.modalTransitionStyle = .crossDissolve
         navController.modalPresentationStyle = .overFullScreen
         present(navController, animated: true)
-
     }
     
     func fetchData(completion: @escaping () -> Void?) {
         let status = NetworkManager.shared.getStatus()
         switch status {
         case .connected:
-            loadingView.startAnimating()
+            self.showLoading()
             timesheetData = []
             guard let uid = FAuth.auth.currentUser?.uid else {
                 print("User not logged in")
@@ -198,7 +200,7 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
             }
         }
         fetchData(completion: {
-            self.loadingView.stopAnimating()
+            self.hideLoading()
             self.tableView.reloadData()
            
         })
@@ -210,12 +212,18 @@ extension TimesheetViewController: UITableViewDelegate, UITableViewDataSource{
         let timesheetItem = completedTimesheets[index]
         
         let vc = AddFormViewController()
+        let vm = AddFormViewModel()
         vc.delegate = self
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overFullScreen
-        vc.context = "edit"
-        vc.documentID = timesheetItem.id ?? ""
-        vc.initData(startDate: timesheetItem.startDate ?? Date(), endDate: timesheetItem.endDate ?? Date(), position: timesheetItem.position ?? "" , task: timesheetItem.task ?? "" , status:  timesheetItem.status ?? .inProgress)
+        vc.context = .edit
+        vm.documentID = timesheetItem.id ?? ""
+        vm.startDate.accept(timesheetItem.startDate ?? Date())
+        vm.endDate.accept(timesheetItem.endDate ?? Date())
+        vm.position.accept(timesheetItem.position ?? "")
+        vm.task.accept(timesheetItem.task ?? "")
+        vm.status.accept(timesheetItem.status ?? .inProgress)
+        vc.viewModel = vm
         present(vc, animated: true)
     }
     
@@ -250,7 +258,7 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
             }
         }
         fetchData(completion: {
-            self.loadingView.stopAnimating()
+            self.hideLoading()
             self.tableView.reloadData()
         })
     
@@ -282,7 +290,7 @@ extension TimesheetViewController: AddFormViewControllerDelegate {
             }
         }
         fetchData(completion: {
-            self.loadingView.stopAnimating()
+            self.hideLoading()
             self.tableView.reloadData()
         })
     }
@@ -302,13 +310,13 @@ extension TimesheetViewController:  UICollectionViewDelegate, UICollectionViewDa
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
             cell.delegate = self
-            cell.context = "date"
+            cell.context = .date
             cell.initData(title: "Date")
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
             cell.delegate = self
-            cell.context = "option"
+            cell.context = .option
             cell.initData(title: "Status")
             return cell
         default:

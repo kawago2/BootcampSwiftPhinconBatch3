@@ -3,8 +3,12 @@ import DGCharts
 
 class ChartCell: UITableViewCell {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var pieChartView: PieChartView!
 
+    // MARK: - Lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -13,6 +17,7 @@ class ChartCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: - Public Methods
     
     func setupPieChart(allowances: [Allowance], deductions: [Deduction], item: Payroll) {
         
@@ -40,7 +45,8 @@ class ChartCell: UITableViewCell {
         pieChartView.centerText = "Gross Pay\n\(totalAll.formatAsRupiah())"
         
         
-        // Menambahkan nilai di legenda
+        // MARK: - Legend Setup
+        
         let legend = pieChartView.legend
         legend.enabled = true
         legend.form = .circle
@@ -74,9 +80,10 @@ class ChartCell: UITableViewCell {
 
         let legendEntries = [basicLegend, allowancesLegend, deductionsLegend]
 
-
         legend.setCustom(entries: legendEntries)
 
+        
+        // MARK: - Additional Chart Setup
         
         pieChartView.entryLabelFont = UIFont(name: "Avenir", size: 10) ?? UIFont.systemFont(ofSize: 10)
         pieChartView.drawEntryLabelsEnabled = false
