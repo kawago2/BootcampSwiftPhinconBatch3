@@ -8,11 +8,17 @@
 import UIKit
 
 class TableCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var tableView: UITableView!
 
+    // MARK: - Properties
     
     var allowances: [Allowance] = []
     var deductions: [Deduction] = []
+    
+    // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,9 +27,9 @@ class TableCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
+    // MARK: - UI Setup
     
     func setupUI() {
         selectionStyle = .none
@@ -33,10 +39,13 @@ class TableCell: UITableViewCell {
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
 extension TableCell: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section{
-        case 0 :
+        switch section {
+        case 0:
             return allowances.count
         case 1:
             return deductions.count
@@ -45,15 +54,14 @@ extension TableCell: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         let row = indexPath.row
+        
         switch section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
@@ -63,13 +71,10 @@ extension TableCell: UITableViewDelegate, UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
             let item = deductions[row]
-            cell.initData(key: item.name, value:  "- " + item.amount.formatAsRupiah())
+            cell.initData(key: item.name, value: "- " + item.amount.formatAsRupiah())
             return cell
         default:
             return UITableViewCell()
-            
         }
-        
-
     }
 }
