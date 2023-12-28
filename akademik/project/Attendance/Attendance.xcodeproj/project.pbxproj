@@ -350,12 +350,11 @@
 				36ADC92E2B158C0E00E135DC /* MainTabBar */,
 				367B0F372B33D51C003E0806 /* ProfileMenu */,
 				36210D8F2B0323EE0009EBC0 /* HistoryView */,
+				36D713712B3D1B0000C41F5F /* HomeMenu */,
 				3670C67C2B05D3AB0011985F /* TimesheetView */,
 				36C287302B04764D00F17ADA /* Models */,
 				3609C76A2B0EE43D000DE5B7 /* PermissionView */,
-				36C5115F2B0F440F00B2EA7C /* ApproveView */,
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
-				36210D8A2B0323D70009EBC0 /* HomeView */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -823,6 +822,15 @@
 				36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		36D713712B3D1B0000C41F5F /* HomeMenu */ = {
+			isa = PBXGroup;
+			children = (
+				36C5115F2B0F440F00B2EA7C /* ApproveView */,
+				36210D8A2B0323D70009EBC0 /* HomeView */,
+			);
+			path = HomeMenu;
 			sourceTree = "<group>";
 		};
 		36DDA9202B0B015600350039 /* EditProfileView */ = {
