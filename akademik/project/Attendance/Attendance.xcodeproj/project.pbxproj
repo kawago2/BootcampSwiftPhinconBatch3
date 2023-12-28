@@ -93,6 +93,7 @@
 		36C287322B04766100F17ADA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* ItemModel.swift */; };
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
 		36C511632B0F447100B2EA7C /* ApproveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C511612B0F447100B2EA7C /* ApproveViewController.xib */; };
+		36D713702B3D082A00C41F5F /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */; };
 		36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9162B076E0E00350039 /* SortbyCell.swift */; };
 		36DDA9192B076E0E00350039 /* SortbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9172B076E0E00350039 /* SortbyCell.xib */; };
 		36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9222B0B015600350039 /* EditProfileViewController.xib */; };
@@ -217,6 +218,7 @@
 		36C287312B04766100F17ADA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
 		36C511612B0F447100B2EA7C /* ApproveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApproveViewController.xib; sourceTree = "<group>"; };
+		36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		36DDA9162B076E0E00350039 /* SortbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortbyCell.swift; sourceTree = "<group>"; };
 		36DDA9172B076E0E00350039 /* SortbyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortbyCell.xib; sourceTree = "<group>"; };
 		36DDA9222B0B015600350039 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
@@ -347,13 +349,13 @@
 				367B0F302B32E1D1003E0806 /* AuthView */,
 				36ADC92E2B158C0E00E135DC /* MainTabBar */,
 				367B0F372B33D51C003E0806 /* ProfileMenu */,
+				36210D8F2B0323EE0009EBC0 /* HistoryView */,
+				3670C67C2B05D3AB0011985F /* TimesheetView */,
 				36C287302B04764D00F17ADA /* Models */,
 				3609C76A2B0EE43D000DE5B7 /* PermissionView */,
 				36C5115F2B0F440F00B2EA7C /* ApproveView */,
-				3670C67C2B05D3AB0011985F /* TimesheetView */,
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
 				36210D8A2B0323D70009EBC0 /* HomeView */,
-				36210D8F2B0323EE0009EBC0 /* HistoryView */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -483,8 +485,8 @@
 		36210D8F2B0323EE0009EBC0 /* HistoryView */ = {
 			isa = PBXGroup;
 			children = (
-				36210D902B0323FE0009EBC0 /* HistoryViewController.swift */,
-				36210D912B0323FE0009EBC0 /* HistoryViewController.xib */,
+				36D7136E2B3D07C800C41F5F /* ViewModel */,
+				36D7136D2B3D07C300C41F5F /* View */,
 			);
 			path = HistoryView;
 			sourceTree = "<group>";
@@ -804,6 +806,23 @@
 				36C511612B0F447100B2EA7C /* ApproveViewController.xib */,
 			);
 			path = ApproveView;
+			sourceTree = "<group>";
+		};
+		36D7136D2B3D07C300C41F5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36210D902B0323FE0009EBC0 /* HistoryViewController.swift */,
+				36210D912B0323FE0009EBC0 /* HistoryViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		36D7136E2B3D07C800C41F5F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		36DDA9202B0B015600350039 /* EditProfileView */ = {
@@ -1163,6 +1182,7 @@
 				36DDA9182B076E0E00350039 /* SortbyCell.swift in Sources */,
 				3670C6852B05D7FC0011985F /* TimesheetCell.swift in Sources */,
 				36ADC91D2B0F490300E135DC /* ApproveCell.swift in Sources */,
+				36D713702B3D082A00C41F5F /* HistoryViewModel.swift in Sources */,
 				36ADC9212B14960700E135DC /* WelcomeViewModel.swift in Sources */,
 				3670C67F2B05D3C60011985F /* TimesheetViewController.swift in Sources */,
 				36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */,

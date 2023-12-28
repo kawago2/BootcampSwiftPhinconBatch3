@@ -149,6 +149,20 @@ class FirebaseManager {
             }
         }
     }
+    
+    func getDataFromSubcollection(documentID: String, inCollection collection: String, subcollectionPath: String, completion: @escaping (Result<[DocumentSnapshot], Error>) -> Void) {
+        let db = Firestore.firestore()
+        let documentRef = db.collection(collection).document(documentID).collection(subcollectionPath)
+        
+        documentRef.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let querySnapshot = querySnapshot {
+                let documents = querySnapshot.documents
+                completion(.success(documents))
+            }
+        }
+    }
 
     // MARK: - Function Firebase Storage
 
