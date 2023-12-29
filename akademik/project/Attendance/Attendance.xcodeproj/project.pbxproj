@@ -350,6 +350,7 @@
 			children = (
 				367B0F3D2B342C2B003E0806 /* LoadingView */,
 				36210D582B0208C80009EBC0 /* SplashView */,
+				36210D5E2B020B180009EBC0 /* WelcomeView */,
 				367B0F302B32E1D1003E0806 /* AuthView */,
 				36ADC92E2B158C0E00E135DC /* MainTabBar */,
 				367B0F372B33D51C003E0806 /* ProfileMenu */,
@@ -358,7 +359,6 @@
 				36D713712B3D1B0000C41F5F /* HomeMenu */,
 				36C287302B04764D00F17ADA /* Models */,
 				3609C76A2B0EE43D000DE5B7 /* PermissionView */,
-				36210D5E2B020B180009EBC0 /* WelcomeView */,
 			);
 			path = Module;
 			sourceTree = "<group>";
