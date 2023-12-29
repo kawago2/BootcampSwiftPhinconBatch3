@@ -4,6 +4,8 @@ import RxCocoa
 import DropDown
 import FirebaseFirestore
 
+// MARK: - PermissionAdd
+
 struct PermissionAdd {
     var permissionDate: Date?
     var reason: String?
@@ -11,11 +13,17 @@ struct PermissionAdd {
     var type: PermissionType?
 }
 
+// MARK: - AddPermissionDelegate
+
 protocol AddPermissionDelegate {
     func didAddTap(item: PermissionAdd)
 }
 
+// MARK: - AddPermissionViewController
+
 class AddPermissionViewController: BaseViewController {
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var typeLabel: UILabel!
@@ -23,9 +31,13 @@ class AddPermissionViewController: BaseViewController {
     @IBOutlet weak var durationTextField: InputField!
     @IBOutlet weak var permissionDate: UIDatePicker!
     
+    // MARK: - Properties
+    
     let typeDropDown = DropDown()
     var typeCurrent: PermissionType = .sickLeave
     var delegate: AddPermissionDelegate?
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,25 +47,28 @@ class AddPermissionViewController: BaseViewController {
         setupDropdown()
     }
     
+    // MARK: - Button Event
+    
     func buttonEvent() {
         addButton.rx.tap.subscribe(onNext: {[weak self] in
             guard let self = self else { return }
             self.addTapped()
-            
         }).disposed(by: disposeBag)
 
         typeLabel.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else { return }
             self.showDropdown()
-            
         }).disposed(by: disposeBag)
-
     }
+    
+    // MARK: - UI Setup
     
     func setupUI() {
         reasonTextField.setup(title: "Reason", placeholder: "", isSecure: false)
         durationTextField.setup(title: "Duration", placeholder: "", isSecure: false)
     }
+    
+    // MARK: - Date Picker Binding
     
     func bindDatePicker() {
         let minimumDate = Calendar.current.date(byAdding: .weekOfMonth, value: 2, to: Date()) ?? Date()
@@ -61,6 +76,8 @@ class AddPermissionViewController: BaseViewController {
             .bind(to: permissionDate.rx.minimumDate)
             .disposed(by: disposeBag)
     }
+    
+    // MARK: - Dropdown Setup
     
     func setupDropdown() {
         typeDropDown.anchorView = typeLabel
@@ -75,9 +92,13 @@ class AddPermissionViewController: BaseViewController {
         }
     }
 
-     func showDropdown() {
+    // MARK: - Show Dropdown
+    
+    func showDropdown() {
         typeDropDown.show()
     }
+    
+    // MARK: - Add Button Action
     
     func addTapped() {
         let reasonTextObservable = reasonTextField.inputText.text ?? ""
@@ -93,5 +114,4 @@ class AddPermissionViewController: BaseViewController {
         
         self.delegate?.didAddTap(item: item)
     }
-    
 }

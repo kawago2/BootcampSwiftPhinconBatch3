@@ -245,7 +245,9 @@ extension PermissionViewController: AddPermissionDelegate {
             switch result {
             case .success():
                 self.dismiss(animated: true) {
-                    self.showAlert(title: "Success", message: "Form successly created\nPlease wait Approval.")
+                    self.showAlert(title: "Success", message: "Form successly created\nPlease wait Approval.") {
+                        self.fetchData()
+                    }
                 }
             case .failure(let error):
                 self.dismiss(animated: true) {

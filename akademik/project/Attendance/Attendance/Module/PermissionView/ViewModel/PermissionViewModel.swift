@@ -8,12 +8,19 @@
 import Foundation
 import RxSwift
 
+// MARK: - PermissionViewModel
+
 class PermissionViewModel {
+    
+    // MARK: - Properties
+    
     var currentSortBy = ""
     var permissionData: [PermissionForm] = []
     var filterPermission: [PermissionForm] = []
     
     let showAlert = PublishSubject<(String, String)>()
+    
+    // MARK: - Methods
     
     func getData(completionHandler: @escaping (Result<Void, Error>) -> Void) {
         permissionData = []
@@ -49,7 +56,7 @@ class PermissionViewModel {
         let permissionItem = filterPermission[index]
         if let status = permissionItem.status {
             if status != .submitted {
-                showAlert.onNext(("Warning", "When form has been validate, cant delete."))
+                showAlert.onNext(("Warning", "When form has been validated, can't be deleted."))
                 return
             }
         }
@@ -109,7 +116,6 @@ class PermissionViewModel {
         default:
             filterPermission = permissionData
         }
-        
     }
     
     func sortByDate(sortby: String) {
