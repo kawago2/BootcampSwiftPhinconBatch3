@@ -74,7 +74,7 @@ class ApproveViewController: UIViewController {
                 }
                 self.didLabelTapped(sortby: self.currentSortBy)
             case .failure(let error):
-                print("Error: \(error)")
+                self.showAlert(title: "Error", message: error.localizedDescription)
             }
         }
     }
@@ -140,7 +140,7 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
                     self.showAlert(title: "Approved", message: "Form approve successfuly")
                     self.getData()
                 case .failure(let error):
-                    print("Error saat mengubah dokumen dalam subkoleksi: \(error.localizedDescription)")
+                    self.showAlert(title: "Error", message: error.localizedDescription)
                 }
             }
         }
@@ -164,7 +164,7 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
                     self.showAlert(title: "Rejected", message: "Form reject successfuly")
                     self.getData()
                 case .failure(let error):
-                    print("Error saat mengubah dokumen dalam subkoleksi: \(error.localizedDescription)")
+                    self.showAlert(title: "Error", message: error.localizedDescription)
                 }
             }
         }
@@ -185,13 +185,9 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
                            let profile = data["profile"] as? [String: Any],
                            let name = profile["name"] as? String {
                             cell.initData(permission: permissionItem, name: name)
-                            
-                        } else {
-                            print("Error: Unable to extract 'name' from document data.")
                         }
-                        
                     case .failure(let error):
-                        print("Error: \(error)")
+                        self.showAlert(title: "Error", message: error.localizedDescription)
                     }
                 }
             }

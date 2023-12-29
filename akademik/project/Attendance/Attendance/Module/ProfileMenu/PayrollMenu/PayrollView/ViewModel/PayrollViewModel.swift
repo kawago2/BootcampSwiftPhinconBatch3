@@ -9,6 +9,25 @@ import Foundation
 import FirebaseFirestore
 import RxSwift
 
+struct Allowance {
+    var name: String
+    var amount: Float
+}
+
+struct Deduction {
+    var name: String
+    var amount: Float
+}
+
+struct Payroll {
+    var payrollId: String?
+    var date: Date?
+    var basicSalary: Float?
+    var allowances: [Allowance]?
+    var deductions: [Deduction]?
+    var netSalary: Float?
+}
+
 class PayrollViewModel {
     
     // MARK: - Properties
@@ -54,7 +73,7 @@ class PayrollViewModel {
                             }
                             
                             if let error = error {
-                                print(error.localizedDescription)
+                                self.showAlert.onNext(("Error", error.localizedDescription))
                             } else if let querySnapshot = querySnapshot {
                                 let documents = querySnapshot.documents
                                 for doc in documents {
@@ -76,7 +95,7 @@ class PayrollViewModel {
                             }
                             
                             if let error = error {
-                                print(error.localizedDescription)
+                                self.showAlert.onNext(("Error", error.localizedDescription))
                             } else if let querySnapshot = querySnapshot {
                                 let documents = querySnapshot.documents
                                 for doc in documents {

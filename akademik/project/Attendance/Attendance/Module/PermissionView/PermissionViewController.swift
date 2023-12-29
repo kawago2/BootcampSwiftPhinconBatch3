@@ -96,8 +96,7 @@ class PermissionViewController: UIViewController {
     
     func getData() {
         permissionData = []
-        guard let uid = FAuth.auth.currentUser?.uid else {
-            print("Error: Current user ID is nil")
+        guard let uid = FirebaseManager.shared.getCurrentUserUid() else {
             return
         }
         
@@ -113,14 +112,12 @@ class PermissionViewController: UIViewController {
                         var permissionForm = PermissionForm()
                         permissionForm.fromDictionary(dictionary: data)
                         self.permissionData.append(permissionForm)
-                    } else {
-                        print("Error: Unable to create PermissionForm from data")
                     }
                 }
                 self.tableView.reloadData()
                 self.didLabelTapped(sortby: self.currentSortBy)
             case .failure(let error):
-                print("Error getting data from subcollection: \(error.localizedDescription)")
+                self.showAlert(title: "Error", message: error.localizedDescription)
             }
         }
     }
@@ -162,8 +159,7 @@ extension PermissionViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func deleteRow(at index: Int) {
-        guard let uid = FAuth.auth.currentUser?.uid else {
-            print("User not logged in")
+        guard let uid = FirebaseManager.shared.getCurrentUserUid() else {
             return
         }
         let permissionItem = filterPermission[index]

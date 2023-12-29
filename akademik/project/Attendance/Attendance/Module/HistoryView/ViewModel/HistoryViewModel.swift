@@ -9,6 +9,14 @@ import Foundation
 import FirebaseFirestore
 import RxSwift
 
+struct HistoryItem {
+    let checkTime: Date?
+    let descLocation: String?
+    let image: String?
+    let isCheck: Bool?
+    let titleLocation: String?
+}
+
 class HistoryViewModel {
     var allData: [InfoItem] = []
     var allDataHistory: [HistoryItem] = []

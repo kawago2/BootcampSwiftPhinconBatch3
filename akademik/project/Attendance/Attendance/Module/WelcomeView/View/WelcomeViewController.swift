@@ -2,7 +2,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class WelcomeViewController: UIViewController {
+class WelcomeViewController: BaseViewController {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -12,33 +15,48 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var bottonView: UIView!
     
-    var contentSlider: [InfoItem] = []
-    var numberOfPages: Int  {
-        return self.contentSlider.count
-    }
-    var timer: Timer?
-    var currentPages = 0
+    // MARK: - Properties
     
-    let disposeBag = DisposeBag()
+    private var viewModel: WelcomeViewModel!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        setupViewModel()
         setupUI()
         startAutoplay()
-        buttonEvent()
+        setupEvent()
+        configureCollection()
     }
     
-    func setupUI() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.timer?.invalidate()
+    }
+ 
+    // MARK: - Setup View Model
+    
+    private func setupViewModel() {
+        viewModel = WelcomeViewModel()
+    }
+    
+    // MARK: - Setup UI
+    
+    private func setupUI() {
         registerButton.setRoundedBorder(cornerRadius: 10)
         loginButton.setRoundedBorder(cornerRadius: 10)
         bottonView.makeCornerRadius(30,maskedCorner: [.layerMinXMinYCorner,.layerMaxXMinYCorner])
-        collectionView.registerCellWithNib(SliderCell.self)
     }
     
-    func buttonEvent() {
+    // MARK: - Setup Event
+    
+    private func setupEvent() {
+        viewModel.updateLabel.subscribe(onNext: {[weak self] (title, desc) in
+            guard let self = self else { return }
+            self.titleLabel.text = title
+            self.descLabel.text = desc
+        }).disposed(by: disposeBag)
         
         skipButton.rx.tap.subscribe(onNext: { [weak self] in
             guard let self = self else { return }
@@ -59,70 +77,72 @@ class WelcomeViewController: UIViewController {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.pageControlClicked()
-            })
-            .disposed(by: disposeBag)
-
+            }).disposed(by: disposeBag)
     }
     
-    func loadData() {
-        contentSlider.append(contentsOf: [
-            InfoItem(title: "DIGITAL ABSENSI", description: "Kehadiran sistem absensi digital merupakan penemuan yang mampu menggantikan pencatatan data kehadiran secara manual", imageName: "slide-1"),
-            InfoItem(title: "ATTENDANCE SYSTEM", description: "Pengelolaan karyawan di era digital yang baik, menghasilkan karyawan terbaik pula, salah satunya absensi karyawan", imageName: "slide-2"),
-            InfoItem(title: "SELALU PAKAI MASKER", description: "Guna mencegah penyebaran virus Covid-19, Pemerintah telah mengeluarkan kebijakan Physical Distancing serta kebijakan bekerja, belajar, dan beribadah dari rumah.", imageName: "slide-3")
-        ])
-        
-    }
+    // MARK: - Navigation
     
-    func navigateLogin() {
+    private func navigateLogin() {
         let vc = LoginViewController()
         navigationController?.setViewControllers([vc], animated: true)
     }
     
-     func navigateRegister() {
+    private func navigateRegister() {
         let vc = RegisterViewController()
         navigationController?.setViewControllers([vc], animated: true)
     }
-    
-    func startAutoplay() {
-        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoplay), userInfo: nil, repeats: true)
+}
+
+// MARK: - Setup AutoScroll
+
+extension WelcomeViewController {
+    private func startAutoplay() {
+        viewModel.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoplay), userInfo: nil, repeats: true)
     }
     
-     @objc func autoplay() {
-        currentPages = (currentPages + 1) % numberOfPages
-        pageControl.currentPage = currentPages
-        let newOffset = CGPoint(x: collectionView.frame.width * CGFloat(currentPages), y: collectionView.contentOffset.y)
+    private func resetTimer() {
+        viewModel.timer?.invalidate()
+    }
+    
+    @objc func autoplay() {
+        viewModel.currentPages = (viewModel.currentPages + 1) % viewModel.numberOfPages
+        pageControl.currentPage = viewModel.currentPages
+        let newOffset = CGPoint(x: collectionView.frame.width * CGFloat(viewModel.currentPages), y: collectionView.contentOffset.y)
         collectionView.setContentOffset(newOffset, animated: true)
         collectionView.layoutIfNeeded()
-        updateUIForCurrentPage()
+        viewModel.updateUIForCurrentPage()
     }
-
-     func pageControlClicked() {
+    
+    private func pageControlClicked() {
         let currentPage = pageControl.currentPage
         let indexPath = IndexPath(item: currentPage, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        updateUIForCurrentPage()
-    }
-    
-    func updateUIForCurrentPage() {
-        guard currentPages < contentSlider.count else { return }
-        titleLabel.text = contentSlider[currentPages].title ?? ""
-        descLabel.text = contentSlider[currentPages].description ?? ""
+        viewModel.updateUIForCurrentPage()
     }
 }
 
+// MARK: - Configure Colletion
+
 extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    private func configureCollection() {
+        collectionView.registerCellWithNib(SliderCell.self)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        pageControl.numberOfPages = contentSlider.count
-        return numberOfPages
+        pageControl.numberOfPages = viewModel.contentSlider.count
+        return viewModel.numberOfPages
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = indexPath.item
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCell", for: indexPath) as! SliderCell
-        let image = contentSlider[index].imageName ?? ""
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as SliderCell
+        let image = viewModel.contentSlider[index].imageName ?? ""
         cell.initData(img: image)
         return cell
     }
@@ -131,12 +151,13 @@ extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDel
         let pageWidth = scrollView.frame.width
         let currentPage = Int(scrollView.contentOffset.x / pageWidth)
         pageControl.currentPage = currentPage
-        updateUIForCurrentPage()
+        viewModel.currentPages = currentPage
+        resetTimer()
+        startAutoplay()
+        viewModel.updateUIForCurrentPage()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 400, height: 300)
     }
-    
-    
 }

@@ -8,6 +8,21 @@
 import Foundation
 import FirebaseFirestore
 
+struct TimesheetItem {
+    let id: String?
+    let startDate: Date?
+    let endDate: Date?
+    let position: String?
+    let task: String?
+    let status: TaskStatus?
+}
+
+enum TaskStatus: String, CaseIterable {
+    case completed = "Completed"
+    case inProgress = "In Progress"
+    case rejected = "Rejected"
+}
+
 class TimesheetViewModel {
     // MARK: - Properties
 

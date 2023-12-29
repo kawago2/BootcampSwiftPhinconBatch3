@@ -46,7 +46,7 @@ class AddFormViewModel {
         } catch let error as ThrowError {
             validationError.onNext(error)
         } catch {
-            print("Unexpected error: \(error)")
+            fatalError("Unexpected error: \(error)")
         }
     }
 

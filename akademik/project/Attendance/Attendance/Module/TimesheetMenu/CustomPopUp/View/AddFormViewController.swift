@@ -122,7 +122,7 @@ class AddFormViewController: BaseViewController {
         } catch let error as ThrowError {
             error.alertPush(controller: self)
         } catch {
-            print("Unexpected error: \(error)")
+            fatalError("Unexpected error: \(error)")
         }
     }
     
@@ -197,7 +197,6 @@ extension AddFormViewController {
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             if let selectedStatus = TaskStatus(rawValue: item) {
-                print(selectedStatus)
                 updateStatusLabel(withStatus: selectedStatus)
             }
         }

@@ -110,7 +110,6 @@ class AddPermissionViewController: UIViewController {
         FFirestore.addDataToSubcollectionWithAutoID(documentID: documentID, inCollection: inCollection, subcollectionPath: subcollectionPath, data: dataPermission) {result in
             switch result {
             case .success:
-                print("Data added to subcollection successfully")
                 self.showAlert(title: "Success", message: "Form successly created\nPlease wait Approval.", completion: {
                     self.dismiss(animated: true) {
                         self.delegate?.didAddTap()
@@ -118,7 +117,6 @@ class AddPermissionViewController: UIViewController {
                     
                 })
             case .failure(let error):
-                print("Error adding data to subcollection: \(error.localizedDescription)")
                 self.showAlert(title: "Failed", message: error.localizedDescription, completion: {
                     self.dismiss(animated: true)
                 })
