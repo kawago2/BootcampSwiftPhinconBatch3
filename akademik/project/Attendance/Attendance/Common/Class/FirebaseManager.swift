@@ -163,6 +163,45 @@ class FirebaseManager {
             }
         }
     }
+    
+    func addDataToSubcollection(documentID: String, inCollection collection: String, subcollectionPath: String, data: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
+        let db = Firestore.firestore()
+        let documentRef = db.collection(collection).document(documentID)
+        
+        documentRef.collection(subcollectionPath).addDocument(data: data) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
+    func editDataInSubcollection(documentID: String, inCollection collection: String, subcollectionPath: String, documentIDToEdit: String, newData: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
+        let db = Firestore.firestore()
+        let documentReference = db.collection(collection).document(documentID).collection(subcollectionPath).document(documentIDToEdit)
+        
+        documentReference.updateData(newData) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
+    func deleteDataFromSubcollection(documentID: String, inCollection collection: String, subcollectionPath: String, documentIDToDelete: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let db = Firestore.firestore()
+        let documentReference = db.collection(collection).document(documentID).collection(subcollectionPath).document(documentIDToDelete)
+        
+        documentReference.delete { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
 
     // MARK: - Function Firebase Storage
 

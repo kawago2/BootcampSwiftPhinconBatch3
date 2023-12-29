@@ -46,6 +46,7 @@
 		36210D9D2B0327900009EBC0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210D9C2B0327900009EBC0 /* Constants.swift */; };
 		36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210DA32B0348270009EBC0 /* LocationCell.swift */; };
 		36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210DA42B0348270009EBC0 /* LocationCell.xib */; };
+		362C84F42B3D6EFF0075595D /* TimesheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C84F32B3D6EFF0075595D /* TimesheetViewModel.swift */; };
 		363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */; };
 		363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */; };
 		3670C67B2B05C9510011985F /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67A2B05C9510011985F /* ExtDate.swift */; };
@@ -171,6 +172,7 @@
 		36210D9C2B0327900009EBC0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		36210DA32B0348270009EBC0 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		36210DA42B0348270009EBC0 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		362C84F32B3D6EFF0075595D /* TimesheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetViewModel.swift; sourceTree = "<group>"; };
 		363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCell.swift; sourceTree = "<group>"; };
 		363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionCell.xib; sourceTree = "<group>"; };
 		3670C67A2B05C9510011985F /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
@@ -352,7 +354,7 @@
 				36ADC92E2B158C0E00E135DC /* MainTabBar */,
 				367B0F372B33D51C003E0806 /* ProfileMenu */,
 				36210D8F2B0323EE0009EBC0 /* HistoryView */,
-				3670C67C2B05D3AB0011985F /* TimesheetView */,
+				3670C67C2B05D3AB0011985F /* TimesheetMenu */,
 				36D713712B3D1B0000C41F5F /* HomeMenu */,
 				36C287302B04764D00F17ADA /* Models */,
 				3609C76A2B0EE43D000DE5B7 /* PermissionView */,
@@ -520,6 +522,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		362C84F02B3D6E1A0075595D /* TimesheetView */ = {
+			isa = PBXGroup;
+			children = (
+				362C84F22B3D6EBC0075595D /* ViewModel */,
+				362C84F12B3D6E240075595D /* View */,
+			);
+			path = TimesheetView;
+			sourceTree = "<group>";
+		};
+		362C84F12B3D6E240075595D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3670C67D2B05D3C60011985F /* TimesheetViewController.swift */,
+				3670C67E2B05D3C60011985F /* TimesheetViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		362C84F22B3D6EBC0075595D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				362C84F32B3D6EFF0075595D /* TimesheetViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		363884CC2B0F2CCB00B92C0D /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,16 +565,15 @@
 			path = CustomLoading;
 			sourceTree = "<group>";
 		};
-		3670C67C2B05D3AB0011985F /* TimesheetView */ = {
+		3670C67C2B05D3AB0011985F /* TimesheetMenu */ = {
 			isa = PBXGroup;
 			children = (
+				362C84F02B3D6E1A0075595D /* TimesheetView */,
 				3670C6872B05F2480011985F /* CustomPopUp */,
 				3670C6822B05D7CD0011985F /* CollectionCell */,
 				3670C6812B05D7C40011985F /* TableCell */,
-				3670C67D2B05D3C60011985F /* TimesheetViewController.swift */,
-				3670C67E2B05D3C60011985F /* TimesheetViewController.xib */,
 			);
-			path = TimesheetView;
+			path = TimesheetMenu;
 			sourceTree = "<group>";
 		};
 		3670C6812B05D7C40011985F /* TableCell */ = {
@@ -1232,6 +1259,7 @@
 				36ADC97E2B15D5A100E135DC /* PayrollViewController.swift in Sources */,
 				367B0F432B351904003E0806 /* EditProfileViewModel.swift in Sources */,
 				36D7137A2B3D2DFB00C41F5F /* PayrollViewModel.swift in Sources */,
+				362C84F42B3D6EFF0075595D /* TimesheetViewModel.swift in Sources */,
 				36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */,
 				36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */,
 				3670C68A2B05F2710011985F /* AddFormViewController.swift in Sources */,
