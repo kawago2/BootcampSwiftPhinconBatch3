@@ -3,9 +3,10 @@ import RxSwift
 import RxCocoa
 import RxGesture
 import FloatingPanel
-import FirebaseAuth
 
-class PermissionViewController: UIViewController {
+class PermissionViewController: BaseViewController {
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var emptyView: CustomEmpty!
@@ -15,31 +16,52 @@ class PermissionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cardView: UIView!
     
+    // MARK: - Properties
     
-    var fpc: FloatingPanelController!
-    let disposeBag = DisposeBag()
-    var currentSortBy = ""
-    var permissionData: [PermissionForm] = []
-    var filterPermission: [PermissionForm] = []
+    private var fpc: FloatingPanelController!
+    private var viewModel: PermissionViewModel!
     
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttonEvent()
-        setupFP()
-      
+        setupViewModel()
         setupUI()
+        setupEvent()
+        setupFP()
+        configureTable()
+        configureCollection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getData()
+        fetchData()
     }
     
-    func buttonEvent() {
+    // MARK: - Setup ViewModel
+    
+    private func setupViewModel() {
+        viewModel = PermissionViewModel()
+    }
+    
+    // MARK: - Setup UI
+    
+    private func setupUI() {
+        cardView.makeCornerRadius(20)
+        circleView.tintColor = .white.withAlphaComponent(0.05)
+    }
+    
+    // MARK: - Setup Event
+    
+    private func setupEvent() {
+        viewModel.showAlert.subscribe(onNext: {[weak self] (title, mes) in
+            guard let self = self else { return }
+            self.showAlert(title: title, message: mes)
+        }).disposed(by: disposeBag)
+        
         backButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else { return }
-            self.backTo()
+            self.popView()
         }).disposed(by: disposeBag)
         
         addButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
@@ -48,45 +70,20 @@ class PermissionViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
-    func backTo(){
-        navigationController?.popViewController(animated: true)
-    }
+    // MARK: - Navigation
     
-    func setupFP() {
-        fpc = FloatingPanelController()
-        fpc.delegate = self
-        fpc.surfaceView.appearance.cornerRadius = 20
-        fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
-        fpc.surfaceView.isUserInteractionEnabled = true
-        fpc.surfaceView.grabberHandle.isHidden = true
-        fpc.surfaceView.gestureRecognizers = nil
-        fpc.isRemovalInteractionEnabled = false
-    }
-    
-    func navigateFP() {
+    private func navigateFP() {
         let vc = AddPermissionViewController()
         vc.delegate = self
         fpc.set(contentViewController: vc)
         present(fpc, animated: true, completion: nil)
     }
     
-    func setupUI() {
-        cardView.makeCornerRadius(20)
-        circleView.tintColor = .white.withAlphaComponent(0.05)
-        
-        tableView.registerCellWithNib(PermissionCell.self)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        
-        collectionView.registerCellWithNib(SortbyCell.self)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-    }
+    // MARK: - Update Empty View
     
-    func updateEmptyView() {
+    private func updateEmptyView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.filterPermission.isEmpty {
+            if self.viewModel.filterPermission.isEmpty {
                 self.emptyView.show()
             } else {
                 self.emptyView.hide()
@@ -94,39 +91,33 @@ class PermissionViewController: UIViewController {
         }
     }
     
-    func getData() {
-        permissionData = []
-        guard let uid = FirebaseManager.shared.getCurrentUserUid() else {
-            return
-        }
-        
-        let documentID = uid
-        let inCollection = "permissions"
-        let subcollectionPath = "data"
-        
-        FFirestore.getDataFromSubcollection(documentID: documentID, inCollection: inCollection, subcollectionPath: subcollectionPath) { result in
+    // MARK: - Fetch Data
+    
+    private func fetchData() {
+        viewModel.getData {result in
             switch result {
-            case .success(let documents):
-                for document in documents {
-                    if let data = document.data() {
-                        var permissionForm = PermissionForm()
-                        permissionForm.fromDictionary(dictionary: data)
-                        self.permissionData.append(permissionForm)
-                    }
-                }
+            case .success():
                 self.tableView.reloadData()
-                self.didLabelTapped(sortby: self.currentSortBy)
+                self.didLabelTapped(sortby: self.viewModel.currentSortBy)
             case .failure(let error):
                 self.showAlert(title: "Error", message: error.localizedDescription)
             }
         }
     }
-    
 }
 
+// MARK: - Configure Table
+
 extension PermissionViewController: UITableViewDelegate, UITableViewDataSource {
+    private func configureTable() {
+        tableView.registerCellWithNib(PermissionCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filterPermission.count
+        return viewModel.filterPermission.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -136,7 +127,7 @@ extension PermissionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PermissionCell", for: indexPath) as? PermissionCell {
-            cell.initData(permission: filterPermission[index])
+            cell.initData(permission: viewModel.filterPermission[index])
             return cell
         }
         return UITableViewCell()
@@ -159,39 +150,28 @@ extension PermissionViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func deleteRow(at index: Int) {
-        guard let uid = FirebaseManager.shared.getCurrentUserUid() else {
-            return
-        }
-        let permissionItem = filterPermission[index]
-        if let status = permissionItem.status {
-            if status != .submitted {
-                self.showAlert(title: "Warning", message: "When form has been validate, cant delete.")
-                return
-            }
-        }
-        
-        let documentID = uid
-        let collection = "permissions"
-        let subcollectionPath = "data"
-        let deletedDocumentID = permissionItem.autoGeneratedID ?? ""
-        FFirestore.deleteDataFromSubcollection(documentID: documentID, inCollection: collection, subcollectionPath: subcollectionPath, autoGeneratedID: deletedDocumentID) { result in
+        viewModel.deleteData(at: index) {result in
             switch result {
-            case .success:
-                print("Data deleted from subcollection successfully")
+            case .success():
+                self.fetchData()
+                self.tableView.reloadData()
             case .failure(let error):
-                print("Error deleting data from subcollection: \(error.localizedDescription)")
+                self.showAlert(title: "Error", message: error.localizedDescription)
             }
+            
         }
-        getData()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-        
     }
 }
 
+// MARK: - Configure Collection
 
 extension PermissionViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    private func configureCollection() {
+        collectionView.registerCellWithNib(SortbyCell.self)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
@@ -201,13 +181,13 @@ extension PermissionViewController:  UICollectionViewDelegate, UICollectionViewD
         let index = indexPath.item
         switch index {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
+            let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as SortbyCell
             cell.delegate = self
             cell.context = .date
             cell.initData(title: "Date Permission")
             return cell
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
+            let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as SortbyCell
             cell.delegate = self
             cell.context = .status
             cell.initData(title: "Status")
@@ -244,72 +224,57 @@ extension PermissionViewController:  UICollectionViewDelegate, UICollectionViewD
     }
 }
 
-
-
+// MARK: - Setup Delegate
 
 extension PermissionViewController : SortbyCellDelegate {
     func didLabelTapped(sortby: String) {
-        self.currentSortBy = sortby
+        self.viewModel.currentSortBy = sortby
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.sortByStatus(sortby: sortby)
-            self.sortByDate(sortby: sortby)
+            self.viewModel.sortByStatus(sortby: sortby)
+            self.viewModel.sortByDate(sortby: sortby)
             self.tableView.reloadData()
             self.updateEmptyView()
         })
-        
-        
     }
-    
-    func sortByStatus(sortby: String) {
-        switch sortby.lowercased() {
-        case PermissionStatus.approved.rawValue.lowercased():
-            filterPermission = permissionData.filter { $0.status == .approved }
-        case PermissionStatus.rejected.rawValue.lowercased():
-            filterPermission = permissionData.filter { $0.status == .rejected }
-        case PermissionStatus.submitted.rawValue.lowercased():
-            filterPermission = permissionData.filter { $0.status == .submitted }
-        default:
-            filterPermission = permissionData
-        }
-        
-    }
-    
-    func sortByDate(sortby: String) {
-        switch sortby {
-        case DateSortOption.oldest.rawValue.lowercased():
-            filterPermission = filterPermission.sorted { $0.permissionTime ?? Date() < $1.permissionTime ?? Date() }
-        case DateSortOption.newest.rawValue.lowercased():
-            filterPermission = filterPermission.sorted { $0.permissionTime ?? Date() > $1.permissionTime ?? Date() }
-        default:
-            break
-        }
-    }
-    
 }
-
-
-
 
 extension PermissionViewController: AddPermissionDelegate {
-    func didAddTap() {
-        getData()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+    func didAddTap(item: PermissionAdd) {
+        viewModel.addData(item: item) {result in
+            switch result {
+            case .success():
+                self.dismiss(animated: true) {
+                    self.showAlert(title: "Success", message: "Form successly created\nPlease wait Approval.")
+                }
+            case .failure(let error):
+                self.dismiss(animated: true) {
+                    self.showAlert(title: "Failed", message: error.localizedDescription)
+                }
+            }
+            
         }
     }
-    
-    
 }
 
+// MARK: - Setup Floating Panel
 
 extension PermissionViewController :FloatingPanelControllerDelegate {
+    private func setupFP() {
+        fpc = FloatingPanelController()
+        fpc.delegate = self
+        fpc.surfaceView.appearance.cornerRadius = 20
+        fpc.backdropView.dismissalTapGestureRecognizer.isEnabled = true
+        fpc.surfaceView.isUserInteractionEnabled = true
+        fpc.surfaceView.grabberHandle.isHidden = true
+        fpc.surfaceView.gestureRecognizers = nil
+        fpc.isRemovalInteractionEnabled = false
+    }
+    
     func floatingPanel(_ fpc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
         return AddPermissionFloatingPanel()
     }
-    
 }
-
 
 class AddPermissionFloatingPanel: FloatingPanelLayout {
     var position: FloatingPanel.FloatingPanelPosition = .bottom

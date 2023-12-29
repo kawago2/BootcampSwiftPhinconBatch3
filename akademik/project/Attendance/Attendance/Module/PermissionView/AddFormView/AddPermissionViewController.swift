@@ -4,11 +4,18 @@ import RxCocoa
 import DropDown
 import FirebaseFirestore
 
-protocol AddPermissionDelegate {
-    func didAddTap()
+struct PermissionAdd {
+    var permissionDate: Date?
+    var reason: String?
+    var duration: String?
+    var type: PermissionType?
 }
 
-class AddPermissionViewController: UIViewController {
+protocol AddPermissionDelegate {
+    func didAddTap(item: PermissionAdd)
+}
+
+class AddPermissionViewController: BaseViewController {
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var typeLabel: UILabel!
@@ -16,9 +23,8 @@ class AddPermissionViewController: UIViewController {
     @IBOutlet weak var durationTextField: InputField!
     @IBOutlet weak var permissionDate: UIDatePicker!
     
-    let disposeBag = DisposeBag()
     let typeDropDown = DropDown()
-    var typeCurrent:  PermissionType = .sickLeave
+    var typeCurrent: PermissionType = .sickLeave
     var delegate: AddPermissionDelegate?
     
     override func viewDidLoad() {
@@ -83,46 +89,9 @@ class AddPermissionViewController: UIViewController {
             showAlert(title: "Invalid", message: "Please fill in fields")
         }
         
+        let item = PermissionAdd(permissionDate: permissionDate.date, reason: reasonTextObservable, duration: durationTextObservable, type: self.typeCurrent)
         
-
-      
-
-
-        guard let uid = FAuth.auth.currentUser?.uid else { return }
-        let documentID = uid
-        let inCollection = "permissions"
-        let subcollectionPath = "data"
-        
-        let permission = PermissionForm(
-             applicantID: uid,
-             type: self.typeCurrent,
-             submissionTime: Date(),
-             permissionTime: permissionDate.date,
-             status: .submitted,
-             additionalInfo: PermissionForm.AdditionalInfo(
-                reason: reasonTextField.inputText.text,
-                duration: durationTextField.inputText.text
-             )
-         )
-        
-        let dataPermission = permission.toDictionary()
-        
-        FFirestore.addDataToSubcollectionWithAutoID(documentID: documentID, inCollection: inCollection, subcollectionPath: subcollectionPath, data: dataPermission) {result in
-            switch result {
-            case .success:
-                self.showAlert(title: "Success", message: "Form successly created\nPlease wait Approval.", completion: {
-                    self.dismiss(animated: true) {
-                        self.delegate?.didAddTap()
-                    }
-                    
-                })
-            case .failure(let error):
-                self.showAlert(title: "Failed", message: error.localizedDescription, completion: {
-                    self.dismiss(animated: true)
-                })
-            }
-        }
-        
+        self.delegate?.didAddTap(item: item)
     }
     
 }

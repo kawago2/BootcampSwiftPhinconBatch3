@@ -47,6 +47,7 @@
 		36210DA52B0348270009EBC0 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36210DA32B0348270009EBC0 /* LocationCell.swift */; };
 		36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210DA42B0348270009EBC0 /* LocationCell.xib */; };
 		362C84F42B3D6EFF0075595D /* TimesheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C84F32B3D6EFF0075595D /* TimesheetViewModel.swift */; };
+		362C84FB2B3E6D480075595D /* PermissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C84FA2B3E6D480075595D /* PermissionViewModel.swift */; };
 		363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */; };
 		363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */; };
 		3670C67B2B05C9510011985F /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67A2B05C9510011985F /* ExtDate.swift */; };
@@ -173,6 +174,7 @@
 		36210DA32B0348270009EBC0 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		36210DA42B0348270009EBC0 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		362C84F32B3D6EFF0075595D /* TimesheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetViewModel.swift; sourceTree = "<group>"; };
+		362C84FA2B3E6D480075595D /* PermissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewModel.swift; sourceTree = "<group>"; };
 		363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCell.swift; sourceTree = "<group>"; };
 		363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionCell.xib; sourceTree = "<group>"; };
 		3670C67A2B05C9510011985F /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
@@ -274,10 +276,10 @@
 		3609C76A2B0EE43D000DE5B7 /* PermissionView */ = {
 			isa = PBXGroup;
 			children = (
+				362C84F82B3E6D160075595D /* ViewModel */,
+				362C84F72B3E6D110075595D /* View */,
 				363884CC2B0F2CCB00B92C0D /* TableCell */,
 				3609C7712B0EFB75000DE5B7 /* AddFormView */,
-				3609C76B2B0EE45F000DE5B7 /* PermissionViewController.swift */,
-				3609C76C2B0EE45F000DE5B7 /* PermissionViewController.xib */,
 			);
 			path = PermissionView;
 			sourceTree = "<group>";
@@ -348,6 +350,7 @@
 		36210D552B0208940009EBC0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				36C287302B04764D00F17ADA /* Models */,
 				367B0F3D2B342C2B003E0806 /* LoadingView */,
 				36210D582B0208C80009EBC0 /* SplashView */,
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
@@ -356,9 +359,8 @@
 				367B0F372B33D51C003E0806 /* ProfileMenu */,
 				36210D8F2B0323EE0009EBC0 /* HistoryView */,
 				3670C67C2B05D3AB0011985F /* TimesheetMenu */,
-				36D713712B3D1B0000C41F5F /* HomeMenu */,
-				36C287302B04764D00F17ADA /* Models */,
 				3609C76A2B0EE43D000DE5B7 /* PermissionView */,
+				36D713712B3D1B0000C41F5F /* HomeMenu */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -560,6 +562,24 @@
 			isa = PBXGroup;
 			children = (
 				36ADC9202B14960700E135DC /* WelcomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		362C84F72B3E6D110075595D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3609C76B2B0EE45F000DE5B7 /* PermissionViewController.swift */,
+				3609C76C2B0EE45F000DE5B7 /* PermissionViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		362C84F82B3E6D160075595D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3609C76F2B0EE85E000DE5B7 /* PermissionModel.swift */,
+				362C84FA2B3E6D480075595D /* PermissionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -845,7 +865,6 @@
 			isa = PBXGroup;
 			children = (
 				36C287312B04766100F17ADA /* Models.swift */,
-				3609C76F2B0EE85E000DE5B7 /* PermissionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1295,6 +1314,7 @@
 				36210D712B0223A90009EBC0 /* SliderCell.swift in Sources */,
 				3609C7742B0EFEDE000DE5B7 /* AddPermissionViewController.swift in Sources */,
 				36ADC9862B15E8EE00E135DC /* FormView.swift in Sources */,
+				362C84FB2B3E6D480075595D /* PermissionViewModel.swift in Sources */,
 				36210D6D2B02227E0009EBC0 /* ExtUICollectionView.swift in Sources */,
 				36ADC9832B15D9C500E135DC /* PayrollCell.swift in Sources */,
 				367B0F3F2B342C3B003E0806 /* LoadingViewController.swift in Sources */,
