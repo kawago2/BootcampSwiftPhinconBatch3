@@ -220,7 +220,21 @@ class FirebaseManager {
             }
         }
     }
-
+    
+    func getAllDocumentsFromSubcollection(collectionGroupPath: String, completion: @escaping (Result<[QueryDocumentSnapshot], Error>) -> Void) {
+        let db = Firestore.firestore()
+        let subcollectionRef = db.collectionGroup(collectionGroupPath)
+        
+        subcollectionRef.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let querySnapshot = querySnapshot {
+                let documents = querySnapshot.documents
+                completion(.success(documents))
+            }
+        }
+    }
+    
     // MARK: - Function Firebase Storage
 
     func getImageURL(atPath path: String, completion: @escaping (Result<String, Error>) -> Void) {
@@ -268,7 +282,6 @@ class FirebaseManager {
         
         uploadTask.observe(.progress) { snapshot in
             let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
-            print("Upload progress: \(percentComplete)%")
         }
         
         uploadTask.observe(.success) { snapshot in

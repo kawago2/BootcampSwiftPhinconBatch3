@@ -48,6 +48,8 @@
 		36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36210DA42B0348270009EBC0 /* LocationCell.xib */; };
 		362C84F42B3D6EFF0075595D /* TimesheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C84F32B3D6EFF0075595D /* TimesheetViewModel.swift */; };
 		362C84FB2B3E6D480075595D /* PermissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C84FA2B3E6D480075595D /* PermissionViewModel.swift */; };
+		362C84FF2B3E7D010075595D /* ApproveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C84FE2B3E7D010075595D /* ApproveViewModel.swift */; };
+		362C85032B3E9DA00075595D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C85022B3E9DA00075595D /* HomeViewModel.swift */; };
 		363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */; };
 		363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */; };
 		3670C67B2B05C9510011985F /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67A2B05C9510011985F /* ExtDate.swift */; };
@@ -175,6 +177,8 @@
 		36210DA42B0348270009EBC0 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		362C84F32B3D6EFF0075595D /* TimesheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetViewModel.swift; sourceTree = "<group>"; };
 		362C84FA2B3E6D480075595D /* PermissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewModel.swift; sourceTree = "<group>"; };
+		362C84FE2B3E7D010075595D /* ApproveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewModel.swift; sourceTree = "<group>"; };
+		362C85022B3E9DA00075595D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCell.swift; sourceTree = "<group>"; };
 		363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionCell.xib; sourceTree = "<group>"; };
 		3670C67A2B05C9510011985F /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
@@ -479,9 +483,9 @@
 		36210D8A2B0323D70009EBC0 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				362C85012B3E9D350075595D /* ViewModel */,
+				362C85002B3E9D290075595D /* View */,
 				36210DA02B0347D60009EBC0 /* TableCell */,
-				36210D8B2B0323E80009EBC0 /* HomeViewController.swift */,
-				36210D8C2B0323E80009EBC0 /* HomeViewController.xib */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -580,6 +584,40 @@
 			children = (
 				3609C76F2B0EE85E000DE5B7 /* PermissionModel.swift */,
 				362C84FA2B3E6D480075595D /* PermissionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		362C84FC2B3E7CBE0075595D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36C511602B0F447100B2EA7C /* ApproveViewController.swift */,
+				36C511612B0F447100B2EA7C /* ApproveViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		362C84FD2B3E7CCA0075595D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				362C84FE2B3E7D010075595D /* ApproveViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		362C85002B3E9D290075595D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36210D8B2B0323E80009EBC0 /* HomeViewController.swift */,
+				36210D8C2B0323E80009EBC0 /* HomeViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		362C85012B3E9D350075595D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				362C85022B3E9DA00075595D /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -872,9 +910,9 @@
 		36C5115F2B0F440F00B2EA7C /* ApproveView */ = {
 			isa = PBXGroup;
 			children = (
+				362C84FD2B3E7CCA0075595D /* ViewModel */,
+				362C84FC2B3E7CBE0075595D /* View */,
 				36ADC91A2B0F48E000E135DC /* TableCell */,
-				36C511602B0F447100B2EA7C /* ApproveViewController.swift */,
-				36C511612B0F447100B2EA7C /* ApproveViewController.xib */,
 			);
 			path = ApproveView;
 			sourceTree = "<group>";
@@ -1261,6 +1299,7 @@
 			files = (
 				367B0F102B315196003E0806 /* FirebaseManager.swift in Sources */,
 				36ADC92D2B1587F700E135DC /* ExtUIViewController.swift in Sources */,
+				362C84FF2B3E7D010075595D /* ApproveViewModel.swift in Sources */,
 				3609C7772B0F1078000DE5B7 /* ExtDropDown.swift in Sources */,
 				36210D762B0303040009EBC0 /* LoginViewController.swift in Sources */,
 				36ADC98C2B16E50D00E135DC /* DetailPayrollViewController.swift in Sources */,
@@ -1295,6 +1334,7 @@
 				367B0F432B351904003E0806 /* EditProfileViewModel.swift in Sources */,
 				36D7137A2B3D2DFB00C41F5F /* PayrollViewModel.swift in Sources */,
 				362C84F42B3D6EFF0075595D /* TimesheetViewModel.swift in Sources */,
+				362C85032B3E9DA00075595D /* HomeViewModel.swift in Sources */,
 				36ADC9302B158C2000E135DC /* TabBarViewController.swift in Sources */,
 				36210D262B02084B0009EBC0 /* AppDelegate.swift in Sources */,
 				3670C68A2B05F2710011985F /* AddFormViewController.swift in Sources */,

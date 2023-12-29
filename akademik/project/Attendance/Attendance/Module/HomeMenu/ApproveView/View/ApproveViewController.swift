@@ -1,7 +1,10 @@
 import UIKit
 import RxCocoa
 import RxSwift
-class ApproveViewController: UIViewController {
+
+class ApproveViewController: BaseViewController {
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var emptyView: CustomEmpty!
@@ -10,78 +13,67 @@ class ApproveViewController: UIViewController {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var backButton: UIImageView!
     
+    // MARK: - Properties
     
-    let disposeBag = DisposeBag()
-    var permissionData: [PermissionForm] = []
-    var completedPermission: [PermissionForm] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var viewModel: ApproveViewModel!
     
-    var currentSortBy = ""
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupViewModel()
         setupUI()
-        buttonEvent()
-        
+        setupEvent()
+        configureTable()
+        configureCollection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getData()
+        fetchData()
     }
     
-    func buttonEvent() {
-        backButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
-            guard let self = self else { return }
-            self.backToView()
-        }).disposed(by: disposeBag)
+    // MARK: - Setup ViewModel
+    
+    private func setupViewModel() {
+        viewModel = ApproveViewModel()
     }
+    
+    // MARK: - UI Setup
     
     func setupUI() {
         cardView.makeCornerRadius(20)
         circleView.tintColor = .white.withAlphaComponent(0.05)
-        
-        tableView.registerCellWithNib(ApproveCell.self)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .none
-        
-        collectionView.registerCellWithNib(SortbyCell.self)
-        collectionView.delegate = self
-        collectionView.dataSource = self
     }
     
-    func backToView() {
-        navigationController?.popViewController(animated: true)
+    // MARK: - Setup Event
+    
+    func setupEvent() {
+        backButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
+            guard let self = self else { return }
+            self.popView()
+        }).disposed(by: disposeBag)
     }
     
-    func getData() {
-        permissionData = []
-        let collectionGroupPath = "data"
-        
-        FFirestore.getAllDocumentsFromSubcollection(collectionGroupPath: collectionGroupPath) { result in
+    // MARK: - Data Fetching
+    
+    func fetchData() {
+        viewModel.getData(completionHandler: {result in
             switch result {
-            case .success(let documents):
-                for document in documents {
-                    let data = document.data()
-                    var permissionForm = PermissionForm()
-                    permissionForm.fromDictionary(dictionary: data)
-                    self.permissionData.append(permissionForm)
-                }
-                self.didLabelTapped(sortby: self.currentSortBy)
+            case .success():
+                self.didLabelTapped(sortby: self.viewModel.currentSortBy)
             case .failure(let error):
                 self.showAlert(title: "Error", message: error.localizedDescription)
             }
-        }
+        })
     }
+    
+    // MARK: - Empty View Update
     
     func updateEmptyView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if self.completedPermission.isEmpty {
+            if self.viewModel.completedPermission.isEmpty {
                 self.emptyView.show()
             } else {
                 self.emptyView.hide()
@@ -90,11 +82,18 @@ class ApproveViewController: UIViewController {
     }
 }
 
-
+// MARK: - Configure Table
 
 extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
+    private func configureTable() {
+        tableView.registerCellWithNib(ApproveCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return completedPermission.count
+        return viewModel.completedPermission.count
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -120,62 +119,35 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [approveAction])
     }
 
-
-    // Custom method to handle the approve action
     private func approveAction(forRowAt indexPath: IndexPath) {
-        let permissionItem = completedPermission[indexPath.row]
-        let collection = "permissions"
-        let subCollection = "data"
-        
-        let currentDate = Date()
-        let dataUpdate: [String: Any] = [
-            "approvalTime" : currentDate,
-            "status" : PermissionStatus.approved.rawValue
-        ]
-        
-        if let uid = permissionItem.applicantID, let id = permissionItem.autoGeneratedID {
-            FFirestore.editDataInSubcollection(documentID: uid, inCollection: collection, subcollectionPath: subCollection, documentIDToEdit: id, newData: dataUpdate) { result in
-                switch result {
-                case .success:
-                    self.showAlert(title: "Approved", message: "Form approve successfuly")
-                    self.getData()
-                case .failure(let error):
-                    self.showAlert(title: "Error", message: error.localizedDescription)
-                }
+        viewModel.approveLogic(forRowAt: indexPath) {result in
+            switch result {
+            case .success():
+                self.showAlert(title: "Approved", message: "Form approve successfuly")
+                self.fetchData()
+            case .failure(let error):
+                self.showAlert(title: "Error", message: error.localizedDescription)
             }
         }
     }
 
     private func rejectAction(forRowAt indexPath: IndexPath) {
-        let permissionItem = completedPermission[indexPath.row]
-        let collection = "permissions"
-        let subCollection = "data"
-        
-        let currentDate = Date()
-        let dataUpdate: [String: Any] = [
-            "approvalTime" : currentDate,
-            "status" : PermissionStatus.rejected.rawValue
-        ]
-        
-        if let uid = permissionItem.applicantID, let id = permissionItem.autoGeneratedID {
-            FFirestore.editDataInSubcollection(documentID: uid, inCollection: collection, subcollectionPath: subCollection, documentIDToEdit: id, newData: dataUpdate) { result in
-                switch result {
-                case .success:
-                    self.showAlert(title: "Rejected", message: "Form reject successfuly")
-                    self.getData()
-                case .failure(let error):
-                    self.showAlert(title: "Error", message: error.localizedDescription)
-                }
+        viewModel.rejectLogic(forRowAt: indexPath) {result in
+            switch result {
+            case .success():
+                self.showAlert(title: "Rejected", message: "Form reject successfuly")
+                self.fetchData()
+            case .failure(let error):
+                self.showAlert(title: "Error", message: error.localizedDescription)
             }
         }
     }
-
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ApproveCell", for: indexPath) as? ApproveCell {
             
-            let permissionItem = completedPermission[index]
+            let permissionItem = viewModel.completedPermission[index]
             let collection = "users"
             if let documentID = permissionItem.applicantID {
                 FFirestore.getDocument(collection: collection, documentID: documentID) { result in
@@ -198,9 +170,15 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
+// MARK: - Configure Collection
 
 extension ApproveViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    private func configureCollection() {
+        collectionView.registerCellWithNib(SortbyCell.self)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
@@ -210,13 +188,13 @@ extension ApproveViewController:  UICollectionViewDelegate, UICollectionViewData
         let index = indexPath.item
         switch index {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
+            let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as SortbyCell
             cell.delegate = self
             cell.context = .date
             cell.initData(title: "Date Permission")
             return cell
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SortbyCell", for: indexPath) as! SortbyCell
+            let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as SortbyCell
             cell.delegate = self
             cell.context = .status
             cell.initData(title: "Status")
@@ -253,42 +231,16 @@ extension ApproveViewController:  UICollectionViewDelegate, UICollectionViewData
     }
 }
 
+// MARK: - Delegate
 
 extension ApproveViewController : SortbyCellDelegate {
     func didLabelTapped(sortby: String) {
-        self.currentSortBy = sortby
-
+        self.viewModel.currentSortBy = sortby
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.sortByStatus(sortby: sortby)
-            self.sortByDate(sortby: sortby)
+            self.viewModel.sortByStatus(sortby: sortby)
+            self.viewModel.sortByDate(sortby: sortby)
             self.tableView.reloadData()
             self.updateEmptyView()
         })
     }
-
-    func sortByStatus(sortby: String) {
-        switch sortby.lowercased() {
-        case PermissionStatus.approved.rawValue.lowercased():
-            completedPermission = permissionData.filter { $0.status == .approved }
-        case PermissionStatus.rejected.rawValue.lowercased():
-            completedPermission = permissionData.filter { $0.status == .rejected }
-        case PermissionStatus.submitted.rawValue.lowercased():
-            completedPermission = permissionData.filter { $0.status == .submitted }
-        default:
-            completedPermission = permissionData
-        }
-
-    }
-
-    func sortByDate(sortby: String) {
-        switch sortby {
-        case DateSortOption.oldest.rawValue.lowercased():
-            completedPermission = completedPermission.sorted { $0.permissionTime ?? Date() < $1.permissionTime ?? Date() }
-        case DateSortOption.newest.rawValue.lowercased():
-            completedPermission = completedPermission.sorted { $0.permissionTime ?? Date() > $1.permissionTime ?? Date() }
-        default:
-            break
-        }
-    }
-
 }

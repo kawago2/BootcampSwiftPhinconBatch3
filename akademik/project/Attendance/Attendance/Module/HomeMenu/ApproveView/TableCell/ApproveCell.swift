@@ -1,7 +1,11 @@
 import UIKit
 import RxSwift
 
+
 class ApproveCell: UITableViewCell {
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
@@ -13,7 +17,11 @@ class ApproveCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var toggleButton: UIButton!
     
+    // MARK: - Properties
+    
     let disposeBag = DisposeBag()
+    
+    // MARK: - Init
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +32,17 @@ class ApproveCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    // MARK: - Setup UI
+    
+    func setupUI() {
+        cardView.setShadow()
+        colorView.makeCornerRadius(20, maskedCorner: [.layerMinXMaxYCorner, .layerMinXMinYCorner])
+        selectionStyle = .none
+        reasonLabel.isHidden = true
+    }
+    
+    // MARK: - Button Event
     
     func buttonEvent() {
         toggleButton.rx.tap.subscribe(onNext: {[weak self] _ in
@@ -38,6 +57,8 @@ class ApproveCell: UITableViewCell {
         }).disposed(by: disposeBag)
     }
     
+    // MARK: - Update UIButton
+    
     func updateUIButton() {
         if reasonLabel.isHidden {
             let arrowUpImage = UIImage(systemName: "arrow.up")?.withConfiguration(UIImage.SymbolConfiguration(scale: .small))
@@ -49,12 +70,7 @@ class ApproveCell: UITableViewCell {
     }
     
     
-    func setupUI() {
-        cardView.setShadow()
-        colorView.makeCornerRadius(20, maskedCorner: [.layerMinXMaxYCorner,.layerMinXMinYCorner])
-        selectionStyle = .none
-        reasonLabel.isHidden = true
-    }
+    // MARK: - Initialize Cell Data
     
     func initData(permission: PermissionForm, name: String) {
         nameLabel.text = "Name: " + name
@@ -67,6 +83,7 @@ class ApproveCell: UITableViewCell {
         } else {
             permissionDateLabel.isHidden = true
         }
+        
         let approvalTime = permission.approvalTime ?? Date()
         switch permission.status {
         case .approved:
@@ -79,12 +96,12 @@ class ApproveCell: UITableViewCell {
             self.approvalDateLabel.isHidden = true
         }
         
-        
-        
         durationLabel.text = "Duration: " + (permission.additionalInfo?.duration ?? "")
         reasonLabel.text = "Reason: " + (permission.additionalInfo?.reason ?? "")
         updateColorView(status: permission.status)
     }
+    
+    // MARK: - Update Color View
     
     func updateColorView(status: PermissionStatus?) {
         switch status {
@@ -96,5 +113,4 @@ class ApproveCell: UITableViewCell {
             colorView.backgroundColor = UIColor.systemOrange
         }
     }
-    
 }
