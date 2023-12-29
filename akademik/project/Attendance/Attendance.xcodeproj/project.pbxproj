@@ -323,8 +323,8 @@
 			isa = PBXGroup;
 			children = (
 				36ADC91F2B146E9100E135DC /* Attendance.entitlements */,
-				36210D682B0220F40009EBC0 /* Common */,
 				36210D562B02089F0009EBC0 /* App */,
+				36210D682B0220F40009EBC0 /* Common */,
 				36210D552B0208940009EBC0 /* Module */,
 				36210D2E2B02084C0009EBC0 /* Assets.xcassets */,
 				36210D302B02084C0009EBC0 /* LaunchScreen.storyboard */,

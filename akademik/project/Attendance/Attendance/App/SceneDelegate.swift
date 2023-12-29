@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Checking Internet
         if NetworkManager.shared.isConnected {
-            if FAuth.auth.currentUser != nil {
+            if FirebaseManager.shared.getCurrentUserUid() != nil {
                 navigationController.setViewControllers([tabbar], animated: true)
             }
         } else {

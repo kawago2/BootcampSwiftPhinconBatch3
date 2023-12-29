@@ -150,7 +150,7 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
             let permissionItem = viewModel.completedPermission[index]
             let collection = "users"
             if let documentID = permissionItem.applicantID {
-                FFirestore.getDocument(collection: collection, documentID: documentID) { result in
+                FirebaseManager.shared.getDocument(collection: collection, documentID: documentID) { result in
                     switch result {
                     case .success(let document):
                         if let data = document.data(),
