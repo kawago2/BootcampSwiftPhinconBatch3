@@ -27,6 +27,7 @@
                 <outlet property="penButton" destination="oa7-9N-vE3" id="UUW-NN-Taj"/>
                 <outlet property="phoneTF" destination="Op7-jE-6b3" id="cus-q1-Oto"/>
                 <outlet property="profileImg" destination="SS0-kT-yj1" id="oA1-nX-ucU"/>
+                <outlet property="titleNavigation" destination="JYR-Ss-wRM" id="rm1-jE-7zd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
