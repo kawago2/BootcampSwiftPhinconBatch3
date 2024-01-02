@@ -1,133 +1,126 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
+import Lottie
+import SnapKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
     let disposeBag = DisposeBag()
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
-
+        
+        // Setup Initial View
         let window = UIWindow(windowScene: windowScene)
         let tabbar = TabBarViewController()
         let splash = SplashViewController()
         let navigationController = UINavigationController(rootViewController: splash)
-
-        let result = checkInternetConnection(navigationController: navigationController, tabbar: tabbar)
-        if result {
-            DispatchQueue.main.async {
-                if FAuth.auth.currentUser != nil {
-                    navigationController.setViewControllers([tabbar], animated: true)
-                }
-                
+        
+        // Checking Internet
+        if NetworkManager.shared.isConnected {
+            if FirebaseManager.shared.getCurrentUserUid() != nil {
+                navigationController.setViewControllers([tabbar], animated: true)
             }
+        } else {
+            showLoadingView()
         }
-
-        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { [weak self] _ in
-            guard let self = self else { return }
-            let _ = self.checkInternetConnection(navigationController: navigationController, tabbar: tabbar)
-        }
-
+        
+        // Setup network reachability observer
+        observeNetworkReachability()
+        
         navigationController.isNavigationBarHidden = true
         window.rootViewController = navigationController
         self.window = window
         window.makeKeyAndVisible()
     }
-
-    func checkInternetConnection(navigationController: UINavigationController, tabbar: UIViewController) -> Bool {
-        let status = NetworkStatus.getStatus()
-
-        switch status {
-        case .connected:
-            print("Connected to the internet.")
-            dismissLoadingView() {
-                self.window?.rootViewController?.viewWillAppear(true)
-            }
-            handleNetworkAvailable(navigationController: navigationController, tabbar: tabbar)
-            return true
-        case .notConnected:
-            print("No internet connection.")
-            showLoadingView()
-            return false
-        }
-    }
-
-    func handleNetworkAvailable(navigationController: UINavigationController, tabbar: UIViewController) {
-        FAuth.getCurrentUser { result in
-            switch result {
-            case .success(let user):
-                if let currentUser = user {
-                    print("User is logged in: \(currentUser)")
-                } else {
-                    print("No user is currently logged in.")
+    
+    private func observeNetworkReachability() {
+        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            let status = NetworkManager.shared.isConnected
+            if status {
+                let vc = LoadingViewController()
+    
+                self.dismissLoadingView() {
+                    self.window?.rootViewController?.viewWillAppear(true)
                 }
-            case .failure(let error):
-                print("Error checking current user: \(error.localizedDescription)")
+            }
+            else {
+                self.showLoadingView()
             }
         }
     }
 
+
+    
     func showNoInternetAlert() {
         guard let topViewController = topViewController() else {
             return
         }
-
+        
         let alertController = UIAlertController(
             title: "No Internet Connection",
             message: "Please check your internet connection and try again.",
             preferredStyle: .alert
         )
-
+        
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertController.addAction(okAction)
-
+        
         topViewController.present(alertController, animated: true, completion: nil)
     }
-
-    // Add these loading view functions
-
+    
     private var loadingView: UIView?
-
+    
     private func showLoadingView() {
-        // Only show the loading view if it's not currently presented
-        guard loadingView == nil else {
-            return
-        }
+          guard loadingView == nil else {
+              return
+          }
 
-        // Create and show the loading view
-        loadingView = createLoadingView()
-        presentLoadingView()
-    }
-
+          // Create and show the loading view
+          loadingView = createLoadingView()
+          presentLoadingView()
+      }
+    
     private func createLoadingView() -> UIView {
         let loadingView = UIView(frame: window?.bounds ?? UIScreen.main.bounds)
         loadingView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.center = loadingView.center
-        activityIndicator.startAnimating()
-
-        loadingView.addSubview(activityIndicator)
+        
+        let animationView = LottieAnimationView()
+        animationView.animation = LottieAnimation.named("loading")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.addSubview(animationView)
+        
+        animationView.snp.makeConstraints { make in
+            make.centerX.equalTo(loadingView)
+            make.centerY.equalTo(loadingView)
+            make.width.equalTo(200)
+            make.height.equalTo(200)
+        }
 
         return loadingView
     }
 
+    
     private func presentLoadingView() {
         guard let loadingView = loadingView else {
             return
         }
-
+        
         topViewController()?.view.addSubview(loadingView)
     }
-
+    
     private func dismissLoadingView(completion: (() -> Void)? = nil) {
         guard let loadingView = loadingView else {
             return
         }
-
+        
         UIView.animate(withDuration: 0.3, animations: {
             loadingView.alpha = 0
         }) { _ in
@@ -136,8 +129,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             completion?()
         }
     }
-
-
+    
+    
     func topViewController() -> UIViewController? {
         if var topController = window?.rootViewController {
             while let presentedViewController = topController.presentedViewController {

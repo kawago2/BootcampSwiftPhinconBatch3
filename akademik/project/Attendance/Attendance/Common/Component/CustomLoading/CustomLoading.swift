@@ -1,43 +1,62 @@
 import UIKit
 import Lottie
-import SnapKit
 
 class CustomLoading: UIView {
-    @IBOutlet var lottieView: LottieAnimationView!
-    
-    
+
+    // MARK: - Properties
+
+    private let animationView = LottieAnimationView()
+
+    // MARK: - Initializers
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        setupView()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
+        setupView()
+    }
+
+    // MARK: - Private Methods
+
+    private func setupView() {
+        backgroundColor = UIColor(white: 0, alpha: 0.5)
+        setupAnimationView()
+    }
+
+    private func setupAnimationView() {
+        // Setup animation view
+        animationView.animation = LottieAnimation.named("loading")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+
+        // Add animation view to the center of the view
+        addSubview(animationView)
+        setupConstraints()
+    }
+
+    private func setupConstraints() {
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            animationView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            animationView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            animationView.widthAnchor.constraint(equalToConstant: 200),
+            animationView.heightAnchor.constraint(equalToConstant: 200)
+        ])
     }
     
-    private func commonInit() {
-        lottieView = LottieAnimationView(name: "loading")
-        lottieView.contentMode = .scaleAspectFit
-        lottieView.loopMode = .loop
-        
-        addSubview(lottieView)
-        
-        lottieView.snp.makeConstraints { make in
-            make.width.equalTo(200)
-            make.height.equalTo(200)
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
+    // MARK: - Public Methods
+
+    func show() {
+        isHidden = false
+        animationView.play()
     }
-    
-    func startAnimating() {
-        self.isHidden = false
-        lottieView.play()
-    }
-    
-    func stopAnimating() {
-        self.isHidden = true
-        lottieView.stop()
+
+    func hide() {
+        isHidden = true
+        animationView.stop()
     }
 }
