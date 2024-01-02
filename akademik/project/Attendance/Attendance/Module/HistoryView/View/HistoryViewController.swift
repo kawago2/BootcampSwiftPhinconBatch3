@@ -112,11 +112,12 @@ class HistoryViewController: BaseViewController {
     // MARK: - Button Configure
     
     private func buttonTapped(filterType: FilterType) {
-        DispatchQueue.main.async {
-            self.fetchData()
+        self.fetchData {
             self.viewModel.filterData(by: filterType.calendarComponent)
             self.loadSnapshot()
         }
+        
+       
        
         dayButton.isSelected = filterType == .day
         weekButton.isSelected = filterType == .week
@@ -151,12 +152,13 @@ class HistoryViewController: BaseViewController {
     
     // MARK: - Fetch Data
     
-    private func fetchData() {
+    private func fetchData(completion: @escaping (() -> Void)) {
         showLoading()
         viewModel.getData { result in
             switch result {
             case .success:
                 self.hideLoading()
+                completion()
             case .failure(let error):
                 self.hideLoading()
                 self.showAlert(title: "Error", message: error.localizedDescription)
@@ -180,36 +182,32 @@ extension HistoryViewController {
     }
     
     private func loadSnapshot() {
-        if snapshot.sectionIdentifiers.isEmpty {
-            snapshot.appendSections([0])
-        }
+        var newSnapshot = NSDiffableDataSourceSnapshot<Int, InfoItem>()
+        newSnapshot.appendSections([0])
         
-        guard !viewModel.filteredData.isEmpty else {
-            dataSource.apply(snapshot, animatingDifferences: true)
-            return
-        }
-        
-        if snapshot.numberOfItems > 0 {
-            snapshot.deleteAllItems()
-        }
-        
-        viewModel.filteredData.forEach {
-            let checkString = $0.isCheck ?? false ? "Check In" : "Check Out"
-            let timeFormatter = DateFormatter()
-            timeFormatter.dateFormat = "hh:mm a"
-            let formattedTime = timeFormatter.string(from: $0.checkTime ?? Date())
-            let title = $0.titleLocation ?? ""
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "hh:mm a"
+        if viewModel.filteredData.isEmpty == false {
+            for data in viewModel.filteredData {
+                let checkString = data.isCheck ?? false ? "Check In" : "Check Out"
+                let formattedTime = timeFormatter.string(from: data.checkTime ?? Date())
+                let title = data.titleLocation ?? ""
+                
+                let identifier = "\(checkString) - \(title) - \(formattedTime)"
+                let item = InfoItem(
+                    title: identifier,
+                    description: data.descLocation ?? "",
+                    imageName: data.image ?? "image_not_available"
+                )
+                
+                newSnapshot.appendItems([item], toSection: 0)
+            }
             
-            let identifier = "\(checkString) - \(title) - \(formattedTime)"
-            let item = InfoItem(title: identifier,
-                                description: $0.descLocation ?? "",
-                                imageName: $0.image ?? "image_not_available")
-            
-            snapshot.appendItems([item], toSection: 0)
         }
-        
-        dataSource.apply(snapshot, animatingDifferences: true)
+        dataSource.apply(newSnapshot, animatingDifferences: true)
     }
+
+
 
 }
 

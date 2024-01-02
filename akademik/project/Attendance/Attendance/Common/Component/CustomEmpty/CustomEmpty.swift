@@ -26,13 +26,13 @@ class CustomEmpty: UIView {
     private func setupUI() {
         addSubview(titleLabel)
         
-        // Configure the layout constraints for titleLabel and other UI elements
-        
-        // Example:
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        titleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8).isActive = true
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(self)
+            make.centerY.equalTo(self)
+            make.width.equalTo(self).multipliedBy(0.8)
+        }
+
         
         titleLabel.text = "Data is Empty"
         hide()

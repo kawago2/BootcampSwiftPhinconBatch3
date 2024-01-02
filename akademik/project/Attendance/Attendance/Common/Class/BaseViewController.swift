@@ -24,14 +24,14 @@ class BaseViewController: UIViewController {
     private func setupLoading() {
         view.addSubview(loadingView)
         
-        // Setup constraints if needed
         loadingView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
-            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+        loadingView.snp.makeConstraints { make in
+            make.leading.equalTo(view)
+            make.trailing.equalTo(view)
+            make.top.equalTo(view)
+            make.bottom.equalTo(view)
+        }
+
         hideLoading()
     }
     

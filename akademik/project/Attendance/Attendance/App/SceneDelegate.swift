@@ -2,6 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Lottie
+import SnapKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -74,7 +75,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private var loadingView: UIView?
     
     private func showLoadingView() {
-          // Only show the loading view if it's not currently presented
           guard loadingView == nil else {
               return
           }
@@ -88,7 +88,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let loadingView = UIView(frame: window?.bounds ?? UIScreen.main.bounds)
         loadingView.backgroundColor = UIColor(white: 0, alpha: 0.5)
         
-        // Replace UIActivityIndicatorView with Lottie AnimationView
         let animationView = LottieAnimationView()
         animationView.animation = LottieAnimation.named("loading")
         animationView.contentMode = .scaleAspectFit
@@ -98,12 +97,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         animationView.translatesAutoresizingMaskIntoConstraints = false
         loadingView.addSubview(animationView)
         
-        NSLayoutConstraint.activate([
-            animationView.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor),
-            animationView.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
-            animationView.widthAnchor.constraint(equalToConstant: 200),
-            animationView.heightAnchor.constraint(equalToConstant: 200)
-        ])
+        animationView.snp.makeConstraints { make in
+            make.centerX.equalTo(loadingView)
+            make.centerY.equalTo(loadingView)
+            make.width.equalTo(200)
+            make.height.equalTo(200)
+        }
 
         return loadingView
     }

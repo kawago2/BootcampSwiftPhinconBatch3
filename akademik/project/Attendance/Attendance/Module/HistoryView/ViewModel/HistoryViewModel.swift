@@ -68,6 +68,8 @@ class HistoryViewModel {
     }
     
     func filterData(by component: Calendar.Component) {
+        filteredData = []
+        
         var setCalendar = Calendar.current
         setCalendar.timeZone = .gmt
         let calendar = setCalendar
@@ -101,14 +103,17 @@ class HistoryViewModel {
         default:
             return
         }
+        
         filteredData = allDataHistory.filter { item in
-            if let checkTime = item.checkTime {
-                let checker = checkTime >= startDate && checkTime <= endDate
-                return checker
+            guard let checkTime = item.checkTime else {
+                return false
             }
-            return false
+            let checker = checkTime >= startDate && checkTime <= endDate
+            return checker
         }
+        
         filteredData = filteredData.sorted { $0.checkTime ?? Date() > $1.checkTime ?? Date() }
         emptyViewHidden.onNext(filteredData.isEmpty)
     }
+
 }

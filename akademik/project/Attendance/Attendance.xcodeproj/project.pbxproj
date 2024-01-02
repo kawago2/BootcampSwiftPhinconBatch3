@@ -206,7 +206,7 @@
 		36ADC9282B15878E00E135DC /* ExtUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImageView.swift; sourceTree = "<group>"; };
 		36ADC92A2B1587B400E135DC /* ExtTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtTableView.swift; sourceTree = "<group>"; };
 		36ADC92C2B1587F700E135DC /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
-		36ADC92F2B158C2000E135DC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		36ADC92F2B158C2000E135DC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = Attendance/Module/MainTabBar/TabBarViewController.swift; sourceTree = SOURCE_ROOT; };
 		36ADC97C2B15D5A100E135DC /* PayrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayrollViewController.swift; sourceTree = "<group>"; };
 		36ADC97D2B15D5A100E135DC /* PayrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayrollViewController.xib; sourceTree = "<group>"; };
 		36ADC9812B15D9C500E135DC /* PayrollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayrollCell.swift; sourceTree = "<group>"; };
