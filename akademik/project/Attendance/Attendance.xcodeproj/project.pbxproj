@@ -50,6 +50,7 @@
 		362C84FB2B3E6D480075595D /* PermissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C84FA2B3E6D480075595D /* PermissionViewModel.swift */; };
 		362C84FF2B3E7D010075595D /* ApproveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C84FE2B3E7D010075595D /* ApproveViewModel.swift */; };
 		362C85032B3E9DA00075595D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C85022B3E9DA00075595D /* HomeViewModel.swift */; };
+		362C85062B440D860075595D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C85052B440D860075595D /* UserDefaultsManager.swift */; };
 		363884CF2B0F2CEF00B92C0D /* PermissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */; };
 		363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */; };
 		3670C67B2B05C9510011985F /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3670C67A2B05C9510011985F /* ExtDate.swift */; };
@@ -179,6 +180,7 @@
 		362C84FA2B3E6D480075595D /* PermissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewModel.swift; sourceTree = "<group>"; };
 		362C84FE2B3E7D010075595D /* ApproveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewModel.swift; sourceTree = "<group>"; };
 		362C85022B3E9DA00075595D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		362C85052B440D860075595D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		363884CD2B0F2CEF00B92C0D /* PermissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionCell.swift; sourceTree = "<group>"; };
 		363884CE2B0F2CEF00B92C0D /* PermissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionCell.xib; sourceTree = "<group>"; };
 		3670C67A2B05C9510011985F /* ExtDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 				367B0F2C2B32D1E0003E0806 /* BaseViewController.swift */,
 				367B0F0F2B315196003E0806 /* FirebaseManager.swift */,
 				367B0F2E2B32D3F1003E0806 /* NetworkManager.swift */,
+				362C85052B440D860075595D /* UserDefaultsManager.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -1303,6 +1306,7 @@
 				3609C7772B0F1078000DE5B7 /* ExtDropDown.swift in Sources */,
 				36210D762B0303040009EBC0 /* LoginViewController.swift in Sources */,
 				36ADC98C2B16E50D00E135DC /* DetailPayrollViewController.swift in Sources */,
+				362C85062B440D860075595D /* UserDefaultsManager.swift in Sources */,
 				36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */,
 				3609C76D2B0EE45F000DE5B7 /* PermissionViewController.swift in Sources */,
 				367C5D1F2B0DA03B00C1678F /* LoginViewModel.swift in Sources */,

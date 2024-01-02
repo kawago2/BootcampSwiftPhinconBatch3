@@ -80,8 +80,7 @@ class ForgotViewController: BaseViewController {
     // MARK: - Action Handling
     
     private func navigateToLogin() {
-        navigationController?.popViewController(animated: true)
-        
+        popView()
     }
     
 }
