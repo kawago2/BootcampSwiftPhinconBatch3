@@ -32,7 +32,6 @@ class WelcomeViewController: BaseViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        viewModel.timer?.invalidate()
     }
  
     // MARK: - Setup View Model
@@ -97,14 +96,19 @@ class WelcomeViewController: BaseViewController {
 
 extension WelcomeViewController {
     private func startAutoplay() {
-        viewModel.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoplay), userInfo: nil, repeats: true)
+        viewModel.timerDisposable = Observable<Int>.interval(.seconds(3), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] int in
+                guard let self = self else { return }
+                self.autoplay()
+            })
     }
     
     private func resetTimer() {
-        viewModel.timer?.invalidate()
+        viewModel.timerDisposable?.dispose()
+        startAutoplay()
     }
     
-    @objc func autoplay() {
+    private func autoplay() {
         viewModel.currentPages = (viewModel.currentPages + 1) % viewModel.numberOfPages
         pageControl.currentPage = viewModel.currentPages
         let newOffset = CGPoint(x: collectionView.frame.width * CGFloat(viewModel.currentPages), y: collectionView.contentOffset.y)
@@ -153,7 +157,6 @@ extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDel
         pageControl.currentPage = currentPage
         viewModel.currentPages = currentPage
         resetTimer()
-        startAutoplay()
         viewModel.updateUIForCurrentPage()
     }
     

@@ -2,13 +2,13 @@ import Foundation
 import RxSwift
 class WelcomeViewModel {
     
-    let updateLabel = PublishSubject<(String, String)>()
-    var contentSlider: [InfoItem] = []
-    var numberOfPages: Int  {
+    internal let updateLabel = PublishSubject<(String, String)>()
+    internal var contentSlider: [InfoItem] = []
+    internal var numberOfPages: Int  {
         return self.contentSlider.count
     }
-    var timer: Timer?
-    var currentPages = 0
+    internal var timerDisposable: Disposable?
+    internal var currentPages = 0
     
     init() {
        loadData()

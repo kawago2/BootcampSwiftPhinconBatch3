@@ -110,7 +110,7 @@ class LoginViewController: BaseViewController {
     
     private func navigateForgot() {
         let vc = ForgotViewController()
-        navigationController?.setViewControllers([vc], animated: false)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

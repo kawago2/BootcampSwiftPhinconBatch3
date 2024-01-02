@@ -26,8 +26,7 @@ class SplashViewController: BaseViewController {
     // MARK: - Binding
     
     private func bindViewModel() {
-        viewModel.navigateToNext
-            .observe(on: MainScheduler.instance)
+        viewModel.navigateToNextSubject
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 self.navigateToNext()
