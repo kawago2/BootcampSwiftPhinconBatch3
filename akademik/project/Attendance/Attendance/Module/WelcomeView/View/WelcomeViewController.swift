@@ -82,20 +82,13 @@ class WelcomeViewController: BaseViewController {
     // MARK: - Navigation
     
     private func navigateLogin() {
-        UserDefaultsManager.shared.setLoginTapped(true)
         let vc = LoginViewController()
         navigationController?.setViewControllers([vc], animated: true)
-        
-        
     }
     
     private func navigateRegister() {
-        UserDefaultsManager.shared.setLoginTapped(false)
         let vc = RegisterViewController()
         navigationController?.setViewControllers([vc], animated: true)
-        
-       
-
     }
 }
 

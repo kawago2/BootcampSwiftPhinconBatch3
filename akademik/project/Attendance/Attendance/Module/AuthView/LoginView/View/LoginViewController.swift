@@ -99,12 +99,19 @@ class LoginViewController: BaseViewController {
     // MARK: - Action Handling
     
     private func navigateRegister() {
-        if UserDefaultsManager.shared.getLoginTapped() {
-            let vc = RegisterViewController()
-            navigationController?.pushViewController(vc, animated: true)
+        if ((navigationController?.viewControllers.first(where: { $0 is RegisterViewController })) != nil) {
+            navigationController?.popViewController(animated: true)
         } else {
-            popView()
+            let cc = RegisterViewController()
+            navigationController?.pushViewController(cc, animated: true)
         }
+//
+//        if UserDefaultsManager.shared.getLoginTapped() {
+//            let vc = RegisterViewController()
+//            navigationController?.pushViewController(vc, animated: true)
+//        } else {
+//            popView()
+//        }
     }
     
     private func navigateTabBar() {
@@ -115,6 +122,8 @@ class LoginViewController: BaseViewController {
     private func navigateForgot() {
         let vc = ForgotViewController()
         navigationController?.pushViewController(vc, animated: true)
+        
+       
     }
 }
 

@@ -37,8 +37,7 @@ class SplashViewController: BaseViewController {
     // MARK: - Navigation
     
     private func navigateToNext() {
-        if UserDefaultsManager.shared.getFirstInstall() {
-            UserDefaultsManager.shared.setLoginTapped(true)
+        if !UserDefaultsManager.shared.getFirstInstall() {
             let vc = LoginViewController()
             navigationController?.setViewControllers([vc], animated: true)
         } else {

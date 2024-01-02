@@ -122,13 +122,20 @@ class RegisterViewController: BaseViewController {
     // MARK: - Action Handling
     
     private func navigateToLogin() {
-        if UserDefaultsManager.shared.getLoginTapped() {
-            popView()
+        if ((navigationController?.viewControllers.first(where: { $0 is LoginViewController })) != nil) {
+            navigationController?.popViewController(animated: true)
         } else {
-            let vc = LoginViewController()
-            navigationController?.pushViewController(vc, animated: true)
+            let cc = LoginViewController()
+            navigationController?.pushViewController(cc, animated: true)
         }
-        
+//
+//        if UserDefaultsManager.shared.getLoginTapped() {
+//            popView()
+//        } else {
+//            let vc = LoginViewController()
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
+//
     }
     
 }
