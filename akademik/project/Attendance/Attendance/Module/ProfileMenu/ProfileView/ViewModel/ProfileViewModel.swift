@@ -3,18 +3,10 @@ import RxSwift
 import RxCocoa
 
 // MARK: - Model
-struct InfoItem: Hashable{
+struct InfoItem {
     let title: String?
     let description: String?
     let imageName: String?
-    
-    static func == (lhs: InfoItem, rhs: InfoItem) -> Bool {
-        lhs.title == rhs.title
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(title)
-    }
 }
 
 struct ProfileItem {
