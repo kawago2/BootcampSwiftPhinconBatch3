@@ -34,12 +34,11 @@ class LoadingViewController: UIViewController {
     }
 
     private func setupConstraints() {
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            animationView.widthAnchor.constraint(equalToConstant: 200),
-            animationView.heightAnchor.constraint(equalToConstant: 200)
-        ])
+        animationView.snp.makeConstraints { make in
+            make.centerX.equalTo(view.snp.centerX)
+            make.centerY.equalTo(view.snp.centerY)
+            make.width.equalTo(200)
+            make.height.equalTo(200)
+        }
     }
 }

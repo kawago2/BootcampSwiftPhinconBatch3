@@ -50,6 +50,11 @@ class ApproveViewController: BaseViewController {
     // MARK: - Setup Event
     
     func setupEvent() {
+        viewModel.showAlert.subscribe(onNext: {[weak self] (title, mes) in
+            guard let self = self else { return }
+            self.showAlert(title: title, message: mes)
+        }).disposed(by: disposeBag)
+        
         backButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else { return }
             self.popView()
@@ -120,7 +125,7 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func approveAction(forRowAt indexPath: IndexPath) {
-        viewModel.approveLogic(forRowAt: indexPath) {result in
+        viewModel.approvalLogic(forRowAt: indexPath) {result in
             switch result {
             case .success():
                 self.showAlert(title: "Approved", message: "Form approve successfuly")
@@ -132,7 +137,7 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func rejectAction(forRowAt indexPath: IndexPath) {
-        viewModel.rejectLogic(forRowAt: indexPath) {result in
+        viewModel.approvalLogic(forRowAt: indexPath) {result in
             switch result {
             case .success():
                 self.showAlert(title: "Rejected", message: "Form reject successfuly")

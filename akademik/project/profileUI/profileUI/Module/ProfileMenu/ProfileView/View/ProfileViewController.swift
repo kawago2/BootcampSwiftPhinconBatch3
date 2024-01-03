@@ -6,6 +6,7 @@ class ProfileViewController: BaseViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var titleNavigation: UILabel!
     @IBOutlet weak var nameTF: UILabel!
     @IBOutlet weak var phoneTF: UILabel!
     @IBOutlet weak var emailTF: UILabel!
@@ -33,7 +34,7 @@ class ProfileViewController: BaseViewController {
     private func setupUI() {
         profileImg.image = viewModel.profileImage
         profileImg.setCircleBorder()
-        
+        titleNavigation.text = "profile_string".localized
         aboutView.setShadow()
         backButton.isHidden = FAuth.auth.currentUser == nil
     }

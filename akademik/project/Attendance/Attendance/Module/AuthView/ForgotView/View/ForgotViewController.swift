@@ -53,20 +53,24 @@ class ForgotViewController: BaseViewController {
             .bind(to: viewModel.emailInput)
             .disposed(by: disposeBag)
         
-        resetButton.rx.tap
-            .bind(to: viewModel.resetButtonTap)
-            .disposed(by: disposeBag)
+        resetButton.rx.tap.withLatestFrom(viewModel.emailInput).subscribe(onNext: {[weak self] email in
+            guard let self = self else { return }
+            self.viewModel.resetPassword(email: email) {result in
+                switch result {
+                case .success():
+                    self.showAlert(title: "Success", message: "Password reset email sent successfully.\nPlease check your email, including spam.") {
+                        self.navigateToLogin()
+                    }
+                case .failure(let error):
+                    self.showAlert(title: "Error", message: "Failed to reset password. \(error.localizedDescription)")
+                }}
+        }).disposed(by: disposeBag)
         
         loginButton.rx.tap
-            .bind(to: viewModel.loginButtonTap)
-            .disposed(by: disposeBag)
-        
-        viewModel.navigateToLogin
-            .subscribe(onNext: { [weak self] in
+            .subscribe(onNext: {[weak self] in
                 guard let self = self else { return }
                 self.navigateToLogin()
-            })
-            .disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
         
         viewModel.showAlert
             .observe(on: MainScheduler.instance)
@@ -80,9 +84,7 @@ class ForgotViewController: BaseViewController {
     // MARK: - Action Handling
     
     private func navigateToLogin() {
-        let vc = LoginViewController()
-        self.navigationController?.setViewControllers([vc], animated: false)
-        
+        popView()
     }
     
 }

@@ -27,6 +27,8 @@ class HistoryViewModel {
     
     
     func getData(completionHandler: @escaping (Result<Void, Error>) -> Void) {
+        allData = []
+        allDataHistory = []
         guard let uid = FirebaseManager.shared.getCurrentUserUid() else {
             self.showAlert.onNext(("Error", "User not Login !!"))
             return

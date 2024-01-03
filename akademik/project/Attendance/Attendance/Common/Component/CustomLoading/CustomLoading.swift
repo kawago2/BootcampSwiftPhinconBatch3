@@ -27,25 +27,21 @@ class CustomLoading: UIView {
     }
 
     private func setupAnimationView() {
-        // Setup animation view
         animationView.animation = LottieAnimation.named("loading")
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()
-
-        // Add animation view to the center of the view
         addSubview(animationView)
         setupConstraints()
     }
 
     private func setupConstraints() {
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            animationView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            animationView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            animationView.widthAnchor.constraint(equalToConstant: 200),
-            animationView.heightAnchor.constraint(equalToConstant: 200)
-        ])
+        animationView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(200)
+            make.height.equalTo(200)
+        }
     }
     
     // MARK: - Public Methods

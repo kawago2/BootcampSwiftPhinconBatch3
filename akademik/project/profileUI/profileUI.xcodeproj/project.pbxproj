@@ -383,6 +383,23 @@
 			path = ProfileView;
 			sourceTree = "<group>";
 		};
+		362C85042B43AECB0075595D /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				36F741FA2AF0A38300CAB136 /* SettingView */,
+				36354F862AF9D12B00EBDD90 /* ToDo.swift */,
+				36354F8A2AF9D20100EBDD90 /* FetchView */,
+				36354F8F2AF9DC4F00EBDD90 /* PostView */,
+				36FD067C2AEA46020088F415 /* HalfScrollView */,
+				36FD067D2AEA46170088F415 /* TabelView */,
+				367B0BA92AEB9359009E72D4 /* CollectionView */,
+				365BA6E22AEBBB3000CF478C /* ScrollView */,
+				365BA6E62AEF3A9800CF478C /* SectionView */,
+				36F741F12AF099E700CAB136 /* ThreadsView */,
+			);
+			path = Training;
+			sourceTree = "<group>";
+		};
 		36354F732AF4CE8B00EBDD90 /* CartView */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,7 +450,6 @@
 		365BA6DD2AEBB52C00CF478C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				36354F862AF9D12B00EBDD90 /* ToDo.swift */,
 				36354F942AF9E1B000EBDD90 /* Food.swift */,
 			);
 			path = Models;
@@ -822,21 +838,13 @@
 		36FD06762AEA45260088F415 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				365BA6DD2AEBB52C00CF478C /* Models */,
 				36A4325B2AF340AF0070E770 /* SplashView */,
 				367B0F1B2B317A85003E0806 /* AuthMenu */,
 				366FF0912AEFB09900F74907 /* MainTabBar */,
 				367B0F202B3186B8003E0806 /* ProfileMenu */,
 				367B0F252B3192EB003E0806 /* DashboardMenu */,
-				365BA6DD2AEBB52C00CF478C /* Models */,
-				36354F8F2AF9DC4F00EBDD90 /* PostView */,
-				36354F8A2AF9D20100EBDD90 /* FetchView */,
-				36F741FA2AF0A38300CAB136 /* SettingView */,
-				36F741F12AF099E700CAB136 /* ThreadsView */,
-				365BA6E62AEF3A9800CF478C /* SectionView */,
-				365BA6E22AEBBB3000CF478C /* ScrollView */,
-				367B0BA92AEB9359009E72D4 /* CollectionView */,
-				36FD067D2AEA46170088F415 /* TabelView */,
-				36FD067C2AEA46020088F415 /* HalfScrollView */,
+				362C85042B43AECB0075595D /* Training */,
 			);
 			path = Module;
 			sourceTree = "<group>";

@@ -6,13 +6,7 @@ class SplashViewModel {
     
     // MARK: - Properties
     
-    private let navigateToNextSubject = PublishSubject<Void>()
-
-    // MARK: - Outputs
-    
-    var navigateToNext: Observable<Void> {
-        return navigateToNextSubject.asObservable()
-    }
+    let navigateToNextSubject = PublishSubject<Void>()
 
     // MARK: - Action
     

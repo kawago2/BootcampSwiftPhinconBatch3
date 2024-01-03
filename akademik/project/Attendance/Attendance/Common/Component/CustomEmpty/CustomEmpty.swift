@@ -32,7 +32,6 @@ class CustomEmpty: UIView {
             make.centerY.equalTo(self)
             make.width.equalTo(self).multipliedBy(0.8)
         }
-
         
         titleLabel.text = "Data is Empty"
         hide()

@@ -122,8 +122,12 @@ class RegisterViewController: BaseViewController {
     // MARK: - Action Handling
     
     private func navigateToLogin() {
-        let vc = LoginViewController()
-        navigationController?.setViewControllers([vc], animated: false)
+        if ((navigationController?.viewControllers.first(where: { $0 is LoginViewController })) != nil) {
+            navigationController?.popViewController(animated: true)
+        } else {
+            let cc = LoginViewController()
+            navigationController?.pushViewController(cc, animated: true)
+        }
     }
     
 }

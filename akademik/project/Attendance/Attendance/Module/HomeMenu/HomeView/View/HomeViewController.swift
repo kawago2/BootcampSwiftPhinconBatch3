@@ -61,10 +61,11 @@ class HomeViewController: BaseViewController {
             guard let self = self else { return }
             self.logicCheck(is: result)
         }).disposed(by: disposeBag)
-        
+            
         isCheckInLabel.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self]_ in
             guard let self = self else { return }
             self.viewModel.checkToggle()
+            self.addToFirebase()
         }).disposed(by: disposeBag)
         
         formView.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self]_ in
@@ -84,7 +85,6 @@ class HomeViewController: BaseViewController {
         if isCheckIn == false {
             setDefaultSelected()
         }
-        addToFirebase()
     }
     
 
@@ -187,7 +187,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let isCheckIn = viewModel.isCheckIn.value
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath) as! LocationCell
+        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as LocationCell
         let location = isCheckIn ? viewModel.locationSelected : viewModel.locationArray[index]
         if isCheckIn {
             let defaultIndexPath = IndexPath(row: 0, section: 0)

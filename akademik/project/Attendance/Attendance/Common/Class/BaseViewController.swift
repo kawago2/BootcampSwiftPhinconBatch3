@@ -44,12 +44,10 @@ class BaseViewController: UIViewController {
     }
     
     public func showLoading() {
-        // Show the loading view
         loadingView.show()
     }
 
     public func hideLoading() {
-        // Hide the loading view
         loadingView.hide()
     }
 }

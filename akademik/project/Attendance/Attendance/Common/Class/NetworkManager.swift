@@ -4,7 +4,7 @@ import Reachability
 class NetworkManager {
     static let shared = NetworkManager()
     
-    private init() {} // Private initializer to enforce singleton pattern
+    private init() {}
     
     var isConnected: Bool {
         guard let reachability = try? Reachability() else {
