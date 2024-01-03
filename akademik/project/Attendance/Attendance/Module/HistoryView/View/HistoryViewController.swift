@@ -36,8 +36,6 @@ class HistoryViewController: BaseViewController {
     // MARK: - Properties
     
     private var viewModel: HistoryViewModel!
-    private var dataSource: UITableViewDiffableDataSource<Int, InfoItem>!
-    private var snapshot = NSDiffableDataSourceSnapshot<Int, InfoItem>()
     private let scrollToTopButton = UIButton(type: .system)
 
     // MARK: - Lifecycle
@@ -46,7 +44,7 @@ class HistoryViewController: BaseViewController {
         super.viewDidLoad()
         setupViewModel()
         setupUI()
-        setupDataSource()
+        configureTable()
         setupEvent()
         setupScrollToTopButton()
 }
@@ -67,8 +65,6 @@ class HistoryViewController: BaseViewController {
     func setupUI() {
         circleView.tintColor = .white.withAlphaComponent(0.05)
         bottomView.makeCornerRadius(20)
-        tableView.registerCellWithNib(LocationCell.self)
-        tableView.delegate = self
     }
     
     // MARK: - Setup Event
@@ -114,7 +110,7 @@ class HistoryViewController: BaseViewController {
     private func buttonTapped(filterType: FilterType) {
         self.fetchData {
             self.viewModel.filterData(by: filterType.calendarComponent)
-            self.loadSnapshot()
+            self.tableView.reloadData()
         }
         
        
@@ -167,55 +163,41 @@ class HistoryViewController: BaseViewController {
     }
 }
 
-// MARK: - Setup Diffable Data Source
-
-extension HistoryViewController {
-    private func setupDataSource() {
-        dataSource = .init(tableView: tableView) { [weak self] (tableView, indexPath, itemIdentifier) in
-            guard let _ = self else { return UITableViewCell() }
-            let cell: LocationCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.initData(item: itemIdentifier)
-            return cell
-        }
-        
-        dataSource.defaultRowAnimation = .automatic
-    }
-    
-    private func loadSnapshot() {
-        var newSnapshot = NSDiffableDataSourceSnapshot<Int, InfoItem>()
-        newSnapshot.appendSections([0])
-        
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "hh:mm a"
-        if viewModel.filteredData.isEmpty == false {
-            for data in viewModel.filteredData {
-                let checkString = data.isCheck ?? false ? "Check In" : "Check Out"
-                let formattedTime = timeFormatter.string(from: data.checkTime ?? Date())
-                let title = data.titleLocation ?? ""
-                
-                let identifier = "\(checkString) - \(title) - \(formattedTime)"
-                let item = InfoItem(
-                    title: identifier,
-                    description: data.descLocation ?? "",
-                    imageName: data.image ?? "image_not_available"
-                )
-                
-                newSnapshot.appendItems([item], toSection: 0)
-            }
-            
-        }
-        dataSource.apply(newSnapshot, animatingDifferences: true)
-    }
-
-
-
-}
-
 // MARK: - Configure Table View
 
-extension HistoryViewController: UITableViewDelegate {
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.filteredData.count
+    }
+    
+    private func configureTable() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.registerCellWithNib(LocationCell.self)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as LocationCell
+        let data = viewModel.filteredData[indexPath.row]
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "hh:mm a"
+        
+        let checkString = data.isCheck ?? false ? "Check In" : "Check Out"
+        let formattedTime = timeFormatter.string(from: data.checkTime ?? Date())
+        let title = data.titleLocation ?? ""
+        
+        let identifier = "\(checkString) - \(title) - \(formattedTime)"
+        let item = InfoItem(
+            title: identifier,
+            description: data.descLocation ?? "",
+            imageName: data.image ?? "image_not_available"
+        )
+        cell.initData(item: item)
+        return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

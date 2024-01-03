@@ -14,7 +14,7 @@ class HomeViewModel {
 
     
     var locationSelected: InfoItem?
-    var isCheckIn: BehaviorRelay<Bool> = BehaviorRelay(value: false)
+    var isCheckIn = BehaviorRelay<Bool>(value: false)
     var timer: Timer?
     var selectedCell = 0
     var currentDate = Date()

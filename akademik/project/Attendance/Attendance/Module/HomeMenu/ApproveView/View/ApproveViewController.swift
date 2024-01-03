@@ -50,6 +50,11 @@ class ApproveViewController: BaseViewController {
     // MARK: - Setup Event
     
     func setupEvent() {
+        viewModel.showAlert.subscribe(onNext: {[weak self] (title, mes) in
+            guard let self = self else { return }
+            self.showAlert(title: title, message: mes)
+        }).disposed(by: disposeBag)
+        
         backButton.rx.tapGesture().when(.recognized).subscribe(onNext: {[weak self] _ in
             guard let self = self else { return }
             self.popView()
