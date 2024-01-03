@@ -21,3 +21,8 @@ enum Variables {
 enum Image {
     static let notAvail = "image_not_available"
 }
+
+enum DateSortOption: String, CaseIterable {
+    case newest = "Newest"
+    case oldest = "Oldest"
+}

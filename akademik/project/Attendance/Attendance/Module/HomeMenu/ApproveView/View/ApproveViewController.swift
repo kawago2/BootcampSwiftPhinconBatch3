@@ -125,7 +125,7 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func approveAction(forRowAt indexPath: IndexPath) {
-        viewModel.approveLogic(forRowAt: indexPath) {result in
+        viewModel.approvalLogic(forRowAt: indexPath) {result in
             switch result {
             case .success():
                 self.showAlert(title: "Approved", message: "Form approve successfuly")
@@ -137,7 +137,7 @@ extension ApproveViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func rejectAction(forRowAt indexPath: IndexPath) {
-        viewModel.rejectLogic(forRowAt: indexPath) {result in
+        viewModel.approvalLogic(forRowAt: indexPath) {result in
             switch result {
             case .success():
                 self.showAlert(title: "Rejected", message: "Form reject successfuly")

@@ -41,8 +41,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let self = self else { return }
             let status = NetworkManager.shared.isConnected
             if status {
-                let vc = LoadingViewController()
-    
                 self.dismissLoadingView() {
                     self.window?.rootViewController?.viewWillAppear(true)
                 }

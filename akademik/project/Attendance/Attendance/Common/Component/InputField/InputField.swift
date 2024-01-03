@@ -9,7 +9,7 @@ class InputField: UIView {
     @IBOutlet weak var inputText: UITextField!
     @IBOutlet weak var obsecureButton: UIButton!
     
-    var isObscured = false
+    private var isObscured = false
     
     // MARK: - Initializer
     override init(frame: CGRect) {

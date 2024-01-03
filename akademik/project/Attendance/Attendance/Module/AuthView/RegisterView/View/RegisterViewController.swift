@@ -128,14 +128,6 @@ class RegisterViewController: BaseViewController {
             let cc = LoginViewController()
             navigationController?.pushViewController(cc, animated: true)
         }
-//
-//        if UserDefaultsManager.shared.getLoginTapped() {
-//            popView()
-//        } else {
-//            let vc = LoginViewController()
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
-//
     }
     
 }

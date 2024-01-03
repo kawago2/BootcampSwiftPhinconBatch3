@@ -93,7 +93,6 @@
 		36ADC99A2B1827AA00E135DC /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9982B1827AA00E135DC /* TableCell.swift */; };
 		36ADC99B2B1827AA00E135DC /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9992B1827AA00E135DC /* TableCell.xib */; };
 		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
-		36C287322B04766100F17ADA /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C287312B04766100F17ADA /* Models.swift */; };
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
 		36C511632B0F447100B2EA7C /* ApproveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C511612B0F447100B2EA7C /* ApproveViewController.xib */; };
 		36D713702B3D082A00C41F5F /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */; };
@@ -224,7 +223,6 @@
 		36ADC9982B1827AA00E135DC /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		36ADC9992B1827AA00E135DC /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		36C287312B04766100F17ADA /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
 		36C511612B0F447100B2EA7C /* ApproveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApproveViewController.xib; sourceTree = "<group>"; };
 		36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
@@ -356,7 +354,6 @@
 		36210D552B0208940009EBC0 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				36C287302B04764D00F17ADA /* Models */,
 				367B0F3D2B342C2B003E0806 /* LoadingView */,
 				36210D582B0208C80009EBC0 /* SplashView */,
 				36210D5E2B020B180009EBC0 /* WelcomeView */,
@@ -902,14 +899,6 @@
 			path = ChartCell;
 			sourceTree = "<group>";
 		};
-		36C287302B04764D00F17ADA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				36C287312B04766100F17ADA /* Models.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		36C5115F2B0F440F00B2EA7C /* ApproveView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1327,7 +1316,6 @@
 				36ADC9912B17142400E135DC /* DetailCell.swift in Sources */,
 				3609C7702B0EE85E000DE5B7 /* PermissionModel.swift in Sources */,
 				36D713752B3D1E5700C41F5F /* AddFormViewModel.swift in Sources */,
-				36C287322B04766100F17ADA /* Models.swift in Sources */,
 				36210D7F2B0309240009EBC0 /* ExtUIView.swift in Sources */,
 				36ADC9252B15780300E135DC /* CustomEmpty.swift in Sources */,
 				36210D7C2B0304CC0009EBC0 /* InputField.swift in Sources */,

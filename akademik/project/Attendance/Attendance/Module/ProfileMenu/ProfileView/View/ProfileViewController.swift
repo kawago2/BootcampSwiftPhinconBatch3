@@ -82,7 +82,8 @@ class ProfileViewController: BaseViewController {
             self.navigateToPayroll()
         }).disposed(by: disposeBag)
         
-        viewModel.showAlert.subscribe(onNext: { (title, message) in
+        viewModel.showAlert.subscribe(onNext: {[weak self] (title, message) in
+            guard let self = self else { return }
             self.showAlert(title: title, message: message) {
                 self.loadData()
             }
@@ -93,7 +94,8 @@ class ProfileViewController: BaseViewController {
     
     private func loadData() {
        showLoading()
-        self.viewModel.loadDataGeneral(completionHandler: { result in
+        self.viewModel.loadDataGeneral(completionHandler: {[weak self] result in
+            guard let self = self else { return }
             self.hideLoading()
             switch result {
             case .success():
