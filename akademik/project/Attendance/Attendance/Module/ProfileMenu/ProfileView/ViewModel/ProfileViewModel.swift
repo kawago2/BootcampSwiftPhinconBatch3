@@ -208,7 +208,7 @@ class ProfileViewModel {
             }
         }
         dispatchGroup.notify(queue: .main) {
-            self.showAlert.onNext(( "Success", "Profile and Photo updated successfully"))
+            self.showAlert.onNext(( "Success", "Profile updated successfully"))
         }
     }
     
