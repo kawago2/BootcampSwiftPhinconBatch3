@@ -1,24 +1,30 @@
 # Bootcamp Swift Phincon Batch 3
 
-Selamat datang di repositori Bootcamp Swift Phincon Batch 3! Repositori ini berisi materi, tugas, dan proyek yang dikembangkan selama bootcamp Swift Phincon oleh Kawago (Kaleb).
+Welcome to the repository of Bootcamp Swift Phincon Batch 3! This repository contains materials, assignments, and projects developed during the Swift Phincon bootcamp by Kawago (Kaleb).
 
-## Deskripsi
+## Description
 
-Bootcamp ini bertujuan untuk memberikan pemahaman mendalam tentang pengembangan aplikasi iOS menggunakan bahasa pemrograman Swift. Proyek dan tugas yang disertakan dalam repositori ini mencakup berbagai konsep dan teknik yang relevan dengan pengembangan iOS.
+The goal of this bootcamp is to provide a deep understanding of iOS app development using the Swift programming language. The projects and tasks included in this repository cover various concepts and techniques relevant to iOS development.
 
-## Materi dan Tugas
+## Materials and Assignments
 
-Di dalam direktori ini, Anda akan menemukan materi-materi yang diajarkan selama bootcamp dan tugas-tugas yang harus diselesaikan. Setiap direktori memiliki deskripsi yang menjelaskan kontennya.
+Inside this directory, you will find the learning materials presented during the bootcamp and the assignments that need to be completed. Each directory has a description explaining its content.
 
-## Struktur Repositori
+## Repository Structure
 
-Berikut adalah struktur direktori utama dalam repositori:
+Here is the main directory structure of the repository:
 
-- **Materi**: Berisi materi-materi pembelajaran yang diberikan selama bootcamp.
-- **Tugas**: Direktori ini berisi tugas-tugas yang harus diselesaikan oleh peserta.
-- **Proyek**: Tempat untuk menyimpan proyek-proyek yang dibangun selama bootcamp.
-- **Referensi**: Daftar referensi dan sumber daya tambahan yang berguna.
+- **Materials**: Contains the learning materials provided during the bootcamp.
+- **Assignments**: This directory includes tasks that participants need to complete.
+- **Projects**: Space to store projects built during the bootcamp.
+- **References**: A list of references and additional resources that may be helpful.
 
-## Lisensi
+## Project
 
-Proyek ini dilisensikan di bawah lisensi [MIT](LICENSE).
+- **Food Order**: About a pizza-themed food ordering system with dummy data and hardcoded logic.
+- **Phincon Attendance**: About a location-based attendance app with history, timesheets, and leave/sickness notes.
+- **Fintech**: About a money budgeting or money management application.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
