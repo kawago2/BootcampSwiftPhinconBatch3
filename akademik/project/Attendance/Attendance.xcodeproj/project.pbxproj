@@ -92,7 +92,6 @@
 		36ADC9972B173C9000E135DC /* ChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9952B173C9000E135DC /* ChartCell.xib */; };
 		36ADC99A2B1827AA00E135DC /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ADC9982B1827AA00E135DC /* TableCell.swift */; };
 		36ADC99B2B1827AA00E135DC /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36ADC9992B1827AA00E135DC /* TableCell.xib */; };
-		36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */; };
 		36C511622B0F447100B2EA7C /* ApproveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C511602B0F447100B2EA7C /* ApproveViewController.swift */; };
 		36C511632B0F447100B2EA7C /* ApproveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C511612B0F447100B2EA7C /* ApproveViewController.xib */; };
 		36D713702B3D082A00C41F5F /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */; };
@@ -222,7 +221,6 @@
 		36ADC9952B173C9000E135DC /* ChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartCell.xib; sourceTree = "<group>"; };
 		36ADC9982B1827AA00E135DC /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		36ADC9992B1827AA00E135DC /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
-		36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36C511602B0F447100B2EA7C /* ApproveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveViewController.swift; sourceTree = "<group>"; };
 		36C511612B0F447100B2EA7C /* ApproveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApproveViewController.xib; sourceTree = "<group>"; };
 		36D7136F2B3D082A00C41F5F /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 				36210D2E2B02084C0009EBC0 /* Assets.xcassets */,
 				36210D302B02084C0009EBC0 /* LaunchScreen.storyboard */,
 				36210D332B02084C0009EBC0 /* Info.plist */,
-				36C2872C2B045F7200F17ADA /* GoogleService-Info.plist */,
 			);
 			path = Attendance;
 			sourceTree = "<group>";
@@ -1135,7 +1132,6 @@
 				36210D722B0223A90009EBC0 /* SliderCell.xib in Resources */,
 				3670C68B2B05F2710011985F /* AddFormViewController.xib in Resources */,
 				36210D622B020B320009EBC0 /* WelcomeViewController.xib in Resources */,
-				36C2872D2B045F7200F17ADA /* GoogleService-Info.plist in Resources */,
 				36ADC9842B15D9C500E135DC /* PayrollCell.xib in Resources */,
 				363884D02B0F2CEF00B92C0D /* PermissionCell.xib in Resources */,
 				36210D322B02084C0009EBC0 /* LaunchScreen.storyboard in Resources */,
