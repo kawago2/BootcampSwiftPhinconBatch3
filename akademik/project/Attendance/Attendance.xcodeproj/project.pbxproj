@@ -103,6 +103,7 @@
 		36DDA9242B0B015600350039 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DDA9222B0B015600350039 /* EditProfileViewController.xib */; };
 		36DDA9282B0B024E00350039 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDA9272B0B024E00350039 /* EditProfileViewController.swift */; };
 		36DDAC362B0C8E06001D9ACD /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DDAC352B0C8E06001D9ACD /* SplashViewModel.swift */; };
+		36EF8B972B53A49E00CF9812 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36EF8B962B53A49D00CF9812 /* GoogleService-Info.plist */; };
 		A2FD19F54666AAFB4245AE5A /* Pods_Attendance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD74100FA48EC1C40431AC9 /* Pods_Attendance.framework */; };
 		B1E1774B943AB8A5C01DB78F /* Pods_Attendance_AttendanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAECF607A441FA574498C652 /* Pods_Attendance_AttendanceUITests.framework */; };
 		C5627142753BCB96501D7B8B /* Pods_AttendanceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49ECEAC74AD363A243F40027 /* Pods_AttendanceTests.framework */; };
@@ -232,6 +233,7 @@
 		36DDA9222B0B015600350039 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		36DDA9272B0B024E00350039 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		36DDAC352B0C8E06001D9ACD /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		36EF8B962B53A49D00CF9812 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49ECEAC74AD363A243F40027 /* Pods_AttendanceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttendanceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCFAA6DB742D8E3512902BF /* Pods_Attendance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attendance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B14140D0BF9E00F09FA4773 /* Pods-Attendance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attendance.release.xcconfig"; path = "Target Support Files/Pods-Attendance/Pods-Attendance.release.xcconfig"; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				36210D2E2B02084C0009EBC0 /* Assets.xcassets */,
 				36210D302B02084C0009EBC0 /* LaunchScreen.storyboard */,
 				36210D332B02084C0009EBC0 /* Info.plist */,
+				36EF8B962B53A49D00CF9812 /* GoogleService-Info.plist */,
 			);
 			path = Attendance;
 			sourceTree = "<group>";
@@ -1143,6 +1146,7 @@
 				36ADC99B2B1827AA00E135DC /* TableCell.xib in Resources */,
 				36ADC98D2B16E50D00E135DC /* DetailPayrollViewController.xib in Resources */,
 				36210D842B031C0B0009EBC0 /* RegisterViewController.xib in Resources */,
+				36EF8B972B53A49E00CF9812 /* GoogleService-Info.plist in Resources */,
 				36ADC9972B173C9000E135DC /* ChartCell.xib in Resources */,
 				36210DA62B0348270009EBC0 /* LocationCell.xib in Resources */,
 				3670C6862B05D7FC0011985F /* TimesheetCell.xib in Resources */,
